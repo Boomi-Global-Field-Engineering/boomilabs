@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BooMiLabs — Hands-on Integration Labs</title>
+<link rel="stylesheet" href="assets/css/lab.css">
+<style>
+  .catalog-section-heading {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+  }
+  .catalog-featured {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+  }
+  .catalog-featured-banner {
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+  }
+  .catalog-featured-body {
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .catalog-featured-body h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .catalog-featured-body p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 0 16px;
+  }
+  .catalog-featured-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .catalog-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+  .catalog-btn:hover { background: var(--primary-dark); }
+  @media (max-width: 600px) {
+    .catalog-featured-body { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="#fff" fill-opacity=".15"/><path d="M8 14c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z" fill="#fff" fill-opacity=".5"/><path d="M14 10a4 4 0 100 8 4 4 0 000-8z" fill="#fff"/></svg>
+    BooMiLabs
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Hands-on Integration Labs</span>
+</header>
+
+<div style="padding-top: 56px;">
+
+  <div class="catalog-hero">
+    <h1>BooMiLabs</h1>
+    <p>Hands-on integration labs for Boomi developers. Step-by-step guides covering real-world SAP, Salesforce, and database integration patterns.</p>
+  </div>
+
+  <div class="catalog-body">
+
+    <p class="catalog-section-heading">Featured Workshop</p>
+
+    <div class="catalog-featured">
+      <div class="catalog-featured-banner"></div>
+      <div class="catalog-featured-body">
+        <div>
+          <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <span class="lab-card-tag">SAP Integration</span>
+            <span class="lab-card-tag" style="background: #ecfdf5; color: var(--success);">New</span>
+          </div>
+          <h2>Boomi for SAP — Hands-on Workshop</h2>
+          <p>Master the three core integration patterns for SAP using Boomi for SAP: BAPI calls for transactional operations, Table Services for structured data extraction, and Business Object Events for real-time event-driven architectures.</p>
+          <div class="catalog-featured-meta">
+            <span class="lab-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ~2.5 hours
+            </span>
+            <span class="lab-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Intermediate
+            </span>
+            <span class="lab-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              3 Exercises
+            </span>
+          </div>
+        </div>
+        <a href="labs/boomi-for-sap/index.html" class="catalog-btn">
+          Start Workshop
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <p class="catalog-section-heading">All Labs</p>
+
+    <div class="catalog-grid">
+
+      <a href="labs/boomi-for-sap/exercise-1.html" class="lab-card">
+        <div class="lab-card-banner"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag">BAPI</span>
+          <h3>Exercise 1 — SF Opportunity to SAP Sales Order</h3>
+          <p>Call <code>BAPI_SALESORDER_CREATEFROMDAT2</code> from a Salesforce opportunity XML payload using the Boomi for SAP connector.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~45 min
+          </span>
+          <span class="lab-meta-tag">8 steps</span>
+        </div>
+      </a>
+
+      <a href="labs/boomi-for-sap/exercise-2.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0097a7);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Table Service</span>
+          <h3>Exercise 2 — SAP Table Service to Database</h3>
+          <p>Build a Table Service joining <code>VBAK</code>+<code>VBAP</code>, then extract and load the data into a relational database.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~60 min
+          </span>
+          <span class="lab-meta-tag">8 steps</span>
+        </div>
+      </a>
+
+      <a href="labs/boomi-for-sap/exercise-3.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #7c3aed, #db2777);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Events</span>
+          <h3>Exercise 3 — Business Object Events</h3>
+          <p>Subscribe to real-time SAP Sales Order CHANGED events and receive them in a Boomi Web Services Server process.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~45 min
+          </span>
+          <span class="lab-meta-tag">6 steps</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

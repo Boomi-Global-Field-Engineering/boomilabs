@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 3 — Business Object Events: Real-time SAP Notifications — BooMiLabs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="#fff" fill-opacity=".15"/><path d="M8 14c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z" fill="#fff" fill-opacity=".5"/><path d="M14 10a4 4 0 100 8 4 4 0 000-8z" fill="#fff"/></svg>
+    BooMiLabs
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi for SAP — Exercise 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 1 · Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 1 · Step 2 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 2 · Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-4" data-step="4">
+          <span class="step-num">
+            <span class="step-num-inner">5</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 2 · Step 2 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-5" data-step="5">
+          <span class="step-num">
+            <span class="step-num-inner">6</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 3 · Step 1 of 1
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~~45 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 3 — Business Object Events: Real-time SAP Notifications</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min
+          </span>
+        </div>
+      </header>
+      
+      <p>In this exercise you will subscribe to SAP Business Object events using the <strong>Boomi for SAP</strong> UI and then build a Boomi Web Services Server process that listens for those events in real time.</p>
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>What you&#x27;ll learn</strong>
+        <ul>
+          <li>How to create a Business Object event subscription in the Boomi for SAP UI</li>
+          <li>How to create a Boomi Topic to receive event payloads</li>
+          <li>How to configure a Web Services Server listener process in Boomi AtomSphere</li>
+          <li>How to trigger and verify SAP events end-to-end</li>
+        </ul></div>
+      </div>
+      <h2>Flow</h2>
+      <ol>
+        <li><strong>Section 1</strong> — Subscribe to the Sales Order <em>CHANGED</em> event via the Boomi for SAP UI</li>
+        <li><strong>Section 2</strong> — Create a Boomi process with a Web Services Server listener</li>
+        <li><strong>Section 3</strong> — Trigger the event in SAP and verify delivery</li>
+      </ol>
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Replace XX</strong>Replace <strong>XX</strong> with your assigned initials throughout this exercise.</div>
+      </div>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 1 of 2</div>
+        <h1 class="step-title">Create a Business Object Event Subscription</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            10 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Log in to the Boomi for SAP UI.</p>
+            <div class="credentials-box">
+        <h4>Credentials</h4>
+        <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.demo.boomi.com:44300/zbx/home</a></span></div>
+<div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+<div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Welcome1</span></div>
+
+      </div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>In the <strong>Create</strong> menu, click <strong>Event</strong> → <strong>Business Object Event</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image2.png" alt="Navigate to Business Object Event" loading="lazy">
+        <figcaption>Navigate to Business Object Event</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Search for the Business Object <strong>BUS2032</strong> (Sales Order) and drag it onto the canvas.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image10.png" alt="Add BUS2032 to canvas" loading="lazy">
+        <figcaption>Add BUS2032 to canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Select the frequency radio button <strong>Realtime</strong> and the event type <strong>CHANGED</strong>. Click <strong>Continue</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image21.png" alt="Select Realtime CHANGED event" loading="lazy">
+        <figcaption>Select Realtime CHANGED event</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Set <strong>Deployment Mode</strong> to <strong>Local</strong> and click <strong>Continue</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image5.png" alt="Set Deployment Mode to Local" loading="lazy">
+        <figcaption>Set Deployment Mode to Local</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Select the receiver <strong>BOOMI SC TRAINING</strong> and click <strong>Continue</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image20.png" alt="Select receiver BOOMI SC TRAINING" loading="lazy">
+        <figcaption>Select receiver BOOMI SC TRAINING</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 2 of 2</div>
+        <h1 class="step-title">Configure Subscription &amp; Create Topic</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            8 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">7</div>
+          <div class="instruction-body">
+            <p>In the <strong>Subscription ID</strong> field, enter a unique identifier using your initials (e.g., <code>SALESCHANGE_XX</code>).</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image13.png" alt="Enter Subscription ID" loading="lazy">
+        <figcaption>Enter Subscription ID</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">8</div>
+          <div class="instruction-body">
+            <p>Click <strong>Create New Topic</strong>. Set:</p>
+            <table class="mapping-table">
+        <thead><tr><th>Field</th><th>Default Value</th></tr></thead>
+        <tbody><tr><td>Deployment Mode</td><td><code>Local</code></td></tr>
+<tr><td>Topic ID</td><td><code>SALESEXERCISE_XX (replace XX with your initials)</code></td></tr>
+</tbody>
+      </table>
+            <figure class="screenshot">
+        <img src="images/ex3/image1.png" alt="Create New Topic" loading="lazy">
+        <figcaption>Create New Topic</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">9</div>
+          <div class="instruction-body">
+            <p>Once the topic is created, click <strong>Create Subscription</strong> to finalize.</p>
+            <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/></svg></span>
+        <div><strong>Note the Simple URL Path</strong>The Web Services Server URL path used in Section 2 will be derived from the Object name you set in the Boomi process operation. It should match the Topic ID pattern.</div>
+      </div>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 1 of 2</div>
+        <h1 class="step-title">Create the Boomi Listener Process</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            12 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">10</div>
+          <div class="instruction-body">
+            <p>In Boomi AtomSphere, navigate to your <strong>USERXX</strong> folder and create a new process by clicking <strong>New Component → Process</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image22.png" alt="New Component menu" loading="lazy">
+        <figcaption>New Component menu</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex3/image9.png" alt="Select Process type" loading="lazy">
+        <figcaption>Select Process type</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">11</div>
+          <div class="instruction-body">
+            <p>Configure the Start shape: set type to <strong>Connector</strong>, select the <strong>Web Services Server</strong> connector, and set Action to <strong>Listen</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image19.png" alt="Configure Start shape — Web Services Server" loading="lazy">
+        <figcaption>Configure Start shape — Web Services Server</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">12</div>
+          <div class="instruction-body">
+            <p>Configure the connector operation with these values:</p>
+            <table class="mapping-table">
+        <thead><tr><th>Field</th><th>Default Value</th></tr></thead>
+        <tbody><tr><td>Operation Type</td><td><code>EXECUTE</code></td></tr>
+<tr><td>Object</td><td><code>Saleschangexx (replace xx with your initials)</code></td></tr>
+<tr><td>Expected Input Type</td><td><code>Single JSON Object</code></td></tr>
+<tr><td>Request Profile</td><td><code>Boomi for SAP connector SALES_ORDERS_XX Query Response</code></td></tr>
+<tr><td>Response Output Type</td><td><code>Single Data</code></td></tr>
+</tbody>
+      </table>
+            <figure class="screenshot">
+        <img src="images/ex3/image12.png" alt="Web Services Server operation configuration" loading="lazy">
+        <figcaption>Web Services Server operation configuration</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">13</div>
+          <div class="instruction-body">
+            <p>Click <strong>Save and Close</strong>, then <strong>OK</strong> to return to the canvas.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image15.png" alt="Return to canvas" loading="lazy">
+        <figcaption>Return to canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">14</div>
+          <div class="instruction-body">
+            <p>Add a <strong>Return Documents</strong> shape to the canvas and connect it to the Start shape.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image8.png" alt="Add Return Documents shape" loading="lazy">
+        <figcaption>Add Return Documents shape</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 2 of 2</div>
+        <h1 class="step-title">Deploy the Process</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">15</div>
+          <div class="instruction-body">
+            <p>Save the process. Then click <strong>Create Packaged Component</strong> and deploy the process to the <strong>Boomi Training Dev</strong> environment.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image17.png" alt="Deploy process to Boomi Training Dev" loading="lazy">
+        <figcaption>Deploy process to Boomi Training Dev</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 3 · Step 1 of 1</div>
+        <h1 class="step-title">Trigger the Event in SAP &amp; Verify</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            8 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">16</div>
+          <div class="instruction-body">
+            <p>Log in to the SAP client where Boomi for SAP is installed.</p>
+            <div class="credentials-box">
+        <h4>Credentials</h4>
+        <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300" target="_blank">https://boomiforsap.demo.boomi.com:44300</a></span></div>
+<div class="cred-row"><span class="cred-label">Client</span><span class="cred-value">100</span></div>
+<div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+<div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Welcome1</span></div>
+
+      </div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">17</div>
+          <div class="instruction-body">
+            <p>Navigate to transaction <strong>VA02</strong> (Change Sales Order) by typing <code>VA02</code> in the transaction code box and pressing Enter.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image3.png" alt="Enter VA02 transaction code" loading="lazy">
+        <figcaption>Enter VA02 transaction code</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">18</div>
+          <div class="instruction-body">
+            <p>Enter a Sales Order number and press Enter to open it.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image4.png" alt="Open Sales Order in VA02" loading="lazy">
+        <figcaption>Open Sales Order in VA02</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">19</div>
+          <div class="instruction-body">
+            <p>Change a field value — for example, the <strong>Payment Terms</strong> field. Save the order by clicking the <strong>Floppy Disk</strong> icon.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image18.png" alt="Change field and save" loading="lazy">
+        <figcaption>Change field and save</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">20</div>
+          <div class="instruction-body">
+            <p>Return to Boomi AtomSphere. Open <strong>Process Reporting</strong> — the SAP event should appear as an execution record.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image11.png" alt="Event appears in Process Reporting" loading="lazy">
+        <figcaption>Event appears in Process Reporting</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">21</div>
+          <div class="instruction-body">
+            <p>Click the timestamp of the event, then click the <strong>Web Services Server</strong> shape's <strong>Successes</strong> link.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image6.png" alt="Click event timestamp" loading="lazy">
+        <figcaption>Click event timestamp</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex3/image7.png" alt="Click Successes link" loading="lazy">
+        <figcaption>Click Successes link</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">22</div>
+          <div class="instruction-body">
+            <p>Click the <strong>gear icon</strong> under Actions and select <strong>View Document</strong> to inspect the SAP event payload.</p>
+            <figure class="screenshot">
+        <img src="images/ex3/image14.png" alt="View Document payload" loading="lazy">
+        <figcaption>View Document payload</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex3/image16.png" alt="SAP event payload JSON" loading="lazy">
+        <figcaption>SAP event payload JSON</figcaption>
+      </figure>
+            <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/></svg></span>
+        <div><strong>Congratulations!</strong>You have successfully subscribed to a real-time SAP Business Object event and verified the payload delivery through Boomi.</div>
+      </div>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

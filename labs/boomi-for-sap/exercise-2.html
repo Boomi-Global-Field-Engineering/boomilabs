@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 2 — Table Services: SAP Sales Orders to a Database — BooMiLabs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="#fff" fill-opacity=".15"/><path d="M8 14c0-3.314 2.686-6 6-6s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6z" fill="#fff" fill-opacity=".5"/><path d="M14 10a4 4 0 100 8 4 4 0 000-8z" fill="#fff"/></svg>
+    BooMiLabs
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi for SAP — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 1 · Step 1 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 1 · Step 2 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 1 · Step 3 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-4" data-step="4">
+          <span class="step-num">
+            <span class="step-num-inner">5</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 2 · Step 1 of 4
+        </a>
+      </li>
+      <li>
+        <a href="#step-5" data-step="5">
+          <span class="step-num">
+            <span class="step-num-inner">6</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 2 · Step 2 of 4
+        </a>
+      </li>
+      <li>
+        <a href="#step-6" data-step="6">
+          <span class="step-num">
+            <span class="step-num-inner">7</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 2 · Step 3 of 4
+        </a>
+      </li>
+      <li>
+        <a href="#step-7" data-step="7">
+          <span class="step-num">
+            <span class="step-num-inner">8</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Section 2 · Step 4 of 4
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~~60 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 2 — Table Services: SAP Sales Orders to a Database</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min
+          </span>
+        </div>
+      </header>
+      
+      <p>In this exercise you will use the <strong>Boomi for SAP</strong> UI to create a custom Table Service that joins two SAP tables (<code>VBAK</code> and <code>VBAP</code>), then build a Boomi integration process that queries that service and writes the results into a relational database.</p>
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>What you&#x27;ll learn</strong>
+        <ul>
+          <li>How to build a Table Service in the Boomi for SAP UI by joining SAP tables</li>
+          <li>How to use the Boomi for SAP connector with the <code>QUERY</code> action</li>
+          <li>How to configure a Database connector with a Dynamic Insert profile</li>
+          <li>How to map SAP fields to database columns in a Boomi map</li>
+        </ul></div>
+      </div>
+      <h2>Two-part exercise</h2>
+      <ol>
+        <li><strong>Section 1</strong> — Create a Table Service in the Boomi for SAP UI joining VBAK + VBAP</li>
+        <li><strong>Section 2</strong> — Build an AtomSphere process to query the service and load a database</li>
+      </ol>
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Replace XX</strong>Replace <strong>XX</strong> throughout this exercise with your assigned initials or user number.</div>
+      </div>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 1 of 3</div>
+        <h1 class="step-title">Login to Boomi for SAP &amp; Navigate to Table Services</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            3 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Open a browser and log in to the Boomi for SAP UI using the credentials below.</p>
+            <div class="credentials-box">
+        <h4>Credentials</h4>
+        <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.demo.boomi.com:44300/zbx/home</a></span></div>
+<div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+<div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Welcome1</span></div>
+
+      </div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>From the main menu, navigate to the <strong>Create Table Service</strong> option.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image28.png" alt="Navigate to Create Table Service" loading="lazy">
+        <figcaption>Navigate to Create Table Service</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 2 of 3</div>
+        <h1 class="step-title">Build the Table Service — Join VBAK &amp; VBAP</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            10 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>In the search box, type <code>VBAK</code> to find the <strong>Sales Document Header</strong> table. Drag it onto the canvas.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image8.png" alt="Add VBAK table to canvas" loading="lazy">
+        <figcaption>Add VBAK table to canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Search for <code>VBAP</code> (Sales Document Item Data) and drag it onto the canvas.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image33.png" alt="Add VBAP table to canvas" loading="lazy">
+        <figcaption>Add VBAP table to canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Create a join by selecting the <strong>Sales Document</strong> field (<code>VBELN</code>) from the VBAK table and dragging it to the <code>VBELN</code> field on the VBAP table. This creates an inner join on the document number.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image18.png" alt="Create join on VBELN" loading="lazy">
+        <figcaption>Create join on VBELN</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Click the <strong>filter fields</strong> icon on each table and deselect all fields by clicking the top checkbox.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image6.png" alt="Open field filter" loading="lazy">
+        <figcaption>Open field filter</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex2/image29.png" alt="Deselect all fields" loading="lazy">
+        <figcaption>Deselect all fields</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">7</div>
+          <div class="instruction-body">
+            <p>Re-select only the following fields:</p>
+            <p><strong>VBAK (Sales Document Header):</strong></p>
+            <pre><code>VBELN, ERDAT, AUDAT, VBTYP, NETWR, WAERK,
+VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
+            <p><strong>VBAP (Sales Document Item Data):</strong></p>
+            <pre><code>VBELN, POSNR, MATNR, CHARG, MATKL, ARKTX, PSTYV, KWMENG, KMEIN</code></pre>
+            <figure class="screenshot">
+        <img src="images/ex2/image1.png" alt="Selected fields from both tables" loading="lazy">
+        <figcaption>Selected fields from both tables</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 3 of 3</div>
+        <h1 class="step-title">Save the Table Service</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            3 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">8</div>
+          <div class="instruction-body">
+            <p>Click <strong>Configure Service</strong>. In the configuration dialog, enter a service name using the pattern <strong>SALES_ORDERS_XX</strong> (replacing XX with your initials). Click <strong>Save</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image27.png" alt="Configure and save the Table Service" loading="lazy">
+        <figcaption>Configure and save the Table Service</figcaption>
+      </figure>
+            <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/></svg></span>
+        <div><strong>Record your Table Service name</strong>You will need the exact name (<strong>SALES_ORDERS_XX</strong>) when importing the profile in Section 2.</div>
+      </div>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 1 of 4</div>
+        <h1 class="step-title">Login to AtomSphere &amp; Copy the Sample Process</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            5 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">9</div>
+          <div class="instruction-body">
+            <p>Log in to Boomi AtomSphere using the link below.</p>
+            <div class="credentials-box">
+        <h4>Credentials</h4>
+        <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://platform.boomi.com/AtomSphere.html#build;accountId=boomifrstraining-T18GW3" target="_blank">https://platform.boomi.com/AtomSphere.html#build;accountId=boomifrstraining-T18GW3</a></span></div>
+<div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by trainer</span></div>
+<div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by trainer</span></div>
+
+      </div>
+            <figure class="screenshot">
+        <img src="images/ex2/image14.png" alt="Boomi AtomSphere login" loading="lazy">
+        <figcaption>Boomi AtomSphere login</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">10</div>
+          <div class="instruction-body">
+            <p>In the <strong>Trainer</strong> folder, find the process <strong>SAP to DB Sample</strong>. Copy it to your <strong>USERXX</strong> folder.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image22.png" alt="Copy SAP to DB Sample process" loading="lazy">
+        <figcaption>Copy SAP to DB Sample process</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">11</div>
+          <div class="instruction-body">
+            <p>Open the <strong>SAP to DB USERXX</strong> process in the canvas by double-clicking.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image31.png" alt="SAP to DB process canvas" loading="lazy">
+        <figcaption>SAP to DB process canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 2 of 4</div>
+        <h1 class="step-title">Configure the Start Shape (Boomi for SAP — QUERY)</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            10 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">12</div>
+          <div class="instruction-body">
+            <p>Click the <strong>Configure</strong> link on the Start shape. In the connector configuration, select <strong>SAP S4 Connection</strong> from the drop-down.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image25.png" alt="Configure Start shape" loading="lazy">
+        <figcaption>Configure Start shape</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">13</div>
+          <div class="instruction-body">
+            <p>Click <strong>+</strong> to create a new operation. Ensure the <strong>Action</strong> is set to <code>QUERY</code>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image24.png" alt="Set Action to QUERY" loading="lazy">
+        <figcaption>Set Action to QUERY</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">14</div>
+          <div class="instruction-body">
+            <p>On the Connector Operation screen, enter an operation name (e.g., <strong>Query Sales Orders USERXX</strong>) and click <strong>Import</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image5.png" alt="Name operation and click Import" loading="lazy">
+        <figcaption>Name operation and click Import</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">15</div>
+          <div class="instruction-body">
+            <p>In the Import Wizard, select your Atom connection and filter by your Table Service name (<strong>SALES_ORDERS_XX</strong>). Click <strong>Next</strong> twice, then <strong>Finish</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image4.png" alt="Import Wizard — select Table Service" loading="lazy">
+        <figcaption>Import Wizard — select Table Service</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">16</div>
+          <div class="instruction-body">
+            <p>The profile is now imported. Change the <strong>Max Returned Rows</strong> value to <code>100</code> and click <strong>Save and Close</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image30.png" alt="Set Max Returned Rows to 100" loading="lazy">
+        <figcaption>Set Max Returned Rows to 100</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">17</div>
+          <div class="instruction-body">
+            <p>Click <strong>OK</strong> to return to the canvas.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image19.png" alt="Return to canvas" loading="lazy">
+        <figcaption>Return to canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-6">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 3 of 4</div>
+        <h1 class="step-title">Configure the Database Destination Shape</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            12 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">18</div>
+          <div class="instruction-body">
+            <p>Click <strong>Configure</strong> on the <strong>Database</strong> shape.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image34.png" alt="Database shape on canvas" loading="lazy">
+        <figcaption>Database shape on canvas</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">19</div>
+          <div class="instruction-body">
+            <p>In the Connector Shape, select the existing database connection.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image12.png" alt="Select database connection" loading="lazy">
+        <figcaption>Select database connection</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">20</div>
+          <div class="instruction-body">
+            <p>Set <strong>Action</strong> to <code>Send</code> and click <strong>+</strong> to create a new operation. Click <strong>OK</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image17.png" alt="Set action to Send" loading="lazy">
+        <figcaption>Set action to Send</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">21</div>
+          <div class="instruction-body">
+            <p>In the Database Operation screen, enter an operation name and click <strong>+</strong> to create a new Database Profile.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image3.png" alt="Create Database Profile" loading="lazy">
+        <figcaption>Create Database Profile</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">22</div>
+          <div class="instruction-body">
+            <p>Give the profile a name. Click <strong>Statement</strong>, choose type <strong>Dynamic Insert</strong>, then click <strong>Import</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image7.png" alt="Choose Dynamic Insert" loading="lazy">
+        <figcaption>Choose Dynamic Insert</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">23</div>
+          <div class="instruction-body">
+            <p>In the Database Import Wizard, select the appropriate options and click <strong>Next</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image11.png" alt="Database Import Wizard step 1" loading="lazy">
+        <figcaption>Database Import Wizard step 1</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">24</div>
+          <div class="instruction-body">
+            <p>Select the <strong>Sales Orders SAP</strong> table and click <strong>Next</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image37.png" alt="Select Sales Orders SAP table" loading="lazy">
+        <figcaption>Select Sales Orders SAP table</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">25</div>
+          <div class="instruction-body">
+            <p>Select all fields, click <strong>Next</strong>, then <strong>Finish</strong>.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image20.png" alt="Select all fields" loading="lazy">
+        <figcaption>Select all fields</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">26</div>
+          <div class="instruction-body">
+            <p>Name the Database Profile <strong>SO DB Profile USERXX</strong>. Click <strong>Save and Close</strong> on the profile, then <strong>Save and Close</strong> again on the operation, and finally <strong>OK</strong> to return to the canvas.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image32.png" alt="Save Database Profile" loading="lazy">
+        <figcaption>Save Database Profile</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex2/image9.png" alt="Save Database Operation" loading="lazy">
+        <figcaption>Save Database Operation</figcaption>
+      </figure>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-7">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 4 of 4</div>
+        <h1 class="step-title">Configure the Map &amp; Test the Process</h1>
+        <div class="step-meta">
+          <span class="step-time">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            15 min
+          </span>
+        </div>
+      </header>
+      
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">27</div>
+          <div class="instruction-body">
+            <p>Click <strong>Configure</strong> on the <strong>Map</strong> shape.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image13.png" alt="Configure Map shape" loading="lazy">
+        <figcaption>Configure Map shape</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">28</div>
+          <div class="instruction-body">
+            <p>Click <strong>+</strong> to create a new map. Name it (e.g., <strong>SAP to DB Map USERXX</strong>). Drag your JSON profile for the Table Service (SALES_ORDERS_XX) to the Source panel, and the DB Profile to the Destination panel.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image16.png" alt="Create new map" loading="lazy">
+        <figcaption>Create new map</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex2/image26.png" alt="Assign source and destination profiles" loading="lazy">
+        <figcaption>Assign source and destination profiles</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">29</div>
+          <div class="instruction-body">
+            <p>Map the following fields (drag a line from source to destination):</p>
+            <table class="mapping-table">
+        <thead><tr><th>Source Element</th><th>Destination Element</th></tr></thead>
+        <tbody><tr><td>schema/Array/items1/Object/VBAP.CHARG</td><td>Statement/Fields/BATCH</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.GSBER</td><td>Statement/Fields/BUSAREA</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.KUNNR@EXTERNAL</td><td>Statement/Fields/CUSTOMER</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.VTWEG</td><td>Statement/Fields/DISTRCHANNEL</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.SPART</td><td>Statement/Fields/DIVISION</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.WAERK</td><td>Statement/Fields/DOCCUR</td></tr>
+<tr><td>schema/Array/items1/Object/VBAP.POSNR</td><td>Statement/Fields/ITEM</td></tr>
+<tr><td>schema/Array/items1/Object/VBAP.ARKTX</td><td>Statement/Fields/ITEMDECRP</td></tr>
+<tr><td>schema/Array/items1/Object/VBAP.MATNR@EXTERNAL</td><td>Statement/Fields/MATERIAL</td></tr>
+<tr><td>schema/Array/items1/Object/VBAP.MATKL</td><td>Statement/Fields/MATGRP</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.NETWR</td><td>Statement/Fields/NETVALUE</td></tr>
+<tr><td>schema/Array/items1/Object/VBAP.KWMENG</td><td>Statement/Fields/ORDQTY</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.VBELN@EXTERNAL</td><td>Statement/Fields/SALESDOC</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.VKGRP</td><td>Statement/Fields/SALESGRP</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.VKBUR</td><td>Statement/Fields/SALESOFFICE</td></tr>
+<tr><td>schema/Array/items1/Object/VBAK.VKORG</td><td>Statement/Fields/SALESORG</td></tr>
+</tbody>
+      </table>
+            <figure class="screenshot">
+        <img src="images/ex2/image35.png" alt="Field mapping overview" loading="lazy">
+        <figcaption>Field mapping overview</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">30</div>
+          <div class="instruction-body">
+            <p>Set a <strong>default value</strong> for the <code>USER</code> field in the destination profile. Use your folder number (e.g., <code>XX</code>) as the default.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image2.png" alt="Set USER default value" loading="lazy">
+        <figcaption>Set USER default value</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">31</div>
+          <div class="instruction-body">
+            <p>Click <strong>Save and Close</strong> to return to the canvas.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">32</div>
+          <div class="instruction-body">
+            <p><strong>Optional:</strong> If you want to receive email notifications about the Sales Orders loaded, configure the Mail shape in the process. Enter your email address in the <strong>To</strong> field. If you do not want email notifications, disconnect the Mail branch.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image36.png" alt="Optional Mail shape configuration" loading="lazy">
+        <figcaption>Optional Mail shape configuration</figcaption>
+      </figure>
+            <figure class="screenshot">
+        <img src="images/ex2/image38.png" alt="Enter email address" loading="lazy">
+        <figcaption>Enter email address</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">33</div>
+          <div class="instruction-body">
+            <p><strong>Save</strong> and <strong>Test</strong> the process.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image10.png" alt="Save and Test process" loading="lazy">
+        <figcaption>Save and Test process</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">34</div>
+          <div class="instruction-body">
+            <p>Choose the correct Atom and start the test run.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image15.png" alt="Choose Atom for test" loading="lazy">
+        <figcaption>Choose Atom for test</figcaption>
+      </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">35</div>
+          <div class="instruction-body">
+            <p>In the monitor screen you should see all green lights. Review the different logs to verify that SAP Sales Order records were successfully written to the database.</p>
+            <figure class="screenshot">
+        <img src="images/ex2/image21.png" alt="Monitor screen — all green" loading="lazy">
+        <figcaption>Monitor screen — all green</figcaption>
+      </figure>
+            <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 01-1 1H9a1 1 0 01-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/></svg></span>
+        <div><strong>Success!</strong>All connector shapes should show green. If you see errors, verify the Max Returned Rows setting and check that the field mapping matches the database schema.</div>
+      </div>
+          </div>
+        </li>
+      </ol>
+    
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+title: BooMiLabs
+description: Hands-on integration labs for Boomi developers
+
+# Exclude source documents and build artifacts
+exclude:
+  - boomiforsap/
+  - "*.docx"
+  - README.md
+  - _config.yml
+  - .DS_Store
