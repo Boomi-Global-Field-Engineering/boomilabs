@@ -1,12 +1,12 @@
 /* ============================================================
-   BooMiLabs — Lab Guide Framework
+   Boomi Labs — Lab Guide Framework
    ============================================================ */
 
 :root {
-  --primary: #0057b8;
-  --primary-dark: #003d82;
-  --primary-light: #e8f0fb;
-  --accent: #00a8cc;
+  --primary: #063d58;
+  --primary-dark: #002d45;
+  --primary-light: #e6f0f5;
+  --accent: #f97c67;
   --success: #1a9e5c;
   --warning: #e6820e;
   --danger: #c0392b;
@@ -328,7 +328,7 @@ body {
 
 .callout-icon { flex-shrink: 0; margin-top: 1px; }
 
-.callout.info    { background: #e8f4fd; border-left: 4px solid #3b82f6; color: #1e40af; }
+.callout.info    { background: #e6f0f5; border-left: 4px solid #063d58; color: #002d45; }
 .callout.tip     { background: #ecfdf5; border-left: 4px solid var(--success); color: #065f46; }
 .callout.warning { background: #fffbeb; border-left: 4px solid var(--warning); color: #92400e; }
 .callout.important { background: #fef2f2; border-left: 4px solid var(--danger); color: #7f1d1d; }
@@ -566,7 +566,7 @@ pre code {
 
 /* ── Overview / Catalog ──────────────────────────────────── */
 .catalog-hero {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, #1a4fa0 50%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #0a5a7a 100%);
   color: #fff;
   padding: 60px 40px;
   text-align: center;
@@ -671,7 +671,7 @@ pre code {
 
 /* ── Workshop Overview Page ──────────────────────────────── */
 .workshop-hero {
-  background: linear-gradient(135deg, var(--primary-dark), #1a4fa0);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   color: #fff;
   padding: 48px 40px 40px;
 }
