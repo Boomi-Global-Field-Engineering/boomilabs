@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Setup &amp; Platform Tour — MFT Demo Playbook — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">MFT Demo Playbook — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 1 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Log In &amp; Land on Dashboard
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Dashboard &amp; Overview Metrics
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Organizations &amp; Flows
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Activity &amp; Alerts
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~10 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Foundational
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Playbook Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 1 — Overview</div>
+          <h1 class="step-title">Demo Setup &amp; Platform Tour</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Get into the Global SC Demo Instance via Okta SSO and walk through the six platform sections you'll navigate during every demo.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Access Method</div>
+            <div style="font-size:14px;font-weight:700;">Okta SSO</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~10 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform Sections</div>
+            <div style="font-size:14px;font-weight:700;">6 sections</div>
+          </div>
+        </div>
+
+        <h3>What You'll Cover</h3>
+        <p>This exercise walks through getting into the demo environment and orienting a prospect on the six key sections of the Boomi MFT platform. These sections form the backbone of every flow walkthrough — understanding them here makes the rest of the demo feel natural.</p>
+        <p>The platform comes pre-loaded with continuous synthetic activity across all six flows, so it looks live and healthy from the moment you log in — no setup required.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>No separate credentials needed.</strong> Access is single-click from Okta. The Global SC Demo tile should already be assigned to your apps.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Log In -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 4</div>
+          <h1 class="step-title">Log In &amp; Land on Dashboard</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">One-click SSO from Okta — no separate credentials required.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p><strong>Open your Okta portal.</strong> The <em>Global SC Demo</em> tile should be visible in your assigned apps.</p>
+              <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Okta portal showing the Boomi MFT Global SC Demo app tile</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p><strong>Click the MFT Demo tile.</strong> SSO takes you directly into the Global SC Demo Instance — you'll land authenticated with full access. No username or password prompt.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p><strong>Confirm you're on the Dashboard.</strong> Continuous activity should be visible immediately — synthetic files are cycling through all six flows in the background, making the platform look live without any manual setup.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p><strong>Navigate to the Overview page</strong> to see Ingress, Egress, and storage metrics. <strong>Hover over Egress</strong> to split cloud vs. runtime values — this is the MFT pricing metric and a good early talking point for pricing conversations.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Demo tip:</strong> The continuous activity on the Dashboard is one of the strongest first impressions in the demo. Let the prospect notice the live movement before explaining it — then reveal the synthetic loop as a feature, not a workaround.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Dashboard & Overview Metrics -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 4</div>
+          <h1 class="step-title">Dashboard &amp; Overview Metrics</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The first two sections prospects see — set the tone for a healthy, active platform.</p>
+        </header>
+
+        <h3>Dashboard</h3>
+        <p>The Dashboard is your starting point for every demo. It shows continuous activity — synthetic files moving through all flows. This demonstrates the platform is live and healthy <em>before</em> you've done anything.</p>
+        <p>Key talking point: the Dashboard gives operations teams real-time visibility across all transfer activity. No need to drill into individual flows to know the platform is healthy.</p>
+
+        <h3>Overview</h3>
+        <p>The Overview page surfaces three key metrics — Ingress, Egress, and Storage — aggregated across all flows.</p>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><strong>Pricing talking point:</strong> <em>Egress</em> is the MFT pricing driver. When you hover over Egress in the Overview, it splits into <strong>Cloud Egress</strong> vs. <strong>Runtime Egress</strong>. Use this to explain the pricing model — customers pay for data moving out through cloud-hosted endpoints, not through on-prem runtime agents.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Organizations & Flows -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 4</div>
+          <h1 class="step-title">Organizations &amp; Flows</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The structural backbone — who participates, and how files move between them.</p>
+        </header>
+
+        <h3>Organizations</h3>
+        <p>Organizations represent the entities taking part in file transfers — partners, banks, HQ, healthcare providers, automotive suppliers. Each org can have its own <strong>Endpoints</strong>, <strong>Users</strong>, <strong>Keys</strong>, and <strong>Nodes</strong>.</p>
+        <p>The <code>_example</code> organization has pre-configured sample endpoints — useful for showing Test Connection during the demo without touching live partner data.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Use the <code>_example</code> org to validate connections live during the demo — click any endpoint and hit <strong>Test Connection</strong>. This is a high-impact moment: real-time connectivity check in the UI.</div>
+        </div>
+
+        <h3>Flows</h3>
+        <p>Flows are the core objects — each one defines a transfer pattern with a source, one or more targets, and optional processing steps like encryption, AV scanning, renaming, and path mapping.</p>
+        <p>Each flow has a configurable upload widget that can be exported to FileZilla for an SFTP-native demo path. This is especially useful for prospects who want to see the full SFTP experience rather than browser-based upload.</p>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Activity & Alerts -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 4</div>
+          <h1 class="step-title">Activity &amp; Alerts</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The audit trail and monitoring story — two of the strongest closing sections.</p>
+        </header>
+
+        <h3>Activity</h3>
+        <p>Activity is the full audit trail for every transfer. Filter by flow, expand rows to reveal both source and target sides, and click any state badge to view the complete file lifecycle.</p>
+        <p>This is where the demo becomes tactile — upload a file in Flow 01 or 05, then immediately switch to Activity to show the customer their file moving in real time through <strong>Upload → AV Scan → Encrypt → Route → Ready for Pickup</strong>.</p>
+
+        <h3>Alerts</h3>
+        <p>Alerts has been pre-populated with two demo fixtures — an <strong>Inactivity Alert</strong> and a <strong>Connection Error Alert</strong>. These are not live alerts — they're demo fixtures configured to tell a monitoring story.</p>
+
+        <div class="callout important">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>Do NOT clear the pre-loaded alerts.</strong> They are demo fixtures. Clearing them removes a key monitoring talking point from the demo and they cannot be easily restored.</div>
+        </div>
+
+        <p><strong>Inactivity Alert:</strong> Fires when a flow hasn't processed a file within an expected time window. Great for SLA monitoring conversations — "what if a partner stops sending?"</p>
+        <p><strong>Connection Error Alert:</strong> Fires when a configured endpoint becomes unreachable. Shows proactive partner connectivity monitoring — no need to wait for a partner to report a problem.</p>
+        <p>Alert configuration lives inside the flow builder, per endpoint. Walk through this when discussing security or monitoring during the Flow 01 source walkthrough.</p>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
+            <h3 style="font-size:16px;margin:0;">Flow 01: Multi-Bank Statement Aggregation</h3>
+          </div>
+          <a href="exercise-2.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Flow 01 →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow 06: Runtime File Share Loop — MFT Demo Playbook — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">MFT Demo Playbook — Flow 06 + Monitoring</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Flow 06 + Monitoring</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Flow Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Runtime Under HQ
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Inspect Flow 06 &amp; Filename Filter
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Rename Steps &amp; Activity
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Alerts &amp; Monitoring
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Patterns Reference
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~15 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Pattern: On-Prem Runtime
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Playbook Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Flow 06 — Overview</div>
+          <h1 class="step-title">Runtime File Share Loop</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">AWS VM runtime monitors a local file share. Filename filter and rename steps keep the synthetic loop alive indefinitely.</p>
+        </header>
+
+        <h3>What This Flow Demonstrates</h3>
+        <p>An AWS VM-hosted Boomi runtime agent monitors a local file system (file share). A filename filter prevents the same file from being picked up repeatedly, and two rename steps — one adding a date on pickup, one stripping it on delivery — create a perpetual loop that generates continuous activity.</p>
+        <p>This flow demonstrates the on-premises runtime agent capability, which is critical for customers who need to bridge local file systems, network shares, or air-gapped environments to cloud MFT.</p>
+
+        <h3>Key Features</h3>
+        <ul>
+          <li>Boomi runtime agent deployed on AWS VM (downloadable for on-prem use)</li>
+          <li>Local file share monitoring via the runtime</li>
+          <li>Filename filter — prevents re-pickup of unchanged files (date-modified doesn't update in the loop)</li>
+          <li>Source rename: appends a date to the filename on pickup</li>
+          <li>Target rename: strips the date back out on delivery — restoring the original filename</li>
+        </ul>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Runtime Under HQ -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 5</div>
+          <h1 class="step-title">Runtime Under HQ</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show the on-premises runtime agent deployed in the HQ organization.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Organizations → Headquarters → Nodes</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Show <strong>Runtime One</strong> — deployed on AWS. This represents the runtime agent running on a VM (or on-prem server for real customers).</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Point out the <strong>Download Thru Node</strong> button — Windows and Linux scripts are available here. This is how customers deploy the runtime agent to their own servers.</p>
+              <p>Talking point: the runtime is a lightweight agent that bridges on-prem file systems to cloud MFT — no firewall changes required, outbound-only connectivity.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Under HQ, open the <strong>Local File Share endpoint</strong>. Show the source path — this is what the runtime monitors. Explain how the agent reads the local file system on the interval.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Inspect Flow 06 & Filename Filter -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 5</div>
+          <h1 class="step-title">Inspect Flow 06 &amp; Filename Filter</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show the filename filter that prevents the loop from stalling.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Flows → 06 File Share to File Share via MFT Runtime</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Show the <strong>source path</strong> configuration — the runtime monitors this local path.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Show the <strong>filename filter</strong>. Explain why it's needed: in the loop, the file's date-modified timestamp doesn't update, so without a filter the runtime would see the same file as "already processed" and skip it. The filename filter (matching on date-appended names) ensures each iteration looks like a new file.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Rename Steps & Activity -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 5</div>
+          <h1 class="step-title">Rename Steps &amp; Activity</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Walk through the two rename steps that power the perpetual loop, then verify in Activity.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Click <strong>Actions → View Rename</strong> on the <strong>source side</strong>. A date is appended to the filename on pickup — <code>report.csv</code> becomes <code>report_20260501.csv</code>. This makes each iteration look like a new file to the runtime.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>On the <strong>target side</strong>, show the rename step that strips the date back out — restoring the original filename (<code>report.csv</code>) so the loop can continue indefinitely without accumulating date suffixes.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Activity → filter by Flow 06 → Apply</strong>. See files arriving without a date, acquiring a date mid-flight (source rename), and exiting with it stripped (target rename). Expand any entry to view the full lifecycle.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Alerts & Monitoring -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 5</div>
+          <h1 class="step-title">Alerts &amp; Monitoring</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Walk the pre-loaded demo alerts — two of the strongest monitoring talking points in the demo.</p>
+        </header>
+
+        <div class="callout important">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>Do NOT clear the pre-loaded alerts.</strong> They are demo fixtures. Clearing them removes a key monitoring talking point from every future demo.</div>
+        </div>
+
+        <h3>Inactivity Alert</h3>
+        <p>Fires when a flow has not processed a file within an expected time window. The talking point: "What happens if a partner just stops sending? You find out instantly — before a downstream process fails or a business SLA is breached."</p>
+        <p>This resonates with operations teams who currently have no visibility until someone calls to report a missing file.</p>
+
+        <h3>Connection Error Alert</h3>
+        <p>Fires when a configured endpoint becomes unreachable. The talking point: "You don't wait for the partner to report a connectivity issue — Boomi sees it immediately and notifies you. Proactive, not reactive."</p>
+
+        <h3>Where Alerts Are Configured</h3>
+        <p>Alerts are configured per flow endpoint inside the flow builder — each source or target endpoint has an Alerts tab. Walk through this when discussing security or monitoring during the Flow 01 source walkthrough if that conversation comes up.</p>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Alerts page showing pre-loaded inactivity + connection error alert examples — do not clear</p>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Patterns Reference -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 5</div>
+          <h1 class="step-title">Patterns Reference</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">All six flows together cover every major MFT integration pattern.</p>
+        </header>
+
+        <p>Use this as a quick reference when mapping a prospect's use case to a specific demo flow during discovery.</p>
+
+        <table class="mapping-table">
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Flow(s)</th>
+              <th>Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hosted SFTP Server</td>
+              <td>Flow 01</td>
+              <td>Multi-bank inbound, partner-to-enterprise</td>
+            </tr>
+            <tr>
+              <td>Manual Upload Widget</td>
+              <td>Flow 01, 05</td>
+              <td>Ad-hoc file injection, no SFTP client needed</td>
+            </tr>
+            <tr>
+              <td>Scheduled / Batch Transfer</td>
+              <td>Flow 03</td>
+              <td>ERP exports, end-of-day reports, regulatory submissions</td>
+            </tr>
+            <tr>
+              <td>SFTP Pull</td>
+              <td>Flow 04</td>
+              <td>Enterprise-initiated pull, no partner push required</td>
+            </tr>
+            <tr>
+              <td>Integration Round-Trip</td>
+              <td>Flow 02</td>
+              <td>MFT + Boomi Integration combined, outcome-based renaming</td>
+            </tr>
+            <tr>
+              <td>Fan-Out Distribution</td>
+              <td>Flow 05</td>
+              <td>One source → multiple partner targets, path-based routing</td>
+            </tr>
+            <tr>
+              <td>On-Prem Runtime Agent</td>
+              <td>Flow 06</td>
+              <td>Local file share, air-gapped environments, bridge to cloud MFT</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Playbook complete.</strong> You've covered all six flows, the Activity lifecycle, the Alerts monitoring story, and the patterns reference. Use the index to jump to any flow for a focused demo, or run the full playbook end-to-end for a comprehensive 60-minute discovery session.</div>
+        </div>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Return to start</p>
+            <h3 style="font-size:16px;margin:0;">MFT Global SC Demo Playbook</h3>
+          </div>
+          <a href="index.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Back to Overview →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
