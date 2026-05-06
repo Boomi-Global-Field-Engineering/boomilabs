@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 06: On-Premises Runtime &amp; Monitoring — MFT Guided Demos — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">MFT Guided Demos — Demo 06 + Monitoring</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Demo 06 + Monitoring</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Demo Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Runtime Agent Under HQ
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Flow Configuration &amp; Filename Filter
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Rename Steps &amp; Activity
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Alerts &amp; Monitoring
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Patterns Reference
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~15 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Pattern: On-Prem Runtime
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Demo Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Demo 06 — Overview</div>
+          <h1 class="step-title">On-Premises Runtime &amp; File Share</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">A Boomi runtime agent monitors a local file share and bridges it to cloud MFT — no firewall changes required.</p>
+        </header>
+
+        <h3>What This Demo Covers</h3>
+        <p>A Boomi runtime agent — installed on a local server or VM — monitors a local file system and transfers files to cloud MFT automatically. This bridges on-premises environments, network shares, and air-gapped systems to the cloud platform without requiring inbound firewall changes. The runtime uses outbound-only connectivity.</p>
+        <p>This demo also covers the full Monitoring story: Alerts, inactivity detection, and connection error notifications.</p>
+
+        <h3>Key Capabilities</h3>
+        <ul>
+          <li>Boomi runtime agent — lightweight, deployable on Windows or Linux servers</li>
+          <li>Local file share monitoring via the runtime</li>
+          <li>Filename filter — ensures each file is processed correctly through the transfer cycle</li>
+          <li>Source rename: appends a date to the filename on pickup</li>
+          <li>Target rename: strips the date on delivery — restoring the original filename</li>
+          <li>Proactive alerts for inactivity and connection errors</li>
+        </ul>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Runtime Under HQ -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 5</div>
+          <h1 class="step-title">Runtime Agent Under HQ</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Review the on-premises runtime agent deployed in the Headquarters organization.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Organizations → Headquarters → Nodes</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Review <strong>Runtime One</strong> — this is the Boomi runtime agent installed on a local server. For your own environment, the same agent would run on any Windows or Linux machine on your network.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Click <strong>Download Thru Node</strong> to see the available installers — Windows and Linux scripts are both provided. The runtime agent connects outbound only, so no inbound firewall rules are required.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Under HQ, open the <strong>Local File Share endpoint</strong>. Review the source path — this is the local directory the runtime agent monitors on a polling interval.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Flow Config & Filename Filter -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 5</div>
+          <h1 class="step-title">Flow Configuration &amp; Filename Filter</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Review the filename filter that ensures each file is processed correctly.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Flows → 06 File Share to File Share via MFT Runtime</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Review the <strong>source path</strong> configuration — the runtime monitors this local path on a defined interval.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Review the <strong>filename filter</strong>. The filter ensures the runtime correctly identifies new files to process on each interval — preventing duplicate or missed transfers based on filename pattern matching.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Rename Steps & Activity -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 5</div>
+          <h1 class="step-title">Rename Steps &amp; Activity</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Walk through the rename steps and see the transfer lifecycle in Activity.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Click <strong>Actions → View Rename</strong> on the <strong>source side</strong>. A date is appended to the filename on pickup — <code>report.csv</code> becomes <code>report_20260501.csv</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>On the <strong>target side</strong>, review the rename step that strips the date back out — restoring the original filename (<code>report.csv</code>) on delivery.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Activity → filter by Demo 06 → Apply</strong>. Expand any entry to see the full file lifecycle — pickup with date append, transfer, delivery with date stripped.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Alerts & Monitoring -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 5</div>
+          <h1 class="step-title">Alerts &amp; Monitoring</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Proactive visibility — know about issues before they affect your operations.</p>
+        </header>
+
+        <h3>Inactivity Alert</h3>
+        <p>An inactivity alert fires when a flow hasn't processed a file within an expected time window. If a partner stops sending — or a scheduled job fails to run — you're notified immediately, before a downstream process or SLA is affected.</p>
+
+        <h3>Connection Error Alert</h3>
+        <p>A connection error alert fires when a configured endpoint becomes unreachable. You're notified proactively, without having to wait for a partner to report a connectivity issue.</p>
+
+        <h3>Where Alerts Are Configured</h3>
+        <p>Alerts are configured per endpoint inside the flow builder — each source or target endpoint has an <strong>Alerts</strong> tab. You can set independent alert thresholds for each partner connection in the flow.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>The demo environment includes pre-configured alert examples. Navigate to <strong>Alerts</strong> in the sidebar to see an Inactivity Alert and a Connection Error Alert already set up for reference.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Patterns Reference -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 5</div>
+          <h1 class="step-title">Patterns Reference</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">All six demos together cover every major Boomi MFT integration pattern.</p>
+        </header>
+
+        <p>This reference maps each MFT integration pattern to the demo that illustrates it.</p>
+
+        <table class="mapping-table">
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Demo</th>
+              <th>Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hosted SFTP Server</td>
+              <td>Demo 01</td>
+              <td>Multi-partner inbound, partner-to-enterprise aggregation</td>
+            </tr>
+            <tr>
+              <td>Browser Upload Widget</td>
+              <td>Demo 01, 05</td>
+              <td>Ad-hoc file delivery without an SFTP client</td>
+            </tr>
+            <tr>
+              <td>Scheduled / Batch Transfer</td>
+              <td>Demo 03</td>
+              <td>ERP exports, end-of-day reports, regulatory submissions</td>
+            </tr>
+            <tr>
+              <td>SFTP Pull</td>
+              <td>Demo 04</td>
+              <td>Enterprise-initiated transfer, no partner push required</td>
+            </tr>
+            <tr>
+              <td>Integration Round-Trip</td>
+              <td>Demo 02</td>
+              <td>MFT + Boomi Integration combined, outcome-based file processing</td>
+            </tr>
+            <tr>
+              <td>Fan-Out Distribution</td>
+              <td>Demo 05</td>
+              <td>One source to multiple partner targets, path-based routing</td>
+            </tr>
+            <tr>
+              <td>On-Premises Runtime Agent</td>
+              <td>Demo 06</td>
+              <td>Local file share, air-gapped environments, bridge to cloud MFT</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>All six demos complete. Use the index to jump to any individual demo, or work through them in sequence for a full walkthrough of the Boomi MFT platform.</div>
+        </div>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Return to start</p>
+            <h3 style="font-size:16px;margin:0;">MFT Guided Demos</h3>
+          </div>
+          <a href="index.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Back to Overview →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

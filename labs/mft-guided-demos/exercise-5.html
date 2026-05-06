@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-5">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo 05: Manufacturer to Supplier Distribution — MFT Guided Demos — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">MFT Guided Demos — Demo 05</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Demo 05 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Demo Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Open Demo 05
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Upload Widget &amp; Test File
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Path Mapping &amp; Activity
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~10 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Pattern: Fan-Out + Path Routing
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Demo Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Demo 05 — Overview</div>
+          <h1 class="step-title">Manufacturer to Supplier Distribution</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">A manufacturer uploads into supplier-specific paths and Boomi MFT routes each file to the correct supplier automatically — with complete target isolation.</p>
+        </header>
+
+        <h3>What This Demo Covers</h3>
+        <p>A manufacturer uploads files into the MFT platform using either the browser-based upload widget or SFTP. Files are placed into supplier-specific paths — BMW, Mazda, or Volkswagen. Boomi MFT routes each file to the corresponding supplier's target endpoint automatically. Each supplier receives only their own files, with no visibility into the others.</p>
+
+        <h3>Key Capabilities</h3>
+        <ul>
+          <li>Upload widget with 3 selectable source paths (BMW, Mazda, Volkswagen)</li>
+          <li>Optional FileZilla export for SFTP-native access — zero manual configuration for the partner</li>
+          <li>Source-to-target path mapping — each upload path routes to a dedicated supplier target</li>
+          <li>Per-supplier target isolation — full multi-tenancy across all three partners</li>
+          <li>Activity verification showing "Ready for Download" state per supplier</li>
+        </ul>
+
+        <h3>Architecture</h3>
+        <p>Manufacturer (Upload widget or SFTP push) → Path Selection (BMW / Mazda / Volkswagen) → Boomi MFT Path Mapping → Suppliers (each receives only their own files)</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>The automotive supplier scenario — BMW, Mazda, Volkswagen — illustrates fan-out file distribution in a familiar, real-world context that applies across manufacturing, retail, and financial services.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Open Demo 05 -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 3</div>
+          <h1 class="step-title">Open Demo 05</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Review the flow structure and explore the optional FileZilla export path.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Flows → 05 Manufacturer to Supplier</strong>. Review the source (manufacturer) and targets (BMW, Mazda, VW). Note that each supplier is a separate organization with its own dedicated endpoint.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p><strong>(Optional)</strong> On the flows page, click <strong>Export to FileZilla</strong>. Import the XML into FileZilla to connect and push files via SFTP. FileZilla export generates a fully pre-configured site XML in one click — partners can connect immediately with no manual SFTP setup.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Upload Widget -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 3</div>
+          <h1 class="step-title">Upload Widget &amp; Test File</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use the upload widget to inject a file into a specific supplier path.</p>
+        </header>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><strong>Wait for "Completed" before navigating away.</strong> Use a small file (under 1 MB) for the best results.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the Demo 05 sources list, click the <strong>Action icon → Upload Files</strong>. The widget shows 3 paths: BMW, Mazda, Volkswagen.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Choose a specific supplier path — for example, <strong>BMW</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Select a small file and upload. Wait for the <strong>"Completed"</strong> status before navigating away.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Path Mapping & Activity -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 3</div>
+          <h1 class="step-title">Path Mapping &amp; Activity</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Review the routing rules, then confirm your file landed in the correct supplier folder.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>On the target side of Demo 05, open the <strong>Mapping tab</strong>. Review how BMW, Mazda, and VW source paths each map to a dedicated supplier target path — automatic routing with no manual intervention.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Activity → filter by "Manufacturing to Supplier" → Apply</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Find your uploaded file in <strong>"Ready for Download"</strong> state. Confirm it landed in the correct supplier folder (BMW target, not Mazda or VW).</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Demo 05 complete.</strong> Upload widget path selection → automatic routing via path mapping → Activity verification — a complete end-to-end story for supplier file distribution.</div>
+        </div>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
+            <h3 style="font-size:16px;margin:0;">Demo 06: On-Premises Runtime &amp; Monitoring</h3>
+          </div>
+          <a href="exercise-6.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Demo 06 →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
