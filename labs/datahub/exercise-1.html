@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup &amp; Foundation — Boomi Master Data Hub — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Master Data Hub — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 2
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~15 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Setup & Foundation</h1>
+      </header>
+      <p>Log in to Master Data Hub and create the central data Model that will define the structure of records flowing into the hub.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Log in to DataHub</li>
+        <li>Create a Model</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 2</div>
+        <h1 class="step-title">Log in to DataHub</h1>
+      </header>
+      <p><em>Login to the Boomi Platform.</em></p>
+      <p><em>Navigate to </em></p>
+      <p><em>Enter login credentials and click on the ‘</em><strong><em>Log In</em></strong><em>’ button</em></p>
+      <figure><img src="images/ex1/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>In the </em>left<em>-hand corner drop down click on the link to Master Data Hub service:</em></p>
+      <figure><img src="images/ex1/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>A new tab will open with a list of Repositories. A Repository is the data store where records will be stored, much like a database. Please note that we will be using the </em>&quot;<strong><em>Training</em></strong>&quot;<em> repository for all exercises:</em></p>
+      <figure><img src="images/ex1/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 2</div>
+        <h1 class="step-title">Create a Model</h1>
+      </header>
+      <p><em>In the top navigation bar click on </em>&quot;<strong><em>Models</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Create a Model</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Give the model a name of </em>&quot;<strong><em>Customer (YOUR-NAME)</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Add Your First Field</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Import from Profile</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>JSON</em></strong>&quot;<em> profile type then </em>&quot;<strong><em>Customer Golden Record JSON</em></strong>&quot;<em> under </em>&quot;<strong><em>SE_Customer_Training</em></strong><em> 🡪 </em><strong><em>SHARED</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Leave all the fields ticked and click </em>&quot;<strong><em>Finish</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex1/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

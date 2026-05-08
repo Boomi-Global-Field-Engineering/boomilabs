@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boomi Master Data Hub — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Master Data Hub Lab</span>
+</header>
+
+<div style="padding-top: 56px;">
+
+  <div class="workshop-hero">
+    <div class="workshop-hero-inner">
+      <div class="workshop-breadcrumb">
+        <a href="../../index.html">Boomi Labs</a> / Boomi Master Data Hub Lab
+      </div>
+      <h1>Boomi Master Data Hub — Hands-on Lab</h1>
+      <p>Build a complete Master Data Hub solution end-to-end — define a Model, configure match rules and data quality, attach Salesforce and Netsuite as sources, fix data quality errors, and synchronize consolidated golden records out to a marketing database.</p>
+      <div class="workshop-badges">
+        <span class="badge badge-blue">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          ~2 hours
+        </span>
+        <span class="badge badge-green">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Intermediate
+        </span>
+        <span class="badge badge-yellow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          4 Exercises
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="workshop-body">
+
+    <div style="display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start;">
+      <div>
+
+        <h2 class="section-heading">Exercises</h2>
+        <ul class="exercise-list">
+          <li>
+            <a href="exercise-1.html" class="exercise-item">
+              <div class="exercise-num">1</div>
+              <div class="exercise-info">
+                <h3>Setup &amp; Foundation</h3>
+                <p>Log in to Master Data Hub and create the central data Model that will define the structure of records flowing into the hub.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~15 min</span>
+                <span>2 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-2.html" class="exercise-item">
+              <div class="exercise-num">2</div>
+              <div class="exercise-info">
+                <h3>Configure the Model</h3>
+                <p>Add governance to the Model — match rules to identify duplicates, data-quality steps to validate inbound records, and tags to track lifecycle. Then publish and deploy.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~25 min</span>
+                <span>4 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-3.html" class="exercise-item">
+              <div class="exercise-num">3</div>
+              <div class="exercise-info">
+                <h3>Connect Sources</h3>
+                <p>Attach source systems (Salesforce, Netsuite) to the Model and run upsert flows that bring records into the hub.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~50 min</span>
+                <span>3 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-4.html" class="exercise-item">
+              <div class="exercise-num">4</div>
+              <div class="exercise-info">
+                <h3>Operations</h3>
+                <p>Fix a data quality error and synchronize the consolidated golden record set out to a downstream marketing database.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~30 min</span>
+                <span>2 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <h2 class="section-heading" style="margin-top: 40px;">Prerequisites</h2>
+        <ul style="line-height: 1.9; padding-left: 24px;">
+          <li>Access to Boomi AtomSphere (<a href="https://platform.boomi.com" target="_blank" rel="noopener">platform.boomi.com</a>) — credentials provided by your trainer</li>
+          <li>Access to Master Data Hub from the AtomSphere services menu</li>
+          <li>Basic familiarity with the Boomi AtomSphere canvas (drag, drop, configure shapes)</li>
+          <li>Source-system credentials for Salesforce and Netsuite — provided by your trainer for Exercises 3 and 4</li>
+        </ul>
+
+      </div>
+
+      <aside style="position: sticky; top: 72px;">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; box-shadow: var(--shadow);">
+          <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted);">Lab Details</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px;">
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Products Covered</div>
+              <div style="color: var(--text-muted);">Master Data Hub, Boomi AtomSphere, Salesforce, Netsuite</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Topics</div>
+              <div style="color: var(--text-muted);">Models, Match Rules, Data Quality, Tags, Sources, Upsert, Sync</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Total Duration</div>
+              <div style="color: var(--text-muted);">~2 hours (hands-on)</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Level</div>
+              <div style="color: var(--text-muted);">Intermediate — some prior Boomi experience recommended</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-4">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations — Boomi Master Data Hub — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Master Data Hub — Exercise 4</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 2
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~30 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Operations</h1>
+      </header>
+      <p>Fix a data quality error and synchronize the consolidated golden record set out to a downstream marketing database.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Fix Data Quality Error</li>
+        <li>Synchronise to Marketing DB</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 2</div>
+        <h1 class="step-title">Fix Data Quality Error</h1>
+      </header>
+      <p><em>We will now generate a data quality error and manually fix it.</em></p>
+      <p><em>Open the process </em>&quot;<strong><em>Upsert NetSuite Customer to MDH</em></strong>&quot;<em> and click on </em>&quot;<strong><em>Parameters(1 of 1 set)</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the existing parameter and click the edit button:</em></p>
+      <figure><img src="images/ex4/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Change the static value to </em>&quot;<strong><em>Woolworths</em></strong>&quot;<em> and click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em> on the Start Shape page:</em></p>
+      <figure><img src="images/ex4/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the process page click </em>&quot;<strong><em>Save</em></strong>&quot;<em> and then </em>&quot;<strong><em>Test</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>workshop-atom</em></strong>&quot;<em> atom:</em></p>
+      <figure><img src="images/ex4/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Confirm all steps ran successfully:</em></p>
+      <figure><img src="images/ex4/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>In Master Data Hub click on </em>&quot;<strong><em>Stewardship</em></strong>&quot;<em> then </em>&quot;<strong><em>Quarantine</em></strong>&quot;<em> for your model. There will be one Data Quality Error. Click on the timestamp:</em></p>
+      <figure><img src="images/ex4/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice the error was because the BSB number has a hyphen (-):</em></p>
+      <figure><img src="images/ex4/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Actions</em></strong>&quot;<em> then </em>&quot;<strong><em>Edit and Resubmit</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>&gt; Finance Details</em></strong>&quot;<em> to expand out the section:</em></p>
+      <figure><img src="images/ex4/image11.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Remove the hyphen (-) in the BSB and click </em>&quot;<strong><em>Next</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image12.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Finish</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image13.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click back on the </em>&quot;<strong><em>Data</em></strong>&quot;<em> tab. Notice there is now a new entry for </em>&quot;<strong><em>Woolworths</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image14.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 2</div>
+        <h1 class="step-title">Synchronise to Marketing DB</h1>
+      </header>
+      <p><em>Check that there are records to be synchronised to the Marketing DB. </em></p>
+      <p><em>Go to </em>&quot;<strong><em>Reporting</em></strong>&quot;<em> 🡪 </em>&quot;<strong><em>Outbound Activity</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image15.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice that there are a couple of entries:</em></p>
+      <figure><img src="images/ex4/image16.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>We are going to configure a process which takes these entries and synchronises them to the Marketing DB. To save time copy the process </em>&quot;<strong><em>Sync to Marketing DB</em></strong>&quot;<em> in the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder:</em></p>
+      <figure><img src="images/ex4/image17.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Make sure </em>&quot;<strong><em>Copy Component Dependents</em></strong>&quot;<em> is ticked and choose your User folder:</em></p>
+      <figure><img src="images/ex4/image18.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>.</em></p>
+      <p><em>Navigate to your User folder and double click on the process:</em></p>
+      <figure><img src="images/ex4/image19.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Configure</em></strong>&quot;<em> on the start shape:</em></p>
+      <figure><img src="images/ex4/image20.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>+</em></strong>&quot;<em> to add a new operation:</em></p>
+      <figure><img src="images/ex4/image21.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the operation </em>&quot;<strong><em>Query New Prospect</em></strong>&quot;<em>. Click </em>&quot;<strong><em>Import</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image22.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>Boomi MDM</em></strong>&quot;<em> connection under </em><strong><em>SHARED</em></strong><em>:</em></p>
+      <figure><img src="images/ex4/image23.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter </em>&quot;<strong><em>marketing_db_YOUR-NAME</em></strong>&quot;<em> in the source field. Click </em>&quot;<strong><em>Next</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image24.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose your customer object:</em></p>
+      <figure><img src="images/ex4/image25.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Finish</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image26.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image27.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image28.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Go back to the process and click on the Map shape:</em></p>
+      <figure><img src="images/ex4/image29.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Lock &amp; Edit</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image30.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Choose</em></strong>&quot;<em> in the Map Source:</em></p>
+      <figure><img src="images/ex4/image31.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select Profile Type </em>&quot;<strong><em>XML</em></strong>&quot;<em> then under your User folder select </em>&quot;<strong>Boomi Master Data Hub </strong><strong><em>customer&lt;yourname&gt; QUERY Response</em></strong>&quot;<em>. Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>: </em></p>
+      <figure><img src="images/ex4/image32.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Map from left to right as shown below (you may like to use </em><strong><em>Boomi Suggest</em></strong><em>):</em></p>
+      <figure><img src="images/ex4/image33.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em>.</em></p>
+      <p><em>On the process click </em>&quot;<strong><em>Save</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image34.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Test</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image35.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose </em>&quot;<strong><em>workshop-atom</em></strong>&quot;<em> then click </em>&quot;<strong><em>Run Test</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image36.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Ensure that you have green highlights on the shapes:</em></p>
+      <figure><img src="images/ex4/image37.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Go back to the </em>&quot;<em>Outbound Activity</em>&quot;<em> page, click the refresh button. There should now be no entries. This means that the data has now sync’d with the Marketing DB:</em></p>
+      <figure><img src="images/ex4/image38.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

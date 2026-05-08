@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connect Sources — Boomi Master Data Hub — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Master Data Hub — Exercise 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 3
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~50 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Connect Sources</h1>
+      </header>
+      <p>Attach source systems (Salesforce, Netsuite) to the Model and run upsert flows that bring records into the hub.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Attach Sources</li>
+        <li>Upsert Data from Salesforce to MDH</li>
+        <li>Upsert Data from Netsuite to MDH</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">Attach Sources</h1>
+      </header>
+      <p><em>Sources are systems that </em>contribute<em> data into the master data repository or </em>accept<em> updates from the master data repository. In our scenario we have two sources which contributes data to the master data repository:</em></p>
+      <p><em>Salesforce</em></p>
+      <p><em>Netsuite</em></p>
+      <p><em>We also have one source which accepts updates from the master data repository:</em></p>
+      <p><em>Marketing DB (MySQL)</em></p>
+      <figure><img src="images/ex3/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em> We will review how these sources are created and attached to a model.</em></p>
+      <p><em>Click on the </em>&quot;<strong><em>Sources</em></strong>&quot;<em> tab then </em>&quot;<strong><em>Create a Source</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter the name </em>&quot;<strong><em>Marketing DB (YOUR-NAME)</em></strong>&quot;<em> where you replace </em><strong><em>YOUR-NAME</em></strong><em> with your firstname. For the Source ID enter </em>&quot;<strong><em>marketing_db_YOUR-NAME</em></strong>&quot;<em>. Click </em>&quot;<strong><em>Save</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Repeat the process for Salesforce:</em></p>
+      <figure><img src="images/ex3/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Repeat the process for Netsuite:</em></p>
+      <figure><img src="images/ex3/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>You should now see a list like this:</em></p>
+      <figure><img src="images/ex3/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>We will now attach the sources to our model.</em></p>
+      <p><em>Click on </em>&quot;<strong><em>Repositories</em></strong>&quot;<em> then </em>&quot;<strong><em>Training</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on your Customer model:</em></p>
+      <figure><img src="images/ex3/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em>&quot;<strong><em>Sources</em></strong>&quot;<em> tab then </em>&quot;<strong><em>Attach You First Source</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>We will first add Salesforce as a contributing source. </em></p>
+      <p><em>Choose </em>&quot;<strong><em>Salesforce (YOUR-NAME)</em></strong>&quot;<em> from the d</em>rop down list <em>then check </em>&quot;<strong><em>Contribute data</em></strong>&quot;<em> and click </em>&quot;<strong>Attach</strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Attach a Source</em></strong>&quot;<em> again to attach another source:</em></p>
+      <figure><img src="images/ex3/image11.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose </em>&quot;<strong><em>Netsuite (YOUR-NAME)</em></strong>&quot;<em> and </em>&quot;<strong><em>Contribute data</em></strong>&quot;<em> then click </em>&quot;<strong>Attach</strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image12.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Attach a Source</em></strong>&quot;<em> again:</em></p>
+      <figure><img src="images/ex3/image13.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>This time we will attach a source which will be listening for updates from the master data repository. </em></p>
+      <p><em>Choose </em>&quot;<strong><em>Marketing DB (YOUR-NAME)</em></strong>&quot;<em>, check </em>&quot;<strong><em>Accept channel updates</em></strong>&quot;<em> and click </em>&quot;<strong>Attach</strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image14.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>We will now configure the Marketing DB source so that it only listens for </em><strong><em>#Prospect</em></strong><em> records. Click on the gear icon and </em>&quot;<strong><em>Configure</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image15.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select </em>&quot;<strong><em>Apply rules to the sending of records to this source</em></strong>&quot;<em> then </em>&quot;<strong><em>#Prospect</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image16.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Scroll down and </em>&quot;<strong><em>Exclude</em></strong>&quot;<em> all the Finance Details fields. This is to ensure no finance details are sent to the Marketing DB. Then click </em>&quot;<strong><em>Save</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image17.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>For the sources that are </em>&quot;<em>contribute-only source</em>&quot; (Netsuite and Salesforce)<em> we need to </em>&quot;<strong><em>Initial Load</em></strong>&quot;<em> them. Initial Load is a mode which allows data to be loaded into the repository without triggering </em>synchronisation<em> to other systems.</em></p>
+      <p><em>For this exercise we will enable and finish initial load without loading any data.</em></p>
+      <p><em>Click on the gear icon next to Netsuite and click </em>&quot;<strong><em>Enable Initial Load</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image18.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice that the circle has turned blue. This means it is ready for initial load. We will just finish the initial load without loading any data:</em></p>
+      <figure><img src="images/ex3/image19.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Repeat the above process for Salesforce:</em></p>
+      <figure><img src="images/ex3/image20.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image21.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Confirm that all the circles are green:</em></p>
+      <figure><img src="images/ex3/image22.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Upsert Data from Salesforce to MDH</h1>
+      </header>
+      <p>In the left-hand corner of the browser select <strong>Integration </strong>from the Services drop down list:</p>
+      <figure><img src="images/ex3/image23.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click the dropdown on your User folder and click </em>&quot;<strong><em>New Component</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image24.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new Process component with name </em>&quot;<strong><em>Upsert Salesforce Account to MDH</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image25.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the start shape choose the </em>&quot;<strong><em>Salesforce</em></strong>&quot;<em> connector, leave action as </em>&quot;<strong><em>Get</em></strong>&quot;<em> and choose the </em>&quot;<strong><em>Boomi Salesforce</em></strong>&quot;<em> connection from the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder as shown below:</em></p>
+      <figure><img src="images/ex3/image26.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>Get Salesforce Account by Name</em></strong>&quot;<em> operation also from the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder as shown below:</em></p>
+      <figure><img src="images/ex3/image27.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image28.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em>&quot;<strong><em>Parameters</em></strong>&quot;<em> link:</em></p>
+      <figure><img src="images/ex3/image29.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on </em>&quot;<strong><em>Import all 1?</em></strong>&quot;</p>
+      <figure><img src="images/ex3/image30.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the edit button:</em></p>
+      <figure><img src="images/ex3/image31.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter </em>&quot;<strong><em>GenePoint</em></strong>&quot;<em> as the static value:</em></p>
+      <figure><img src="images/ex3/image32.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image33.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Drag and drop a </em>Boomi Master Data Hub <em>connector:</em></p>
+      <figure><img src="images/ex3/image34.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select the action </em>&quot;<strong><em>UPSERT</em></strong>&quot;<em> then the connection </em>&quot;<strong><em>Boomi MDM</em></strong>&quot;<em> under the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder as shown below:</em></p>
+      <figure><img src="images/ex3/image35.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new operation by clicking on the + button:</em></p>
+      <figure><img src="images/ex3/image36.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the operation </em>&quot;<strong><em>Upsert Salesforce Account to MDH</em></strong>&quot;<em> and click </em>&quot;<strong><em>Import</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image37.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>Boomi MDM</em></strong>&quot;<em> connection from the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder:</em></p>
+      <figure><img src="images/ex3/image38.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>In the source field type </em>&quot;<strong><em>salesforce_YOUR-NAME</em></strong>&quot;<em> and click </em>&quot;<strong><em>Next</em></strong>&quot;.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div><strong>Note</strong> — <em>Note</em>:</div></div>
+      <p>If you encounter an error during this step, which details that the ‘source has not been attached’ please visit step 7.</p>
+      <p>The Source ID generated in Step 3 is used and not the Source Name in the “Source” field of the Import Wizard.</p>
+      <figure><img src="images/ex3/image39.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose your model:</em></p>
+      <figure><img src="images/ex3/image40.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Finish</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image41.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Review what’s been created then click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image42.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em> on the connector page:</em></p>
+      <figure><img src="images/ex3/image43.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>We will now map between what is retrieved from Salesforce and what we want to upsert into the master data repository.</em></p>
+      <p><em>Drag and drop a </em>&quot;<strong><em>Map</em></strong>&quot;<em> shape:</em></p>
+      <figure><img src="images/ex3/image44.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the + button to add a new map:</em></p>
+      <figure><img src="images/ex3/image45.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the map </em>&quot;<strong><em>Salesforce Account to MDH</em></strong>&quot;<em> and click the </em>&quot;<strong><em>Choose</em></strong>&quot;<em> link on the source:</em></p>
+      <figure><img src="images/ex3/image46.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>XML</em></strong>&quot;<em> profile type and select </em>&quot;<strong><em>SF_Account_QUERY_Response</em></strong>&quot;<em> from the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder as shown below:</em></p>
+      <figure><img src="images/ex3/image47.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Now click on the </em>&quot;<strong><em>Choose</em></strong>&quot;<em> link on the destination section:</em></p>
+      <figure><img src="images/ex3/image48.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>XML</em></strong>&quot;<em> profile type and select </em>&quot;<strong>Boomi Master Data Hub</strong><strong><em> customer&lt;yourname&gt; UPSERT Request</em></strong>&quot;<em> under your user folder as shown </em><em>below</em><em>:</em></p>
+      <figure><img src="images/ex3/image49.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create the mappings as shown below then click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em> (you may like to use </em><strong><em>Boomi Suggest</em></strong><em>):</em></p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div><strong>Note</strong> — <strong>Note: If using Boomi Suggest, ensure to deselect suggestions made on the @fields, as this will cause records to move into quarantine. </strong></div></div>
+      <figure><img src="images/ex3/image50.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Connect the shapes as shown below, click </em>&quot;<strong><em>Save</em></strong>&quot;<em> then click </em>&quot;<strong><em>Test</em></strong>&quot;<em> to test the process:</em></p>
+      <figure><img src="images/ex3/image51.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>workshop-atom</em></strong>&quot;<em> atom:</em></p>
+      <figure><img src="images/ex3/image52.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Confirm all steps ran successfully to </em>upsert a new record into the MDH repository<em>:</em></p>
+      <figure><img src="images/ex3/image53.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Switch back to the Boomi MDH service tab in your browser and c<em>lick on the </em>&quot;<strong>Golden Records</strong>&quot;<em> </em>menu<em>, then choose your model and confirm there is an entry:</em></p>
+      <figure><img src="images/ex3/image54.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image55.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Upsert Data from Netsuite to MDH</h1>
+      </header>
+      <p><em>We will now upsert from Netsuite to the repository the missing bank details. </em></p>
+      <p><em>Click on your User folder and click </em>&quot;<strong><em>New Component</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image56.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new Process called </em>&quot;<strong><em>Upsert Netsuite Customer to MDH</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image57.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the start shape choose </em>&quot;<strong><em>Netsuite</em></strong>&quot;<em> as the connector type, </em>&quot;<strong><em>QUERY</em></strong>&quot;<em> for the action and </em>&quot;<strong><em>Boomi Netsuite</em></strong>&quot;<em> for the connection under the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder:</em></p>
+      <figure><img src="images/ex3/image58.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>Query Netsuite Customer</em></strong>&quot;<em> operation in the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder as shown below:</em></p>
+      <figure><img src="images/ex3/image59.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image60.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em>&quot;<strong><em>Parameters</em></strong>&quot;<em> link:</em></p>
+      <figure><img src="images/ex3/image61.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the + button:boomi</em></p>
+      <figure><img src="images/ex3/image62.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose </em>&quot;<strong><em>CompanyName equals</em></strong>&quot;<em> and click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image63.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Leave the Type as </em>&quot;<strong><em>Static</em></strong>&quot;<em>, and enter </em>&quot;<strong><em>GenePoint</em></strong>&quot;<em> in the static value:</em></p>
+      <figure><img src="images/ex3/image64.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image65.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Drag and drop a MDM connector:</em></p>
+      <figure><img src="images/ex3/image66.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select the action </em>&quot;<strong><em>UPSERT</em></strong>&quot;<em> then the connection </em>&quot;<strong><em>Boomi MDM</em></strong>&quot;<em> under the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder as shown below:</em></p>
+      <figure><img src="images/ex3/image67.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new operation by click on the + button:</em></p>
+      <figure><img src="images/ex3/image68.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the operation </em>&quot;<strong><em>Upsert Netsuite Customer to MDH</em></strong>&quot;<em> and click </em>&quot;<strong><em>Import</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image69.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>Boomi MDM</em></strong>&quot;<em> connection from the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder:</em></p>
+      <figure><img src="images/ex3/image70.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>In the source field type </em>&quot;<strong><em>netsuite_YOUR-NAME</em></strong>&quot;<em> and click </em>&quot;<strong><em>Next</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image71.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose your model:</em></p>
+      <figure><img src="images/ex3/image72.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Finish</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image73.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice that another upsert request profile has been created with </em>&quot;<em>2</em>&quot;<em> on the end. We can discard this profile as it’s exactly the same as the first one.</em></p>
+      <p><em>Click on the request profile and choose the one without </em>&quot;<em>2</em>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image74.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex3/image75.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em> on the connector page:</em></p>
+      <figure><img src="images/ex3/image76.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>We will now map between what is retrieved from Netsuite and what we want to upsert into the master data repository. Drag and drop a </em><strong><em>Map</em></strong><em> shape:</em></p>
+      <figure><img src="images/ex3/image77.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the + button to add a new map:</p>
+      <figure><img src="images/ex3/image78.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the map </em>&quot;<strong><em>Netsuite Customer to MDH</em></strong>&quot;<em> and click the </em>&quot;<strong><em>Choose</em></strong>&quot;<em> link on the source:</em></p>
+      <figure><img src="images/ex3/image79.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>XML</em></strong>&quot;<em> profile type and select </em>&quot;<strong><em>NetSuite Customer Query Response</em></strong>&quot;<em> from the </em><strong><em>SHARED</em></strong><em> folder:</em></p>
+      <figure><img src="images/ex3/image80.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Now click on the </em>&quot;<strong><em>Choose</em></strong>&quot;<em> link on the destination section:</em></p>
+      <figure><img src="images/ex3/image81.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>XML</em></strong>&quot;<em> profile type and select </em>&quot;<strong>Boomi Master Data Hub customer&lt;yourname&gt; UPSERT Request</strong>&quot;<em> under </em><strong><em>your User folder</em></strong>.</p>
+      <figure><img src="images/ex3/image82.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create the following mappings (</em><strong><em>DO NOT</em></strong><em> Save just yet as there are more mappings to come):</em></p>
+      <figure><img src="images/ex3/image83.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Scroll down to the bottom of source fields and expand </em>&quot;<strong><em>customFieldList</em></strong>&quot;<em>. Scroll down to the bottom of destination fields and expand </em>&quot;<strong><em>finance_details</em></strong>&quot;<em>. Create the mappings as shown below:</em></p>
+      <figure><img src="images/ex3/image84.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em>.</em></p>
+      <p><em>Connect the shapes as shown below, click </em>&quot;<strong><em>Save</em></strong>&quot;<em> then click </em>&quot;<strong><em>Test</em></strong>&quot;<em> to test the process:</em></p>
+      <figure><img src="images/ex3/image85.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>workshop-atom</em></strong>&quot;<em> atom:</em></p>
+      <figure><img src="images/ex3/image86.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Confirm all steps ran successfully:</em></p>
+      <figure><img src="images/ex3/image87.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Switch back to the Boomi MDH service tab in your browser and click on the &quot;<strong>Golden Records</strong>&quot; menu, then choose your model and confirm there is an updated entry of “GenePoint” account record:</p>
+      <figure><img src="images/ex3/image88.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image89.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
