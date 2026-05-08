@@ -187,7 +187,7 @@
             <div class="instruction-num">3</div>
             <div class="instruction-body">
               <p>Show the <strong>PGP private key</strong> — held exclusively by Bank of America and used for decryption after delivery.</p>
-              <p>Talking point: only BofA holds the private key. Even Boomi MFT in transit cannot decrypt the file — true end-to-end encryption.</p>
+              <p>Talking point: Bank of America holds the private key and controls where decryption happens. If they use the cloud-hosted MFT, decryption occurs in the cloud under their key. If they deploy the Boomi MFT runtime on-premise, decryption can happen at the last leg of the transfer — entirely within their own environment — so the plaintext file never leaves their infrastructure.</p>
             </div>
           </li>
         </ol>
@@ -197,7 +197,7 @@
           <div>The asymmetric encryption model resonates strongly with security-conscious prospects in banking and healthcare — partner sends with BofA's public key, only BofA can decrypt with the private key.</div>
         </div>
 
-        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Bank of America org → Keys tab showing PGP public key and private key configured</p>
+        <figure class="screenshot"><img src="images/flow01-bofa-pgp-keys.png" alt="Bank of America org — Keys tab showing PGP public key and private key configured"></figure>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -241,7 +241,7 @@
           </li>
         </ol>
 
-        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Flow 01 source endpoint — PGP encryption tab with bank public key and AV scanning enabled</p>
+        <figure class="screenshot"><img src="images/flow01-source-endpoint.png" alt="Flow 01 source endpoint — PGP encryption tab with bank public key and AV scanning enabled"></figure>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -296,7 +296,7 @@
           </li>
         </ol>
 
-        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Bank of America target endpoint — 5 target paths + user tab + decryption processing option</p>
+        <figure class="screenshot"><img src="images/flow01-target.png" alt="Bank of America target endpoint — 5 target paths + user tab + decryption processing option"></figure>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -344,6 +344,8 @@
           </li>
         </ol>
 
+        <figure class="screenshot"><img src="images/flow01-upload.png" alt="Flow 01 upload widget — file upload in progress"></figure>
+
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
           <button class="mark-done-btn" id="markDoneBtn">
@@ -386,7 +388,7 @@
           </li>
         </ol>
 
-        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity page filtered by Flow 01 — expanded row showing lifecycle: Upload UI → AV Scan → PGP Encrypt (source) → Ready for Download (Bank of America)</p>
+        <figure class="screenshot"><img src="images/flow01-lifecycle.png" alt="Activity page filtered by Flow 01 — expanded row showing lifecycle: Upload UI → AV Scan → PGP Encrypt (source) → Ready for Download (Bank of America)"></figure>
 
         <div class="callout tip">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>

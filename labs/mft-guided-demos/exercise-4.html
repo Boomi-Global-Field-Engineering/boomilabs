@@ -80,15 +80,15 @@
           <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Two always-on flows — no manual upload needed. Both generate continuous activity that's visible the moment you filter.</p>
         </header>
 
-        <h3>Flow 03: Scheduled File Transfer</h3>
+        <h3>Flow 03: Scheduled File Transfer Cloud to Cloud</h3>
         <p>A schedule-triggered flow moves files on a defined interval. Because it runs continuously, there's always completed activity to show without needing a manual upload. Ideal for demonstrating time-based automation and batch use cases — "files go at 9pm every night, no human touch."</p>
 
-        <h3>Flow 04: SFTP Server Pull</h3>
+        <h3>Flow 04: SFTP Server Pull and Push</h3>
         <p>Instead of a partner pushing files to Boomi, Flow 04 shows MFT actively <em>pulling</em> from an external SFTP server. The file is delivered back to the same location, creating a perpetual loop. This isn't a production pattern — it's a demo fixture that generates continuous activity to demonstrate the pull pattern without requiring a real partner environment.</p>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>Both flows are good for <strong>quick Activity demonstrations</strong> — filter and show a continuous stream of completed transfers without any setup. Use these if you need to show Activity but haven't uploaded a file yet.</div>
+          <div>Both flows are good for <b style="font-weight:700">quick Activity demonstrations</b> — filter and show a continuous stream of completed transfers without any setup. Use these if you need to show Activity but haven't uploaded a file yet.</div>
         </div>
 
         <nav class="step-nav">
@@ -123,6 +123,7 @@
             <div class="instruction-body">
               <p>Open the <strong>Schedule tab</strong>. Show how the time-based trigger is configured — interval, start time, and recurrence settings.</p>
               <p>Talking point: schedule-triggered flows are ideal for batch scenarios — ERP exports, end-of-day reports, regulatory submissions. The business defines the SLA; Boomi enforces it.</p>
+              <figure class="screenshot"><img src="images/flow03-schedule.png" alt="Flow 03 Schedule tab — time-based trigger configuration"></figure>
             </div>
           </li>
           <li>
@@ -173,7 +174,7 @@
           <div><strong>Demo tip:</strong> This flow is always ready. If a prospect asks "can I see the Activity feed?" and you haven't uploaded a file yet, filter to Flow 03 — instant dense activity, no prep needed.</div>
         </div>
 
-        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity filtered by Flow 03 — completed entries showing Last State Updated and file lifecycle</p>
+        <figure class="screenshot"><img src="images/flow03-cloud.png" alt="Activity filtered by Flow 03 — completed entries showing Last State Updated and file lifecycle"></figure>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -252,7 +253,7 @@
           </li>
         </ol>
 
-        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity filtered by Flow 04 — file cycling in a pull-deliver loop with full lifecycle states</p>
+        <figure class="screenshot"><img src="images/flow04-external.png" alt="Activity filtered by Flow 04 — file cycling in a pull-deliver loop with full lifecycle states"></figure>
 
         <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
           <div>
