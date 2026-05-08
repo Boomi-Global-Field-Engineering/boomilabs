@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-8">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Mgmt &amp; Operations — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 8</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 3
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~40 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">API Mgmt & Operations</h1>
+      </header>
+      <p>Apply API Management to your APIs, configure failover/retry behavior for resilience, then monitor and dashboard the running platform.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>API Management in Boomi</li>
+        <li>Failover / Retry</li>
+        <li>Monitoring and Dashboarding</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">API Management in Boomi</h1>
+      </header>
+      <p>The API Management Lifecycle in Boomi has three stages - (1) <strong>Build and Integrate</strong>, (2) <strong>Operate and Manage</strong>, and (3) <strong>Share and Engage</strong>.</p>
+      <p>Then there are the three key aspects of API management:</p>
+      <p>The first is the creation of the APIs. You can create brand new APIs and augment existing services with the API Service Component. The API Proxy Component allows you to connect to existing APIs, which are housed outside of Boomi.</p>
+      <p>Then, there is the API gateway itself. This is the component where everything comes together and what is public is exposed to end users and third-party applications. This is important because it’s AtomSphere that’s interacting with the clients and protecting your APIs and data systems.</p>
+      <p>Finally, there is the developer portal. This is where developers who are external to the organization, or maybe internal to the organization, but external to AtomSphere, go to discover what APIs are available. It’s where we put security, subscriptions, and policies on publicly available APIs. It is also where we make it possible for developers to develop, test, and self-service their integrations.</p>
+      <figure><img src="images/ex8/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex8/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once platform login is done. Click on the <strong>Manage </strong>tab and then <strong>Atom Management.</strong></p>
+      <figure><img src="images/ex8/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Atom Name</strong> on the left panel of the window and then on <strong>Shared Web Server</strong>.</p>
+      <figure><img src="images/ex8/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Shared Web Server Settings will be slightly different for the <strong>Native Cloud</strong> runtime and the <strong>local</strong> runtime.</p>
+      <p>For <strong>Native Cloud </strong>runtime.</p>
+      <figure><img src="images/ex8/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>For <strong>local </strong>runtime.</p>
+      <figure><img src="images/ex8/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Controlled under Atom Management</strong></p>
+      <p><strong>Determine what type of requests can be made.</strong></p>
+      <p><strong>API Type = “Advance” for API management.</strong></p>
+      <p><strong>Authentication Type= “Basic” for the APIs deployed to the run time.</strong></p>
+      <p>Authentication settings indicate how the API requests will be authenticated. To take full advantage of available API Management features, the authentication type will be set to Gateway. This type of authentication leverages a validation token accessible to a Bomi API Gateway that is validated by Atom. Molecule or Cloud to Authenticate.</p>
+      <p>Click on the <strong>User Management </strong>on the same Shared Web Server Tab.</p>
+      <figure><img src="images/ex8/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On this page, you can see the username and token which are used to authenticate the deployed API where the authentication type is <strong>Basic.</strong></p>
+      <p>Click on the <strong>Services</strong> tab and then <strong>API Management</strong> from the list.</p>
+      <figure><img src="images/ex8/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following page will be displayed</p>
+      <figure><img src="images/ex8/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On this page, you can see all the deployed APIs and their configuration with details. One can also see other tabs and sub tabs which give information on the functionality and allows to set the values as per requirement.</p>
+      <p>The landing page shows the list of all Deployed APIs.</p>
+      <figure><img src="images/ex8/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>One can also filter the API by Name, Gateway, or URL.</p>
+      <p>By Name</p>
+      <figure><img src="images/ex8/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>By Gateway</p>
+      <figure><img src="images/ex8/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>By URL</p>
+      <figure><img src="images/ex8/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Configure APIs and Applications </strong>tab the Applications.</p>
+      <figure><img src="images/ex8/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>An application provides access to the related group of APIs. It tells us, as we manage the API, what entity to a specific API.</p>
+      <p>Click<strong> Configure Server. </strong>Three options are available<strong> - Gateways, Plans, and Authentication.</strong></p>
+      <figure><img src="images/ex8/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Gateways</p>
+      <figure><img src="images/ex8/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>API Gateways route API calls to the various Atoms, Molecules, or Clouds in an environment and provide policies that restrict access to the API.</p>
+      <p>Plans</p>
+      <figure><img src="images/ex8/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>A plan is a collection of policies that set limits to API requests and link a valid API Key to a specific API Deployment. Create the plans you will need, then apply them to APIs during the deployment process.</p>
+      <p>Authentication</p>
+      <figure><img src="images/ex8/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Authentication Sources serve as the connection between your Boomi API deployments and your identity provider. Once the Authentication Source is configured, you can use the Deployed APIs page to control which API deployments use it.</p>
+      <p>Click on <strong>Publish </strong>tab on the API Management Page.</p>
+      <p>.</p>
+      <figure><img src="images/ex8/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>This screen provides a list of all of the Developer Portals you have in your account. Each API Gateway has one associated Developer Portal.</p>
+      <p>Click on <strong>Approve </strong>tab on the API Management Page.</p>
+      <figure><img src="images/ex8/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Approve or reject requests for access to APIs. Only APIs that use the standard approval process are displayed on this screen.</p>
+      <p>Click on the last tab <strong>Dashboard </strong>on the API Management Page.</p>
+      <figure><img src="images/ex8/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The Dashboard link in the API Management menu opens the API Management Dashboard page. It provides a quick view of the activity and status of your deployed APIs.</p>
+      <p>The API Management Dashboard page is divided into several sections.</p>
+      <p>API Usage History</p>
+      <p>API Usage Trends</p>
+      <p>Average Response Time</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Failover / Retry</h1>
+      </header>
+      <p>In this exercise, you will explore the unified Boomi Process Monitoring portal. This is where you will see every transaction that gets executed on any of the Boomi runtimes that you have installed in your Boomi your account, including Batch processes and real time API processes. You can drill in to see the payloads that were sent to each application to debug any issues. You can replay process instances that may have failed because a system was down so that the transactions will complete successfully and even replay them in the Boomi Integration Test mode to be able to see all the data flowing between every step. Also, using the View Process State capability, you can see how long each step took to execute so you can quickly identify any bottleneck. This is where you would manually initiate a Process invocation by clicking on Execute Process. The process logfile can be viewed and downloaded for further analysis.</p>
+      <p>From the <strong>Integration </strong>perspective, click on <strong>Manage </strong>-&gt; <strong>Process Reporting</strong>.</p>
+      <figure><img src="images/ex8/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can see a list of all the process executions on this screen. Click on the <strong>time </strong>for any process.</p>
+      <figure><img src="images/ex8/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can see the details of connectors and number of documents and other metadata on this screen. Click on the <strong>success </strong>for the start shape.</p>
+      <figure><img src="images/ex8/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You have the option to <strong>Re-run documents</strong> here. You can also <strong>Re-run the documents in Test Mode</strong> for error debugging.</p>
+      <figure><img src="images/ex8/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Monitoring and Dashboarding</h1>
+      </header>
+      <p>Once platform login is done. Click on the <strong>Manage </strong>tab and then <strong>Process Reporting.</strong></p>
+      <figure><img src="images/ex8/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Process reporting out-of-the-box features that provides monitoring capabilities. It is also a search console for accessing information about executed processes. You can review statistics about the execution to see how documents have succeeded, failed, and/or react against connectors and process shapes in an elapsed timeframe.</p>
+      <p>Once clicked on<strong> Process Reporting</strong> following page is displayed.</p>
+      <figure><img src="images/ex8/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Slide On on the Auto Refresh Table to have the execution records automatically refresh every minute.</p>
+      <figure><img src="images/ex8/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose any execution record in the executions view, click the Actions gearbox, and select View Deployment Components</p>
+      <figure><img src="images/ex8/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the View/Edit button on any component from the list.</p>
+      <p>A new browser tab or window opens displaying the direct component instance. The component revision number from the Components in this Deployment Version table corresponds to the component revision number in the revision history. You can review the specific component configuration the atom is executing and reporting on the manage tab, which may correspond to the latest version of the process or sub-component.</p>
+      <figure><img src="images/ex8/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Close the window to return to a view of the Deployed Components.</p>
+      <p>Click Cancel to return to the process reporting window.</p>
+      <p>Highlight the first execution record and click the View Process Logs symbol.</p>
+      <figure><img src="images/ex8/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Examine the details in the Show Log window, then click Cancel to return to the Process Reporting window.</p>
+      <figure><img src="images/ex8/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can also <strong>View Document Statics</strong>.</p>
+      <p>The Detail View pane displays the inbound and outbound data for the selected process execution. Documents In refers to the documents captured on the start shape. Documents Out refer to any connector shapes which retrieve or send documents. In this exercise, you will review logs.</p>
+      <p>Click the <strong>hyperlinked timestamp</strong> to open the first execution.</p>
+      <figure><img src="images/ex8/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>A detailed process execution view slides in from the right containing process and document-level information. Click the Successes link on the<strong> (Start) ServiceNow REST</strong> to view individual documents.</p>
+      <figure><img src="images/ex8/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the documents section of the Detail View pane, click the<strong> Actions</strong> button of the first inbound data record and choose <strong>View Document.</strong></p>
+      <figure><img src="images/ex8/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>The Atom temporarily </strong>uploads the document to the Document Viewer.</p>
+      <figure><img src="images/ex8/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The data is then displayed in the Document Viewer pop-up window. Review the data and click the <strong>Close Document Viewer</strong> button when finished.</p>
+      <figure><img src="images/ex8/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>For large files, you may not be able to view the complete document in the Document Viewer. To download the full document contents to a file on your workstation click <strong>Download Original Document</strong>.</p>
+      <p>Click on the <strong>Close </strong>button to close the log page and return to the main page.</p>
+      <figure><img src="images/ex8/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the<strong> View Extended Information</strong> gear symbol to Extended Execution Information</p>
+      <p>.</p>
+      <figure><img src="images/ex8/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The<strong> Extended Execution Information</strong> window drops down from the top displaying the Execution ID field for this single record. Click on Close to return to the main window.</p>
+      <figure><img src="images/ex8/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can also click on<strong> Add Filter</strong>, and from the drop-down choose an option to apply filter and see the desired execution logs. Click on Atoms to create a filtered view.</p>
+      <figure><img src="images/ex8/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the<strong> Atoms</strong> option -&gt; choose the Atom name.</p>
+      <figure><img src="images/ex8/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>A filtered view of the Execution can be seen.</p>
+      <figure><img src="images/ex8/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can also view the as per <strong>Documents</strong> and <strong>Trading Partner</strong>. Click on the <strong>Executions link</strong>.</p>
+      <figure><img src="images/ex8/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can also see the execution log for the desired time frame. Click on the Past Hour button.</p>
+      <figure><img src="images/ex8/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can also explore other filters and features available on the Process Reporting Page.</p>
+      <p>Click on the <strong>Dashboard</strong> in the top left corner can you can see different Dashboard Options available.</p>
+      <figure><img src="images/ex8/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Boomi AtomSphere’s dashboards provide snapshots of the status of executions, HTTP status codes, and the status of low latency processes.</p>
+      <p>The Account Dashboard is available to all accounts. The HTTP Status Dashboard is available if the Services Enablement feature is enabled in your account.</p>
+      <p>Click on <strong>Account Dashboard</strong>.</p>
+      <figure><img src="images/ex8/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking</p>
+      <figure><img src="images/ex8/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the Account Dashboard page, you can view a summary of recent activity within your account. If you are a partner supporting multiple customers, this dashboard can provide a summary of your customers&#x27; integration activities and highlight recent errors and execution trends.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div><strong>Note</strong> — <strong>Note:</strong> Only processes that generate logs appear in the Account Dashboard. Processes that did not execute do not appear, even if they are shown in Process Reporting.</div></div>
+      <p>The Account Dashboard page is divided into several sections or gadgets:</p>
+      <p><strong>Offline Atoms</strong></p>
+      <p><strong>Process Errors</strong></p>
+      <p><strong>Throughput</strong></p>
+      <p><strong>Pending Executions and Connector Usage</strong></p>
+      <p><strong>Execution Count</strong></p>
+      <p><strong>Document Count</strong></p>
+      <p>Click on the <strong>Dashboard</strong> tab and then <strong>HTTP Status Dashboard</strong>.</p>
+      <figure><img src="images/ex8/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking</p>
+      <figure><img src="images/ex8/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the HTTP Status Dashboard, you can view a summary of the logs on a particular Atom or environment during a specified period.</p>
+      <ol>
+        <li>Click on the Dashboard tab and then HTTP Status Dashboard.</li>
+      </ol>
+      <figure><img src="images/ex8/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking.</p>
+      <figure><img src="images/ex8/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The Real-time Dashboard page provides summary status of low latency processes that occurred in the time and/or date range that you select.</p>
+      <p>The low latency process execution information is aggregated, rather than reporting every execution. This summary information, which may be delayed up to five minutes after processes have completed, appears on the Real-time Dashboard rather than the Manage menu’s Process Reporting page.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div><strong>Note</strong> — <strong>Note:</strong> The Real-time dashboard is available only if the Services Enablement feature is enabled in your account.</div></div>
+      <p>The Real-time Dashboard page is divided into several sections called gadgets.</p>
+      <p><strong>Execution Status by Time</strong></p>
+      <p><strong>Execution Status</strong></p>
+      <p><strong>Average Response Time</strong></p>
+      <p><strong>Process Summary Report</strong></p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

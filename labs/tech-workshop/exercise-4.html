@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-4">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETL Processes — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 4</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 3
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~50 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">ETL Processes</h1>
+      </header>
+      <p>Build three progressive ETL processes — extract, transform, and load data through the Boomi process canvas.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Build an ETL process 1</li>
+        <li>Build an ETL Process 2</li>
+        <li>Build an ETL Process 3</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">Build an ETL process 1</h1>
+      </header>
+      <figure><img src="images/ex4/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Boomi aXis for SAP is our no code solution to send and get data into and out of SAP. An SAP Business Analyst can create Boomi aXis for SAP services and inform the Boomi developers to call them Go to  in your browser and sign in as:</p>
+      <p>Username: <strong>BoomiUser</strong></p>
+      <p>Password: <strong>6D5qqX&amp;%%7_</strong></p>
+      <p>Click on <strong>Table Service </strong>under <strong>CREATE</strong></p>
+      <figure><img src="images/ex4/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You have access to any and all backend SAP tables, if your user has the authorization to do so. In the <strong>Search by table name </strong>field, enter <strong>KNA1</strong>. Hove over the <strong>KNA1 </strong>table and drag and drop it onto the canvas. Change the search to <strong>KNB1</strong> and drag it over to the canvas too. Your canvas should look like this</p>
+      <figure><img src="images/ex4/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Left mouse click on the icon in the <strong>KNA1 </strong>table. Notice that you see all the columns, data types, english descriptions, data types, and any constraints from the SAP Data Dictionary. Unclick the top red checkbox to uncheck all, then check the top 5 columns, and click <strong>CONFIRM</strong>.</p>
+      <figure><img src="images/ex4/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Do the same for the <strong>KNB1</strong> table. Click , uncheck the top red box and check the top 5 columns and click <strong>CONFIRM</strong>.</p>
+      <figure><img src="images/ex4/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>KUNNR </strong>column in the <strong>KNA1 </strong>table and release. It will show you all other columns that are good candidates to join to. Left mouse on the <strong>KUNNR </strong>column in the <strong>KNA1</strong> table, but this time drag and drop on the <strong>KUNNR </strong>column in the <strong>KNB1</strong> table. You should see a line between the 2 tables.</p>
+      <figure><img src="images/ex4/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>CONFIGURE SERVICE </strong>button at the top of the screen , enter a <strong>Service name</strong> of <strong>AXIS_&lt;your first name&gt;</strong>, click <strong>Production </strong>under <strong>Mode</strong>, and click <strong>CLOSE</strong>.</p>
+      <figure><img src="images/ex4/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now the SAP Business Analyst can let the Boomi developer know that there is a new Boomi aXis for SAP service created that will extract SAP customer data. Go back to your Boomi Integrate UI. Create a new folder under your <strong>User - XX </strong>folder called: <strong>3.A - Build an ETL process 1</strong>.</p>
+      <figure><img src="images/ex4/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Create a new Process in this folder called <strong>SAP Customer to MySQL ETL</strong> and click <strong>Create</strong>.</p>
+      <figure><img src="images/ex4/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure your <strong>Start Shape</strong>:</p>
+      <figure><img src="images/ex4/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the icon in the <strong>Operation </strong>field, change the name to <strong>Get SAP Customer Data</strong> and click <strong>Import</strong>.</p>
+      <figure><img src="images/ex4/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>workshop_demo </strong>for <strong>Atom </strong>and <strong>SAP S4H </strong>for <strong>Connection </strong>and click <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select your Boomi aXis for SAP service <strong>AXIS_&lt;your name&gt;</strong>, and <strong>Next </strong>then <strong>Finish</strong>.</p>
+      <figure><img src="images/ex4/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Save and Close</strong>, then <strong>OK</strong>.</p>
+      <figure><img src="images/ex4/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search for and drag and drop a <strong>Database V2 </strong>connector onto the canvas. Change <strong>Action </strong>to <strong>INSERT</strong>, in the <strong>Connection </strong>field click <strong>Choose…</strong>, navigate to <strong>/Workshop/Immersive Hands On/#Shared Connections</strong> and select <strong>Cloud MySQL DB</strong>.</p>
+      <figure><img src="images/ex4/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the icon in the <strong>Operation </strong>field, change the name to <strong>INSERT SAP_CUSTOMERS Table</strong>, and click <strong>Import</strong>.</p>
+      <figure><img src="images/ex4/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>For field <strong>Atom </strong>: <strong>workshop_demo</strong>, <strong>Connection </strong>: <strong>Cloud MySQL </strong>in the folder <strong>/Workshop/Immersive Hands On/#Shared Connections</strong>, <strong>Insertion Type </strong>: <strong>Dynamic Insert</strong>, and click <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Make sure <strong>Object Type </strong>is <strong>SAP_CUSTOMERS (TABLE)</strong>, and click <strong>Next</strong>, then <strong>Finish</strong>.</p>
+      <figure><img src="images/ex4/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Save and Close</strong>.</p>
+      <figure><img src="images/ex4/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag and drop a <strong>Map </strong>shape onto the canvas. Click the icon in the <strong>Map </strong>field. Change the <strong>Map </strong>name to <strong>SAP to MySQL Map</strong>, in the navigation pane on the left, show all the <strong>JSON Profiles</strong> in the <strong>3.A - Build and ETL process 1</strong>.</p>
+      <figure><img src="images/ex4/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag the <strong>Boomi aXis for SAP AXIS_HARVEY QUERY Response</strong> JSON Profile and drop it into the <strong>Map Source </strong>panel of the <strong>Map</strong>, and drag the <strong>Database V2 SAP_CUSTOMERS (TABLE) CREATE Request </strong>JSON Profile into the <strong>Map Target </strong>panel of the <strong>Map</strong>. Expand both JSON Profiles.</p>
+      <figure><img src="images/ex4/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Boomi Suggest</strong>, accept all the suggestions by clicking on <strong>Next </strong>and <strong>Finish</strong>. Manually map the 4 other fields from the source JSON to the target JSON. Click<strong> Save and Close</strong>, then <strong>OK</strong>.</p>
+      <figure><img src="images/ex4/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the shapes and arrange them. Click <strong>Save</strong>.</p>
+      <figure><img src="images/ex4/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>workshop_demo </strong>Atom and <strong>Run Test</strong>.</p>
+      <figure><img src="images/ex4/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>If the process completes successfully, you should see a green background around all shapes. Click on the <strong>Stop </strong>shape, click <strong>Shape Source Data</strong>, and click on one of the 98 SAP Customers that were retrieved from SAP. Check with your instructor to see if 98 records were sent over to the cloud MySQL database.</p>
+      <figure><img src="images/ex4/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Build an ETL Process 2</h1>
+      </header>
+      <figure><img src="images/ex4/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>User - XX</strong> folder, create a new folder called <strong>3.B - Build an ETL process 2</strong> and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex4/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>3.B - Build an ETL process 2</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex4/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Process</strong>, name the component <strong>ServiceNow Requests to Snowflake</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex4/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will see a process is created with a Start shape. Click on <strong>Configure</strong> if the process start shape isn’t already open</p>
+      <figure><img src="images/ex4/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the<strong> ServiceNow REST</strong> connector from the connector list.</p>
+      <figure><img src="images/ex4/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>QUERY </strong>in <strong>Action </strong>and the <strong>ServiceNow </strong>connection from the folder <strong>/Workshop/Immersive Hands On/#Shared Connections</strong> in <strong>Connection</strong>.</p>
+      <figure><img src="images/ex4/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click<strong> </strong> sign near in the <strong>Operation </strong>field to create a new operation.</p>
+      <figure><img src="images/ex4/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the Operation as <strong>Get All Requests </strong>and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex4/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the<strong> workshop_demo </strong>in <strong>Atom </strong>, <strong>ServiceNow</strong> in <strong>Connection</strong>, <strong>Actual Value </strong>in <strong>Display Value</strong> and <strong>sc_request </strong>in the <strong>Filter </strong>fields and then click <strong>Next.</strong></p>
+      <figure><img src="images/ex4/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Request (sc_request)</strong> in <strong>Object Type</strong> and click <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Finish</strong>. Notice the ML (Machine Learning) that the Boomi platform implements to make it easy and quick to build integrations. Since many of our users create a filter on the ServiceNow Request by <strong>number </strong>or <strong>sys_id</strong>, we offer this to the builder. ML/AI is pervasive throughout the platform.</p>
+      <figure><img src="images/ex4/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Save and Close</strong> the Operation. Click <strong>OK </strong>to save the ServiceNow REST Connector Shape.</p>
+      <p>Search for and drag a <strong>Snowflake </strong>connector into the process canvas.</p>
+      <figure><img src="images/ex4/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Bulk Load </strong>in <strong>Action</strong>, <strong>Choose…:</strong> <strong>Snowflake DB </strong>from the folder <strong>/Workshop/Immersive Hands On /#Shared Connections</strong> in <strong>Connection.</strong></p>
+      <figure><img src="images/ex4/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>sign in <strong>Operation </strong>to create a new Snowflake operation.</p>
+      <figure><img src="images/ex4/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the operation <strong>Load Requests from S3</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex4/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>Atom </strong>as <strong>workshop_demo</strong>, <strong>Connection </strong>as <strong>Snowflake DB</strong> and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>.DEMO.SERVICENOW_REQUEST (TABLE)</strong> and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image053.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Finish</strong>.</p>
+      <figure><img src="images/ex4/image054.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Fill in the Snowflake operation details for <strong>S3 Bucket Name </strong>use <strong>boomiworkshop</strong>, <strong>AWS Region </strong>of <strong>us-east-1</strong>, <strong>File Format Name</strong> of <strong>SERVICENOW_REQUESTS_CSV</strong>, <strong>File Format Type</strong> as <strong>CSV</strong>. Then click <strong>Save and Close</strong> and <strong>OK</strong> to save the connector.</p>
+      <figure><img src="images/ex4/image055.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Execute </strong>palette tab, drag a <strong>Map</strong> shape on the process Canvas.</p>
+      <figure><img src="images/ex4/image056.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on<strong> </strong><strong> </strong>icon to create a new map<strong>.</strong></p>
+      <figure><img src="images/ex4/image057.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image058.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the map as <strong>ServiceNow to Snowflake Map.</strong></p>
+      <figure><img src="images/ex4/image059.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>choose </strong>on the Map Source.</p>
+      <figure><img src="images/ex4/image060.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>JSON </strong>as <strong>Profile Type</strong>, <strong>ServiceNow REST Request (sc_request) FILTER_QUERY Response</strong> in <strong>Profile </strong>from <strong>/Workshop/Immersive Hands On/&lt;your folder&gt;/3.B - Build an ETL process 2 </strong>folder and click <strong>OK.</strong></p>
+      <figure><img src="images/ex4/image061.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Expand All </strong>in the source profile to show all the data elements.</p>
+      <figure><img src="images/ex4/image062.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Map Destination</strong> panel, click <strong>Choose</strong>.</p>
+      <figure><img src="images/ex4/image063.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Flat File </strong>as <strong>Profile Type </strong>and <strong>SERVICENOW_REQUESTS</strong> in <strong>Profiles </strong>From <strong>/Workshop/Immersive Hands On/#Shared Assets</strong> folder and click <strong>OK.</strong></p>
+      <figure><img src="images/ex4/image064.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Expand All </strong>in the destination profile to show all the data elements.</p>
+      <figure><img src="images/ex4/image065.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Boomi Suggest</strong>. This is an Artificial Intelligence (AI) solution that allows you to automatically map data from any source to any target. Boomi saves every mapping that any customer has ever created in our Boomi Suggest repository. It has over 100 million maps of anonymized metadata of just the source attribute name and the target attribute name. If you don’t get a hit, manually create the mapping and Boomi will learn this map too. Since mapping is the most time consuming part of creating integrations, this will exponentially increase your productivity.</p>
+      <figure><img src="images/ex4/image066.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>These are the mappings that Boomi found that applies to your data structures. Since Boomi Suggest is always learning, your hits may be slightly different. Click <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image067.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Boomi organizes the hits based on Low, Medium, and High matches. You can decide to accept or reject any of the mapping suggestions. Boomi customers, on average, accept over 90% of our suggestions. Change each <strong>From Path </strong>mapping in the <strong>High Confidence Matches </strong>this screen below</p>
+      <figure><img src="images/ex4/image068.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>To this. Basically, uncheck the box in the first mapping and change each of the others to refer to the from attribute and click <strong>Next</strong>.</p>
+      <figure><img src="images/ex4/image069.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Clicking <strong>Next </strong>through any <strong>Medium, and Low Confident Matches</strong>.</p>
+      <p>When you see <strong>Suggestions Complete, </strong>click on <strong>Finish</strong>.</p>
+      <figure><img src="images/ex4/image070.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Notice that all of the mappings have been created automatically except for the <strong>number </strong>attribute. Boomi Suggest not only matches exact matching attributes, but also similar and any others that have been made on the platform.</p>
+      <figure><img src="images/ex4/image071.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>To map the <strong>number </strong>field, lower the vertical scroll bar in the <strong>Map Source </strong>pane until you see <strong>number</strong>. Then hover over <strong>number </strong>in the <strong>Map Source </strong>panel, drag until you are hovering over the <strong>number </strong>field in the <strong>Map Target </strong>panel and drop to create the mapping.</p>
+      <figure><img src="images/ex4/image072.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>short_description</strong> and <strong>description </strong>fields in the ServiceNow Request object can contain double quotes. Since this is our token text qualifier, we need to replace them with single quotes. To do this, we need to use a Boomi String function. Click on the  sign at the top of the middle <strong>Functions </strong>panel.</p>
+      <figure><img src="images/ex4/image073.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image074.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Category </strong>dropdown select <strong>String</strong> and in the <strong>Functions</strong> panel select <strong>String Replace</strong> and <strong>OK.</strong></p>
+      <figure><img src="images/ex4/image075.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>String to Search</strong> field enter <strong>“ </strong>and in the <strong>String to Replace</strong> enter <strong>‘</strong> and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex4/image076.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Map</strong>, scroll down in the <strong>Map Source</strong> panel until you see the <strong>short_description </strong>attribute. Do the same for the <strong>Map Target </strong>panel. Your <strong>Map </strong>should look like this:</p>
+      <figure><img src="images/ex4/image077.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Hover over the <strong>short_description </strong>field in the <strong>Map Target </strong>panel until the cursor changes to four arrows. Left mouse click, drag and drop the existing map over the <strong>Original String</strong> input in the <strong>String Replace </strong>function. Now hover over the <strong>Result </strong>output of the <strong>String Replace </strong>function until the cursor changes to four arrows. Left mouse click, drag and drop the new map over the <strong>short_description </strong>field in the <strong>Map Target </strong>panel. The mapping should go through the function. When you get your <strong>Map </strong>to look like the following, click <strong>Save and Close</strong>.</p>
+      <figure><img src="images/ex4/image078.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>We need to call the same function for the <strong>description </strong>field too. The easiest way to do this is to click on the <strong>Copy </strong>icon in the <strong>short_description String Replace </strong>function and click <strong>Paste</strong> at the bottom of the <strong>Functions </strong>panel. You will see another instance of the <strong>String Replace </strong>function added under the other one.</p>
+      <figure><img src="images/ex4/image079.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Scroll down in the <strong>Map Source</strong> panel until you see the <strong>description </strong>attribute. Do the same for the <strong>Map Target </strong>panel. Your <strong>Map </strong>should look like this:</p>
+      <figure><img src="images/ex4/image080.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Just like you did for the <strong>short_description </strong>field, hover over the <strong>description </strong>field in the <strong>Map Target </strong>panel until the cursor changes to four arrows. Left mouse click, drag and drop the existing map over the <strong>Original String</strong> input in the new <strong>String Replace </strong>function you just created on the bottom of the <strong>Functions </strong>panel. Now hover over the <strong>Result </strong>output of the new <strong>String Replace </strong>function until the cursor changes to four arrows. Left mouse click, drag and drop the new map over the <strong>description </strong>field in the <strong>Map Target </strong>panel. The mapping should go through the function. When you get your <strong>Map </strong>to look like the following, click <strong>Save and Close</strong>.</p>
+      <figure><img src="images/ex4/image081.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag and drop a <strong>Data Process </strong>shape to the canvas. In the popup, click the  sign under <strong>Processing Steps</strong>, in the <strong>Processing Step </strong>drop down, select <strong>Combine Documents</strong>, in <strong>Profile Type</strong>, select <strong>Flat File</strong>, in <strong>Header Option</strong> click the <strong>Retain first line as Column Headers</strong> radio button, and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex4/image082.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image083.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag drop a <strong>Stop </strong>shape to the canvas and click <strong>OK</strong>.</p>
+      <p>Arrange and <strong>Connect </strong>all the shapes. When your canvas looks like this, click <strong>Save</strong>.</p>
+      <figure><img src="images/ex4/image084.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now lets deploy this process and run it. Click the <strong>Save </strong>button in the process and click on <strong>Create Packaged Component.</strong></p>
+      <p>Click on <strong>Next:Add Details</strong>, then <strong>Create Packaged Component(1)</strong>, then <strong>Deploy</strong>, select <strong>Private Cloud </strong>for <strong>Deployment Environment</strong> and <strong>Next: Select Version</strong>.</p>
+      <figure><img src="images/ex4/image085.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Next: Review</strong>, then <strong>Deploy</strong>, then <strong>Close</strong>.</p>
+      <p>Before you test your process, make sure to ask the instructor to clear out the <strong>SERVICENOW_REQUEST </strong>table in <strong>Snowflake</strong> so you will know exactly how many <strong>ServiceNow Requests </strong>get inserted.</p>
+      <p>Click <strong>Manage -&gt; Process Reporting</strong>, then <strong>Execute Process</strong>. In the <strong>Execute Process </strong>dialog select <strong>workshop_demo</strong> for <strong>Select and Atom</strong>, navigate to and select <strong>ServiceNow Requests to Snowflake </strong>in your folder: <strong>/Workshop/Immersive Hands On/&lt;your folder/3.B - Build an ETL process 2 </strong>for <strong>Process </strong>then <strong>Execute</strong>.</p>
+      <figure><img src="images/ex4/image086.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can click the refresh button  at the top of the <strong>Process Reporting </strong>page to see that the process is running. Feel free to click on the <strong>Time </strong>link and drill in to see the actual data passing through the process. You can ask the instructor if the ServiceNow Requests are loaded into Snowflake. Congratulations on completing this ETL exercise.</p>
+      <figure><img src="images/ex4/image087.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image088.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Build an ETL Process 3</h1>
+      </header>
+      <figure><img src="images/ex4/image089.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>User - XX </strong>folder, create a new folder called <strong>3.C - Build an ETL process 3 </strong>and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex4/image090.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image091.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>3.C - Build an ETL process 3 </strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex4/image092.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Process</strong>, name the component <strong>Boomi aXis BW Extractor to Snowflake</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex4/image093.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Start Shape </strong>dialog, select <strong>Connector </strong>as: <strong>Boomi aXis for SAP</strong><strong>, Action: BW_GET </strong>and click on <strong>Choose…</strong> to select the <strong>Connection SAP S4H</strong> from <strong>/Workshop/Immersive Hands On/#Shared Connections </strong>directory.</p>
+      <figure><img src="images/ex4/image094.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong> </strong>icon on the <strong>Operation </strong>tab, give <strong>Operation </strong>name as <strong>Get SAP BW Extractor Data</strong>. Click on <strong>Import</strong>, then select <strong> Atom </strong>: <strong>workshop_demo </strong>and <strong>Connection </strong>:<strong> SAP S4H</strong> from directory: <strong>/Workshop/Immersive Hands On/#Shared Connections</strong>, <strong>Filter</strong> : <strong>0BPARTNER_ATTR</strong> and <strong>Next</strong></p>
+      <figure><img src="images/ex4/image095.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image096.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image097.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>If you see <strong>0BPARTNER_ATTR</strong> as the <strong>Object Type</strong> click on <strong>Next</strong>, then <strong>Finish.</strong></p>
+      <figure><img src="images/ex4/image098.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Your connector should look like this. If so, click<strong> OK.</strong></p>
+      <figure><img src="images/ex4/image099.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Parameters (0 of 1 set) </strong>link on the canvas, and then the<strong> </strong><strong> </strong>icon, select <strong>ID</strong> and <strong>OK </strong>as <strong>Input </strong>and enter <strong>Static Value</strong> as <strong>0EEF203C9D411EDCB8F0A7A3CF61CF41</strong>. Make sure you don’t have any leading or trailing spaces. This is the SAP BW Extractor export ID. Click on<strong> OK.</strong></p>
+      <figure><img src="images/ex4/image100.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image101.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image102.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image103.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on<strong> OK </strong>to save the <strong>Start Shape</strong>.</p>
+      <figure><img src="images/ex4/image104.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Map </strong>shape to the canvas, <strong>Choose…</strong> <strong>Map </strong>:<strong> SAP BP Extract to Snowflake Map</strong> from <strong>/Workshop/Immersive Hands On/#Shared Assets folder </strong>and then click <strong>OK.</strong></p>
+      <figure><img src="images/ex4/image105.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image106.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the <strong>Start Shape </strong>and the <strong>Map</strong>.</p>
+      <figure><img src="images/ex4/image107.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search for <strong>Snowflake</strong> on <strong>Search shapes</strong> and drag the <strong>Snowflake </strong>connector to your canvas</p>
+      <figure><img src="images/ex4/image108.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Action </strong>: <strong>CREATE</strong>, and <strong>Connection </strong>:<strong> Snowflake DB</strong> from <strong>/Workshop/Immersive Hands On/#Shared Connections.</strong></p>
+      <figure><img src="images/ex4/image109.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>icon in the <strong>Operation </strong>field, give <strong>Operation </strong>name : <strong>Load SAP BP BW Extractor </strong>and<strong> </strong>click <strong>Import.</strong></p>
+      <figure><img src="images/ex4/image110.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image111.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Atom</strong> : <strong>workshop_demo </strong>and <strong>Connection </strong>: <strong>Snowflake DB </strong>from</p>
+      <p><strong>/Workshop/Immersive Hands On/#Shared Connections </strong>and <strong>Next.</strong></p>
+      <figure><img src="images/ex4/image112.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Object Type </strong>: <strong>.DEMO.SAP_BUSINESS_PARTNER (TABLE)</strong> and click <strong>Next </strong>then <strong>Finish</strong>.</p>
+      <figure><img src="images/ex4/image113.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Update the<strong> Batch Size</strong> to <strong>500</strong> and click on <strong>Save and Close</strong>, then <strong>OK </strong>to save the connector<strong>.</strong></p>
+      <figure><img src="images/ex4/image114.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a<strong> Stop</strong> shape from <strong>Search shapes</strong> and connect the shapes together until it looks like the following.</p>
+      <figure><img src="images/ex4/image115.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Save </strong>and<strong> Create Packaged Component. </strong></p>
+      <figure><img src="images/ex4/image116.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Next: Add Details</strong>.</p>
+      <figure><img src="images/ex4/image117.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Give <strong>Version for All </strong>: <strong>1.0 </strong>and <strong>Package Notes for All </strong>: <strong>Initial Deployment</strong> and then click on <strong>Create Packaged Component(1)</strong>.</p>
+      <figure><img src="images/ex4/image118.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Deploy</strong>.</p>
+      <figure><img src="images/ex4/image119.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Private Cloud </strong>as the <strong>Deployment Environment </strong>and click on <strong>Next: Select Versions</strong>, then <strong>Next: Review</strong>, <strong>Deploy </strong>and <strong>Close</strong>.</p>
+      <figure><img src="images/ex4/image120.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image121.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Your process is now deployed and ready to execute. To do this, click on <strong>Manage -&gt; Process Reporting</strong>.</p>
+      <p>You might want to check with your instructor to clear the <strong>SAP_BUSINESS_PARTNER </strong>table in Snowflake to make sure you actually sent <strong>261 </strong>rows. Click <strong>Execute Process</strong>, and set <strong>Select an Atom </strong>: <strong>workshop_demo</strong>, <strong>Process </strong>: <strong>Boomi axis BW Extractor to Snowflake </strong>process you just created in the folder: <strong>/Workshop/Immersive Hands On/&lt;your folder&gt;/3.C - Build an ETL process 3</strong></p>
+      <figure><img src="images/ex4/image122.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

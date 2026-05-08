@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Setup &amp; Provisioning — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 2
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~30 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Setup & Provisioning</h1>
+      </header>
+      <p>Log in to AtomSphere, set up your work folder, and walk through user provisioning patterns using Master Data Hub.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Log In and Make Your Work Folder</li>
+        <li>Business or Project Based Grouping Provisioning and Management</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 2</div>
+        <h1 class="step-title">Log In and Make Your Work Folder</h1>
+      </header>
+      <p>At the start of training, the instructor will add your email address and name to the User Management console of the AtomSphere Otis training account, assigning you as a Standard User. Upon doing so, you’ll receive a registration email with your user name and temporary password.</p>
+      <p>Log in to Boomi AtomSphere using your credentials</p>
+      <p>From your browser, navigate to</p>
+      <p>Enter login credentials and click on the <strong>Sign In</strong> button</p>
+      <figure><img src="images/ex1/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Take note of the <strong>User-XX</strong> folders that reside within this Boomi Account. Each of these folders coincides with the number assigned to you by the trainer. Once assigned, you may choose to rename the folder to better identify you among the group (i.e. <strong>User-01-Bob Smith</strong>).</p>
+      <figure><img src="images/ex1/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>As you begin to build out your integration process, you’ll want to be sure you only create and save components within your individual folder. Since we’re sharing one account, this will ensure that any work you complete does not interfere with the work of others in the group. Thus, if you have been identified as <strong>User1</strong>, then you’ll be building out your Boomi process and all corresponding components within your <strong>User1</strong> folder.</p>
+      <p>The #<strong>Shared Connections </strong>folder contains all the shared connections that will be used for the workshop. This is a best practice. Also, the common Operations/Profiles that will be used are available in the #<strong>SHARED Assets </strong>folder.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 2</div>
+        <h1 class="step-title">Business or Project Based Grouping Provisioning and Management</h1>
+      </header>
+      <p>Provision group of Users and Users Onboarding</p>
+      <p>I. Create a Model and configure it in Master Data Hub</p>
+      <p>This is an entire Boomi user provisioning and approval solution, but you can master any domain in the Boomi Master Data Hub: Customer, Product, Supplier, Vendor, etc. First, you will build the Boomi User Master Data Hub model with attributes username, first name, last name, and role. Incoming requests will require a Boomi Admin to approve of the new request. Then you will create a browser based UI using Boomi Flow that will allow someone to submit a request for a new user on the Boomi your account. Finally, you will create a Boomi Integration process that will pull approved user requests from the outbound channel of the Master Data Hub and call the Boomi Platform’s AtomSphere API to create a new user on the Boomi your account. This solution could create a Service Now Request for someone to approve and provision the account. In fact, the Boomi Flow UI can be embedded into your ServiceNow portal.</p>
+      <figure><img src="images/ex1/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once platform login is done. Click on <strong>Services </strong>and then click on <strong>Master Data Hub</strong>.</p>
+      <figure><img src="images/ex1/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Master Data Hub</strong> home screen will be presented, it should look like this.</p>
+      <figure><img src="images/ex1/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Create a <strong>User Model</strong>. In the panel at the top of the screen, select the<strong> Models </strong>tab.</p>
+      <figure><img src="images/ex1/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Create a Model</strong>, enter a <strong>Model Name</strong> with the Format Boomi User &lt;FirstnameLastname&gt;.</p>
+      <figure><img src="images/ex1/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the <strong>Create a Model</strong> button.</p>
+      <figure><img src="images/ex1/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>Fields</strong> option in the <strong>Configure Model </strong>sub-tab.</p>
+      <figure><img src="images/ex1/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Add your First Field</strong>.</p>
+      <figure><img src="images/ex1/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will be presented with three options to generate fields:<strong> Import from Profile</strong>, <strong>Start Hub Suggest</strong>, and <strong>No thanks, I’ll add fields manually</strong>. Select the <strong>No thanks, I’ll add fields manually </strong>option. The <strong>Imort from Profile</strong> button is used to create a model quickly based upon an imported Boomi database profile from a database, or an XML Profile from the import of an SAP IDoc. <strong>Start Hub Suggest</strong> will give you the ability to use a number of our industry best practice model templates. Or, you can use all three ways to create any Hub model.</p>
+      <p>.</p>
+      <figure><img src="images/ex1/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will be presented with the<strong> Add a Field or Field Group</strong> window. Provide <strong>username </strong>in the Name field, and the <strong>Type </strong>should be <strong>Text</strong>. Click on <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>username</strong> field will be added to the Field group.</p>
+      <figure><img src="images/ex1/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Add a Field or Field Group</strong> to add new/other fields required.</p>
+      <figure><img src="images/ex1/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will be presented with<strong> Add a Field or Field Group</strong> Window again. Provide <strong>firstname</strong> for the <strong>Name </strong>field, and the <strong>Type </strong>should be <strong>Text</strong>. Click on <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>firstname</strong> field will be added to the Field group.</p>
+      <figure><img src="images/ex1/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Repeat steps 10 and 11, and add fields <strong>lastname</strong> and <strong>role</strong>. The <strong>Fields </strong>group should look like this.</p>
+      <figure><img src="images/ex1/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Sources</strong> tab on the left side of the page.</p>
+      <figure><img src="images/ex1/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Add Your First Source</strong> button.</p>
+      <figure><img src="images/ex1/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>A new window <strong>Add a Source</strong> will be presented. Select the source value <strong>Flow</strong> from the drop-down in the <strong>Select Source </strong>field. Select the value <strong>Contribute data</strong> in the <strong>This Source can</strong> field. Click on the check box <strong>Require approval for new records</strong>. Click the<strong> Add</strong> button.</p>
+      <figure><img src="images/ex1/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>Flow</strong> source will be added to the model.</p>
+      <figure><img src="images/ex1/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>Add a Source </strong>button. Select the source value <strong>SNOW</strong> from the drop-down in the <strong>Select Source </strong>field. Select the value <strong>Both</strong> in the <strong>This Source can</strong> field. Click the<strong> Add</strong> button.</p>
+      <figure><img src="images/ex1/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>SNOW</strong> source will be added to the model.</p>
+      <figure><img src="images/ex1/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Match Rules </strong>tab on the left side of the page.</p>
+      <figure><img src="images/ex1/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Add Your First Match Rule</strong> button.</p>
+      <figure><img src="images/ex1/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>A new window <strong>Match Rule</strong> will be presented.</p>
+      <figure><img src="images/ex1/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Add an Expression</strong> option.</p>
+      <figure><img src="images/ex1/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>Choose... </strong>to access the drop-down menu. For your first expression select the “<strong>username</strong>” element.</p>
+      <figure><img src="images/ex1/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once complete, your <strong>Match Rule </strong>should look like the image below. Select <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Record Title Format </strong>tab on the left side of the page.</p>
+      <figure><img src="images/ex1/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the check boxes next to the fields (in this order) <strong>lastname </strong>then <strong>firstname</strong>. Separate these two fields by (<strong>, </strong>) in the <strong>Record Title Format</strong> field. This will show the record nicely in the Stewardship display golden records page.</p>
+      <figure><img src="images/ex1/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on the <strong>Publish </strong>button.</p>
+      <figure><img src="images/ex1/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>A new window will be presented. Enter notes to describe this model publication version, if desired, then click <strong>Save</strong> to complete the publication.</p>
+      <figure><img src="images/ex1/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>At the confirmation prompt, select <strong>Close</strong>. The Hub Model is now successfully published.</p>
+      <figure><img src="images/ex1/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The model page will be presented back. Click on the <strong>Deploy</strong> button to deploy it to the repository.</p>
+      <figure><img src="images/ex1/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the value <strong>Hub Repo</strong> in the <strong>Repository</strong> field and <strong>1.0</strong> in the <strong>Model Version</strong> field. Click the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex1/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once deployment is completed, one can see the <strong>Repository </strong>and <strong>Sources </strong>details on the page.</p>
+      <figure><img src="images/ex1/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Repositories </strong>menu.</p>
+      <figure><img src="images/ex1/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Hub Repo</strong> link on the page.</p>
+      <figure><img src="images/ex1/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can confirm that your Model has been deployed to the repository once it appears under the <strong>Hub Repo</strong> icon on the left side menu, and within the <strong>Summary </strong>sub-tab screen shown below.</p>
+      <figure><img src="images/ex1/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enable Initial Load of Source Data. Select your <strong>Model Name</strong>, remember the name should be <strong>Boomi User &lt;your first name&gt; &lt;your last name&gt;</strong>. The <strong>Summary </strong>sub-tab displays by default. Select the <strong>Sources</strong> sub-menu to access the two sources we have configured within the Model.</p>
+      <figure><img src="images/ex1/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Sources </strong>sub-tab, click the <strong>Gear </strong>icon for the <strong>Flow </strong>source and select <strong>Enable Initial Load</strong>.</p>
+      <figure><img src="images/ex1/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the initial load is complete the circle next to the <strong>Flow </strong>source will become blue.</p>
+      <figure><img src="images/ex1/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the Gear icon for the <strong>Flow </strong>source again and select <strong>Finish Initial Load</strong>.</p>
+      <figure><img src="images/ex1/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the Finish initial load is complete the circle next to the <strong>Flow </strong>source will become green.</p>
+      <figure><img src="images/ex1/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Repeat steps 38-41 for the source <strong>SNOW</strong> show a green dot too.</p>
+      <figure><img src="images/ex1/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Go to <strong>Repositories </strong>-&gt;<strong> Hub Repo</strong> -&gt; <strong>Configure </strong>tab -&gt; Copy the <strong>Username </strong>and <strong>Token</strong>. Paste the values in a notepad. Label the <strong>Username </strong>value <strong>Hub Username </strong>and label the <strong>Token </strong>value <strong>Hub Token</strong>. These values will be used when we configure the Boomi Flow Hub Connection in the Flow section below.</p>
+      <figure><img src="images/ex1/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>II – Flow</h3>
+      <p>In the top most menu, click the <strong>Services -&gt; Flow </strong>(Open Flow in a new tab) link to the right of the drop down menu:</p>
+      <figure><img src="images/ex1/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Login to your Flow account. Click on <strong>+</strong> <strong>New Flow</strong>. Enter a <strong>Name </strong>of <strong>Create a New Boomi User Request </strong>and click <strong>Start Building!</strong></p>
+      <figure><img src="images/ex1/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Flows </strong>tab, then click on <strong>Connectors </strong>-&gt; <strong>+ Install Connector</strong></p>
+      <figure><img src="images/ex1/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Hub </strong>from dropdown and click <strong>Continue</strong>.</p>
+      <figure><img src="images/ex1/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter a <strong>Name </strong>of <strong>&lt;your first name&gt;s Prod Repo </strong>and click <strong>Set Configuration Values.</strong></p>
+      <figure><img src="images/ex1/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Configuration </strong>section, next to <strong>Hub Hostname</strong>, click <strong>Select or Create a new Value. </strong>Click on <strong>Create a new Value.</strong></p>
+      <figure><img src="images/ex1/image053.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image054.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Append <strong>Hostname </strong>in the Name section and enter <strong>c01-usa-east.hub.boomi.com</strong> in <strong>Default Value</strong>. Click <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image055.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the same manner as steps 10 and 11, create new Values for <strong>Hub Token</strong> and <strong>Hub Username</strong> by adding the default values that are in your notepad: <strong> Hub Token: 84794873-2df5-48f9-87ec-42abc393c507 </strong>and <strong>Hub Username: -PLRWHL.4N5RFF</strong>. <strong> </strong>Click <strong>Continue</strong>. The screen should display <strong>Connector Installed</strong>.</p>
+      <figure><img src="images/ex1/image056.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image057.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image058.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>Flows </strong>tab, then click on <strong>Values </strong>menu on the left, then click the <strong>+ New Value</strong> button.</p>
+      <figure><img src="images/ex1/image059.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>BoomiUserSelected </strong>in <strong>Name</strong>; <strong>Object </strong>in <strong>What kind of Value is this?</strong>; <strong>boomiuser&lt;firstnamelastname&gt; </strong>in Type. Click on Save <strong>Value</strong>.</p>
+      <figure><img src="images/ex1/image060.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the tab of your new Flow <strong>Create a New Boomi User Request </strong>and drag an <strong>Operator </strong>on the Canvas to the right of the <strong>Start </strong>shapew.</p>
+      <figure><img src="images/ex1/image061.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>Set Source</strong> in <strong>Name </strong>and click <strong>Add Operation</strong>.</p>
+      <figure><img src="images/ex1/image062.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Select or Create a new Value</strong>.</p>
+      <figure><img src="images/ex1/image063.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>source </strong>in the search field and select the Value<strong> BoomiUserSelected / Golden Record: Source ID</strong>.</p>
+      <figure><img src="images/ex1/image064.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Set Equal</strong> <strong>to </strong>in <strong>How do you want to change the Value?</strong> ; <strong>Value Of</strong> in <strong>How do you want to retrieve the reference Value?</strong> and click on <strong>Select or Create a new Value</strong>.</p>
+      <figure><img src="images/ex1/image065.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Create a New Value</strong>. Enter <strong>FlowSource </strong>in <strong>Name</strong>; Select <strong>String </strong>in <strong>What kind of Value is this? </strong>; Type <strong>Flow </strong>in <strong>A default applied to this Value</strong> and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image066.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Add</strong>. Click <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image067.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image068.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Hover over the start shape until you see 4 black arrows around the shape and move your cursor over the black arrow in the front of the shape. When the cursor changes to a hand click and drag the arrow over the new <strong>Set Source</strong> component and release the mouse button to create a connection between the shapes.. Enter <strong>Go </strong>in <strong>Name </strong>and click <strong>Add</strong>.</p>
+      <figure><img src="images/ex1/image069.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Page </strong>component on the canvas and drop it to the right of the <strong>Set Source </strong>shape. Enter <strong>Create New User Request</strong> in <strong>Name </strong>and click <strong>+ New Layout</strong>. Click <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image070.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image071.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Hover your cursor over the <strong>Main Container </strong>page container, and click on the gear icon.</p>
+      <figure><img src="images/ex1/image072.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>Create New Boomi Login Request</strong> in <strong>Label</strong>. Click<strong> Save Container</strong>.</p>
+      <figure><img src="images/ex1/image073.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag the <strong>Input </strong>component on the page inside the <strong>Main Container </strong>and release the mouse button. Enter <strong>FirstName </strong>in <strong>Name </strong>and <strong>First Name </strong>for <strong>Label</strong>; <strong>Check </strong>the <strong>Required </strong>box; scroll down and click the <strong>Select or create a new Value </strong>button, select the value <strong>BoomiUserSelected / firstname</strong> in the <strong>Save the selection made by the user to </strong>field and click <strong>Save Component</strong>.</p>
+      <figure><img src="images/ex1/image074.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image075.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag another <strong>Input </strong>box and drop it below the first box near the bottom of the <strong>Main Container</strong>. Enter <strong>LastName </strong>in <strong>Name </strong>and <strong>Last Name </strong>in <strong>Label</strong>; Check the <strong>Required </strong>box; scroll down and click the <strong>Select or create a new Value </strong>button, select the value <strong>BoomiUserSelected / lastname</strong> (you might have to scroll down to see the value) in <strong>Save the selection made by the user to</strong> ; Click <strong>Save Component</strong>.</p>
+      <figure><img src="images/ex1/image076.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image077.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag another <strong>Input </strong>box and drop it near the bottom of the <strong>Main Container</strong>. Enter <strong>username </strong>in <strong>Name </strong>; <strong>Username (email)</strong> in <strong>Label</strong>; Check the <strong>Required </strong>box; scroll down and click the <strong>Select or create a new Value </strong>button, scroll down and select the value <strong>BoomiUserSelected / username </strong>in <strong>Save the selection made by the user to</strong> ; Click <strong>Save Component</strong>.</p>
+      <figure><img src="images/ex1/image078.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image079.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag the last <strong>Input </strong>box and drop it near the bottom of the <strong>Main Container</strong>. Enter <strong>Role </strong>in<strong> Name </strong>; <strong>Role </strong> in <strong>Label</strong>; <strong>Check </strong>the <strong>Required </strong>box; click the <strong>Select or create a new Value </strong>button; scroll down and select the value <strong>BoomiUserSelected / role </strong>in <strong>Save the selection made by the user to </strong>; Click <strong>Save Component</strong>.</p>
+      <figure><img src="images/ex1/image080.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image081.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Your new page layout should look like the following:</p>
+      <figure><img src="images/ex1/image082.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Save </strong>icon on the right hand menu bar.</p>
+      <figure><img src="images/ex1/image083.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Close the <strong>Create New User Request </strong>page layout by clicking the <strong>X </strong>in the tab and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image084.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Hover over the <strong>Set Source</strong> shape until you see 4 black arrows around the shape and move your cursor over the black arrow in the front of the shape. When the cursor changes to a hand click and drag the arrow over the new <strong>Create New User Request</strong> component and release the mouse button to create a connection between the shapes. Enter <strong>Create </strong>in <strong>Name </strong>and click <strong>Add</strong>.</p>
+      <figure><img src="images/ex1/image085.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Your canvas should look like the following:</p>
+      <figure><img src="images/ex1/image086.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Save </strong>component on the flow canvas and drop it to the right of the <strong>Create New User Request </strong>shape. Enter <strong>Save User Request</strong> in <strong>Name </strong>and click <strong>+ New Data Action</strong>.</p>
+      <figure><img src="images/ex1/image087.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>Save User to Hub</strong> in <strong>Name</strong>; click <strong>Select or create a new value</strong>, select the object <strong>BoomiUserSelected </strong>in <strong>Which Value do you want to save?</strong>; Select <strong>boomiuser &lt;firstnamelastname&gt; Golden Record</strong> in <strong>Where will the data be saved?</strong> ; Click <strong>Add</strong>.</p>
+      <figure><img src="images/ex1/image088.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Save</strong>.</p>
+      <p>Hover over the <strong>Create New User Request</strong> shape until you see 4 black arrows around the shape and move your cursor over the black arrow in the front of the shape. When the cursor changes to a hand click and drag the arrow over the new <strong>Save User Request</strong> component and release the mouse button to create a connection between the shapes. Enter <strong>Save </strong>in <strong>Name </strong>and <strong>Label </strong>and click <strong>Add</strong>.</p>
+      <figure><img src="images/ex1/image089.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag an <strong>Operator </strong>shape on the canvas above the <strong>Create New User Request </strong>shape and enter <strong>Clear Values</strong> in <strong>Name </strong>and Click <strong>Add Operation</strong>.</p>
+      <figure><img src="images/ex1/image090.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>Select or create a new value </strong>button, select the <strong>BoomiUserSelected </strong>Object from the list.</p>
+      <figure><img src="images/ex1/image091.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Empty </strong>and Click <strong>Add</strong>. Click <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image092.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Hover over <strong>Save User Request </strong>shape and drag an outcome to <strong>Clear Values</strong>. Name it <strong>Create New User </strong>then <strong>Add</strong>.</p>
+      <p>Hover over<strong> Clear Values</strong> shape and drag an outcome to <strong>Create New User Request </strong>shape. Name it <strong>New </strong>then <strong>Add</strong>.</p>
+      <p>You can click on an arrow connecting shapes and hover over the small black square in the middle of the arrow, click and drag the arrow to change where the arrow connects to a shape. Your canvas should look like the following:</p>
+      <figure><img src="images/ex1/image093.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>III - Integration</h3>
+      <p>Click on <strong>Services </strong>and then click on <strong>Integration.</strong></p>
+      <figure><img src="images/ex1/image094.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Integration </strong>services home screen will be presented.</p>
+      <figure><img src="images/ex1/image095.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Navigate to your User Folder, click the black arrow down icon next to it, click <strong>New Folder</strong> and create a new folder called <strong>User Provisioning</strong> and click on <strong>Save</strong>.</p>
+      <figure><img src="images/ex1/image096.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The new folder will be created with the name <strong>User Provisioning</strong>.</p>
+      <figure><img src="images/ex1/image097.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>User Provisioning</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex1/image098.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Process</strong>, name the component <strong>Create Boomi User,</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex1/image099.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Start Shape </strong>dialog, click on the <strong>Connector </strong>drop-down, search for <strong>MDM</strong> and select the <strong>MDM</strong> connector</p>
+      <p>.</p>
+      <figure><img src="images/ex1/image100.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting the <strong>MDM</strong></p>
+      <figure><img src="images/ex1/image101.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search for the <strong>Connection</strong> in the Connection field that is already built and available to use: <strong>(shared) MDM Connection</strong>.</p>
+      <figure><img src="images/ex1/image102.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the  button in the operation field. Name the operation: <strong>Get Updates from MDH</strong>.</p>
+      <figure><img src="images/ex1/image103.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image104.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image105.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the MDM Operation Window as seen above click on the <strong>Import</strong> button. Now, Select the <strong>US East Atom Cloud</strong> for <strong>Atom</strong>, select <strong>(shared) MDM Connection </strong>for <strong>Connection,</strong> and <strong>Source </strong>value as <strong>snow</strong> then click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex1/image106.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on <strong>Import</strong>, then click <strong>Next</strong></p>
+      <figure><img src="images/ex1/image107.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>From the list shown, select the <strong>Object Type </strong>that has the pattern<strong> boomiuser&lt;your </strong><strong>firstnamelastname&gt;</strong>, and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex1/image108.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The operation will be loaded and the profile will be created by the import wizard. Now click on <strong>Finish</strong>.</p>
+      <figure><img src="images/ex1/image109.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The operation window should look like this. Click on <strong>Save and Close</strong> button.</p>
+      <figure><img src="images/ex1/image110.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The Connector Window can be seen with all the Configuration. Click on the <strong>OK</strong> button on the connector window.</p>
+      <figure><img src="images/ex1/image111.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search for<strong> atomsphere </strong>in the <strong>Search Shapes</strong> bar. Drag and drop the <strong>Atomsphere API </strong> connector shape to the canvas.</p>
+      <figure><img src="images/ex1/image112.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Connector Shape</strong> popup, select <strong>Action </strong>of <strong>Create</strong>, search for and select the <strong>(shared) API Connection</strong> in the <strong>Connection </strong>field, and search for the <strong>Create Account User </strong>in the<strong> Operation </strong>field.</p>
+      <figure><img src="images/ex1/image113.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image114.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image115.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After all the configuration is done. Click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex1/image116.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Search Shapes </strong>field, click the <strong>X </strong>to clear the search field. Drag and drop a <strong>Map </strong>shape from the <strong>Execute </strong>palette tab to the canvas.</p>
+      <figure><img src="images/ex1/image117.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>Map Shape </strong>dialog opens. In the <strong>Map </strong>field, click on the <strong> </strong>button.</p>
+      <figure><img src="images/ex1/image118.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image119.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the <strong>Map</strong> shape <strong>Create API Request</strong>.</p>
+      <figure><img src="images/ex1/image120.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Map Source </strong>panel, click the <strong>Choose</strong> link.</p>
+      <figure><img src="images/ex1/image121.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Profile Type</strong> as <strong>XML </strong>in the pop-up window screen.</p>
+      <figure><img src="images/ex1/image122.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>From the <strong>Choose a Profile </strong>popup shown, navigate to your folder and click the <strong>MDM XML profile</strong> in the<strong> User Provisioning</strong> Folder.</p>
+      <figure><img src="images/ex1/image123.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the navigated profile and click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex1/image124.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can now see the profile being populated on the <strong>Source Side</strong> of the <strong>Map </strong>Window.</p>
+      <figure><img src="images/ex1/image125.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>Choose </strong>link in the <strong>Map Destination </strong>panel.</p>
+      <figure><img src="images/ex1/image126.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Profile Type</strong> as<strong> XML</strong> in the pop-up window screen. From the <strong>folder structure</strong> shown, navigate to the <strong>Atomsphere API AccountUserRole CREATE Request</strong> in the<strong> #Shared Assets</strong> folder. Click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex1/image127.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can now see the profile is set on both the source and destination side of the MAP window.</p>
+      <figure><img src="images/ex1/image128.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can now do 1-to-1 mapping for each field from Source to Destination profiles. Drag and drop the arrow from source to destination field as below.</p>
+      <p>Click on the <strong>username</strong> field on <strong>Source Profile</strong> and drag a mouse cursor to the <strong>@userId</strong> field on the <strong>Destination profile</strong> and drop. There will be link created between these two fields.</p>
+      <figure><img src="images/ex1/image129.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Repeat step 29 for the other 2 fields and the <strong>Map window</strong> should look like the one below.</p>
+      <figure><img src="images/ex1/image130.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the down arrow on the <strong>@accoutId</strong> field on the destination profile, a popup will display.</p>
+      <figure><img src="images/ex1/image131.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Set the value <strong>-PLRWHL</strong> in the <strong>Set Default </strong>popup in the<strong> Value</strong> field and click on the <strong>OK </strong>button.</p>
+      <figure><img src="images/ex1/image132.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The default value will be set and can be seen on <strong>Map </strong>Window.</p>
+      <figure><img src="images/ex1/image133.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Repeat Steps 31 - 33 and set the value for the <strong>@roleId</strong> field. <strong>Value </strong>should be <strong>428326b1-2897-11e2-a100-782bcb5722c0</strong>. Click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex1/image134.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The final Map window should look like the one below. Click on the <strong>Save and Close</strong> button.</p>
+      <figure><img src="images/ex1/image135.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can see the <strong>Create API Request</strong> Map created in the <strong>Map Shape</strong> window. Click on the<strong> OK</strong> button.</p>
+      <figure><img src="images/ex1/image136.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag and drop a <strong>Stop</strong> shape from the <strong>Logic </strong>Palette Tab to the canvas and click the <strong>OK </strong>button.</p>
+      <figure><img src="images/ex1/image137.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image138.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect each step by clicking on the icon and dragging and dropping when hovering over the next shape.</p>
+      <figure><img src="images/ex1/image139.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The arrow icon should look like if it is connected to the next shape. When you are done, the canvas should look like the following:</p>
+      <figure><img src="images/ex1/image140.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Save </strong>button to save the Boomi Process.</p>
+      <figure><img src="images/ex1/image141.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Provision the user to the account/Testing end-to-end.</h3>
+      <p>Open the <strong>Flow </strong>editor browser tab, click on the <strong>Run </strong>icon on the right hand side of the canvas.</p>
+      <figure><img src="images/ex1/image142.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>Run</strong>.</p>
+      <figure><img src="images/ex1/image143.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The User Onboarding page opens up. Enter the details of any user with a email here, enter <strong>Standard</strong> for <strong>Role</strong> and click <strong>SAVE</strong></p>
+      <p>The User provisioning request gets sent to MDH in your model <strong>Boomi User &lt;FirstName LastName&gt;</strong> and the screen clears itself to allow another user to be provisioned.</p>
+      <figure><img src="images/ex1/image144.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Open the <strong>Master Data Hub </strong>browser tab and click <strong>Stewardship </strong>-&gt; <strong>Quarantine</strong>.</p>
+      <figure><img src="images/ex1/image145.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>date/time </strong>of the Record in Quarantine.</p>
+      <figure><img src="images/ex1/image146.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>If you want to provision this user, click <strong>Actions -&gt; Approve</strong>. Then click <strong>OK </strong>to approve.</p>
+      <figure><img src="images/ex1/image147.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Go back to the <strong>Integration </strong>perspective in another tab or click <strong>Services -&gt; Integration</strong>. If the <strong>Create Boomi User</strong> Boomi Process is not open on the canvas then, navigate to the <strong>Create Boomi User</strong> Boomi Process from the Left Panel. Double click on the <strong>process name</strong>.</p>
+      <figure><img src="images/ex1/image148.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Boomi Process</p>
+      <figure><img src="images/ex1/image149.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Test</strong> button available in the Top Right Corner of the Canvas.</p>
+      <figure><img src="images/ex1/image150.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Atom where the Test is to be run. Select <strong>US East Test Atom Cloud </strong>atom for the test.</p>
+      <figure><img src="images/ex1/image151.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting Atom, click on the <strong>Run Test </strong>button.</p>
+      <figure><img src="images/ex1/image152.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking the <strong>Run Test</strong> button, one can see the process getting started, and once it reaches <strong>Stop Shape</strong> (<strong>End and Continue</strong>), that indicates the process ran successfully. Below screen will be presented.</p>
+      <figure><img src="images/ex1/image153.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Verify if the user is added to the platform account. Click on the <strong>Settings </strong>Menu on the top and select the your account.</p>
+      <figure><img src="images/ex1/image154.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following page will be displayed, go to the <strong>User Management</strong> sub-tab on the left panel of the window. Now, you can see the list of the users and also the new user that is added to the account.</p>
+      <figure><img src="images/ex1/image155.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>If you got the output above, <strong>Congratulations!</strong> You have completed the first lesson of the Boomi hands-on workshop! An email will be sent to the user to let them know that they were added to the your account and how to login and set the password.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

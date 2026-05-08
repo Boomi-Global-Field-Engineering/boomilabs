@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-5">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAP Integration — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 5</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 2
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~45 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">SAP Integration</h1>
+      </header>
+      <p>Write business object data back to SAP — first to SAP ECC (Business Partner), then to SAP S/4HANA (Sales Order) — covering Create, Update, and Delete operations.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Integration / write data back to SAP ECC</li>
+        <li>Integrate / Write Data Back to SAP S4/HANA</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 2</div>
+        <h1 class="step-title">Integration / write data back to SAP ECC</h1>
+      </header>
+      <figure><img src="images/ex5/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Create a Business Partner</h3>
+      <p>Within your <strong>User - XX</strong> folder, create a new folder called <strong>4.A - Build an integration with SAP ECC </strong>and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex5/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>4.A - Build an integration with SAP ECC</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex5/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the component <strong>Create BP by IDoc</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex5/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the <strong>Start Shape</strong>, select <strong>Type </strong>: <strong>No Data </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Message </strong>shape from the <strong>Execute </strong>panel of the shapes palette on the canvas. Copy and paste the data structure below into the <strong>Message </strong>section. Replace <strong>&lt;your first name&gt; </strong>with your first name and <strong>&lt;your last name&gt; </strong>with your last name or a fictitious one. Click <strong>OK</strong>.</p>
+      <p>FirstName,LastName</p>
+      <p><strong>&lt;your first name&gt;</strong>,<strong>&lt;your last name&gt;</strong></p>
+      <p>Drag and drop a <strong>Map </strong>shape onto the canvas. Click on the icon, navigate to <strong>/Workshop/Immersive Hands On/#Shared Assets</strong> and select <strong>Full Name FF to Create BP IDoc</strong>, and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search <strong>axis </strong> on <strong>Search shapes</strong> and drag the <strong>Boomi aXis for SAP </strong>connector shape to your Canvas</p>
+      <figure><img src="images/ex5/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with below details</p>
+      <p><strong>Action </strong>: <strong>IDOC_SEND</strong></p>
+      <p><strong>Connection</strong>: Select <strong>SAP ECC</strong> from directory:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <figure><img src="images/ex5/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>icon in the <strong>Operation </strong>field, rename the <strong>Operation </strong>to <strong>SAP BP Create IDoc</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex5/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>workshop_demo</strong> in <strong>Atom</strong>; <strong>SAP ECC</strong> in <strong>Connection </strong>and</p>
+      <p><strong>BUPAFS_FS_CREATE_FRM_DATA201 </strong>in <strong>Filter</strong>. Click <strong>Next</strong>.</p>
+      <figure><img src="images/ex5/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Object <strong>BUPAFS_FS_CREATE_FRM_DATA201 </strong>and click <strong>Next</strong>, then <strong>Finish</strong>.</p>
+      <p>You will see the Request profile being created by the wizard once the import is complete. Click <strong>Save and Close </strong>then <strong>OK</strong>.</p>
+      <p>Drag a <strong>Stop </strong>shape on the process Canvas. Click <strong>OK</strong>. Connect all the shapes and rearrange them like the following.</p>
+      <figure><img src="images/ex5/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now test the process by clicking on <strong>Test</strong>. Use the <strong>Atom workshop_demo</strong> and click <strong>Run Test</strong>.</p>
+      <p>If the process executes successfully, click on the <strong>Stop </strong>shape, click on <strong>Shape Source Data</strong>, click on the document icon and note the <strong>IDoc Number </strong>in the <strong>DOCNUM </strong>XML element. Give this number to your instructor to execute the IDoc so the BP gets created. You will need the BP Number and the BP GUID to run the next exercise.</p>
+      <h3>Update a Business Partner</h3>
+      <p>Within your <strong>4.A - Build an integration with SAP ECC</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex5/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the component <strong>Update BP by IDoc</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex5/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the <strong>Start Shape</strong>, select <strong>Type </strong>: <strong>No Data </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Message </strong>shape from the <strong>Execute </strong>panel of the shapes palette on the canvas. Copy and paste the data structure below into the <strong>Message </strong>section. Replace <strong>&lt;your first name&gt; </strong>with what you used in the above exercise and <strong>&lt;your last name&gt; </strong>with what you used in the exercise above. Click <strong>OK</strong>.</p>
+      <p>FirstName,LastName,BP_GUID</p>
+      <p><strong>&lt;new first name&gt;</strong>,<strong>&lt;new last name&gt;,&lt;use same BP_GUID from from above&gt;</strong></p>
+      <p>Drag and drop a <strong>Map </strong>shape onto the canvas. Click on the icon, navigate to <strong>/Workshop/Immersive Hands On/#Shared Assets</strong> and select <strong>Full Name GUID to Update BP IDoc</strong>, and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search <strong>axis </strong> on <strong>Search shapes</strong> and drag the <strong>Boomi aXis for SAP </strong>connector shape to your Canvas</p>
+      <figure><img src="images/ex5/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with below details</p>
+      <p><strong>Action </strong>: <strong>IDOC_SEND</strong></p>
+      <p><strong>Connection</strong>: Select <strong>SAP ECC</strong> from directory:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <figure><img src="images/ex5/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>icon in the <strong>Operation </strong>field, rename the <strong>Operation </strong>to <strong>SAP BP Create IDoc</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex5/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>workshop_demo</strong> in <strong>Atom</strong>; <strong>SAP ECC</strong> in <strong>Connection </strong>and</p>
+      <p><strong>BUPA_INBOUND_MAIN_SAVE_M09 </strong>in <strong>Filter</strong>. Click <strong>Next</strong>.</p>
+      <figure><img src="images/ex5/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Object <strong>BUPA_INBOUND_MAIN_SAVE_M09 </strong>and click <strong>Next</strong>, then <strong>Finish</strong>.</p>
+      <p>You will see the Request profile being created by the wizard once the import is complete. Click <strong>Save and Close </strong>then <strong>OK</strong>.</p>
+      <p>Drag a <strong>Stop </strong>shape on the process Canvas. Click <strong>OK</strong>. Connect all the shapes and rearrange them like the following.</p>
+      <figure><img src="images/ex5/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now test the process by clicking on <strong>Test</strong>. Use the <strong>Atom workshop_demo</strong> and click <strong>Run Test</strong>.</p>
+      <p>If the process executes successfully, click on the <strong>Stop </strong>shape, click on <strong>Shape Source Data</strong>, click on the document icon and note the <strong>IDoc Number </strong>in the <strong>DOCNUM </strong>XML element. Give this number to your instructor to execute the IDoc so the BP gets updated. You will need the BP Number and the BP GUID to run the next exercise.</p>
+      <h3>Delete a Business Partner</h3>
+      <p>Within your <strong>4.A - Build an integration with SAP ECC</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex5/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the component <strong>Delete BP by IDoc</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex5/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the <strong>Start Shape</strong>, select <strong>Type </strong>: <strong>No Data </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Message </strong>shape from the <strong>Execute </strong>panel of the shapes palette on the canvas. Copy and paste the data structure below into the <strong>Message </strong>section. Replace <strong>&lt;your first name&gt; </strong>with what you used in the above exercise and <strong>&lt;your last name&gt; </strong>with what you used in the exercise above. Click <strong>OK</strong>.</p>
+      <p>FirstName,LastName,BP_GUID</p>
+      <p><strong>&lt;update first name&gt;</strong>,<strong>&lt;update last name&gt;,&lt;use same BP_GUID from above&gt;</strong></p>
+      <p>Drag and drop a <strong>Map </strong>shape onto the canvas. Click on the icon, navigate to <strong>/Workshop/Immersive Hands On/#Shared Assets</strong> and select <strong>GUID to Delete BP IDoc</strong>, and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search <strong>axis </strong> on <strong>Search shapes</strong> and drag the <strong>Boomi aXis for SAP </strong>connector shape to your Canvas</p>
+      <figure><img src="images/ex5/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with below details</p>
+      <p><strong>Action </strong>: <strong>IDOC_SEND</strong></p>
+      <p><strong>Connection</strong>: Select <strong>SAP ECC</strong> from directory:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <figure><img src="images/ex5/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>icon in the <strong>Operation </strong>field, rename the <strong>Operation </strong>to <strong>SAP BP Delete IDoc</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex5/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>workshop_demo</strong> in <strong>Atom</strong>; <strong>SAP ECC</strong> in <strong>Connection </strong>and</p>
+      <p><strong>BUPA_INBOUND_MAIN_SAVE_M09 </strong>in <strong>Filter</strong>. Click <strong>Next</strong>.</p>
+      <figure><img src="images/ex5/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Object <strong>BUPA_INBOUND_MAIN_SAVE_M09 </strong>and click <strong>Next</strong>, then <strong>Finish</strong>.</p>
+      <p>You will see the Request profile being created by the wizard once the import is complete. Click <strong>Save and Close </strong>then <strong>OK</strong>.</p>
+      <p>Drag a <strong>Stop </strong>shape on the process Canvas. Click <strong>OK</strong>. Connect all the shapes and rearrange them like the following.</p>
+      <figure><img src="images/ex5/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now test the process by clicking on <strong>Test</strong>. Use the <strong>Atom workshop_demo</strong> and click <strong>Run Test</strong>.</p>
+      <p>If the process executes successfully, click on the <strong>Stop </strong>shape, click on <strong>Shape Source Data</strong>, click on the document icon and note the <strong>IDoc Number </strong>in the <strong>DOCNUM </strong>XML element. Give this number to your instructor to execute the IDoc so the BP gets flagged for archiving.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 2</div>
+        <h1 class="step-title">Integrate / Write Data Back to SAP S4/HANA</h1>
+      </header>
+      <figure><img src="images/ex5/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Create Sales Order</h3>
+      <p>Within your <strong>User - XX </strong>folder, create another folder called <strong>5.A - Integrate / write data back to SAP S4/HANA</strong>, and create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex5/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the component <strong>Create SO by FM </strong> and click the <strong>Create</strong> button.</p>
+      <p>On the <strong>Start Shape</strong>, select <strong>Type </strong>: <strong>No Data </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Salesforce</strong> connector and drag it to the canvas.</p>
+      <figure><img src="images/ex5/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Action</strong> : <strong>Get </strong>and <strong>Connection</strong> : <strong>SE Shared SF</strong> from <strong>/Workshop/Immersive Hands On/#Shared Connections</strong></p>
+      <figure><img src="images/ex5/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on icon in <strong>Operation </strong>and change name to <strong>Query Opportunity</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex5/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Connection </strong>: <strong>SE Shared SF</strong> from <strong>/Workshop/Immersive Hands On/#Shared Connections </strong>by clicking on the magnifying glass and click on<strong> Next.</strong></p>
+      <figure><img src="images/ex5/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Object Type </strong>:<strong> Opportunity</strong> and <strong>Action </strong>:<strong> Query</strong> from respective dropdown menus and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex5/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Expand <strong>Child Objects</strong> and check the box next to <strong>OpportunityLineItems</strong>. Expand <strong>OpportunityLineItems </strong>and check the box next to <strong>PricebookEntry</strong>. Scroll down and expand <strong>Parent Objects </strong>and also select <strong>Account</strong>. Boomi’s Salesforce connector can get data from all of these objects with just one call to the API. Click on <strong>Next </strong>then <strong>Finish</strong>.</p>
+      <figure><img src="images/ex5/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on the <strong>Filters</strong> tab at the bottom of the <strong>Salesforce Operation</strong> and click on the black arrow icon to the left of <strong>Filter</strong> and select <strong>Add Logical Sub-Group</strong>.</p>
+      <figure><img src="images/ex5/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on <strong>Add Expression</strong>, click on <strong>Expression</strong>, type <strong>Filter Name</strong> as <strong>ID=</strong> , select field <strong>Id</strong> from the profile drop down, then <strong>OK</strong>, select <strong>Operator </strong>as <strong>Equal To </strong>and click <strong>Save and Close</strong>.</p>
+      <figure><img src="images/ex5/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Parameters</strong> and click on <strong>import all 1?</strong> link<strong>.</strong></p>
+      <figure><img src="images/ex5/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Double click the row that was added to open the <strong>Parameter Value </strong>dialog, set <strong>Static Value : 0065G00000pugzKQAQ. </strong>This is the Salesforce Opportunity ID of the object we will be sending to SAP. Click on <strong>OK, </strong>then <strong>OK </strong>to save the connector.</p>
+      <figure><img src="images/ex5/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect start shape with Salesforce connector shape.</p>
+      <figure><img src="images/ex5/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search for <strong>Set Properties</strong> shape and drag one to the canvas.</p>
+      <figure><img src="images/ex5/image053.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>click on  icon above the <strong>Properties to Set </strong>panel and select <strong>Property Type </strong>: <strong>Dynamic Process Property</strong> and <strong>Property Name</strong> : <strong>SAP_CustId_Trim</strong> click on <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image054.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image055.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Dynamic Process Property - SAP_CustId_Trim </strong>in the <strong>Properties to Set </strong>panel, click on the <strong> </strong>icon over the <strong>Property Value </strong>panel, select <strong>Type </strong>:<strong> Profile Element</strong>, <strong>Profile Type </strong>:<strong> XML</strong>, click <strong>Choose… </strong>in the <strong>Profile </strong>field, navigate to and select <strong>SF_Opportunity_QUERY_Response</strong> from <strong>/Workshop/Immersive Hands On/&lt;your folder&gt;/5.A - Integrate / write data back to SAP S4/HANA </strong>folder, and select <strong>Element </strong>: <strong>external_ID__c</strong> (<strong>Opportunity/Account/external_ID__c</strong>) at the very bottom then <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image056.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image057.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image058.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Repeat steps 16 - 17 to add another property called <strong>DPP_OPP_ID</strong> and <strong>Property Value</strong> will be <strong>Id</strong> (<strong>Opportunity/Id</strong>).</p>
+      <figure><img src="images/ex5/image059.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>OK</strong>, and connect the <strong>Salesforce </strong>connector to the <strong>Set Properties </strong>shape.</p>
+      <figure><img src="images/ex5/image060.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Map </strong>shape from <strong>Search shapes</strong> and choose <strong>SF Opp to SAP SO Map </strong>from<strong> /Workshop/Immersive Hands On/#Shared Assets, </strong>click on<strong> OK.</strong></p>
+      <figure><img src="images/ex5/image061.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image062.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the <strong>Set Properties</strong> shape to the <strong>Map </strong>shape.</p>
+      <figure><img src="images/ex5/image063.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search <strong>axis </strong>in <strong>Search shapes</strong> and drag the <strong>Boomi aXis for SAP </strong>connector shape to your canvas.</p>
+      <figure><img src="images/ex5/image064.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with details:</p>
+      <p><strong>Action </strong>: <strong>FUNCTION</strong></p>
+      <p><strong>Connection </strong>: Select <strong>SAP S4H</strong> from folder:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <figure><img src="images/ex5/image065.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>icon in the <strong>Operation </strong>field. Change the operation name to <strong>salesorder_create</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex5/image066.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image067.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>workshop_demo</strong> in <strong>Atom</strong>; <strong>SAP S4H</strong> in <strong>Connection </strong>and</p>
+      <p><strong>BAPI_SALESORDER_CREATEFROMDAT2 </strong>in <strong>Filter</strong>. Click <strong>Next</strong>.</p>
+      <figure><img src="images/ex5/image068.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>Object Type </strong>:<strong> BAPI_SALESORDER_CREATEFROMDAT2 </strong>and click <strong>Next</strong> then <strong>Finish</strong>.</p>
+      <p>Now the <strong>Request </strong>and <strong>Response Profiles</strong> can be viewed on the <strong>Operation </strong>tab. Click on <strong>Save and Close.</strong></p>
+      <figure><img src="images/ex5/image069.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>OK</strong> and connect the <strong>Map </strong>shape to the <strong>Boomi aXis for SAP</strong> connection. Drag a <strong>Stop</strong> shape to the canvas, connect it to the <strong>Boomi aXis for SAP</strong> and click on <strong>Save</strong>. You process should look like this.</p>
+      <figure><img src="images/ex5/image070.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on <strong>Test</strong> and select the <strong>workshop_demo Atom </strong>and click on <strong>Run Test.</strong></p>
+      <figure><img src="images/ex5/image071.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image072.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the process is executed ( green color on each shape), click on the<strong> Stop </strong>shape and click on the <strong>Shape Source Data</strong> to view the results.</p>
+      <figure><img src="images/ex5/image073.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image074.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Make a note of the <strong>E_SALESDOCUMENT</strong> value, as you will need this value in the other exercises below. If you want to see the SAP Sales Order in the SAP GUI, ask your instructor to show you.</p>
+      <figure><img src="images/ex5/image075.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Update Sales Order</h3>
+      <p>Within your <strong>5.A - Integrate / write data back to SAP S4/HANA</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex5/image076.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the component <strong>Update SO by FM</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex5/image077.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the Start shape, select <strong>Type </strong>: <strong>No Data </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image078.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Message </strong>shape from the component panel on the Boomi canvas. Copy and paste the below into the <strong>Message </strong>section. Replace the highlighted section with Sales Order Number received in Response from Create SAP Sales Order Call above. Click <strong>OK</strong>. Include the opening and closing single quotes.</p>
+      <p><code>&#x27;{</code></p>
+      <p><code> &quot;I_~1IXBX~1FORCE_COMMIT_OR_ROLLBACK&quot;: &quot;X&quot;,</code></p>
+      <p><code> &quot;I_ORDER_HEADER_INX&quot; : {</code></p>
+      <p><code> &quot;UPDATEFLAG&quot; : &quot;U&quot;</code></p>
+      <p><code> },</code></p>
+      <p><code> &quot;I_SALESDOCUMENT&quot; : &quot;</code><code>&lt;Sales Order Number received in Response from Create Call&gt;</code><code>&quot;,</code></p>
+      <p><code>&quot;T_ORDER_ITEM_IN&quot; : [</code></p>
+      <p><code> {</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000001&quot;,</code></p>
+      <p><code> &quot;TARGET_QTY&quot; : 20.000</code></p>
+      <p><code> },</code></p>
+      <p><code>{</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000002&quot;,</code></p>
+      <p><code> &quot;TARGET_QTY&quot; : 10.000</code></p>
+      <p><code> }</code></p>
+      <p><code> ],</code></p>
+      <p><code> &quot;T_ORDER_ITEM_INX&quot; : [</code></p>
+      <p><code> {</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000001&quot;,</code></p>
+      <p><code> &quot;TARGET_QTY&quot; : &quot;X&quot;,</code></p>
+      <p><code> &quot;UPDATEFLAG&quot; : &quot;U&quot;</code></p>
+      <p><code> },</code></p>
+      <p><code>{</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000002&quot;,</code></p>
+      <p><code> &quot;TARGET_QTY&quot; : &quot;X&quot;,</code></p>
+      <p><code> &quot;UPDATEFLAG&quot; : &quot;U&quot;</code></p>
+      <p><code> }</code></p>
+      <p><code> ],</code></p>
+      <p><code> &quot;T_SCHEDULE_LINES&quot; : [</code></p>
+      <p><code> {</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000001&quot;,</code></p>
+      <p><code> &quot;SCHED_LINE&quot; : &quot;0001&quot;,</code></p>
+      <p><code> &quot;REQ_QTY&quot; : 20.000</code></p>
+      <p><code> },</code></p>
+      <p><code>{</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000002&quot;,</code></p>
+      <p><code> &quot;SCHED_LINE&quot; : &quot;0001&quot;,</code></p>
+      <p><code> &quot;REQ_QTY&quot; : 10.000</code></p>
+      <p><code> }</code></p>
+      <p><code> ],</code></p>
+      <p><code> &quot;T_SCHEDULE_LINESX&quot; : [</code></p>
+      <p><code> {</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000001&quot;,</code></p>
+      <p><code> &quot;SCHED_LINE&quot; : &quot;0001&quot;,</code></p>
+      <p><code> &quot;REQ_QTY&quot; : &quot;X&quot;,</code></p>
+      <p><code> &quot;UPDATEFLAG&quot; : &quot;U&quot;</code></p>
+      <p><code> },</code></p>
+      <p><code> {</code></p>
+      <p><code> &quot;ITM_NUMBER&quot; : &quot;000002&quot;,</code></p>
+      <p><code> &quot;SCHED_LINE&quot; : &quot;0001&quot;,</code></p>
+      <p><code> &quot;REQ_QTY&quot; : &quot;X&quot;,</code></p>
+      <p><code> &quot;UPDATEFLAG&quot; : &quot;U&quot;</code></p>
+      <p><code> }</code></p>
+      <p><code> ]</code></p>
+      <p><code>}&#x27;</code></p>
+      <figure><img src="images/ex5/image079.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the start shape to the <strong>Message </strong>shape.</p>
+      <p>Search <strong>axis </strong>on <strong>Search shapes</strong> and drag a <strong>Boomi aXis for SAP </strong>connector shape to your canvas</p>
+      <figure><img src="images/ex5/image080.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with details:</p>
+      <p><strong>Action </strong>: <strong>FUNCTION</strong></p>
+      <p><strong>Connection </strong>: Select <strong>SAP S4H</strong> from directory:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <figure><img src="images/ex5/image081.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> </strong>icon in <strong>Operation </strong>field. Change the name to <strong>Update SO</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex5/image082.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image083.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>workshop_demo</strong> in <strong>Atom</strong>; <strong>SAP S4H</strong> in <strong>Connection </strong>and <strong>BAPI_SALESORDER_CHANGE </strong>in <strong>Filter</strong>. Click <strong>Next</strong>.</p>
+      <figure><img src="images/ex5/image084.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>Object Type </strong>of<strong> BAPI_SALESORDER_CHANGE </strong>and click <strong>Next</strong>, then <strong>Finish</strong>.</p>
+      <figure><img src="images/ex5/image085.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will see the Request and Response profile being created by the wizard once the import is complete. Click <strong>Save and Close</strong>, then <strong>OK.</strong></p>
+      <figure><img src="images/ex5/image086.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Stop </strong>shape on the process Canvas. Click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image087.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect all the steps together so that your canvas looks like the following. Click <strong>Save</strong></p>
+      <figure><img src="images/ex5/image088.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on <strong>Test</strong> and select the <strong>workshop_demo Atom </strong>and click on <strong>Run Test.</strong></p>
+      <figure><img src="images/ex5/image089.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image090.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the process is executed ( green color on each shape), click on the<strong> Stop </strong>shape and click on the <strong>Shape Source Data</strong> to view the results.</p>
+      <figure><img src="images/ex5/image091.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will see a complete view of the entire SAP Sales Order. If you want to see the SAP Sales Order that has been updated in the SAP GUI, ask your instructor to show you.</p>
+      <figure><img src="images/ex5/image092.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Delete Sales Order</h3>
+      <p>Within your <strong>5.A - Integrate / write data back to SAP S4/HANA</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex5/image093.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the component <strong>Delete SO by FM</strong> and click the <strong>Create</strong> button.</p>
+      <p>On the Start shape, select <strong>Type </strong>: <strong>No Data </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image094.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Message </strong>shape from the component panel on the Boomi canvas. Copy and paste the below into the <strong>Message </strong>section. Replace the highlighted section with Sales Order Number received in Response from Create Call. Click <strong>OK</strong>.</p>
+      <p><code>&#x27;{</code></p>
+      <p><code> &quot;I_~1IXBX~1FORCE_COMMIT_OR_ROLLBACK&quot;: &quot;X&quot;,</code></p>
+      <p><code> &quot;I_ORDER_HEADER_INX&quot; : {</code></p>
+      <p><code> &quot;UPDATEFLAG&quot; : &quot;D&quot;</code></p>
+      <p><code> },</code></p>
+      <p><code> &quot;I_SALESDOCUMENT&quot; : &quot;</code><code>&lt;Sales Order Number received in Response from Create Call&gt;</code><code>&quot;,</code></p>
+      <p><code>}&#x27;</code></p>
+      <figure><img src="images/ex5/image095.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the start shape to the <strong>Message </strong>shape.</p>
+      <p>Search <strong>axis </strong> on <strong>Search shapes</strong> and drag a <strong>Boomi aXis for SAP </strong>connector shape to your canvas</p>
+      <figure><img src="images/ex5/image096.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with below details</p>
+      <p><strong>Action </strong>: <strong>FUNCTION</strong></p>
+      <p><strong>Connection </strong>: Select <strong>SAP S4H</strong> from directory:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <p><strong>Operation</strong>: Select <strong>Update SO</strong> operation created in step #11 in the previous exercise. It should be in this same folder.</p>
+      <p>Click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image097.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag a <strong>Stop </strong>shape on the process canvas. Click <strong>OK</strong>.</p>
+      <figure><img src="images/ex5/image098.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the shapes so they look like the following.</p>
+      <figure><img src="images/ex5/image099.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Save</strong>.</p>
+      <figure><img src="images/ex5/image100.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on <strong>Test</strong> and select the <strong>workshop_demo Atom </strong>and click on <strong>Run Test.</strong></p>
+      <figure><img src="images/ex5/image101.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex5/image102.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the process is executed ( green color on each shape), click on the<strong> Stop </strong>shape and click on the <strong>Shape Source Data</strong> to view the results.</p>
+      <figure><img src="images/ex5/image103.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will see that the SAP Sales Order has been deleted. If you want to see that the SAP Sales Order has been deleted in the SAP GUI, ask your instructor to show you.</p>
+      <figure><img src="images/ex5/image104.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Building — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 2
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~45 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">API Building</h1>
+      </header>
+      <p>Build a simple REST API in Boomi, then expand to a complex API with multiple operations and error handling.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Build a Simple API</li>
+        <li>Build a Complex API</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 2</div>
+        <h1 class="step-title">Build a Simple API</h1>
+      </header>
+      <figure><img src="images/ex3/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In this exercise, you will create an API microservice abstracting the more complex Salesforce API. You will use the top down API design pattern to create this API by first creating the API specification and then automatically generating the Boomi Process stub that conforms to the API contract. Then you will complete the implementation of the service to search for customers in Salesforce. These lower level system specific APIs are commonly used in more higher level Business or Composite APIs that we will see in the next exercise. We will introduce you to the Boomi API Management perspective and have you interact with the Boomi API Service Catalog to discover and test out the API using the Swagger Visualization Portal.</p>
+      <p>Within your <strong>User - XX</strong> folder, create a new folder called <strong>2.A - Build a simple API</strong> and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex3/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>2.A - Build a simple AP</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex3/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>API</strong>, name the component <strong>Internal API: Get SF Account Data Microservice</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex3/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the General tab, In the <strong>Published API Title</strong> enter <strong>Internal API: Get SF Account Data Microservice</strong>,<strong> Published Version Number</strong> enter<strong> 1</strong> and in the <strong>Base API Path</strong> enter<strong> sf_account_&lt;your First Name&gt;&lt;your Last Name&gt;.</strong></p>
+      <figure><img src="images/ex3/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Import an Endpoint</strong>.</p>
+      <figure><img src="images/ex3/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Create a new process</strong> and click <strong>Next</strong>.</p>
+      <figure><img src="images/ex3/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the dialogue box, enter the below details and then click <strong>finish</strong>:</p>
+      <p>Process Name: <strong>Get SF Account by Name</strong></p>
+      <p>Process Location: will be pre-populated</p>
+      <p>Add to: <strong>REST</strong></p>
+      <p>Output Type: <strong>Single XML Object</strong></p>
+      <p><strong>Output Profile for Response</strong>:<strong> </strong>Select the profile<strong> SF_Account_QUERY_Response </strong>from path <strong>/Workshop/Immersive Hands On/Shared Assets</strong></p>
+      <p>Object: <strong>SF_Customer</strong></p>
+      <p>URL Path: <strong>{name}</strong></p>
+      <p>HTTP Method: <strong>GET</strong></p>
+      <p>Click <strong>Finish</strong></p>
+      <figure><img src="images/ex3/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Save </strong>button to save the API component.</p>
+      <p>Navigate to the <strong>REST </strong>tab in the API component and validate the Endpoint is added successfully. Select <strong>&gt; SF_Customer </strong>to expand it and click on the <strong>Get SF Account by Name </strong>link to open it.</p>
+      <figure><img src="images/ex3/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will see a process is created by the wizard with a Web Services Server Start shape. Click on Confirm Process Options</p>
+      <figure><img src="images/ex3/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Make the recommended changes for me</strong> and then <strong>edit pencil icon</strong> next to Operation name.</p>
+      <figure><img src="images/ex3/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Rename the Web Services Server Operation to <strong>Get SF Acct by Name </strong>and <strong>Save and Close</strong>, then <strong>OK.</strong></p>
+      <figure><img src="images/ex3/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>salesforce</strong> in the <strong>Search shapes </strong>field of the palette tab<strong> </strong>and drag the <strong>Salesforce </strong>connector shape on the process Canvas.</p>
+      <p>In the <strong>Connection </strong>field, select <strong>SE Shared SF</strong> from the folder <strong>/Workshop/Immersive Hands On/#Shared Connections</strong>.</p>
+      <figure><img src="images/ex3/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click  sign in the <strong>Operation </strong>field to create a new operation.</p>
+      <figure><img src="images/ex3/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Name the Operation as <strong>Get SF Account by Name</strong> and click on <strong>Import</strong>.</p>
+      <figure><img src="images/ex3/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the same connection by clicking on the magnifying glass icon and click <strong>Next</strong></p>
+      <figure><img src="images/ex3/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Account </strong>in <strong>Object Type</strong> and <strong>Query </strong>in <strong>Action </strong>and then click <strong>Next</strong>.</p>
+      <figure><img src="images/ex3/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>18.Click <strong>Next</strong> and then <strong>Finish</strong></p>
+      <figure><img src="images/ex3/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click the Filters tab, click on the black down arrow dropdown next to Logical-AND and click Add Expression.</li>
+      </ol>
+      <figure><img src="images/ex3/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click to highlight Expression and In the Filter Name field, enter Customer Name Like, click Choose… in the Field and select the Name attribute then the Ok button. Choose Like in the Operator field.</li>
+      </ol>
+      <figure><img src="images/ex3/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Save and Close the Operation. Click Ok on Connector Shape.</li>
+        <li>Click on Parameters and then import all 1? link in the popup.</li>
+      </ol>
+      <figure><img src="images/ex3/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Double Click on the Static value of ‘’ and select Dynamic Process Property in Type and param_name in Property Name. Click Ok.</li>
+      </ol>
+      <figure><img src="images/ex3/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Clear the Search shapes field, click the Logic palette tab and drag a Return Documents shape on the process Canvas and click OK.</li>
+        <li>Connect all the shapes and Click Save.</li>
+      </ol>
+      <figure><img src="images/ex3/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click on Create Packaged Component.</li>
+      </ol>
+      <figure><img src="images/ex3/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>In the Filter field, click the X to remove the process component ID filter. Navigate to and select the API service Internal API: Get SF Account Data Microservice also in the next screen and click on Next: Add Details.</li>
+      </ol>
+      <figure><img src="images/ex3/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Add version number and Notes and click on Create Packaged Component(2). Click on Deploy on the next screen.</li>
+      </ol>
+      <figure><img src="images/ex3/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Select Prod as the Environment and add Notes and click on Next: Select Versions. Then click Next: Review and then click Deploy then Close.</li>
+      </ol>
+      <figure><img src="images/ex3/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Your API is now deployed and ready to use. To test out the API, from the top menu bar, click Services -&gt; API Management on the far right of the popup to open in a new browser tab:</li>
+      </ol>
+      <figure><img src="images/ex3/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>In the Configure APIs and Applications -&gt; Deployed APIs page, search for your API by entering Internal API: Get SF in the search field. Make sure you select your API by looking at the Location: field. The Location: field should contain your user’s folder path in it.</li>
+      </ol>
+      <figure><img src="images/ex3/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Once you have found your API, click the View link to the far left of the screen:</li>
+      </ol>
+      <figure><img src="images/ex3/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click on the REST tab, then the Access Swagger Visualization Portal button.</li>
+      </ol>
+      <figure><img src="images/ex3/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>In the Access Swagger Visualization Portal popup, in the User drop down, select @-PLRWHL.RRLDUL and click Open.</li>
+      </ol>
+      <figure><img src="images/ex3/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>The Swagger Portal uses basic authentication, so enter the Username of @-PLRWHL.RRLDUL and Password of 1b9a8f8f-9ee7-4315-85da-2bc0335f9221</li>
+      </ol>
+      <figure><img src="images/ex3/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>In the Swagger Visualization Portal, click the Get button, then the Try it out button.</li>
+      </ol>
+      <figure><img src="images/ex3/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Enter Domestic US Customer in the name field and click the Execute button.</li>
+      </ol>
+      <figure><img src="images/ex3/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Your simple API should have been called successfully. If so, you can see the output of the API call by scrolling down the page to see:</li>
+      </ol>
+      <figure><img src="images/ex3/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 2</div>
+        <h1 class="step-title">Build a Complex API</h1>
+      </header>
+      <figure><img src="images/ex3/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In this exercise, we will have you implement a complex composite API that calls 2 microservice APIs. One microservice API will get Salesforce account data and the other API will get the SAP Sales Orders. The composite API will get the entire customer profile information that can be used by both internal and external API consumers. We will use the Boomi API Management perspective to discover APIs and test them out. While it is out of scope for this workshop, Boomi does provide an API Gateway and API Developer Portal the facilitate inbound access to API’s from the internet or from your intranet. Runtime Plans can be created to limit the specific API Consumer/API Provider pair to only allowing so many calls per time period (Rate Limit) and so many calls over a time span (Quota Limit). The API request message size can also have an upper limit. Boomi supports advanced security options to secure your APIs with no authentication, basic auth, client certificate auth, SAML, OAuth2 with or without JWT tokens. Boomi can connect with external identity providers for enterprise authentication and secure the APIs from the Boomi runtime or API Gateway.</p>
+      <p>Within your <strong>User - XX</strong> folder, create a new folder called <strong>2.B - Build a Complex API</strong> and click <strong>Save</strong>.</p>
+      <figure><img src="images/ex3/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>2.B - Build a Complex API </strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex3/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Process</strong>, name the component <strong>Get SAP Sales Order by Customer Name</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex3/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the <strong>Start Shape</strong>, enter <strong>Display Name</strong> of<strong> Composite Service, </strong>select connector as: <strong>Web Services Server, </strong>Action<strong>: Listen </strong>and click on<strong> Make the recommended changes for me</strong>. And click on the <strong> icon </strong>on the <strong>Operation </strong>tab.</p>
+      <figure><img src="images/ex3/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Give operation name as <strong>Get Customer by Name</strong></p>
+      <p><strong>Operation Type</strong>: <strong>Get</strong></p>
+      <p><strong>Object</strong>:<strong> Customer</strong></p>
+      <p><strong>Expected Input Type</strong>:<strong> None</strong></p>
+      <p><strong>Expected OutPut Type</strong>:<strong> Single JSON Object</strong></p>
+      <p><strong>Response Profile</strong>: Click in the field, navigate to and select<strong> SF Customer and SAP Sales Orders </strong>from<strong> /Workshop/Immersive Hands On/#Shared Assets</strong></p>
+      <p>Click on<strong> Save and Close</strong></p>
+      <figure><img src="images/ex3/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on <strong>OK</strong>. This complete the start shape</p>
+      <figure><img src="images/ex3/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search <strong>http client</strong> on <strong>Search shapes</strong> and drag the <strong>HTTP Client </strong>connector shape to your Canvas</p>
+      <figure><img src="images/ex3/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Configure Connector shape with below details</p>
+      <p>Display Name: <strong>Salesforce Microservice</strong></p>
+      <p>Action : <strong>Get</strong></p>
+      <p>Connection: Select <strong>API Mgmt Adv No Auth</strong> from directory:- <strong>/Workshop/Immersive Hands On/#Shared Connections </strong></p>
+      <figure><img src="images/ex3/image053.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong> icon </strong>on <strong>Operation </strong>Tab</p>
+      <figure><img src="images/ex3/image054.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Give operation name <strong>Get SF Acct by Name</strong></p>
+      <p>Select Request Profile Type: NONE</p>
+      <p>Select Response Profile Type: XML</p>
+      <p>Response Profile: Click the magnifying glass icon, then select <strong>SF_Account_QUERY_Response 3</strong> from <strong>/Workshop/Immersive Hands On/#Shared Assets</strong></p>
+      <p>Content Type: <strong>text/plain</strong></p>
+      <p>HTTP Method: <strong>GET</strong></p>
+      <figure><img src="images/ex3/image055.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong> </strong>icon below Resource Path and replace <strong>newItem </strong>in the <strong>Name </strong>field<strong> </strong>with <strong>ws/rest/sf_account/search/ </strong>. and click on <strong> </strong>icon again and replace newItem as <strong>DDP_NAME</strong> and <strong>check </strong>the checkbox<strong> </strong><strong>Is replacement variable?</strong> and after that click on <strong>Save and Close</strong>.</p>
+      <figure><img src="images/ex3/image056.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image057.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image058.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image059.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image060.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on <strong>Parameters</strong> and click on <strong>+ </strong>icon</p>
+      <figure><img src="images/ex3/image061.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>choose <strong>DDP_NAME (url)</strong> in <strong>Input </strong>field<strong> </strong>and click on <strong>OK</strong></p>
+      <figure><img src="images/ex3/image062.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Dynamic Process Property</strong> from the <strong>Type</strong> drop down.</p>
+      <figure><img src="images/ex3/image063.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>For <strong>Property Name</strong> enter <strong>param_name </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex3/image064.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>OK</strong>. That completes the Connector shape.</p>
+      <ol>
+        <li>Now connect the start shape to the Salesforce Microservice connector shape</li>
+      </ol>
+      <figure><img src="images/ex3/image065.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Search for branch in Search shapes and drag that to canvas and click OK. Connect the Salesforce Microservice shape to the Branch shape.</li>
+      </ol>
+      <figure><img src="images/ex3/image066.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image067.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Now Search Add to Cache on Search shapes and drag that to canvas.</li>
+      </ol>
+      <figure><img src="images/ex3/image068.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click on icon in Document Cache field.</li>
+      </ol>
+      <figure><img src="images/ex3/image069.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image070.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Change the name to SF Account Cache</li>
+      </ol>
+      <p>Profile Type:<strong> XML</strong></p>
+      <p>Profile: select<strong> SF_Account_QUERY_Response 3</strong> from <strong>/Workshop/Immersive Hands On/#Shared Assets</strong></p>
+      <figure><img src="images/ex3/image071.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Add Index</strong>, enter <strong>SAP Customer ID </strong>as <strong>Index Name</strong> and click on <strong>OK.</strong></p>
+      <figure><img src="images/ex3/image072.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Add Profile Element Key</strong> link under <strong>SAP Customer ID</strong>.</p>
+      <p>Enter <strong>SAP Customer ID </strong>then click <strong>Choose…</strong> then scroll down to the bottom and select <strong>external_ID__c</strong> from the drop down profile elements and click on<strong> OK.</strong></p>
+      <p>Click on the <strong>Save </strong>button in the <strong>Add Index </strong>panel, then <strong>Save and Close</strong></p>
+      <figure><img src="images/ex3/image073.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>OK</strong>. Thats completes add to cache shape</p>
+      <figure><img src="images/ex3/image074.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the first branch<strong> </strong>of the <strong>Branch </strong>shape to the <strong>Cache </strong>shape.</p>
+      <figure><img src="images/ex3/image075.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Search for HTTP CLIENT in Search shapes and drag the connector to Canvas.</li>
+      </ol>
+      <figure><img src="images/ex3/image076.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Display Name: <strong>SAP Microservice</strong></p>
+      <p>Action: <strong>Get</strong></p>
+      <p>Connection: Select <strong>API Mgmt Adv No Auth</strong> from <strong>/Workshop/Immersive Hands On/#Shared Connections</strong></p>
+      <figure><img src="images/ex3/image077.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>e.</strong> click on the <strong> </strong>icon to create another <strong>Operation</strong>.</p>
+      <figure><img src="images/ex3/image078.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image079.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Change name to Get SAP Orders</li>
+      </ol>
+      <p><strong>Select Request Profile Type</strong>: <strong>NONE</strong></p>
+      <p><strong>Select Response Profile Type</strong>: <strong>JSON</strong></p>
+      <p><strong>Response Profile</strong>: Click the magnifying glass icon and select <strong>Boomi aXis for SAP SALES_ORDERS QUERY Response</strong> from <strong>/Workshop/Immersive Hands On/#Shared Assets</strong></p>
+      <p><strong>Content Type</strong>: <strong>application/json</strong></p>
+      <p><strong>HTTP Method</strong>: <strong>GET</strong></p>
+      <figure><img src="images/ex3/image080.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image081.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong> </strong>Icon below <strong>Resource Path</strong> and replace <strong>newItem </strong>with <strong>ws/rest/sap_orders/search/ </strong>. Click on <strong>+ </strong>icon again and replace <strong>newItem </strong>with <strong>DDP_SAP_SO_ID </strong>and click checkbox<strong> </strong><strong>Is replacement variable?</strong> and after that click on <strong>Save and Close.</strong></p>
+      <figure><img src="images/ex3/image082.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image083.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Parameters</strong> and click on <strong> </strong>icon</p>
+      <figure><img src="images/ex3/image084.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image085.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>DDP_SAP_SO_ID (url)</strong> for the <strong>Input </strong>field and click on <strong>OK</strong>.</p>
+      <figure><img src="images/ex3/image086.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Type</strong>: <strong>Profile Element </strong>(From Drop Down)</p>
+      <p><strong>Profile Type</strong>: <strong>XML </strong>( Select from Drop Down)</p>
+      <p><strong>Profile</strong>: Select <strong>SF_Account_QUERY_Response 3 </strong>from <strong>/Workshop/Immersive Hands On/#Shared Assets</strong></p>
+      <figure><img src="images/ex3/image087.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Element</strong>: Select <strong>external_ID__c</strong> from the bottom of the profile drop down and click on <strong>OK</strong>, then <strong>OK.</strong></p>
+      <figure><img src="images/ex3/image088.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>j. Click on <strong>OK</strong>. That completes the Connector shape.</p>
+      <ol>
+        <li>Connect branch 2 of the Branch shape to the SAP Microservice connector.</li>
+      </ol>
+      <figure><img src="images/ex3/image089.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Search for Map on Search shapes and drag that to the canvas.</li>
+      </ol>
+      <figure><img src="images/ex3/image090.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Choose…</strong> and select <strong>Join SF and SAP Data Map</strong> from <strong>/Workshop/Immersive Hands On/#Shared Assets </strong>folder then click <strong>OK</strong>.</p>
+      <figure><img src="images/ex3/image091.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect the <strong>SAP Microservice </strong>connector to the <strong>Map </strong>shape.</p>
+      <figure><img src="images/ex3/image092.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Search for Return in Search shapes and drag the shape to canvas and click on OK.</li>
+      </ol>
+      <figure><img src="images/ex3/image093.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>post that connect the arrow of map shape to Return doc shape</p>
+      <figure><img src="images/ex3/image094.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>That completes our process Get SAP Sales Order by Customer Name. Now click on Save and Close.</li>
+      </ol>
+      <figure><img src="images/ex3/image095.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Now it&#x27;s time to create an API service.</li>
+      </ol>
+      <p>Under <strong>2.B - Build a Complex API</strong> click on drop down and select <strong>New Component.</strong></p>
+      <figure><img src="images/ex3/image096.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Type </strong>: <strong>API</strong></p>
+      <p><strong>Component name</strong>: <strong>Internal API: Search Customer Process API</strong></p>
+      <p><strong>API Type</strong>: <strong>API Service</strong></p>
+      <p>Click <strong>Create</strong>.</p>
+      <figure><img src="images/ex3/image097.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On <strong>General </strong>tab</p>
+      <p><strong>Published API Title*</strong>: <strong> Internal API: Search Customer Process API</strong></p>
+      <p><strong>Published Version Number*</strong> : <strong>1</strong></p>
+      <p><strong>Published Description</strong>: <strong>All Customer related APIs</strong></p>
+      <p><strong>Base API Path</strong>: <strong>search_customer_&lt;your first name&gt;</strong></p>
+      <figure><img src="images/ex3/image098.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Import An Endpoint</strong>. Click on the radio button <strong>Use an existing process</strong> and then click <strong>Next</strong>.</p>
+      <p><strong>Process</strong>: Choose your process <strong>Get SAP Sales Order by Customer Name</strong> from <strong>/Workshop/Immersive Hands On/&lt;your folder&gt;/2.B - Build a Complex API </strong></p>
+      <p><strong>Add To</strong>: check <strong>REST</strong></p>
+      <p>Click on <strong>Finish</strong></p>
+      <figure><img src="images/ex3/image099.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>REST </strong>tab at the top of the API Component. Expand the imported API by clicking on the <strong>&gt; Customer </strong>link. Click on the gear icon and <strong>Edit Endpoint</strong>.</p>
+      <figure><img src="images/ex3/image100.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>{name} </strong>in the <strong>Resource Path’s </strong>second field:</p>
+      <figure><img src="images/ex3/image101.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Save and Close</strong></p>
+      <ol>
+        <li>Click on Deploy and then Packaged Components.</li>
+      </ol>
+      <figure><img src="images/ex3/image102.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click on Create Packaged Component and then Navigate to folder: /Workshop/Immersive Hands On/&lt;your folder&gt;/2.B - Build a Complex API, then select Get SAP Sales Order by Customer Name (Process) and Internal API: Search Customer Process API (API), click on Next: Add Details</li>
+      </ol>
+      <figure><img src="images/ex3/image103.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Type 1.0 for Version for all field and Package Notes for All enter Initial Deployment and click on Create Package Component(2).</li>
+      </ol>
+      <figure><img src="images/ex3/image104.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click on Deploy.</li>
+      </ol>
+      <figure><img src="images/ex3/image105.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Select Prod as the Deployment Environment and Initial Deployment for Deployment Notes and click on Next: Select Versions and then click Next: Review, then Deploy then Close.</li>
+      </ol>
+      <figure><img src="images/ex3/image106.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Your API is now deployed and ready to use. Go to the API Management perspective: Services -&gt; API Management.</li>
+        <li>Enter Search Customer in the Search field and click Search. Make sure you select your API by looking at the Location: path and finding the one with your user folder. Once you find it, click the View link next to it.</li>
+      </ol>
+      <figure><img src="images/ex3/image107.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Select the REST tab, then click the Access Swagger Visualization Portal button</li>
+      </ol>
+      <figure><img src="images/ex3/image108.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>From the User drop down, select @-PLRWHL.RRLDUL and click Open.</li>
+      </ol>
+      <figure><img src="images/ex3/image109.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Click the GET button, then the Try it out button.</li>
+      </ol>
+      <figure><img src="images/ex3/image110.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>Enter your account name in the name field and click the Execute button:</li>
+      </ol>
+      <figure><img src="images/ex3/image111.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>You should see the successful response below:</li>
+      </ol>
+      <figure><img src="images/ex3/image112.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <ol>
+        <li>If you saw the entire Customer profile data from Salesforce and from SAP, congratulations! You have successfully created a simple microservice and a complex composite service. Let the instructor know if you want to see the API Gateway and the API Developer Portal.</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

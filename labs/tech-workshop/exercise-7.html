@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-7">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Sets &amp; Catalog — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 7</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 3
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~25 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Data Sets & Catalog</h1>
+      </header>
+      <p>Load a large data set, catalog it for reuse across the organization, and subscribe to a published catalog data set as a consumer.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Load Large Data Set</li>
+        <li>Cataloging of Data Sets</li>
+        <li>Subscribing to a Data Set</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">Load Large Data Set</h1>
+      </header>
+      <p>Login the the Boomi Data Catalog and Preparation solution here: . Make sure the instructor has created an account for you and you have the credentials.</p>
+      <figure><img src="images/ex7/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter your credentials and click <strong>Login</strong>.</p>
+      <p>Click on Data Sets and explore your data</p>
+      <p>Pull up the <strong>Account </strong>Salesforce object and profile the data. Click on the <strong>Columns </strong>heading and continue to click on the greater than symbol</p>
+      <figure><img src="images/ex7/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the menu bar on the left, click <strong>Prepare -&gt; Jobs</strong></p>
+      <figure><img src="images/ex7/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Jobs </strong>page, click on the <strong>Duplicate Snowflake to Snowflake </strong>Job,</p>
+      <figure><img src="images/ex7/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Output </strong>step in the upper right of the screen . Notice that we are using Snowflake pushdown optimization and sending 1 Gig of data to a new table. Click on the arrow down link to see all of the source fields to target field mappings.</p>
+      <figure><img src="images/ex7/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>When you see this screen, click on the <strong>Run </strong>button to start the job.</p>
+      <figure><img src="images/ex7/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After the job finished (about 10 seconds), click on the <strong>Summary</strong>, <strong>Output</strong>, <strong>Input</strong>, and <strong>Lineage </strong>tabs to see everything about this DCP Prep Job.</p>
+      <figure><img src="images/ex7/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>When you click on the <strong>Lineage </strong>tab, you will see where each field came from.</p>
+      <figure><img src="images/ex7/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Feel free to go back to <strong>Prepare -&gt; Jobs</strong>, to run the prep job that loads a Snowflake table from a 1 Gig file in an S3 bucket called <strong>S3 to Snowflake 1gig movement</strong>. This prep job will take a little longer to execute.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Cataloging of Data Sets</h1>
+      </header>
+      <p>Go to <strong>Explore -&gt; Data Set Explorer</strong>.</p>
+      <figure><img src="images/ex7/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the upper right corner of the <strong>Data Set Explore</strong>, click on the <strong> Create Data Set </strong>button.</p>
+      <figure><img src="images/ex7/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Create Data Set </strong>dialog, select <strong>Service </strong>from the <strong>Type </strong>dropdown, <strong>Salesforce Dev Account </strong>from the <strong>Data Source </strong>drop down. When you do this, all of the available objects in this Salesforce account will be available to search and import. Import any object, like the <strong>Opportunity </strong>object. Enter letters slowly in the search field as the results dynamically appear based on each letter added/removed. Once you highlighted the object(s) you want to import, click Import. This starts a background job to perform the import.</p>
+      <figure><img src="images/ex7/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Go to the <strong>Data Set Explore</strong> to see and profile the data by clicking on it.</p>
+      <figure><img src="images/ex7/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>DCP will automatically calculate statistics for a sample data set. Once it is done and the clears, you can click on each column to see a graphical summary of the data, for example click on the <strong>StageName </strong>column. Go through each of the tabs at the top: <strong>Columns</strong>, <strong>Data Dictionary</strong>, <strong>Lineage</strong>, <strong>Related Resources</strong>, <strong>Similar Data Sets</strong>, and <strong>Associations</strong>. There is a lot of profile data statistics. Any number of Data Sources can be automatically introspected and discovered to curate and govern access to your data.</p>
+      <figure><img src="images/ex7/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Subscribing to a Data Set</h1>
+      </header>
+      <p>In this exercise, we will login to Boomi DCP as a non-admin user and request access to any data set.</p>
+      <p>Login to Boomi DCP:  and logout if you are already logged in. Login as a Data Analyst: <strong>Username</strong>: <strong>raccess </strong>and <strong>Password: Boomi1234!</strong></p>
+      <figure><img src="images/ex7/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Go to the <strong>Data Set Explorer</strong>.</p>
+      <figure><img src="images/ex7/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on any <strong>Data Set</strong> that you see the padlock icon to the right ( )to highlight it (don’t click on the <strong>Data Set </strong>in the <strong>Name </strong>column). Once the <strong>Data Set </strong>is highlighted, in the <strong>Details </strong>panel to the far right, click the opened padlock icon ( ) to request access to the highlighted data set.</p>
+      <figure><img src="images/ex7/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Notice when you first hover over the open padlock icon it displays , and after you click it, it shows . Now logout as the <strong>raccess </strong>user by clicking the <strong>Sign Out </strong>button in the lower left corner of the screen: .</p>
+      <figure><img src="images/ex7/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now login as the owner of the data sets: <strong>Username</strong>: <strong>boomi</strong> and <strong>Password</strong>: <strong>B00mi@2022</strong>.</p>
+      <p>Notice you see that you have notifications from the bell icon in the lower left side bar . When you click the bell, you should see all of your notifications.</p>
+      <figure><img src="images/ex7/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex7/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Accept</strong> button to grant access to the data set to that user.</p>
+      <figure><img src="images/ex7/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now you can logout of the data set owner and login as the data set requestor (<strong>raccess)</strong>, go to the <strong>Data Set Explorer</strong>, and see that you can now access the data set, including viewing the data.</p>
+      <figure><img src="images/ex7/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

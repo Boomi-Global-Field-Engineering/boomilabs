@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pub/Sub Topics — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 2
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 2
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~30 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Pub/Sub Topics</h1>
+      </header>
+      <p>Build a producer process that publishes to a Boomi Event Stream topic, then a consumer that subscribes and reads from it.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Lesson 1. A – Producer to Publishing Topic</li>
+        <li>Lesson 1. B – Consumer Pub/Sub Topic</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 2</div>
+        <h1 class="step-title">Lesson 1. A – Producer to Publishing Topic</h1>
+      </header>
+      <p>Develop Pub/Sub Event-Driven Integration</p>
+      <figure><img src="images/ex2/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>While the Boomi runtime comes OOTB with an Atom Queue that implements the publish/subscribe message exchange pattern, the Atom Queue is meant for internal messaging within the Atom runtime. It is mostly used for guaranteed processing in the Atom and the ability to have asynchronous processing from within the same runtime. We recommend using the Boomi Solace Event Mesh for enterprise service buses and for supporting any external application to directly publish and subscribe to the Event Mesh. In these exercises, we will show you how to publish messages to the Event Mesh and how to subscribe to messages from the event mesh. Any protocol can be used to pub/sub to the event mesh, including JMS, REST, AMQP, MQTT, WebSocket, etc.</p>
+      <p>Click <strong>Services -&gt; Integration </strong>and Navigate to your User Folder, click the black arrow down icon next to it, click <strong>New Folder</strong> and create a new folder called <strong>PubSub</strong> and click on <strong>Save</strong>.</p>
+      <p>Within your <strong>PubSub</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex2/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Process</strong>, name the component <strong>Publish Message,</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex2/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Start Shape </strong>dialog, click the <strong>No Data </strong>radio button and <strong>OK</strong>. We are doing this so we can test our process to publish data to the Boomi Event Mesh.</p>
+      <figure><img src="images/ex2/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Add a <strong>Message </strong>shape to the canvas. Drag the <strong>Message</strong> shape from <strong>Execute </strong>palette tab and drop it on the canvas. Click <strong>OK</strong> to dismiss the <strong>Message Shape </strong>dialog.</p>
+      <figure><img src="images/ex2/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Enter <strong>solace</strong> in the <strong>Search shapes </strong>field at the top of the shape palette. Drag and drop the <strong>Solace PubSub+ Platform - Partner Connector</strong> on the canvas.</p>
+      <figure><img src="images/ex2/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Connector Shape </strong>popup, select the <strong>Connection </strong>that is available in the <strong>#Shared Connections</strong> folder called <strong>(shared) Solace Connection</strong>.</p>
+      <figure><img src="images/ex2/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the same window, select the <strong>Action </strong>to <strong>Send</strong>.</p>
+      <figure><img src="images/ex2/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the same window, on the <strong>Operation </strong>field click on the  button to create a new operation. Change the name to <strong>Publish to Topic</strong> and <strong>Save</strong>.</p>
+      <figure><img src="images/ex2/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Adding the name to the Operation.</p>
+      <figure><img src="images/ex2/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the Solace Operation Window as seen above click on the <strong>Import</strong> button. Now, Select the <strong>Atom</strong> and <strong>Connection</strong> and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex2/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>From the <strong>Object Type </strong>drop-down, select <strong>OrderCreation Status</strong> and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex2/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The operation will be loaded and the profile will be created by the wizard. Now click on <strong>Finish</strong>.</p>
+      <figure><img src="images/ex2/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the operation window now select the check box <strong>Return Application Error Responses</strong> and then click <strong>Save and Close</strong> button.</p>
+      <figure><img src="images/ex2/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the <strong>Connector Shape </strong>window all the configurations can be seen. Click on the<strong> OK</strong> button for the Connector Shape window.</p>
+      <figure><img src="images/ex2/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the <strong>X</strong> in the <strong>Search Shapes </strong>field to remove <strong>solace</strong>. Drag and drop the <strong>set properties</strong> shape from <strong>Execute </strong>palette tab to the canvas.</p>
+      <figure><img src="images/ex2/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the<strong> Set Properties</strong> <strong>Shape </strong>popup, click on the <strong> </strong>icon to set the document properties for <strong>Solace Operation</strong>.</p>
+      <figure><img src="images/ex2/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Connectors </strong>drop down, search for <strong>Solace</strong>, and select the <strong>Solace PubSub+ Platform - Partner Connector</strong>.</p>
+      <figure><img src="images/ex2/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting the <strong>Solace PubSub+ Platform - Partner Connector</strong>, a new field called <strong>Property</strong> can be seen. Select the <strong>Endpoint Type</strong> field value from the drop-down. Click the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking OK</p>
+      <figure><img src="images/ex2/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Solace Property value</strong> and Click on the <strong> </strong>button on the right side panel.</p>
+      <figure><img src="images/ex2/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the pop-up window select the <strong>Type </strong>Field as <strong>Static</strong> and the<strong> Static Value</strong> field as <strong>topic</strong>. Click the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The solace Property value for <strong>Endpoint Type</strong> is set.</p>
+      <figure><img src="images/ex2/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong> </strong>icon under <strong>Properties to Set</strong>. Choose <strong>Connectors </strong>to <strong>Solace PubSub+ Platform - Partner Connector Property</strong> as <strong>Destination </strong>and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex2/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Properties to Set </strong>panel, click the <strong>Destination </strong>field, then the <strong> </strong>icon under <strong>Property Value</strong> and set the <strong>Static Value </strong>as <strong>CRMOppo/SAPOrder/Upsert/CRMApplication</strong>. Click the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Logic</strong> Palette Tab and drag and drop <strong>Stop</strong> shape to canvas and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex2/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Copy the below XML message format, click on the <strong>Message shape </strong>and paste the content inside the <strong>Message </strong>box. Click on the <strong>OK</strong> button.</p>
+      <p><strong>Sample message</strong></p>
+      <p>&lt;Response&gt;</p>
+      <p>&lt;SFDCOpptyId&gt;Oppor123&lt;/SFDCOpptyId&gt;</p>
+      <p>&lt;SAPOrderNumber&gt;SAP123&lt;/SAPOrderNumber&gt;</p>
+      <p>&lt;SFDCAcctId&gt;Acct123&lt;/SFDCAcctId&gt;</p>
+      <p>&lt;SAPCustomerNumber&gt;Cust123&lt;/SAPCustomerNumber&gt;</p>
+      <p>&lt;Message&gt;Test Message&lt;/Message&gt;</p>
+      <p>&lt;/Response&gt;</p>
+      <figure><img src="images/ex2/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect each step by clicking on the icon and dragging and dropping when hovering over the next shape.</p>
+      <figure><img src="images/ex2/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The arrow icon should look like if it is connected to the next shape. When you are done, the canvas should look like the following:</p>
+      <figure><img src="images/ex2/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Save</strong> button on the bottom to save the Boomi Process.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 2</div>
+        <h1 class="step-title">Lesson 1. B – Consumer Pub/Sub Topic</h1>
+      </header>
+      <p>Within your <strong>PubSub</strong> folder, create a <strong>New Component</strong>.</p>
+      <figure><img src="images/ex2/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Choose <strong>Process</strong>, name the component <strong>Subscribe Message,</strong> and click the <strong>Create</strong> button.</p>
+      <figure><img src="images/ex2/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Connector </strong>drop-down, search for <strong>solace</strong> and select <strong>Solace PubSub+ Platform - Partner Connector</strong>.</p>
+      <figure><img src="images/ex2/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting <strong>Solace PubSub+ Platform - Partner Connector</strong></p>
+      <figure><img src="images/ex2/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Make the recommended changes for me</strong> link.</p>
+      <figure><img src="images/ex2/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Connection</strong> field search and select the <strong>(shared) Solace Connection</strong>.</p>
+      <figure><img src="images/ex2/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connection Field</p>
+      <figure><img src="images/ex2/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the  button in the <strong>Operation </strong>field. Change the name of the Operation to <strong>Subscribe to Topic</strong>.</p>
+      <figure><img src="images/ex2/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Adding a logical name to the operation.</p>
+      <figure><img src="images/ex2/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the Solace Operation Window as seen above click on the <strong>Import</strong> button. Now, Select the <strong>Atom</strong> and <strong>Connection</strong> then click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex2/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on <strong>Import</strong></p>
+      <figure><img src="images/ex2/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>From the <strong>Object Type </strong>drop-down, select <strong>OrderCreation Status</strong> and click on <strong>Next</strong>.</p>
+      <figure><img src="images/ex2/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The operation will be loaded and the profile will be created by the wizard. Now click on <strong>Finish</strong>.</p>
+      <figure><img src="images/ex2/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The operation window should look like this.</p>
+      <figure><img src="images/ex2/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the Operation Window, click on the check box <strong>Create Queue and Topic Subscription(s)</strong>. Also, update the <strong>Destination</strong> Field value to <strong>CRMOppo.SAPOrder.Upsert.&gt;</strong> to indicate that we are subscribing to any message published on a Topic that starts with <strong>CRMOppo.SAPOrder.Upsert. </strong>Set <strong>Topic Subscription(s)</strong> value to <strong>CRMOppo/SAPOrder/Upsert/&gt;</strong>.</p>
+      <figure><img src="images/ex2/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Save and Close</strong> button and the Connector Window can be seen with all the Configuration. Click on the <strong>OK</strong> button on the connector window.</p>
+      <figure><img src="images/ex2/image053.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the Save and Close button</p>
+      <figure><img src="images/ex2/image054.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Search for<strong> SFTP</strong> Connector in the <strong>Search Shape</strong> bar. Drag and drop the <strong>SFTP</strong> connector shape to Canvas.</p>
+      <figure><img src="images/ex2/image055.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select <strong>Action </strong>to <strong>Send</strong> and in the <strong>Connection </strong>field, search for and select <strong>(shared) SFTP Connection</strong>.</p>
+      <figure><img src="images/ex2/image056.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the  button in the <strong>Operation </strong>field. Rename the operation to <strong>Save File</strong>. Also, set <strong>Remote Directory</strong> field to <strong>/boomi-service-sftp/boomi-service/poc/</strong>. Click on <strong>Save And Close</strong> button.</p>
+      <figure><img src="images/ex2/image057.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image058.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the <strong>Connector Shape</strong> Window for <strong>SFTP</strong>, you can see all the configurations completed. Click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image059.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Clear the search field in the Palette by clicking <strong>X</strong>. Drag and drop the <strong>Set Properties</strong> shape from the <strong>Execute </strong>Palette Tab to the Canvas.</p>
+      <figure><img src="images/ex2/image060.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click the  icon over the <strong>Properties to Set</strong> Panel.</p>
+      <figure><img src="images/ex2/image061.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image062.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Choose Property</strong> popup, search for and choose the <strong>SFTP </strong>connector for the <strong>Connectors </strong>drop down.</p>
+      <figure><img src="images/ex2/image063.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Selecting <strong>SFTP </strong>from the list gives a <strong>Property </strong>Field. Click on the drop-down, select <strong>File Name</strong> and click the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image064.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the <strong>SFTP - File Name</strong> on the left panel and click on the  icon on the right panel. Now on the pop-up window select <strong>Type</strong> Field as <strong>Static</strong> and <strong>Static Value</strong> Field as <strong>UserName.xml</strong>, Click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image065.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image066.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the <strong>+</strong> button.</p>
+      <figure><img src="images/ex2/image067.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After configuring the property name, the Set Property shape should look like this. Click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex2/image068.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Drag and drop a <strong>Stop </strong>shape from the <strong>Logic </strong>palette tab to the canvas.</p>
+      <figure><img src="images/ex2/image069.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Connect each step by clicking on the icon and dragging and dropping when hovering over the next shape.</p>
+      <figure><img src="images/ex2/image070.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The arrow icon should look like if it is connected to the next shape. When you are done, the canvas should look like the following:</p>
+      <figure><img src="images/ex2/image071.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Save</strong> button on the bottom to save the Boomi Process.</p>
+      <h3>Deploying the Subscriber Process</h3>
+      <p>On the top right corner, click <strong>Create Packaged Component</strong>.</p>
+      <figure><img src="images/ex2/image072.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Create Packaged Components</strong> window is presented. Click on the <strong>Next: Add Details </strong>button. Provide version number in <strong>Version for all</strong> field of <strong>1.0</strong> and <strong>Deploying to runtime for Workshop</strong> in <strong>Package Notes for All</strong> field. Click on <strong>Create Packaged Component(1)</strong> button.</p>
+      <figure><img src="images/ex2/image073.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the button.</p>
+      <figure><img src="images/ex2/image074.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the <strong>Create Packaged Component</strong> button. New Window will be presented, click on the <strong>Deploy</strong> button.</p>
+      <figure><img src="images/ex2/image075.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Deployment Environment <strong>Private Cloud</strong> and add Deployment Notes. Click on the <strong>Next: Select Versions</strong></p>
+      <p>button.</p>
+      <figure><img src="images/ex2/image076.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting Deployment Environment.</p>
+      <figure><img src="images/ex2/image077.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the Deploy Window, click on the <strong>Next: Review</strong> button.</p>
+      <figure><img src="images/ex2/image078.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the Deploy Window, now click on the <strong>Deploy</strong> button.</p>
+      <figure><img src="images/ex2/image079.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Finally, <strong>Deployment Successful</strong> Screen will be displayed. Click the <strong>Close </strong>button.</p>
+      <figure><img src="images/ex2/image080.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Testing the Publisher Process</h3>
+      <p>If the <strong>Publish Message</strong> Boomi Process is not open on the canvas then, open the <strong>Publish Message</strong> Boomi Process from the Left Panel. Double click on the process name.</p>
+      <figure><img src="images/ex2/image081.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Test</strong> button available in the Top Right Corner of the Canvas.</p>
+      <figure><img src="images/ex2/image082.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Atom where the Test is to be run. Select <strong>workshop_demo </strong>atom for the test.</p>
+      <figure><img src="images/ex2/image083.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting Atom, click on the <strong>Run Test </strong>button.</p>
+      <figure><img src="images/ex2/image084.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking the Run Test button, one can see the process getting started, and once it reaches <strong>Stop Shape</strong> (<strong>End and Continue</strong>), that indicates the process ran successfully. Below screen will be presented.</p>
+      <figure><img src="images/ex2/image085.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Verify if the Subscriber Process has listened to the message. Click on <strong>Manage</strong> and Goto <strong>Process Reporting</strong> Page.</p>
+      <figure><img src="images/ex2/image086.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following page will be displayed, where one can see the <strong>Subscriber Process</strong> being executed. It indicates that the Subscriber process ran successfully.</p>
+      <figure><img src="images/ex2/image087.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can ask your instructor to see if the file was successfully put on the SFTP server</p>
+      <figure><img src="images/ex2/image088.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>If you got the output above, <strong>Congratulations!</strong> You have completed the second Boomi hands-on workshop!</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

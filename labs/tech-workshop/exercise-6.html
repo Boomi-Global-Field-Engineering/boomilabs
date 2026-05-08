@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CI/CD Pipeline — Boomi Technical Workshop — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Technical Workshop — Exercise 6</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 1
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~30 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Advanced
+      </div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">CI/CD Pipeline</h1>
+      </header>
+      <p>Leverage a CI/CD pipeline to build and deploy your Boomi processes automatically — covering source control integration, environment promotion, and automated testing.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Leverage CI/CD pipeline for build/deploy of the above scenarios</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 1</div>
+        <h1 class="step-title">Leverage CI/CD pipeline for build/deploy of the above scenarios</h1>
+      </header>
+      <figure><img src="images/ex6/image001.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Within your <strong>User-XX</strong> folder, create a <strong>New Folder.</strong></p>
+      <figure><img src="images/ex6/image002.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Give a logical name to the folder. You can use the name <strong>CI/CD Pipeline</strong>. Click on the <strong>Save</strong> button.</p>
+      <figure><img src="images/ex6/image003.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can see the folder created.</p>
+      <figure><img src="images/ex6/image004.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Browse Process Library </strong>link on the bottom left corner of the page.</p>
+      <figure><img src="images/ex6/image005.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>Boomi Process Library</strong> will be presented. Search <strong>Atomsphere API: Pack</strong> in the search bar. Search results will be shown below.</p>
+      <figure><img src="images/ex6/image006.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Install</strong> button.</p>
+      <figure><img src="images/ex6/image007.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Install Atomsphere API </strong>window will be presented.</p>
+      <figure><img src="images/ex6/image008.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the search icon in the <strong>Select Installation Location</strong> field. Navigate to the newly created folder <strong>CI/CD Pipeline</strong> and select the folder.</p>
+      <figure><img src="images/ex6/image009.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the <strong>Install</strong> button. The<strong> </strong>folder in the <strong>Select Installation Location</strong> field will be loaded with the Process Library components.</p>
+      <figure><img src="images/ex6/image010.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong>Installation Complete</strong> screen will appear. Click on the <strong>View Process</strong> button.</p>
+      <figure><img src="images/ex6/image011.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once you click on the <strong>View Process</strong> button, the Boomi process will open. You can also navigate to the folder <strong>CI/CD Pipeline</strong> to see the process being available.</p>
+      <figure><img src="images/ex6/image012.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can see two sub-processes available on the canvas.</p>
+      <p><strong>AtomSphere API: Automating Packaged Components, Deployments</strong></p>
+      <p><strong>AtomSphere API: Deploy All Packaged Components from One Environment to Another</strong></p>
+      <figure><img src="images/ex6/image013.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>This user guide will show you how to fix the sub-process and run the Boomi Process. After a successful run of the Boomi Process, one can see how we can automate packaging and deploying any given Boomi Process and also how to promote the deployment of Boomi Processes from one environment to another.</p>
+      <p>Click on the first sub-process <strong>AtomSphere API: Automating Packaged Components, Deployments</strong>. A new Boomi process can be seen with a connected shape on the canvas.</p>
+      <figure><img src="images/ex6/image014.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Atomsphere API Shape </strong>in branch 1. The connection configuration screen will be loaded.</p>
+      <figure><img src="images/ex6/image015.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>In the <strong>Connector Shape Screen</strong>, search, navigate and select the connection that is available in the <strong>#Shared Connection</strong> folder.</p>
+      <p>Configuration Screen</p>
+      <figure><img src="images/ex6/image016.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the Search icon, navigate and select the connection from the <strong>#Shared Connection</strong> folder.</p>
+      <figure><img src="images/ex6/image017.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the connection. It should look like the one below.</p>
+      <figure><img src="images/ex6/image018.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the configuration is done, click on the <strong>OK</strong> button.</p>
+      <figure><img src="images/ex6/image019.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Repeat steps 14 - 16 for the<strong> Atomsphere API </strong>shape in branch 2.</p>
+      <figure><img src="images/ex6/image020.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After following the steps, the configuration window should look like the one below. Then click on <strong>OK</strong>.</p>
+      <figure><img src="images/ex6/image021.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the connection is updated in both the<strong> Atmosphere API</strong> shapes, the Boomi process should look like the following.</p>
+      <figure><img src="images/ex6/image022.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now click on the <strong>Message </strong>shape called <strong>Simple Packaged Component to create details ENTER VALUES HERE</strong> in the first branch.</p>
+      <figure><img src="images/ex6/image023.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following <strong>Message </strong>shape screen will be presented.</p>
+      <figure><img src="images/ex6/image024.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The <strong>ComponentId </strong>field needs to be updated here.</p>
+      <p>Navigate to your User folder and open the Boomi process named <strong>Publish Message</strong>. Double click on the process name and the process editor can be seen.</p>
+      <figure><img src="images/ex6/image025.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After double clicking the process name.</p>
+      <figure><img src="images/ex6/image026.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the Boomi process editor, click on the<strong> Revision History</strong> link at the bottom right corner and copy the <strong>Component ID </strong>value to the Windows clipboard <strong>&lt;ctrl-c&gt;</strong>.</p>
+      <figure><img src="images/ex6/image027.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once the <strong>Component ID</strong> value is copied, go back to the <strong>AtomSphere API: Automating Packaged Components, Deployments </strong>process, and paste the value in the <strong>Message Shape</strong>. Click <strong>OK </strong>once the value is updated.</p>
+      <figure><img src="images/ex6/image028.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on message shape <strong>Simple Deployed Package create details ENTER VALUES HERE</strong> in branch 2.</p>
+      <figure><img src="images/ex6/image029.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following <strong>Message Shape</strong> screen will be presented.</p>
+      <figure><img src="images/ex6/image030.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Right-click (Chrome) or click on the browser tab<strong> </strong>and select <strong>Duplicate </strong>or <strong>Duplicate tab</strong>, respectively<strong>. </strong></p>
+      <figure><img src="images/ex6/image031.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>On the duplicate tab screen, click on the <strong>Manage</strong> menu and the <strong>Atom Management</strong> option from the drop-down.</p>
+      <figure><img src="images/ex6/image032.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following Atom Management Screen will be displayed.</p>
+      <figure><img src="images/ex6/image033.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Test </strong>environment on the left panel of the screen.</p>
+      <figure><img src="images/ex6/image034.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Copy the Environment Name from the right panel of the screen to the Windows clipboard.</p>
+      <figure><img src="images/ex6/image035.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now, go to the original tab, paste the copied value in the Message Shape,<strong> </strong>and click <strong>OK.</strong></p>
+      <figure><img src="images/ex6/image036.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the Set Properties shape <strong>Set PP for environment ID (connector lookup)</strong>.</p>
+      <figure><img src="images/ex6/image037.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once clicked it opens the following window.</p>
+      <figure><img src="images/ex6/image038.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Process Property value</strong> on the left side of the <strong>Set Properties Shape</strong>.</p>
+      <figure><img src="images/ex6/image039.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the<strong> Connector Call Output Parameter</strong> on the right side of the set properties shape.</p>
+      <figure><img src="images/ex6/image040.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking on the <strong>pencil icon</strong> on the right side of the screen.</p>
+      <figure><img src="images/ex6/image041.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following screen will be displayed.</p>
+      <figure><img src="images/ex6/image042.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on the search icon in the <strong>Connection </strong>field and update the connection by navigating to the connection available in the <strong>#Shared Connection</strong> folder, <strong>(shared) API Connection</strong>.</p>
+      <figure><img src="images/ex6/image043.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the connection and click <strong>OK</strong>.</p>
+      <figure><img src="images/ex6/image044.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click <strong>OK</strong> on the set properties shape.</p>
+      <figure><img src="images/ex6/image045.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click on <strong>Save </strong>to save the Boomi process.</p>
+      <figure><img src="images/ex6/image046.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <h3>Test the Boomi Process</h3>
+      <p>Click on the <strong>Test</strong> button available in the top right corner of the canvas.</p>
+      <figure><img src="images/ex6/image047.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the Atom where the Test is to be run. Select <strong>US East Test Atom Cloud </strong>atom for the test.</p>
+      <figure><img src="images/ex6/image048.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After selecting Atom, click on the <strong>Run Test </strong>button.</p>
+      <figure><img src="images/ex6/image049.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>After clicking the<strong> Run Test</strong> button, one can see the process getting started, and once it reaches <strong>Stop Shape</strong> (<strong>End and Continue</strong>), that indicates the process ran successfully. Below screen will be presented.</p>
+      <figure><img src="images/ex6/image050.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Verify if the process ran successfully and the Boomi process was packaged and deployed correctly. Click on the <strong>Deploy </strong>menu on the top and select <strong>Packaged Components</strong> item.</p>
+      <figure><img src="images/ex6/image051.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following screen will be displayed, showing the logs showing the process was packaged successfully.</p>
+      <figure><img src="images/ex6/image052.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Now Click on the <strong>Deploy </strong>menu on the top and select the <strong>Deployments</strong> item.</p>
+      <figure><img src="images/ex6/image053.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The following screen will be displayed, showing the logs showing the process was packaged successfully.</p>
+      <figure><img src="images/ex6/image054.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>If you see the above result, then <strong>congratulations! </strong>Your Boomi process has been successfully packaged and deployed to your <strong>Test </strong>environment. To promote this package to <strong>Prod</strong>, you would be able to run the same process, but with different values. This is how Boomi can automate the promotion of deployable assets through and to production and fit nicely within any CI/CD tool. You can either put the Deploy API call in the CI/CD tool, call this Boomi Process or download the AtomSphere CLI that gives a command line interface to the Boom AtomSphere API.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
