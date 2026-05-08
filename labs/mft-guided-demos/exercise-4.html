@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demos 03 &amp; 04: Scheduled &amp; SFTP Pull — MFT Guided Demos — Boomi Labs</title>
+<title>Flows 03 &amp; 04: Scheduled &amp; SFTP Pull — MFT Demo Playbook — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <span>Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">MFT Guided Demos — Demos 03 &amp; 04</span>
+  <span class="lab-header-title">MFT Demo Playbook — Flows 03 &amp; 04</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -29,27 +29,27 @@
       <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
     </div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-section-label">Demos 03 &amp; 04 — Steps</div>
+    <div class="sidebar-section-label">Flows 03 &amp; 04 — Steps</div>
     <ul class="sidebar-nav">
-      <li><a href="#" data-step="0">
+      <li><a href="#" data-step="0" class="active">
         <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
         Overview
       </a></li>
       <li><a href="#" data-step="1">
         <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Demo 03: Schedule Configuration
+        Flow 03: Open &amp; Schedule Tab
       </a></li>
       <li><a href="#" data-step="2">
         <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Demo 03: Activity Review
+        Flow 03: Activity Review
       </a></li>
       <li><a href="#" data-step="3">
         <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Demo 04: Pull Configuration
+        Flow 04: Configuration &amp; Pull Pattern
       </a></li>
       <li><a href="#" data-step="4">
         <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Demo 04: Activity Review
+        Flow 04: Activity Review
       </a></li>
     </ul>
     <div class="sidebar-divider"></div>
@@ -72,23 +72,23 @@
       <div class="step-content">
         <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          Back to Demo Overview
+          Back to Playbook Overview
         </a>
         <header class="step-header">
-          <div class="step-label">Demos 03 &amp; 04 — Overview</div>
+          <div class="step-label">Flows 03 &amp; 04 — Overview</div>
           <h1 class="step-title">Scheduled &amp; SFTP Pull Transfers</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Two always-active flows — no manual upload required. Both generate continuous activity visible in the Activity feed at any time.</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Two always-on flows — no manual upload needed. Both generate continuous activity that's visible the moment you filter.</p>
         </header>
 
-        <h3>Demo 03: Scheduled File Transfer</h3>
-        <p>A schedule-triggered flow moves files on a defined interval — continuously, without any manual intervention. This is ideal for batch use cases: ERP exports, end-of-day reports, and regulatory submissions. Define the schedule once and Boomi handles the rest.</p>
+        <h3>Flow 03: Scheduled File Transfer</h3>
+        <p>A schedule-triggered flow moves files on a defined interval. Because it runs continuously, there's always completed activity to show without needing a manual upload. Ideal for demonstrating time-based automation and batch use cases — "files go at 9pm every night, no human touch."</p>
 
-        <h3>Demo 04: SFTP Server Pull</h3>
-        <p>Rather than waiting for a partner to push files, Demo 04 shows Boomi MFT actively polling and pulling from an external SFTP server. This gives you control over transfer timing without requiring the partner to change their existing processes or infrastructure.</p>
+        <h3>Flow 04: SFTP Server Pull</h3>
+        <p>Instead of a partner pushing files to Boomi, Flow 04 shows MFT actively <em>pulling</em> from an external SFTP server. The file is delivered back to the same location, creating a perpetual loop. This isn't a production pattern — it's a demo fixture that generates continuous activity to demonstrate the pull pattern without requiring a real partner environment.</p>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>Both flows run continuously. Filter by either in the Activity feed to see a live stream of completed transfers — no file upload required.</div>
+          <div>Both flows are good for <strong>quick Activity demonstrations</strong> — filter and show a continuous stream of completed transfers without any setup. Use these if you need to show Activity but haven't uploaded a file yet.</div>
         </div>
 
         <nav class="step-nav">
@@ -102,32 +102,33 @@
       </div>
     </section>
 
-    <!-- PAGE 1: Demo 03 Schedule -->
+    <!-- PAGE 1: Flow 03 - Open & Schedule Tab -->
     <section class="step-page" id="page-1">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 1 of 4</div>
-          <h1 class="step-title">Demo 03: Schedule Configuration</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">See how time-based triggers automate file transfers without any partner coordination.</p>
+          <h1 class="step-title">Flow 03: Open &amp; Schedule Tab</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show how time-based triggers remove the need for partners to initiate transfers.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Navigate to <strong>Flows → Demo 03</strong>. Click the flow endpoint to open its configuration.</p>
+              <p>Navigate to <strong>Flows → Flow 03</strong>. Click the flow endpoint to open its configuration.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Open the <strong>Schedule tab</strong>. Review the time-based trigger configuration — interval, start time, and recurrence. Schedule-triggered flows are ideal for batch scenarios where the business defines when files should transfer and Boomi enforces it automatically.</p>
+              <p>Open the <strong>Schedule tab</strong>. Show how the time-based trigger is configured — interval, start time, and recurrence settings.</p>
+              <p>Talking point: schedule-triggered flows are ideal for batch scenarios — ERP exports, end-of-day reports, regulatory submissions. The business defines the SLA; Boomi enforces it.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Review the <strong>Source Path configuration</strong> — this is where the endpoint monitors for files on each scheduled interval.</p>
+              <p>Show the <strong>Source Path configuration</strong> — this is where the runtime or cloud endpoint monitors for files on each scheduled interval.</p>
             </div>
           </li>
         </ol>
@@ -143,20 +144,20 @@
       </div>
     </section>
 
-    <!-- PAGE 2: Demo 03 Activity -->
+    <!-- PAGE 2: Flow 03 - Activity Review -->
     <section class="step-page" id="page-2">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 2 of 4</div>
-          <h1 class="step-title">Demo 03: Activity Review</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">A continuous stream of completed scheduled transfers — every interval logged.</p>
+          <h1 class="step-title">Flow 03: Activity Review</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show a continuous stream of completed scheduled transfers in the Activity feed.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Navigate to <strong>Activity → filter by Demo 03 → Apply</strong>.</p>
+              <p>Navigate to <strong>Activity → filter by Flow 03 → Apply</strong>.</p>
             </div>
           </li>
           <li>
@@ -167,6 +168,13 @@
           </li>
         </ol>
 
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Demo tip:</strong> This flow is always ready. If a prospect asks "can I see the Activity feed?" and you haven't uploaded a file yet, filter to Flow 03 — instant dense activity, no prep needed.</div>
+        </div>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity filtered by Flow 03 — completed entries showing Last State Updated and file lifecycle</p>
+
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
           <button class="mark-done-btn" id="markDoneBtn">
@@ -178,32 +186,33 @@
       </div>
     </section>
 
-    <!-- PAGE 3: Demo 04 Pull -->
+    <!-- PAGE 3: Flow 04 - Configuration & Pull Pattern -->
     <section class="step-page" id="page-3">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 3 of 4</div>
-          <h1 class="step-title">Demo 04: Pull Configuration</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Enterprise-initiated transfers — Boomi pulls from a partner SFTP rather than waiting for a push.</p>
+          <h1 class="step-title">Flow 04: Configuration &amp; Pull Pattern</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Demonstrate the push/pull contrast — MFT can initiate the transfer, not just receive it.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Find <strong>Demo 04 — SFTP Server Pull</strong> in the Flows list. Open the flow endpoint for configuration.</p>
+              <p>Find <strong>Flow 04 — SFTP Server Test Server</strong> in the Flows list. Open the flow endpoint for configuration.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Review the <strong>Source configuration</strong> — the source is an external SFTP endpoint. Boomi MFT polls and pulls from the remote server on a schedule. Unlike traditional push architectures, this gives the enterprise control over transfer timing without requiring the partner to change their processes.</p>
+              <p>Show the <strong>Source configuration</strong> — the source is an external SFTP endpoint. MFT is configured to poll and pull from the remote server on a schedule.</p>
+              <p>Talking point: the push/pull contrast is powerful for prospects coming from legacy MFT — most expect partners to push. Boomi can pull, giving the enterprise control over timing without coordinating with the partner.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Review the <strong>Delivery Target</strong> — files are collected from the source and delivered to the configured target automatically.</p>
+              <p>Show the <strong>Delivery Target</strong> — the target is the same SFTP location. Explain the loop is deliberate for the demo — it keeps activity flowing without requiring a real partner environment.</p>
             </div>
           </li>
         </ol>
@@ -219,36 +228,38 @@
       </div>
     </section>
 
-    <!-- PAGE 4: Demo 04 Activity -->
+    <!-- PAGE 4: Flow 04 - Activity Review -->
     <section class="step-page" id="page-4">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 4 of 4</div>
-          <h1 class="step-title">Demo 04: Activity Review</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">See the full inbound/outbound lifecycle for each pull-and-deliver cycle.</p>
+          <h1 class="step-title">Flow 04: Activity Review</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show files cycling in the pull-deliver loop with full inbound/outbound lifecycle.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Navigate to <strong>Activity → filter by Demo 04 → Apply</strong>.</p>
+              <p>Navigate to <strong>Activity → filter by Flow 04 → Apply</strong>.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Click any <strong>Completed</strong> state badge to expand and see the full inbound/outbound lifecycle — pull from source, deliver to target — for each transfer cycle.</p>
+              <p>Files going back and forth are visible. Click any <strong>Completed</strong> state badge to expand and show the full inbound/outbound lifecycle — pull from source, deliver to target.</p>
             </div>
           </li>
         </ol>
 
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity filtered by Flow 04 — file cycling in a pull-deliver loop with full lifecycle states</p>
+
         <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
           <div>
             <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
-            <h3 style="font-size:16px;margin:0;">Demo 05: Manufacturer to Supplier Distribution</h3>
+            <h3 style="font-size:16px;margin:0;">Flow 05: Manufacturer to Supplier Distribution</h3>
           </div>
-          <a href="exercise-5.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Demo 05 →</a>
+          <a href="exercise-5.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Flow 05 →</a>
         </div>
 
         <nav class="step-nav">
@@ -264,6 +275,10 @@
 
   </main>
 </div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
 
 <script src="../../assets/js/lab.js"></script>
 </body>

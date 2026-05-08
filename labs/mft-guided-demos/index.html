@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MFT Guided Demos — Boomi Labs</title>
+<title>Boomi MFT Global SC Demo Playbook — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
 <style>
   .flow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
@@ -47,20 +47,20 @@
 <div style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #0a5a7a 100%); color:#fff; padding: 72px 40px 52px; margin-top: 56px;">
   <div style="max-width:860px; margin:0 auto;">
     <span style="display:inline-block; background:rgba(255,255,255,.15); color:rgba(255,255,255,.9); border-radius:20px; padding:4px 14px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; margin-bottom:18px;">Boomi MFT</span>
-    <h1 style="font-size:34px; font-weight:800; line-height:1.2; margin-bottom:14px;">MFT Guided Demos</h1>
-    <p style="font-size:16px; color:rgba(255,255,255,.82); max-width:620px; margin-bottom:26px; line-height:1.65;">Six guided walkthroughs covering every major Boomi MFT integration pattern — from hosted SFTP and end-to-end encryption to scheduled transfers, fan-out routing, and on-premises runtime integration.</p>
+    <h1 style="font-size:34px; font-weight:800; line-height:1.2; margin-bottom:14px;">Global SC Demo Playbook</h1>
+    <p style="font-size:16px; color:rgba(255,255,255,.82); max-width:620px; margin-bottom:26px; line-height:1.65;">Six pre-built demo flows covering every major MFT integration pattern. A complete field reference for Solutions Consultants and Sales Engineers — from SSO login through to full file lifecycle walkthroughs.</p>
     <div style="display:flex; flex-wrap:wrap; gap:10px;">
       <span class="badge badge-blue">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        ~60 min total
+        ~60 min demo coverage
       </span>
       <span class="badge badge-blue">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-        6 demos
+        6 flows &nbsp;·&nbsp; 6 exercises
       </span>
       <span class="badge badge-green">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Live platform activity
+        Continuous synthetic activity
       </span>
     </div>
   </div>
@@ -69,18 +69,18 @@
 <div style="max-width:860px; margin:0 auto; padding:40px 40px 60px;">
 
   <a href="exercise-1.html" class="start-btn">
-    Start Here
+    Start Playbook
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
   </a>
 
-  <h2 class="section-heading">Guided Demos</h2>
+  <h2 class="section-heading">Demo Flows</h2>
   <div class="flow-grid">
 
     <a href="exercise-2.html" class="flow-card">
       <div class="flow-num">01</div>
       <div class="flow-body">
         <div class="flow-title">Multi-Bank Statement Aggregation</div>
-        <div class="flow-desc">Multiple partner banks push statement files to a Boomi-hosted SFTP server. PGP encryption end-to-end, antivirus scanning on arrival, and root-level partner isolation.</div>
+        <div class="flow-desc">Multiple partner banks push statement files to a Boomi-hosted SFTP. PGP encryption end-to-end, AV scanning, and root-level partner isolation.</div>
         <div class="flow-tags"><span class="flow-tag">Hosted SFTP</span><span class="flow-tag">PGP</span><span class="flow-tag">AV Scan</span><span class="flow-tag">Partner Isolation</span></div>
       </div>
     </a>
@@ -89,7 +89,7 @@
       <div class="flow-num">02</div>
       <div class="flow-body">
         <div class="flow-title">Automated Clinical Data Transfers</div>
-        <div class="flow-desc">An external upload portal feeds files into Boomi MFT, which triggers a Boomi Integration process. The file is renamed with a processing outcome and returned to the Activity feed.</div>
+        <div class="flow-desc">Upload portal → MFT → Boomi Integration → renamed output file. Shows MFT + Integration round-trip with outcome-based file naming.</div>
         <div class="flow-tags"><span class="flow-tag">Upload Portal</span><span class="flow-tag">Integration</span><span class="flow-tag">Round-Trip</span></div>
       </div>
     </a>
@@ -98,8 +98,8 @@
       <div class="flow-num">03</div>
       <div class="flow-body">
         <div class="flow-title">Scheduled File Transfer</div>
-        <div class="flow-desc">Time-triggered flow that runs continuously — files transfer on a defined schedule with no manual intervention. Ideal for batch, ERP export, and end-of-day reporting use cases.</div>
-        <div class="flow-tags"><span class="flow-tag">Scheduled</span><span class="flow-tag">Batch</span><span class="flow-tag">Always-On</span></div>
+        <div class="flow-desc">Time-triggered flow that runs continuously. Always-on activity — no manual upload needed. Ideal for batch use case conversations.</div>
+        <div class="flow-tags"><span class="flow-tag">Scheduled</span><span class="flow-tag">Always-On</span><span class="flow-tag">Batch</span></div>
       </div>
     </a>
 
@@ -107,8 +107,8 @@
       <div class="flow-num">04</div>
       <div class="flow-body">
         <div class="flow-title">SFTP Server Pull</div>
-        <div class="flow-desc">Boomi MFT actively polls and pulls from an external SFTP server — demonstrating enterprise-initiated transfers without requiring the partner to change their processes.</div>
-        <div class="flow-tags"><span class="flow-tag">SFTP Pull</span><span class="flow-tag">Outbound</span><span class="flow-tag">Enterprise-Initiated</span></div>
+        <div class="flow-desc">MFT actively polls an external SFTP and delivers the file back — demonstrating an outbound pull pattern with a perpetual activity loop.</div>
+        <div class="flow-tags"><span class="flow-tag">SFTP Pull</span><span class="flow-tag">Outbound</span><span class="flow-tag">Loop</span></div>
       </div>
     </a>
 
@@ -116,7 +116,7 @@
       <div class="flow-num">05</div>
       <div class="flow-body">
         <div class="flow-title">Manufacturer to Supplier Distribution</div>
-        <div class="flow-desc">A manufacturer uploads via browser or SFTP into BMW, Mazda, or VW paths. Boomi MFT routes each file to the correct supplier automatically — with full target isolation.</div>
+        <div class="flow-desc">Manufacturer uploads via widget or SFTP into BMW, Mazda, or VW paths. MFT routes each file to the correct supplier — with full target isolation.</div>
         <div class="flow-tags"><span class="flow-tag">Fan-Out</span><span class="flow-tag">Path Routing</span><span class="flow-tag">Upload Widget</span></div>
       </div>
     </a>
@@ -124,9 +124,9 @@
     <a href="exercise-6.html" class="flow-card">
       <div class="flow-num">06</div>
       <div class="flow-body">
-        <div class="flow-title">On-Premises Runtime &amp; File Share</div>
-        <div class="flow-desc">A Boomi runtime agent monitors a local file share and bridges it to cloud MFT — no firewall changes required. Includes filename filtering, rename steps, and the full monitoring story.</div>
-        <div class="flow-tags"><span class="flow-tag">Runtime Agent</span><span class="flow-tag">Local File Share</span><span class="flow-tag">Monitoring</span></div>
+        <div class="flow-title">Runtime File Share Loop</div>
+        <div class="flow-desc">AWS VM runtime monitors a local file share. Filename filter and rename steps keep the synthetic loop alive indefinitely without date accumulation.</div>
+        <div class="flow-tags"><span class="flow-tag">Runtime Agent</span><span class="flow-tag">Local File Share</span><span class="flow-tag">AWS VM</span></div>
       </div>
     </a>
 
@@ -134,32 +134,40 @@
 
   <div class="prereq-grid">
     <div class="prereq-card">
-      <h2 style="font-size:18px; margin-bottom:16px;">Before You Begin</h2>
+      <h2 style="font-size:18px; margin-bottom:16px;">Prerequisites</h2>
       <ul class="prereq-list">
         <li>
           <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Access to the <strong>Boomi MFT demo environment</strong> — log in via the tile in your Okta portal</span>
+          <span>Access to the demo via your Okta portal — look for the tile named <strong>"Boomi MFT - SE Demo"</strong> (there are multiple MFT tiles; use this one specifically)</span>
         </li>
         <li>
           <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>A small test file under 1 MB (CSV preferred) for the live upload steps in Demos 01 and 05</span>
+          <span>A small test file under 1 MB (CSV preferred) for live upload demos in Flow 01 and 05</span>
         </li>
         <li>
           <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Optional: <strong>FileZilla</strong> installed if you want to follow the SFTP-native path in Demo 05</span>
+          <span>Optional: <strong>FileZilla</strong> installed for the Flow 05 deep-dive SFTP demo path</span>
         </li>
         <li>
           <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>For Demo 02: access to the Healthcare Upload Portal — provided separately as part of your environment setup</span>
+          <span>
+            <strong>For Flow 02:</strong> There is a separate healthcare upload portal built using Boomi Flow.<br>
+            <span style="display:block;margin-top:6px;">Access it directly at <a href="https://boomi.to/MFTSecureClinicalPortal" target="_blank" style="color:var(--primary);font-weight:600;">boomi.to/MFTSecureClinicalPortal</a></span>
+            <span style="display:block;margin-top:6px;">You can also find the full demo via <a href="https://demos.boomi.com" target="_blank" style="color:var(--primary)">demos.boomi.com</a> — search the Boomi Demo Library for <strong>MFT</strong> and open the tile called <em>"Automating Clinical Data Transfers with Boomi MFT"</em>. This includes all demo details, assets, visuals, and execution steps.</span>
+          </span>
         </li>
       </ul>
     </div>
 
     <div class="lab-details">
-      <h3>Demo Details</h3>
+      <h3>Playbook Details</h3>
       <div class="detail-item">
         <span class="detail-label">Product</span>
         <span class="detail-value">Boomi MFT (Managed File Transfer)</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Audience</span>
+        <span class="detail-value">Solutions Consultants &amp; SEs</span>
       </div>
       <div class="detail-item">
         <span class="detail-label">Patterns Covered</span>
@@ -173,18 +181,17 @@
         </div>
       </div>
       <div class="detail-item">
-        <span class="detail-label">Total Duration</span>
-        <span class="detail-value">~60 minutes</span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">Demos</span>
-        <span class="detail-value">6 guided walkthroughs</span>
+        <span class="detail-label">Flows</span>
+        <span class="detail-value">6 pre-built flows</span>
       </div>
     </div>
   </div>
 
 </div>
 
-<script src="../../assets/js/lab.js"></script>
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
 </body>
 </html>

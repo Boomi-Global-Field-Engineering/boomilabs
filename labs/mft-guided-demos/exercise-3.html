@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo 02: Automated Clinical Data Transfers — MFT Guided Demos — Boomi Labs</title>
+<title>Flow 02: Automated Clinical Data Transfers — MFT Demo Playbook — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <span>Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">MFT Guided Demos — Demo 02</span>
+  <span class="lab-header-title">MFT Demo Playbook — Flow 02</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -29,19 +29,19 @@
       <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
     </div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-section-label">Demo 02 — Steps</div>
+    <div class="sidebar-section-label">Flow 02 — Steps</div>
     <ul class="sidebar-nav">
-      <li><a href="#" data-step="0">
+      <li><a href="#" data-step="0" class="active">
         <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Demo Overview
+        Flow Overview
       </a></li>
       <li><a href="#" data-step="1">
         <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Access the Upload Portal
+        Find the Demo on Demo Central
       </a></li>
       <li><a href="#" data-step="2">
         <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Run the Transfer &amp; Review Activity
+        Walk the Upload Portal Flow
       </a></li>
     </ul>
     <div class="sidebar-divider"></div>
@@ -64,31 +64,31 @@
       <div class="step-content">
         <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          Back to Demo Overview
+          Back to Playbook Overview
         </a>
         <header class="step-header">
-          <div class="step-label">Demo 02 — Overview</div>
+          <div class="step-label">Flow 02 — Overview</div>
           <h1 class="step-title">Automated Clinical Data Transfers</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">MFT and Boomi Integration working together — the file goes in raw and comes back renamed with the processing outcome.</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">MFT + Boomi Integration round-trip — the file goes in raw and comes out renamed with a processing outcome.</p>
         </header>
 
-        <h3>What This Demo Covers</h3>
-        <p>A clinical data file is uploaded via a Healthcare Upload Portal — a dedicated web application connected to Boomi MFT. The file passes into MFT, which automatically triggers a Boomi Integration process. That process validates the file and renames it with a <code>_pass</code> or <code>_fail</code> suffix based on the outcome. The renamed file appears in the Activity feed, closing the loop.</p>
+        <h3>What This Flow Demonstrates</h3>
+        <p>A clinical data file is uploaded via an external Healthcare Upload Portal (a standalone, separately-provisioned web application). The file passes into MFT, which triggers a Boomi Integration process that processes the file and renames it with a <code>pass</code> or <code>fail</code> suffix based on outcome. The renamed file appears back in the Activity feed, closing the loop.</p>
 
-        <h3>Key Capabilities</h3>
+        <h3>Key Features</h3>
         <ul>
           <li>External upload portal feeding directly into Boomi MFT</li>
-          <li>MFT triggers a Boomi Integration process automatically — no manual step</li>
+          <li>MFT triggers a Boomi Integration process automatically</li>
           <li>Outcome-based file renaming (<code>filename_pass.csv</code> or <code>filename_fail.csv</code>)</li>
           <li>Full round-trip visible in the Activity feed</li>
         </ul>
 
         <h3>Architecture</h3>
-        <p>Healthcare Upload Portal → Boomi MFT (receives file, tracks transfer) → Boomi Integration (processes file, renames with pass/fail) → MFT Activity (renamed file visible)</p>
+        <p>Upload Portal (external healthcare portal) → Boomi MFT (receives file, tracks transfer) → Boomi Integration (processes file, renames with pass/fail) → MFT Activity (renamed file visible)</p>
 
-        <div class="callout info">
-          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div><strong>Separate access required.</strong> The Healthcare Upload Portal is a standalone web application provided as part of your demo environment setup — access details will be shared separately.</div>
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><strong>This flow requires a separate account.</strong> The Healthcare Upload Portal is a standalone, separately provisioned application — it is not part of the Global SC Demo Instance. Access it via <strong>demos.boomi.com → Demo Central → All Demos → search "mft"</strong>.</div>
         </div>
 
         <nav class="step-nav">
@@ -102,29 +102,43 @@
       </div>
     </section>
 
-    <!-- PAGE 1: Access Upload Portal -->
+    <!-- PAGE 1: Find on Demo Central -->
     <section class="step-page" id="page-1">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 1 of 2</div>
-          <h1 class="step-title">Access the Upload Portal</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Open the Healthcare Upload Portal using the access details provided with your demo environment.</p>
+          <h1 class="step-title">Find the Demo on Demo Central</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Locate the full guided demo walkthrough on the Boomi Demo Central portal.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Open the <strong>Healthcare Upload Portal</strong> using the URL and credentials provided as part of your demo environment setup.</p>
+              <p>Go to <a href="https://demos.boomi.com" target="_blank"><strong>demos.boomi.com</strong></a></p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Log in and confirm you can see the file upload interface. The portal is connected directly to Boomi MFT — any file you upload will register as a new transfer immediately.</p>
+              <p>Navigate to <strong>Demo Central → All Demos</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Search for <code>mft</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Open: <strong>"Automated Clinical Data Transfers with Boomi"</strong>. This is the full guided demo script with screenshots, provisioning instructions, and step-by-step walkthrough.</p>
             </div>
           </li>
         </ol>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: demos.boomi.com — MFT search result showing "Automated Clinical Data Transfers with Boomi"</p>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -137,20 +151,21 @@
       </div>
     </section>
 
-    <!-- PAGE 2: Run Transfer & Review -->
+    <!-- PAGE 2: Walk the Upload Portal Flow -->
     <section class="step-page" id="page-2">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 2 of 2</div>
-          <h1 class="step-title">Run the Transfer &amp; Review Activity</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Upload a file and watch the Integration round-trip complete in the Activity feed.</p>
+          <h1 class="step-title">Walk the Upload Portal Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Run the clinical data transfer and show the outcome in Activity.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>From the Healthcare Upload Portal, upload a clinical data file. The portal is connected to Boomi MFT — the upload registers as a new transfer immediately.</p>
+              <p>From the Healthcare Upload Portal, upload a clinical data file.</p>
+              <p>The portal is connected to Boomi MFT — the upload registers as a new transfer immediately.</p>
             </div>
           </li>
           <li>
@@ -162,20 +177,22 @@
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Switch to the <strong>Activity feed</strong> in the MFT platform. Find the processed file — it will appear renamed with either a <code>_pass</code> or <code>_fail</code> suffix based on the Integration process outcome.</p>
+              <p>Switch to the <strong>Activity feed</strong> in the MFT platform. Find the processed file — it should appear renamed with either a <code>_pass</code> or <code>_fail</code> suffix based on the Integration process outcome.</p>
             </div>
           </li>
         </ol>
 
         <div class="callout tip">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div>The outcome-based rename shows the Integration round-trip in action — the file went in as raw clinical data and came back renamed with the processing result, all visible in the MFT Activity feed.</div>
+          <div><strong>The rename is the talking point.</strong> The file went in as a raw clinical data file and came back renamed with the processing result — that round-trip through Boomi Integration is visible right in the MFT Activity feed.</div>
         </div>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity page showing processed clinical file renamed with 'pass' or 'fail' suffix</p>
 
         <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
           <div>
             <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
-            <h3 style="font-size:16px;margin:0;">Demos 03 &amp; 04: Scheduled &amp; SFTP Pull</h3>
+            <h3 style="font-size:16px;margin:0;">Flows 03 &amp; 04: Scheduled &amp; SFTP Pull</h3>
           </div>
           <a href="exercise-4.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Continue →</a>
         </div>
@@ -193,6 +210,10 @@
 
   </main>
 </div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
 
 <script src="../../assets/js/lab.js"></script>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Demo 01: Multi-Bank Statement Aggregation — MFT Guided Demos — Boomi Labs</title>
+<title>Flow 01: Multi-Bank Statement Aggregation — MFT Demo Playbook — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <span>Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">MFT Guided Demos — Demo 01</span>
+  <span class="lab-header-title">MFT Demo Playbook — Flow 01</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -29,23 +29,23 @@
       <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
     </div>
     <div class="sidebar-divider"></div>
-    <div class="sidebar-section-label">Demo 01 — Steps</div>
+    <div class="sidebar-section-label">Flow 01 — Steps</div>
     <ul class="sidebar-nav">
-      <li><a href="#" data-step="0">
+      <li><a href="#" data-step="0" class="active">
         <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Demo Overview
+        Flow Overview
       </a></li>
       <li><a href="#" data-step="1">
         <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Explore Organizations
+        Navigate to Organizations
       </a></li>
       <li><a href="#" data-step="2">
         <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Encryption Keys on Bank of America
+        Show Keys on Bank of America
       </a></li>
       <li><a href="#" data-step="3">
         <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Open Demo 01
+        Open Flow 01
       </a></li>
       <li><a href="#" data-step="4">
         <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -80,33 +80,33 @@
       <div class="step-content">
         <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-          Back to Demo Overview
+          Back to Playbook Overview
         </a>
         <header class="step-header">
-          <div class="step-label">Demo 01 — Overview</div>
+          <div class="step-label">Flow 01 — Overview</div>
           <h1 class="step-title">Multi-Bank Statement Aggregation</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Multiple partner banks push statement files to a Boomi-hosted SFTP server — with PGP encryption, antivirus scanning, and root-level partner isolation throughout.</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Multiple partner banks connect to a Boomi-hosted SFTP server and drop statement files. Each partner has root-level access — fully isolated, with no visibility into other partners or the target.</p>
         </header>
 
-        <h3>What This Demo Covers</h3>
-        <p>Multiple partner banks connect to a Boomi-hosted SFTP server and drop statement files into isolated partner paths. Files are antivirus scanned on arrival, PGP-encrypted using Bank of America's public key, and routed to the BofA target with per-partner path mapping. Bank of America decrypts using its private key on pickup.</p>
+        <h3>What This Flow Demonstrates</h3>
+        <p>Multiple partner banks connect to a Boomi-hosted SFTP server and drop statement files. Each partner has root-level access — fully isolated, with no visibility into other partners or the target. Files are AV scanned on arrival, PGP encrypted per-partner, and routed to a Bank of America target with per-partner path mapping. BofA decrypts using its private key.</p>
 
-        <h3>Key Capabilities</h3>
+        <h3>Key Features</h3>
         <ul>
-          <li>Boomi-hosted SFTP server — no infrastructure for partners to manage</li>
-          <li>Root-level partner isolation — each bank can only see its own files</li>
-          <li>End-to-end PGP encryption — partner public key on source, BofA private key on target</li>
+          <li>Boomi-hosted SFTP server (no infrastructure for partners to manage)</li>
+          <li>Per-partner root-level isolation — partners cannot see each other</li>
+          <li>PGP end-to-end encryption (partner public key on source, BofA private key on target)</li>
           <li>Antivirus scanning on all inbound files</li>
           <li>Unique SFTP user per partner</li>
-          <li>Dedicated delivery folder per partner at Bank of America</li>
+          <li>Individual target folders per partner at Bank of America (5 paths)</li>
         </ul>
 
         <h3>Architecture</h3>
-        <p>Partner Banks → SFTP push (root isolation) → Boomi MFT SFTP → AV Scan + PGP Encrypt → Path Mapping (per partner) → Bank of America (collect + decrypt)</p>
+        <p>Partner Banks → SFTP push (root isolation) → Boomi MFT SFTP → AV Scan + PGP Encrypt → Flow Router (path mapping per partner) → Bank of America (Collect + Decrypt with private key)</p>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>This is the most feature-rich demo in the series. It covers security (PGP + AV), partner isolation, monitoring, upload, and the Activity audit trail all in one walkthrough.</div>
+          <div>This is the most feature-rich flow in the demo. It covers security (PGP + AV), partner isolation, monitoring, and the upload experience all in one walkthrough.</div>
         </div>
 
         <nav class="step-nav">
@@ -120,34 +120,34 @@
       </div>
     </section>
 
-    <!-- PAGE 1: Organizations -->
+    <!-- PAGE 1: Navigate to Organizations -->
     <section class="step-page" id="page-1">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 1 of 6</div>
-          <h1 class="step-title">Explore Organizations</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">See how each partner is configured as a fully isolated organization with its own endpoints, users, and keys.</p>
+          <h1 class="step-title">Navigate to Organizations</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Orient the prospect on what organizations represent and validate connectivity live.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>From the sidebar, navigate to <strong>Organizations</strong>. You'll see a range of org types — banks, healthcare providers, automotive companies — each representing a distinct participant in file transfers.</p>
+              <p>From the sidebar, navigate to <strong>Organizations</strong>. Point out the variety of org types — banks, healthcare providers, automotive companies.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Open the <code>_example</code> organization to explore pre-configured endpoints. Click any endpoint and use <strong>Test Connection</strong> to validate live connectivity.</p>
-              <p>Every partner has its own organization with dedicated endpoints, users, and keys — true multi-tenancy, not just folder separation.</p>
+              <p>Start with the <code>_example</code> organization to show pre-configured endpoints. Click an endpoint and use <strong>Test Connection</strong> to validate live.</p>
+              <p>Talking point: every partner has their own organization with dedicated endpoints, users, and keys — true multi-tenancy, not just folder separation.</p>
             </div>
           </li>
         </ol>
 
         <div class="callout tip">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>Test Connection</strong> validates real-time connectivity directly from the UI — you can confirm a partner endpoint is reachable without leaving the platform.</div>
+          <div><strong>Live Test Connection</strong> is a high-impact demo moment — prospects see real connectivity validation in the UI, not a simulated result.</div>
         </div>
 
         <nav class="step-nav">
@@ -161,13 +161,13 @@
       </div>
     </section>
 
-    <!-- PAGE 2: Keys -->
+    <!-- PAGE 2: Show Keys on Bank of America -->
     <section class="step-page" id="page-2">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 2 of 6</div>
-          <h1 class="step-title">Encryption Keys on Bank of America</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Asymmetric PGP encryption — only the intended recipient can decrypt the file.</p>
+          <h1 class="step-title">Show Keys on Bank of America</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Walk through asymmetric PGP encryption — a strong security talking point for banking and regulated industries.</p>
         </header>
 
         <ol class="instruction-list">
@@ -180,21 +180,24 @@
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Review the <strong>PGP public key</strong> — this is the key distributed to partner banks. They use it to encrypt files before sending.</p>
+              <p>Show the <strong>PGP public key</strong> — this is the key distributed to partner banks. They use it to encrypt files before sending.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Review the <strong>PGP private key</strong> — held exclusively by Bank of America and used for decryption after delivery. Only BofA can decrypt the file — even Boomi MFT in transit cannot read the contents.</p>
+              <p>Show the <strong>PGP private key</strong> — held exclusively by Bank of America and used for decryption after delivery.</p>
+              <p>Talking point: only BofA holds the private key. Even Boomi MFT in transit cannot decrypt the file — true end-to-end encryption.</p>
             </div>
           </li>
         </ol>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>Asymmetric encryption means the partner encrypts using BofA's public key, and only BofA — with its private key — can decrypt. True end-to-end encryption, even in transit through Boomi MFT.</div>
+          <div>The asymmetric encryption model resonates strongly with security-conscious prospects in banking and healthcare — partner sends with BofA's public key, only BofA can decrypt with the private key.</div>
         </div>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Bank of America org → Keys tab showing PGP public key and private key configured</p>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -207,13 +210,13 @@
       </div>
     </section>
 
-    <!-- PAGE 3: Open Demo 01 -->
+    <!-- PAGE 3: Open Flow 01 -->
     <section class="step-page" id="page-3">
       <div class="step-content">
         <header class="step-header">
           <div class="step-label">Step 3 of 6</div>
-          <h1 class="step-title">Open Demo 01</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Inspect the source endpoint — encryption, antivirus scanning, and partner isolation all in one view.</p>
+          <h1 class="step-title">Open Flow 01</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Inspect the source endpoint — show encryption, AV, and partner isolation all in one view.</p>
         </header>
 
         <ol class="instruction-list">
@@ -226,17 +229,19 @@
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Click a <strong>source endpoint</strong> to open its configuration. Review each of the following tabs:</p>
+              <p>Click a <strong>source endpoint</strong> to open its configuration. Show the following:</p>
               <ul>
                 <li><strong>Root source path</strong> — partner-specific, isolated from all other partners</li>
                 <li><strong>Unique user per partner</strong> — each bank authenticates with their own credentials</li>
-                <li><strong>PGP encryption tab</strong> — BofA's public key is attached, encrypting all inbound files automatically</li>
-                <li><strong>Antivirus tab</strong> — AV scanning enabled on all inbound files</li>
+                <li><strong>PGP encryption tab</strong> — BofA's public key attached, encrypting all inbound files</li>
+                <li><strong>Antivirus tab</strong> — AV scanning enabled on inbound</li>
                 <li><strong>Alerts tab</strong> — inactivity alert configured for this endpoint</li>
               </ul>
             </div>
           </li>
         </ol>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Flow 01 source endpoint — PGP encryption tab with bank public key and AV scanning enabled</p>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -255,41 +260,43 @@
         <header class="step-header">
           <div class="step-label">Step 4 of 6</div>
           <h1 class="step-title">Inspect the Target</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The Bank of America target — per-partner delivery folders, path mapping, and automatic decryption.</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show the Bank of America target — path mapping, per-partner delivery folders, and decryption.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Click the <strong>Bank of America target endpoint</strong> in the flow.</p>
+              <p>Click the <strong>Bank of America target endpoint</strong> in Flow 01.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Review the <strong>target paths</strong> — one dedicated folder per partner bank. BofA receives all files, each delivered to its own isolated directory.</p>
+              <p>Show the <strong>5 target paths</strong> — one dedicated folder per partner bank. BofA receives all files but each in its own isolated directory.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Review the <strong>unique target user</strong> — BofA authenticates to collect files using its own dedicated credentials.</p>
+              <p>Show the <strong>unique target user</strong> — BofA authenticates to pick up files with its own dedicated credentials.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">4</div>
             <div class="instruction-body">
-              <p>Review the <strong>decryption processing option</strong> — files are automatically decrypted on arrival using BofA's private key.</p>
+              <p>Show the <strong>decryption processing option</strong> — files are automatically decrypted on arrival using BofA's private key.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">5</div>
             <div class="instruction-body">
-              <p>Open the <strong>Source → Target path mapping tab</strong>. Each partner's source root maps to a specific target path at BofA — so files land in the right place automatically.</p>
+              <p>Switch to the <strong>Source → Target path mapping tab</strong>. Show how each partner's source root maps to a specific target path at BofA.</p>
             </div>
           </li>
         </ol>
+
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Bank of America target endpoint — 5 target paths + user tab + decryption processing option</p>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -308,19 +315,19 @@
         <header class="step-header">
           <div class="step-label">Step 5 of 6</div>
           <h1 class="step-title">Upload a Test File</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Send a real file through the flow and watch it process in real time.</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Inject a real file into the flow live — the most impactful demo moment.</p>
         </header>
 
         <div class="callout warning">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-          <div><strong>Wait for "Completed" before navigating away.</strong> Use a CSV file under 1 MB for the best results — larger files may stall if the widget is closed early.</div>
+          <div><strong>Wait for "Completed" before navigating away.</strong> Larger files may stall mid-upload if you close the widget early. Use a CSV file under 1 MB for reliable results.</div>
         </div>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>In the Demo 01 source list, click the <strong>Action icon</strong> next to any source endpoint → <strong>Upload Files</strong>.</p>
+              <p>In the Flow 01 source list, click the <strong>Action icon</strong> next to any source endpoint → <strong>Upload Files</strong>.</p>
             </div>
           </li>
           <li>
@@ -332,7 +339,7 @@
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Wait for <strong>"Completed"</strong> to appear in the widget before navigating away.</p>
+              <p>Wait for the <strong>"Completed"</strong> status to appear in the widget before navigating away.</p>
             </div>
           </li>
         </ol>
@@ -354,41 +361,44 @@
         <header class="step-header">
           <div class="step-label">Step 6 of 6</div>
           <h1 class="step-title">Review in Activity</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">See the complete file lifecycle — every step logged, timestamped, and auditable.</p>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Show the full file lifecycle in real time — the audit trail that closes security conversations.</p>
         </header>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Navigate to <strong>Activity</strong> → filter by <strong>Flow: 01 Multi-Bank Statement Aggregation</strong> → <strong>Apply</strong>.</p>
+              <p>Navigate to <strong>Activity</strong> → use the filter to select <strong>Flow: 01 Multi-Bank Statement Aggregation</strong> → <strong>Apply</strong>.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Find your uploaded file in the list. <strong>Expand the row</strong> to see both the source and target sides.</p>
+              <p>Find your uploaded file in the list. <strong>Expand the row</strong> to reveal both the source side and the target side.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p><strong>Click the state badge</strong> to open the lifecycle panel: <strong>Upload → AV Scan → PGP Encrypt → Route → Ready for Pickup</strong>. Every step is logged and timestamped — a complete audit trail from upload to delivery.</p>
+              <p><strong>Click the state badge</strong> on the entry. The lifecycle panel shows: <strong>Upload → AV Scan → PGP Encrypt → Route → Ready for Pickup</strong>.</p>
+              <p>This is the moment that closes security conversations — every step is logged, timestamped, and auditable.</p>
             </div>
           </li>
         </ol>
 
+        <p style="font-size:13px;color:var(--text-muted);">📸 Screenshot: Activity page filtered by Flow 01 — expanded row showing lifecycle: Upload UI → AV Scan → PGP Encrypt (source) → Ready for Download (Bank of America)</p>
+
         <div class="callout tip">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>Demo 01 complete.</strong> This walkthrough covered hosted SFTP, partner isolation, PGP encryption, antivirus scanning, path mapping, the upload widget, and the Activity audit trail.</div>
+          <div><strong>Flow 01 complete.</strong> This walkthrough covers Hosted SFTP, partner isolation, PGP, AV scanning, path mapping, the upload widget, and Activity lifecycle — the most comprehensive single flow in the demo.</div>
         </div>
 
         <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
           <div>
             <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
-            <h3 style="font-size:16px;margin:0;">Demo 02: Automated Clinical Data Transfers</h3>
+            <h3 style="font-size:16px;margin:0;">Flow 02: Automated Clinical Data Transfers</h3>
           </div>
-          <a href="exercise-3.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Demo 02 →</a>
+          <a href="exercise-3.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Flow 02 →</a>
         </div>
 
         <nav class="step-nav">
@@ -404,6 +414,10 @@
 
   </main>
 </div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
 
 <script src="../../assets/js/lab.js"></script>
 </body>
