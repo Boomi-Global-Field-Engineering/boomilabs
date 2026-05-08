@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Up &amp; Connect to Salesforce — Boomi Integration & API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Integration & API Management — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 3
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 3
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~25 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Foundational
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Set Up & Connect to Salesforce</h1>
+      </header>
+      <p>Log in to AtomSphere, build the start of an integration process, and test connectivity to Salesforce.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Login and get familiar with AtomSphere</li>
+        <li>Create a new process and configure the Salesforce Start shape connector</li>
+        <li>Execute the process in test mode to test Salesforce connectivity</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">Login and get familiar with AtomSphere</h1>
+      </header>
+      <p><em>At the start of training, the instructor will add your email address and name to the User Management console of the AtomSphere training account, assigning you as a Standard User. Upon doing so, you’ll receive a </em>welcome <em>email with your user name and temporary password.</em></p>
+      <p><em>Log in to Boomi AtomSphere using your credentials</em></p>
+      <p><em>Navigate to</em></p>
+      <p><em>Enter login credentials and click on the ‘</em><strong><em>Sign In</em></strong><em>’ button.</em></p>
+      <figure><img src="images/ex1/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once logged in, switch from the “Home” page to “Integration” view.</p>
+      <figure><img src="images/ex1/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Find the folder dedicated to today&#x27;s workshop and expand it.</p>
+      <figure><img src="images/ex1/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Take a note of the ‘</em><strong><em>User-XX</em></strong><em>’ folders that reside </em>within the forkshop <em>folder. Each of these </em>folders are associated <em>with the number assigned to you by the trainer. Once </em>you know your number<em>, </em>make sure you rename the folder so you can identify it later<em> (i.e. ‘User-01-Bob Smith’)</em></p>
+      <figure><img src="images/ex1/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>As you begin to build out your integration process, you’ll want to be sure you only create and save components within your individual folder. Since we’re sharing one account, this will ensure that any work you complete does not interfere with the work of others in the group.  Thus, if you have been identified as ‘User01’ at your workstation, then you’ll be building out your Boomi process and all corresponding components within your ‘User-01’ folder</em></p>
+      <p>Take note of the other predefined folders.</p>
+      <p></p>
+      <figure><img src="images/ex1/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Create a new process and configure the Salesforce Start shape connector</h1>
+      </header>
+      <p><em>Create a new Process Component.  Within your ‘</em><strong><em>User-XX</em></strong><em>’ folder, create a </em>&quot;<strong><em>New Component</em></strong>&quot;</p>
+      <figure><img src="images/ex1/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose </em><strong><em>‘Process’</em></strong> and <em>click the </em><strong><em>Create</em></strong><em> button.</em></p>
+      <figure><img src="images/ex1/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The Start Shape dialogue box appears. From the </em>Connector <em>dropdown, choose ‘</em><strong><em>Salesforce</em></strong><em>’.  Since this is our Start connector, the default Action is ‘</em><strong><em>Get</em></strong><em>’.</em></p>
+      <figure><img src="images/ex1/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The Salesforce Connection is already configured and is housed in the ‘</em><strong><em>SHARED</em></strong><em>’ folder.  Browse and load the prebuilt ‘</em><strong><em>Boomi Salesforce</em></strong><em>’ connector.</em></p>
+      <figure><img src="images/ex1/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new Operation by clicking on the ‘+’ button.</em></p>
+      <figure><img src="images/ex1/image11.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong><em>Name the Operation</em></strong><em> </em><strong><em>‘</em></strong><strong><em>Get Prospect Accounts</em></strong><strong><em>’</em></strong><em> and </em><strong><em>Save</em></strong><em>, then click on the </em><strong><em>‘Import’</em></strong><em> button. This will allow us to programmatically import the Response Profile from our Salesforce instance.</em></p>
+      <figure><img src="images/ex1/image12.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Browse and load the prebuilt ‘Boomi Salesforce’ connector from the ‘</em><strong><em>SHARED</em></strong><em>’ folder and click ‘</em><strong><em>Next’</em></strong></p>
+      <figure><img src="images/ex1/image13.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose ‘</em><strong><em>Account</em></strong><em>’ from the Object Type dropdown and </em><strong><em>‘Query’</em></strong><em> from the Action dropdown.  Click Next</em></p>
+      <figure><img src="images/ex1/image14.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The ‘Account’ object appears with the option of choosing any child objects as well.  We’ll just be using the Account object.  Click Next.</em></p>
+      <figure><img src="images/ex1/image15.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>Finish</em></strong><em>’ to close the Salesforce Import Wizard.</em></p>
+      <figure><img src="images/ex1/image16.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice how the Response Profile is loaded and all the corresponding Fields are listed: </em></p>
+      <figure><img src="images/ex1/image17.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Now that we imported the fields that belong to the Account object, we’ll want to configure our query to only pull in Accounts that are of type ‘</em><strong><em>Prospect</em></strong><em>’.  To accomplish this, we’ll first click on the ‘</em><strong><em>Filters’ tab</em></strong><em> and under the ‘</em><strong><em>Logical – AND’</em></strong><em> node select ‘</em><strong><em>Add Expression’</em></strong></p>
+      <figure><img src="images/ex1/image18.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Highlight the ‘</em><strong><em>Expression</em></strong><em>’ element and type ‘</em><strong><em>Type=</em></strong><em>’ for the Filter Name.  Then, click on the ‘Browse’ button, select the ‘</em><strong><em>Type</em></strong><em>’ field from the profile and click ‘</em><strong><em>OK</em></strong><em>’.</em></p>
+      <figure><img src="images/ex1/image19.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image20.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image21.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>‘</em><strong><em>Save and Close</em></strong><em>’ the ‘</em><strong><em>Get Prospect Accounts</em></strong><em>’ Salesforce Operation</em></p>
+      <figure><img src="images/ex1/image22.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Within the Start Shape configuration pane, click on the ‘Parameters’ tab.  Then click on the ‘+’ button to add a parameter. </em></p>
+      <figure><img src="images/ex1/image23.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Browse and choose the ‘</em><strong><em>Type=</em></strong><em>’ filter that you created earlier.  Click ‘</em><strong><em>OK</em></strong><em>’.</em></p>
+      <figure><img src="images/ex1/image24.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose ‘</em><strong><em>Static</em></strong><em>’ as the Type and type ‘</em><strong><em>Prospect</em></strong><em>’ as the Static Value.  Then click ‘</em><strong><em>OK</em></strong><em>’</em></p>
+      <figure><img src="images/ex1/image25.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>This will limit our query to only pull back Accounts in our Salesforce instance that are of type Prospect.  Click &#x27;</em><strong><em>OK</em></strong><em>&#x27;.</em></p>
+      <figure><img src="images/ex1/image26.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Now our Salesforce Start shape is fully configured. Click ‘</em><strong><em>Save</em></strong><em>’ to save the Connection.</em></p>
+      <figure><img src="images/ex1/image27.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Rename the process “<strong>Salesforce to Database - &lt;Attendee Name&gt;</strong>”. Click <strong>Save</strong> one more time.</p>
+      <figure><img src="images/ex1/image28.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Execute the process in test mode to test Salesforce connectivity</h1>
+      </header>
+      <p><em>Click on the ‘</em><strong><em>Test</em></strong><em>’ button in the upper-right of the Process Canvas. If you are then prompted to Save the process, click on the ‘</em><strong><em>Save’</em></strong><em> button.</em></p>
+      <figure><img src="images/ex1/image29.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the ‘Select Atom…’ dropdown, select the ‘</em><strong><em>workshop-atom</em></strong><em>’ Atom and click ‘</em><strong>OK</strong><em>’.</em></p>
+      <figure><img src="images/ex1/image30.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Upon successful completion, the connector should be highlighted in green and there should be 1 Document within the Document pane, assuming only 1 Account in Salesforce is of type Prospect. Clicking on the Connection Data tab within the Test Results pane allows for the ability to open the Document(s) to view its contents</em></p>
+      <figure><img src="images/ex1/image31.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Within the Document Viewer, the ‘</em><strong><em>Formatted XML</em></strong><em>’ tab allows for a cleaner view of the Document contents.  After viewing the document, click on the ‘</em><strong><em>Close Document Viewer</em></strong><em>’ button.</em></p>
+      <figure><img src="images/ex1/image32.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>After executing the test, click on the ‘</em><strong><em>Return to Edit Mode</em></strong><em>’ arrow in the upper-left corner.</em> <em>This will navigate back to the Process Canvas.</em></p>
+      <figure><img src="images/ex1/image33.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex1/image34.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

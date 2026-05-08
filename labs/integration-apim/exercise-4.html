@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-4">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publish &amp; Manage as an API — Boomi Integration & API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Integration & API Management — Exercise 4</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-4" data-step="4">
+          <span class="step-num">
+            <span class="step-num-inner">5</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 4 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-5" data-step="5">
+          <span class="step-num">
+            <span class="step-num-inner">6</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 5 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-6" data-step="6">
+          <span class="step-num">
+            <span class="step-num-inner">7</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 6 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-7" data-step="7">
+          <span class="step-num">
+            <span class="step-num-inner">8</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 7 of 8
+        </a>
+      </li>
+      <li>
+        <a href="#step-8" data-step="8">
+          <span class="step-num">
+            <span class="step-num-inner">9</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 8 of 8
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~50 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Foundational
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Publish & Manage as an API</h1>
+      </header>
+      <p>Reuse the integration as a subprocess, expose it via a Web Services listener, register it with API Management, deploy and catalogue the API, attach a usage plan, subscribe via the Developer Portal, and test the live API.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Copy Subprocess</li>
+        <li>Create Web Service Listener Process</li>
+        <li>Create an API Component</li>
+        <li>Deploy API</li>
+        <li>Search API in API Catalog</li>
+        <li>Assign Plan to API</li>
+        <li>Subscribe to API on Developer Portal</li>
+        <li>Test API</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 8</div>
+        <h1 class="step-title">Copy Subprocess</h1>
+      </header>
+      <p><em>First we will copy a sub process which the trainer has prepared for you.</em></p>
+      <p><em>Click on the drop-down arrow next to the process </em>&quot;<strong><em>(SUB) Get Customer as JSON</em></strong>&quot;<em> process in the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder and click </em>&quot;<strong><em>Copy</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Uncheck </em>&quot;<em>Copy Component Dependents</em>&quot;<em> and choose your User folder for the destination:</em></p>
+      <figure><img src="images/ex4/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Click &quot;<strong>OK</strong>&quot;:</p>
+      <figure><img src="images/ex4/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Confirm that you have </em>&quot;<strong><em>(SUB) Get Customer as JSON</em></strong>&quot;<em> in your User folder:</em></p>
+      <figure><img src="images/ex4/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Open the Process. Notice that there is a Parameter set on the start shape. Click on the </em>&quot;<em>Parameters</em>&quot;<em> link:</em></p>
+      <figure><img src="images/ex4/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice there is a </em>&quot;<strong><em>trainee</em></strong>&quot;<em> parameter. This trainee parameter is used in the database WHERE clause for this Database connector shape:</em></p>
+      <figure><img src="images/ex4/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Cancel</em></strong>&quot;<em> to close.</em></p>
+      <p><em>Click </em>&quot;<em>Test</em>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>Workshop-Atom</em></strong>&quot;<em> Atom, then click on </em>&quot;<strong><em>Test Extensions</em></strong>&quot;<em>. Click on the </em>&quot;<strong><em>Dynamic Process Properties</em></strong>&quot;<em> tab and enter your name for the trainee value you have been using. This is an easy way to enter parameters when running tests:</em></p>
+      <p><em>Then click </em>&quot;<strong><em>Run Test</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><strong><em> </em></strong><em>Once it runs successfully click on the </em>&quot;<strong><em>Return Documents</em></strong>&quot;<em> shape then </em>&quot;<strong><em>Shape Source Data</em></strong>&quot;<em> -&gt; </em>&quot;<strong><em>View Source</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Confirm that you get a well formatted JSON document:</em></p>
+      <figure><img src="images/ex4/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 8</div>
+        <h1 class="step-title">Create Web Service Listener Process</h1>
+      </header>
+      <p><em> We will now create a </em>&quot;<em>wrapper</em>&quot;<em> process which service-enables the Get Customer process.</em></p>
+      <p><em>Click on </em>&quot;<strong><em>New Component</em></strong>&quot;<em> on your User folder:</em></p>
+      <figure><img src="images/ex4/image11.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new process called </em>&quot;<strong><em>(REST) Get Customer (YOUR NAME)</em></strong>&quot;<em>. Click </em>&quot;<strong><em>Create</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image12.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the Start Shape choose the </em>&quot;<strong><em>Web Services Server</em></strong>&quot;<em> connector type and click on </em>&quot;<strong><em>Make the recommended changes for me</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image13.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em><strong><em>+</em></strong><em> button to add a new operation:</em></p>
+      <figure><img src="images/ex4/image14.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the operation </em>&quot;<strong><em>Get Customer</em></strong>&quot;<em>, enter </em>&quot;<strong><em>customer</em></strong>&quot;<em> for the object then choose </em>&quot;<strong><em>Single JSON Object</em></strong>&quot;<em> for the response output type:</em></p>
+      <figure><img src="images/ex4/image15.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the magnifying glass button next to Response Profile and choose the </em>&quot;<strong><em>Customer JSON</em></strong>&quot;<em> profile under the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder:</em></p>
+      <figure><img src="images/ex4/image16.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<em>Save and Close</em>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image17.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<em>OK</em>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image18.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Search for the </em>&quot;<strong><em>Process Call</em></strong>&quot;<em> shape. Drag and drop it next to the start shape:</em></p>
+      <figure><img src="images/ex4/image19.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em> Choose the </em>&quot;<strong><em>(SUB) Get Customer as JSON</em></strong>&quot;<em> process in your User folder:</em></p>
+      <figure><img src="images/ex4/image20.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em>&quot;<strong><em>Parameters</em></strong>&quot;<em> tab and click + button:</em></p>
+      <figure><img src="images/ex4/image21.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose </em>&quot;<strong><em>trainee</em></strong>&quot;<em> for input. Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image22.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>For Type select </em>&quot;<strong><em>Dynamic Process Property</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image23.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter </em>&quot;<strong><em>param_trainee</em></strong>&quot;<em> for the property name. The </em>&quot;<em>param</em>&quot;<em> prefix is used when URL parameters are passed on from the incoming API call.</em></p>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image24.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image25.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Search for the </em>&quot;<strong><em>Return Documents</em></strong>&quot;<em> shape. Drag and drop it next to the subprocess call:</em></p>
+      <figure><img src="images/ex4/image26.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image27.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Link all the shapes and click </em>&quot;<strong><em>Save</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image28.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 8</div>
+        <h1 class="step-title">Create an API Component</h1>
+      </header>
+      <p><em>Create a </em>&quot;<strong><em>New Component</em></strong>&quot;<em> in your User folder:</em></p>
+      <figure><img src="images/ex4/image29.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose Type </em>&quot;<em>API Service</em>&quot;<em> and enter the name </em>&quot;<strong><em>Get Customer API (YOUR NAME)</em></strong>&quot;<em>.</em></p>
+      <p><em>Click </em>&quot;<strong><em>Create</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image30.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter the same name for the Title. Type </em>&quot;<strong><em>1.0</em></strong>&quot;<em> for version and enter a description of your choice.</em></p>
+      <p><em>For the Base API Path enter </em>&quot;<strong><em>YOUR NAME/v1</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image31.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em>&quot;<strong><em>REST</em></strong>&quot;<em> tab and click </em>&quot;<strong><em>Help Me Create an Endpoint</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image32.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select </em>&quot;<strong><em>Use an existing process</em></strong>&quot;<em>. Click </em>&quot;<strong><em>Next</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image33.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose the </em>&quot;<strong><em>(REST) Get Customer (YOUR NAME)</em></strong>&quot;<em> process in your User folder:</em></p>
+      <figure><img src="images/ex4/image34.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Check the </em>&quot;<strong><em>REST</em></strong>&quot;<em> checkbox and click </em>&quot;<strong><em>Finish</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image35.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the gear icon and click </em>&quot;<strong><em>Edit Endpoint</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image36.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter </em>&quot;<strong><em>{trainee}</em></strong>&quot;<em> in the second resource path field. The {} represents a dynamic resource URL parameter which is later referenced in our process as param_trainee: </em></p>
+      <figure><img src="images/ex4/image37.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Scroll down and click </em>&quot;<strong><em>OK</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image38.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Save and Close</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image39.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 8</div>
+        <h1 class="step-title">Deploy API</h1>
+      </header>
+      <p><em>For the REST process and the API component to be called they must be deployed to an Atom.</em></p>
+      <p><em>In the top navigation bar click on </em>&quot;<strong><em>Deploy</em></strong>&quot;<em> -&gt; </em>&quot;<strong><em>Package </em></strong><strong>Components</strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image40.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image41.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the left hand component explorer check the process </em>&quot;<strong><em>(REST) Get Customer (YOUR NAME)</em></strong>&quot;<em> and the API </em>&quot;<strong><em>Get Customer API (YOUR NAME)</em></strong>&quot;<em>.</em></p>
+      <p><em>Click </em>&quot;<strong><em>Create</em></strong>&quot;<em> -&gt; </em>&quot;<strong><em>New Package &amp; Deploy</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image42.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter </em>&quot;<strong><em>1.0</em></strong>&quot;<em> for the version. Click </em>&quot;<strong><em>Next: Deployment Location</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image43.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select </em>&quot;<strong><em>Development – AWS</em></strong>&quot;<em> and add a deployment note. Click </em>&quot;<strong><em>Next: Review</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image44.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image45.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em>&quot;<strong><em>Package &amp; Deploy</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image46.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 5 of 8</div>
+        <h1 class="step-title">Search API in API Catalog</h1>
+      </header>
+      <p><em>In the right-hand corner click on the drop down and click on the icon next to </em>&quot;<strong><em>API Management</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image47.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>A new browser tab will open. Click on </em>&quot;<strong><em>Configure API’s and Applications</em></strong>&quot;<em>:</em></p>
+      <p><em>Click on the search button and type in your name. Once the search results show your API. Click on ‘</em><strong><em>View’</em></strong><strong>:</strong></p>
+      <figure><img src="images/ex4/image48.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the </em>&quot;<strong><em>REST</em></strong>&quot;<em> tab</em>, to view the REST Endpoint Path for your deployed API.</p>
+      <figure><img src="images/ex4/image49.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image50.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will use this URL to test your API later.</p>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-6">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 6 of 8</div>
+        <h1 class="step-title">Assign Plan to API</h1>
+      </header>
+      <p>In the ‘Deployed APIs’ page, search for your API. Under ‘Plans’ it should say ‘Incomplete’. Select this hyperlink as shown here:</p>
+      <figure><img src="images/ex4/image51.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will then be taken to a screen which prompts you to add a plan. Select the search bar as highlighted, and select ‘Tier 3’. These are plans which have already been defined.</p>
+      <figure><img src="images/ex4/image52.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Confirm the plan by selecting the ‘Add to API Deployment’:</p>
+      <figure><img src="images/ex4/image53.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You can now finish by reviewing your API. Please check if the plan has successfully been imposed on your API.</p>
+      <figure><img src="images/ex4/image54.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-7">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 7 of 8</div>
+        <h1 class="step-title">Subscribe to API on Developer Portal</h1>
+      </header>
+      <p>Access the following link for the Dev Portal:</p>
+      <figure><img src="images/ex4/image55.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select ‘Sign In’.</p>
+      <p>You will then be taken to the login screen. Enter the following details for the username and password:</p>
+      <p>Username: APIUser</p>
+      <p>Password: Boomi123</p>
+      <p>Once logged in, search for your API in the API catalog using your name in the search bar.</p>
+      <figure><img src="images/ex4/image56.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select your API and subscribe to your API.</p>
+      <figure><img src="images/ex4/image57.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select the “TestDriveWorkshopApp” predefined application, add a message if desired for the subscription request. Select ‘Subscribe’.</p>
+      <figure><img src="images/ex4/image58.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once you select ‘Subscribe’, you will see a confirmation message of the request sent.</p>
+      <figure><img src="images/ex4/image59.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>The ‘Status’ is set as ‘Pending’. The API Producer (you in this case) will have to navigate to the Boomi APIM UI and approve the request.</p>
+      <p>Within Boomi APIM, select the ‘Approve’ tab on top. You will see the request from the API Consumer which was submitted in the previous exercise.</p>
+      <figure><img src="images/ex4/image60.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Once you have selected ‘Pending Approval’. You will then see the details of which the consumer has submitted.</p>
+      <figure><img src="images/ex4/image61.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>You will then see a window where you can configure the approval for the request from the API Consumer. You can pick which plan you want imposed on this API. We only have one in this case. As you can see, you can configure the date at which the subscription will be active. You may also choose to disable the subscription automatically at a particular date.</p>
+      <figure><img src="images/ex4/image62.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p>Select ‘Approve’.</p>
+      <p>Head back to the Developer Portal, and under “Subscriptions”, you will find that your API status under the “TestDriveWorkshopApp” application is now “Enabled”. Click on your API name, and you can now find the issued API key to use to call the API.</p>
+      <figure><img src="images/ex4/image63.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image64.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex4/image65.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-8">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 8 of 8</div>
+        <h1 class="step-title">Test API</h1>
+      </header>
+      <p>Test out the API using either Postman, HTTP or REST Client connector in a process, or through the “Try it out” feature on the Developer Portal. You will need to pass the API Key as a header “X-API-Key” and replace the {trainee} parameter with your name. The API URL path can be found from the Deployed API tab, from Lesson 17.</p>
+      <p>The test should return a customer JSON response. <em>Go back to AtomSphere and click on </em>&quot;<strong><em>Manage</em></strong>&quot;<em> -&gt; </em>&quot;<strong><em>Process Reporting</em></strong>&quot;<em>:</em></p>
+      <figure><img src="images/ex4/image66.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>You will see an entry for your execution:</em></p>
+      <figure><img src="images/ex4/image67.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

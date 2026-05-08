@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build the Integration Logic — Boomi Integration & API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Integration & API Management — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 5
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 5
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 5
+        </a>
+      </li>
+      <li>
+        <a href="#step-4" data-step="4">
+          <span class="step-num">
+            <span class="step-num-inner">5</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 4 of 5
+        </a>
+      </li>
+      <li>
+        <a href="#step-5" data-step="5">
+          <span class="step-num">
+            <span class="step-num-inner">6</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 5 of 5
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~40 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Foundational
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Build the Integration Logic</h1>
+      </header>
+      <p>Add the database connector, route records with a Decision step, configure True/False paths, and map the data into the target schema.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Configure the Database connector</li>
+        <li>Configure a Decision step to test for duplicate entries</li>
+        <li>The ‘True’ Path: Configure a Notify step</li>
+        <li>The ‘False’ Path: Configure a Branch step</li>
+        <li>Configure the data Map</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 5</div>
+        <h1 class="step-title">Configure the Database connector</h1>
+      </header>
+      <p><em>Drag and drop a Database Connector onto the canvas.</em></p>
+      <figure><img src="images/ex2/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select ‘</em><strong><em>Send</em></strong><em>’ as the Action.  For the Connection, click on the browse button and load the preconfigured ‘</em><strong><em>Boomi MySQL</em></strong><em>’ database connection. This Connection component is configured to connect to the trainer’s database.</em></p>
+      <figure><img src="images/ex2/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Create a new Operation by clicking on the ‘</em><strong><em>+</em></strong><em>’ button</em></p>
+      <figure><img src="images/ex2/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the Operation ‘</em><strong><em>Update Customer Record</em></strong><em>’.  Then, click on the ‘</em><strong><em>Create a new component</em></strong><em>’ button to create a new database Profile.</em></p>
+      <figure><img src="images/ex2/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the Profile ‘</em><strong><em>Customer Table</em></strong><em>’.  Within the Data Elements tab, click on the ‘Statement’ node.  Select ‘Dynamic Insert’ from the Type dropdown.  Click on the ‘Import’ button</em></p>
+      <figure><img src="images/ex2/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select the </em>&quot;<strong><em>workshop-atom</em></strong>&quot;<em> Atom from the Atom dropdown. Browse and load the prebuilt ‘Boomi MySQL’ database connector from the ‘</em><strong><em>SHARED</em></strong><em>’ folder and click ‘</em><strong><em>Next</em></strong><em>’</em></p>
+      <figure><img src="images/ex2/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>If the Database connection was successful, we should see all the tables that reside within the database.  Select the ‘</em><strong><em>CUSTOMER</em></strong><em>’ table and click ‘</em><strong><em>Next</em></strong><em>’.</em></p>
+      <figure><img src="images/ex2/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click the top checkbox to select all the table columns.  Click </em>&quot;<strong><em>Next</em></strong>&quot;<em> &amp; </em>&quot;<strong><em>Finish</em></strong>&quot;<em>. </em></p>
+      <figure><img src="images/ex2/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Take note how the database Fields are now populated within the Customer Table Profile.  Click ‘</em><strong><em>Save and Close</em></strong><em>’.</em></p>
+      <figure><img src="images/ex2/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The ‘Customer Table’ Profile is now configured within the ‘</em><strong><em>Update Customer Record</em></strong><em>’ Database Operation.  Click ‘Save and Close’ to return back to the Connector Action pane.</em></p>
+      <figure><img src="images/ex2/image11.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The database connection is now fully configured.  Click ‘</em><strong><em>OK</em></strong><em>’ to return to the process canvas. </em></p>
+      <figure><img src="images/ex2/image12.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>Save</em></strong><em>’ to save the process with these configured connectors.</em></p>
+      <figure><img src="images/ex2/image13.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Now is a good time to observe the Component Explorer.  You can expand your ‘</em><strong><em>User-XX</em></strong><em>’ folder to observe how components are stored accordingly as they get built and saved.</em></p>
+      <figure><img src="images/ex2/image14.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 5</div>
+        <h1 class="step-title">Configure a Decision step to test for duplicate entries</h1>
+      </header>
+      <p><em>Now that the Salesforce and Database connections are fully configured, we’ll want to test incoming Salesforce Account ‘Prospect’ records against any existing Customer records in the database.  From the Logic palette, drag and drop a Decision step onto the canvas,</em></p>
+      <figure><img src="images/ex2/image15.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Within the Decision Properties pane, type an appropriate Label, </em>&quot;<strong><em>Does Account Exist in DB?</em></strong><em>’, to help describe the purpose of this Decision step. Then click on the ‘browse’ button to configure the First Value.</em></p>
+      <figure><img src="images/ex2/image16.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select ‘</em><strong><em>SQL Statement</em></strong><em>’ from the Type dropdown.  For the Connection, browse and load the prebuilt ‘Boomi MySQL’ connection from the </em>&quot;<strong><em>SHARED</em></strong>&quot;<em> folder.  For Output Type select ‘</em><strong><em>Integer</em></strong><em>’.  Within the SQL window, type the following SQL statement:</em></p>
+      <p><strong><em>select count(*) from </em></strong><strong>customer </strong><strong><em>where NAME = ? and TRAINEE = ‘</em></strong><strong><em>Your Name</em></strong><strong><em>’</em></strong></p>
+      <p></p>
+      <figure><img src="images/ex2/image17.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image18.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The question mark </em><strong><em>(?)</em></strong><em> within the SQL statement represents a dynamic parameter.  To bind the appropriate parameter to this placeholder, click on the (+) ‘</em><strong><em>Add Parameter</em></strong><em>’ button</em></p>
+      <figure><img src="images/ex2/image19.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select ‘</em><strong><em>Profile Element</em></strong><em>’ for the Type and ‘</em><strong><em>XML</em></strong><em>’ as the Profile Type.  Then click on the browse button and select the ‘</em><strong><em>SF_Account_QUERY_Response</em></strong><em>’ profile within your ‘</em><strong><em>User-XX</em></strong><em>’ folder</em></p>
+      <figure><img src="images/ex2/image20.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>For the Element, click on the browse icon and choose ‘</em><strong><em>Name</em></strong><em>’.  Click ‘</em><strong><em>OK</em></strong><em>’ to assign the ‘</em><strong><em>Name</em></strong><em>’ field to the Element and then click ‘OK’ again to return back to the ‘</em><strong><em>Parameter Value</em></strong><em>’ pane.</em></p>
+      <figure><img src="images/ex2/image21.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Note how the ‘</em><strong><em>?</em></strong><em>’ parameter within the SQL statement is now bound to the ‘</em><strong><em>Name</em></strong><em>’ field in the Salesforce response profile. Thus, the SQL statement will return an integer value based on whether or not there already exists a record with that same Account Name belonging to a particular trainee.  It will return a ‘0’ if no such record exists </em>or <em>an integer </em>number showing the count of records <em>if the records already </em>exist<em>. Click ‘</em><strong><em>OK</em></strong><em>’ to return to the Decision Properties pane</em></p>
+      <figure><img src="images/ex2/image22.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>The ‘</em><strong><em>count(*)</em></strong><em>’ value returned from the SQL lookup will be stored as the ‘</em><strong><em>First Value</em></strong><em>’ in the Decision Properties pane.  Choose ‘</em><strong><em>Not Equal To</em></strong><em>’ from the Compare Type dropdown.  Click the browse button to assign a value to the ‘</em><strong><em>Second Value</em></strong><em>’ field.</em></p>
+      <figure><img src="images/ex2/image23.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose ‘</em><strong><em>Static</em></strong><em>’ as the Type and type ‘</em><strong><em>0</em></strong><em>’ (zero) as the Static Value.  Click ‘</em><strong><em>OK</em></strong><em>’</em></p>
+      <figure><img src="images/ex2/image24.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>OK</em></strong><em>’ to return back to the process canvas</em></p>
+      <figure><img src="images/ex2/image25.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Organize the process by connecting the Salesforce Connector with the Decision step.  Notice that the arrow turns green once connected. Click ‘</em><strong><em>Save’</em></strong></p>
+      <figure><img src="images/ex2/image26.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 5</div>
+        <h1 class="step-title">The ‘True’ Path: Configure a Notify step</h1>
+      </header>
+      <p>We now have a test in place to determine if the incoming Account record exists in the database.  If it’s true that the Account Name exists in the database, a customized notification log will be configured and the document will not be processed any further.</p>
+      <p><em>From the Execution pallet, drag and drop a Notify step onto the canvas.</em></p>
+      <figure><img src="images/ex2/image27.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select ‘Information’ for Message Level and check off both ‘</em>Generate Platform Event<em>’ and ‘</em>Write to Local Atom User Log<em>’ (scroll down to the </em>&quot;<em>Options</em>&quot;<em> section).  Type the following in the Message text:</em></p>
+      <p><strong><em>Account {1} already exists </em></strong><strong>in the database</strong><strong><em>.</em></strong></p>
+      <figure><img src="images/ex2/image28.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex2/image29.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Note how the ‘</em><strong><em>{1}</em></strong><em>’ notation within the Message statement acts as a dynamic reference parameter.  We will want to bind that to the ‘Name’ field in the Salesforce response profile.  Click on the (+) ‘Add Parameter’ button</em></p>
+      <figure><img src="images/ex2/image30.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose ‘</em><strong><em>Profile Element</em></strong><em>’ as the Type, ‘</em><strong><em>XML</em></strong><em>’ as the Profile Type and then browse and load the ‘</em><strong><em>SF_Account_Query_Response</em></strong><em>’ profile from your ‘</em><strong><em>User-XX’</em></strong><em> folder.</em></p>
+      <figure><img src="images/ex2/image31.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>For the Element, click on the browse icon and choose ‘</em><strong><em>Name</em></strong><em>’.  Click ‘</em><strong><em>OK</em></strong><em>’ to assign the ‘</em><strong><em>Name</em></strong><em>’ field to the Element and then click ‘</em><strong><em>OK</em></strong><em>’ again to return back to the ‘</em><strong><em>Notify Properties</em></strong><em>&#x27; pane</em></p>
+      <figure><img src="images/ex2/image32.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Note how the ‘{1}’ parameter within the Message statement is now bound to the ‘Name’ field in the Salesforce response profile.  Click ‘OK’ to return to the process canvas</em></p>
+      <figure><img src="images/ex2/image33.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the Logic pallet, drag and drop a Stop step onto the canvas, </em><strong><em>connect the Notify shape</em></strong><em> which was configured in the previous st</em>ep <strong>to the True Path.</strong></p>
+      <figure><img src="images/ex2/image34.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘OK’ to return to the process canvas.</em></p>
+      <figure><img src="images/ex2/image35.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Connect the ‘</em><strong><em>True</em></strong><em>’ path to the Notify step and the Notify step to the Stop step.  You may also begin to shift the steps to better organize the flow.  Click ‘</em><strong><em>Save</em></strong><em>’ to save the process.</em></p>
+      <figure><img src="images/ex2/image36.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 5</div>
+        <h1 class="step-title">The ‘False’ Path: Configure a Branch step</h1>
+      </header>
+      <p><em>If it’s </em><strong><em>false</em></strong><em> that the Account Name exists in the database (or in other words, if it doesn’t exist in the database), the goal would be to insert this record in the database and then email a user that the record has been inserted.  Since we wish to accomplish more than one task, we’ll leverage a Branch step.  From the Logic pallet, drag and drop a Branch step onto the canvas</em></p>
+      <figure><img src="images/ex2/image37.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Accept the default and allow for ‘</em><strong><em>2</em></strong><em>’ branches.  Then click ‘</em><strong><em>OK</em></strong><em>’. </em></p>
+      <figure><img src="images/ex2/image38.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Connect the False path to the Branch step.  Click ‘</em><strong><em>Save</em></strong><em>’ to save the process.</em></p>
+      <figure><img src="images/ex2/image39.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 5 of 5</div>
+        <h1 class="step-title">Configure the data Map</h1>
+      </header>
+      <p><em>From the Execution pallet, drag and drop a Map onto the canvas.</em></p>
+      <figure><img src="images/ex2/image40.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click on the (+) ‘Create a new component’ button to create a new map.</em></p>
+      <figure><img src="images/ex2/image41.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Name the Map ‘</em><strong><em>SF Accounts to DB Customer</em></strong><em>’.  Then, on the source side, click on the ‘</em>Choose Profile’<em>’ button:</em></p>
+      <figure><img src="images/ex2/image42.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Choose ‘XML’ as the Profile Type.  Then navigate to the ‘</em><strong><em>SF_Account_QUERY_Response</em></strong><em>’ profile in your ‘User-XX’ folder.  Click ‘</em><strong><em>OK</em></strong><em>’.</em></p>
+      <figure><img src="images/ex2/image43.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the destination side, click on the ‘Profile Chooser’ button.</em></p>
+      <figure><img src="images/ex2/image44.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Select ‘</em><strong><em>Database</em></strong><em>’ as the Profile Type’ and select the ‘</em><strong><em>Customer Table</em></strong><em>’ from your ‘</em><strong><em>User-XX</em></strong><em>’ folder.  Click ‘</em><strong><em>OK</em></strong><em>’.</em></p>
+      <figure><img src="images/ex2/image45.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Now that the source and destination profiles are loaded in the Map, it’s time to map over each individual field.  To have Boomi automatically map over the majority of these fields, we’ll leverage a crowd-sourcing technology called </em><strong><em>Boomi Suggest</em></strong><em>.  Click on the ‘</em><strong><em>Boomi Suggest</em></strong><em>’ link to initiate this feature</em></p>
+      <figure><img src="images/ex2/image46.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>Next</em></strong><em>’ over the next two screens to accept the default mappings offered by Boomi Suggest.</em></p>
+      <figure><img src="images/ex2/image47.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>Finish</em></strong><em>’.</em></p>
+      <figure><img src="images/ex2/image48.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Notice how the individual fields are automatically mapped across.  You may need to expand the ‘Fields’ element on the destination ‘</em><strong><em>Customer Table</em></strong><em>’ profile to see the individual mappings:</em></p>
+      <figure><img src="images/ex2/image49.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>On the destination profile side of the map, scroll down and locate the TRAINEE element. Click on the blue arrow and click on ‘</em><strong><em>Set Default Value</em></strong><em>’: </em></p>
+      <figure><img src="images/ex2/image50.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Enter your name for the Value.  Be sure to enter the exact string you entered for the Decision SQL statement earlier.  Remember…these must match.  Click ‘</em><strong><em>OK</em></strong><em>’</em></p>
+      <figure><img src="images/ex2/image51.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Note how your name is now hard-coded as the value of the </em><strong><em>TRAINEE</em></strong><em> element in the database table.  Click ‘</em><strong><em>Save and Close</em></strong><em>’ to return to the Map Properties.</em></p>
+      <figure><img src="images/ex2/image52.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>OK</em></strong><em>’ to return back to the process canvas.</em></p>
+      <figure><img src="images/ex2/image53.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boomi Integration & API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Integration & API Management Lab</span>
+</header>
+
+<div style="padding-top: 56px;">
+
+  <div class="workshop-hero">
+    <div class="workshop-hero-inner">
+      <div class="workshop-breadcrumb">
+        <a href="../../index.html">Boomi Labs</a> / Boomi Integration & API Management Lab
+      </div>
+      <h1>Boomi Integration & API Management — Hands-on Lab</h1>
+      <p>Build a complete Salesforce-to-database integration process step-by-step, then expose it as a managed API — covering connectors, decision logic, mapping, error handling, web service listeners, deployment, the API Catalog, plans, and subscribing via the Developer Portal.</p>
+      <div class="workshop-badges">
+        <span class="badge badge-blue">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          ~2.5 hours
+        </span>
+        <span class="badge badge-green">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Foundational
+        </span>
+        <span class="badge badge-yellow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          4 Exercises
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="workshop-body">
+
+    <div style="display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start;">
+      <div>
+
+        <h2 class="section-heading">Exercises</h2>
+        <ul class="exercise-list">
+          <li>
+            <a href="exercise-1.html" class="exercise-item">
+              <div class="exercise-num">1</div>
+              <div class="exercise-info">
+                <h3>Set Up &amp; Connect to Salesforce</h3>
+                <p>Log in to AtomSphere, build the start of an integration process, and test connectivity to Salesforce.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~25 min</span>
+                <span>3 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-2.html" class="exercise-item">
+              <div class="exercise-num">2</div>
+              <div class="exercise-info">
+                <h3>Build the Integration Logic</h3>
+                <p>Add the database connector, route records with a Decision step, configure True/False paths, and map the data into the target schema.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~40 min</span>
+                <span>5 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-3.html" class="exercise-item">
+              <div class="exercise-num">3</div>
+              <div class="exercise-info">
+                <h3>Complete &amp; Test the Process</h3>
+                <p>Insert records into the database, add a Message step, send a notification email, and run the process end-to-end.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~25 min</span>
+                <span>4 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-4.html" class="exercise-item">
+              <div class="exercise-num">4</div>
+              <div class="exercise-info">
+                <h3>Publish &amp; Manage as an API</h3>
+                <p>Reuse the integration as a subprocess, expose it via a Web Services listener, register it with API Management, deploy and catalogue the API, attach a usage plan, subscribe via the Developer Portal, and test the live API.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~50 min</span>
+                <span>8 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <h2 class="section-heading" style="margin-top: 40px;">Prerequisites</h2>
+        <ul style="line-height: 1.9; padding-left: 24px;">
+          <li>Access to Boomi AtomSphere (<a href="https://platform.boomi.com" target="_blank" rel="noopener">platform.boomi.com</a>) — credentials provided by your trainer</li>
+          <li>Access to Boomi API Management from the AtomSphere services menu (Exercise 4)</li>
+          <li>Salesforce credentials and a database connection profile — provided by your trainer</li>
+          <li>An SMTP/mail account for the notification step in Exercise 3</li>
+        </ul>
+
+      </div>
+
+      <aside style="position: sticky; top: 72px;">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; box-shadow: var(--shadow);">
+          <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted);">Lab Details</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px;">
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Products Covered</div>
+              <div style="color: var(--text-muted);">Boomi AtomSphere, Boomi API Management, Salesforce, Database</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Topics</div>
+              <div style="color: var(--text-muted);">Process Canvas, Connectors, Decision/Branch logic, Maps, Web Services Listener, API Catalog, Plans, Developer Portal</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Total Duration</div>
+              <div style="color: var(--text-muted);">~2.5 hours (hands-on)</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Level</div>
+              <div style="color: var(--text-muted);">Foundational — good first lab for new Boomi users</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

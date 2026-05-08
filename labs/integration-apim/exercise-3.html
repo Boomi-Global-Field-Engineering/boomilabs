@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete &amp; Test the Process — Boomi Integration & API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi Integration & API Management — Exercise 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span class="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li>
+        <a href="#step-0" data-step="0">
+          <span class="step-num">
+            <span class="step-num-inner">1</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Overview
+        </a>
+      </li>
+      <li>
+        <a href="#step-1" data-step="1">
+          <span class="step-num">
+            <span class="step-num-inner">2</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 1 of 4
+        </a>
+      </li>
+      <li>
+        <a href="#step-2" data-step="2">
+          <span class="step-num">
+            <span class="step-num-inner">3</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 2 of 4
+        </a>
+      </li>
+      <li>
+        <a href="#step-3" data-step="3">
+          <span class="step-num">
+            <span class="step-num-inner">4</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 3 of 4
+        </a>
+      </li>
+      <li>
+        <a href="#step-4" data-step="4">
+          <span class="step-num">
+            <span class="step-num-inner">5</span>
+            <svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          Step 4 of 4
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~25 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Foundational
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+  <section class="step-page" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Complete & Test the Process</h1>
+      </header>
+      <p>Insert records into the database, add a Message step, send a notification email, and run the process end-to-end.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Insert records into database</li>
+        <li>Configure a Message step</li>
+        <li>Configure a Mail connector</li>
+        <li>Execute the process in test mode to test database insert and email functionality</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 4</div>
+        <h1 class="step-title">Insert records into database</h1>
+      </header>
+      <p>The Map is now configured so that the incoming XML Account documents are being mapped over and converted to database Customer records.</p>
+      <p><em>Connect Branch 1 to the Map and the Map to the Database Connector that was configured earlier</em></p>
+      <figure><img src="images/ex3/image01.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the Logic pallet, drag and drop a Stop step on the canvas</em></p>
+      <figure><img src="images/ex3/image02.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click </em><strong><em>‘OK’</em></strong><em>.</em></p>
+      <figure><img src="images/ex3/image03.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Connect the Database Connector to the Stop step.  Then click ‘</em><strong><em>Save</em></strong><em>’ to save the process.</em></p>
+      <figure><img src="images/ex3/image04.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 4</div>
+        <h1 class="step-title">Configure a Message step</h1>
+      </header>
+      <p><em>Now that the Customer records are inserted into the database, we’ll want to email a business user to serve as confirmation of successful insertion.  The body of the email can be populated via a Message step.  From the Execution pallet, drag and drop a Message step onto the canvas</em></p>
+      <figure><img src="images/ex3/image05.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>In the Message Properties pane, check off the ‘Combine documents into a single message’ option.  Thus, if multiple documents are inserted into the database, this will allow for a single email message to reference all documents.  Enter the following text within the Message field:</em></p>
+      <p><strong><em>Account: {1} was inserted into the database-----&lt;&lt;hard carriage return&gt;&gt;</em></strong></p>
+      <p><em>Then, click on the ‘Add Parameter’ button.</em></p>
+      <figure><img src="images/ex3/image06.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the Parameter Value pane, choose ‘Profile Element’ as the Type and ‘XML’ as the Profile Type.  For the Profile, browse for and load the ‘</em><strong><em>SF_Account_QUERY_Response</em></strong><em>’ profile from your ‘</em><strong><em>User-XX</em></strong><em>’ folder.</em></p>
+      <figure><img src="images/ex3/image07.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>For the Element, click on the browse icon and choose ‘Name’.  Click ‘</em><strong><em>OK</em></strong><em>’ to assign the ‘</em><strong><em>Name</em></strong><em>’ field to the Element and then click ‘</em><strong><em>OK</em></strong><em>’ again to return back to the ‘</em><strong><em>Message Properties</em></strong><em>&#x27; pane:</em></p>
+      <figure><img src="images/ex3/image08.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘OK’ to return to the process canvas</em></p>
+      <figure><img src="images/ex3/image09.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Connect Branch 2 to the Message Step.  Click ‘Save’ to save the process</em></p>
+      <figure><img src="images/ex3/image10.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image11.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <figure><img src="images/ex3/image12.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 4</div>
+        <h1 class="step-title">Configure a Mail connector</h1>
+      </header>
+      <p><em>Drag and drop a Mail Connector onto the canvas.</em></p>
+      <figure><img src="images/ex3/image13.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the Connector Action pane, choose ‘Mail’ as the Connector (if you chose the default Connector above) and ‘</em><strong><em>Send</em></strong><em>’ as the Action.  From the Connection, browse and load the ‘Boomi Gmail’ Connector housed in the </em><strong><em>SHARED</em></strong><em> folder.</em></p>
+      <figure><img src="images/ex3/image14.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>To create a new Operation, click on the (+) ‘Create a new component’ button</em></p>
+      <figure><img src="images/ex3/image15.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Type ‘</em><strong><em>Send Confirmation Email</em></strong><em>’ as the name of the Mail Operation.  Type ‘Boomi Training’ as the ‘From’ field.  For the ‘To’ field, enter your own email address.  Type ‘Customer Status’ as the Subject and select ‘Inline’ as the Disposition.  Click ‘Save and Close’ to return to the Connector Action pane:</em></p>
+      <figure><img src="images/ex3/image16.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘</em><strong><em>OK</em></strong><em>’ to return to the process canvas</em></p>
+      <figure><img src="images/ex3/image17.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the Logic pallet, drag and drop a Stop step onto the canvas.</em></p>
+      <figure><img src="images/ex3/image18.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Click ‘OK’.</em></p>
+      <figure><img src="images/ex3/image19.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>Connect the Message step to the Mail Connector and the Mail Connector to the Stop step.  Click ‘</em><strong><em>Save</em></strong><em>’ to save the process.</em></p>
+      <figure><img src="images/ex3/image20.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 4</div>
+        <h1 class="step-title">Execute the process in test mode to test database insert and email functionality</h1>
+      </header>
+      <p><em>Click on the ‘</em><strong><em>Run a Test</em></strong><em>’ button in the upper-right of the Process Canvas.  If you are then prompted to Save the process, click on the ‘</em><strong><em>Save</em></strong><em> button:</em></p>
+      <figure><img src="images/ex3/image21.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>From the ‘Select Atom…’ dropdown, select the </em>&quot;<strong><em>workshop-atom</em></strong>&quot;<em> Atom and click ‘Run Test’.</em></p>
+      <figure><img src="images/ex3/image22.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>If the process was executed successfully, the steps in the process flow will be highlighted in green.</em></p>
+      <figure><img src="images/ex3/image23.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>At any stage in the completed test execution, you can click on a particular step to view the Document state.  Then, below in the ‘</em><strong><em>Test Results</em></strong><em>’ pane, you can click on the Connection Data tab and open the document for viewing.</em></p>
+      <figure><img src="images/ex3/image24.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>For example, selecting the Database connector and opening the document in the Test Results pane, displays the contents of the document.  To return to Test Mode, click on the ‘</em><strong><em>Close Document Viewer</em></strong><em>’ button</em></p>
+      <figure><img src="images/ex3/image25.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <p><em>When finished observing the document(s) in Test Mode, click on the ‘Return to Edit Mode’ arrow link in the upper left of the Test Mode window</em></p>
+      <figure><img src="images/ex3/image26.png" alt="" class="step-img" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+          Mark complete
+        </button>
+        <button class="step-nav-btn primary" id="nextBtn" disabled>Finish</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
