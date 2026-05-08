@@ -22,6 +22,8 @@
   var stepCounter = document.getElementById('stepCounter');
   var currentStep = 0;
   var state = loadState();
+  var nextExerciseHref = document.documentElement.dataset.nextExerciseHref || null;
+  var finishHref = document.documentElement.dataset.finishHref || 'index.html';
 
   // Get the nav buttons from the currently active page
   function activePage() { return pages[currentStep]; }
@@ -43,8 +45,17 @@
     var pb = prevBtn(), nb = nextBtn();
     if (pb) pb.disabled = idx === 0;
     if (nb) {
-      nb.disabled = idx === pages.length - 1;
-      nb.textContent = idx === pages.length - 1 ? 'Finish ✓' : 'Next →';
+      var onLast = idx === pages.length - 1;
+      if (onLast && nextExerciseHref) {
+        nb.disabled = false;
+        nb.textContent = 'Next exercise →';
+      } else if (onLast) {
+        nb.disabled = false;
+        nb.textContent = 'Finish ✓';
+      } else {
+        nb.disabled = false;
+        nb.textContent = 'Next →';
+      }
     }
 
     if (stepCounter) stepCounter.textContent = (idx + 1) + ' / ' + pages.length;
@@ -88,7 +99,13 @@
     var mdb = page.querySelector('#markDoneBtn');
 
     if (pb) pb.addEventListener('click', function () { showStep(currentStep - 1); });
-    if (nb) nb.addEventListener('click', function () { showStep(currentStep + 1); });
+    if (nb) nb.addEventListener('click', function () {
+      if (currentStep === pages.length - 1) {
+        location.href = nextExerciseHref || finishHref;
+      } else {
+        showStep(currentStep + 1);
+      }
+    });
     if (mdb) {
       mdb.addEventListener('click', function () {
         state[currentStep] = !state[currentStep];

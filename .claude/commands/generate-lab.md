@@ -171,7 +171,7 @@ For each exercise, generate `labs/<lab-id>/exercise-N.html` following **exactly*
 
 ```html
 <!DOCTYPE html>
-<html lang="en" data-lab-id="exercise-N">
+<html lang="en" data-lab-id="exercise-N" data-next-exercise-href="exercise-N+1.html">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -264,6 +264,7 @@ For each exercise, generate `labs/<lab-id>/exercise-N.html` following **exactly*
 **Important rules for exercise HTML:**
 
 - `data-lab-id` on `<html>` must be `exercise-N` (e.g., `exercise-1`)
+- `data-next-exercise-href` on `<html>` must point to the next exercise file — **omit this attribute on the last exercise** so the JS shows a "Finish ✓" button instead of "Next exercise →"
 - Every `.step-page` must have `id="page-K"` (0-indexed)
 - Every nav button set must use exactly `id="prevBtn"`, `id="markDoneBtn"`, `id="nextBtn"` — one set per page (JS queries within the active page, so duplicate IDs are fine)
 - The `<script>` tag must be at the very end of `<body>`, pointing to `../../assets/js/lab.js`
