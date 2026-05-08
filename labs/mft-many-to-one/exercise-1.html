@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="mft-many-to-one-ex1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configure the MFT Flow — Many to One — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Many to One — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 1 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create Organizations &amp; Endpoints
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create the Flow &amp; Subscribe Organizations
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Configure Source Flow Endpoints
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Configure Target &amp; Path Mapping
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Test the Flow
+      </a></li>
+      <li><a href="#" data-step="6">
+        <span class="step-num"><span class="step-num-inner">★</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Bonus — Add PGP Encryption
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~90 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Basic
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 1 — Overview</div>
+          <h1 class="step-title">Configure the MFT Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Set up your Automated File Transfer (AFT) portal with partner organizations, SFTP endpoints, and an inbound many-to-one flow.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Pattern</div>
+            <div style="font-size:14px;font-weight:700;">Many to One</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~90 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div>
+            <div style="font-size:14px;font-weight:700;">6 steps + bonus</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
+            <div style="font-size:14px;font-weight:700;">AFT Portal</div>
+          </div>
+        </div>
+
+        <h3>The Scenario</h3>
+        <p>A Line of Business (LOB) at headquarters requires a reliable, automated way to receive files from multiple external partner organizations. Rather than managing individual SFTP connections and credentials for each partner, Boomi MFT acts as the central hub — each partner uploads to their own isolated entry point, and MFT automatically routes every file to the correct folder at headquarters.</p>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:20px 0;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);font-weight:600;margin-bottom:14px;">Architecture Overview</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:var(--primary-light);color:var(--primary);border:1px solid var(--primary);border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;">Partner 1</div>
+              <div style="background:var(--primary-light);color:var(--primary);border:1px solid var(--primary);border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;">Partner 2</div>
+              <div style="background:var(--primary-light);color:var(--primary);border:1px solid var(--primary);border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;">Partner 3</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:0 8px;">
+              <div style="color:var(--text-muted);font-size:18px;text-align:center;">→</div>
+              <div style="color:var(--text-muted);font-size:18px;text-align:center;">→</div>
+              <div style="color:var(--text-muted);font-size:18px;text-align:center;">→</div>
+            </div>
+            <div style="background:#063d58;color:#fff;border-radius:8px;padding:16px 20px;font-size:13px;font-weight:700;text-align:center;align-self:center;">
+              <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.75;margin-bottom:4px;">Boomi MFT</div>
+              AFT Platform<br>
+              <span style="font-size:11px;font-weight:400;opacity:.8;">Path routing &amp; isolation</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:0 8px;">
+              <div style="color:var(--text-muted);font-size:18px;text-align:center;">→</div>
+              <div style="color:var(--text-muted);font-size:18px;text-align:center;">→</div>
+              <div style="color:var(--text-muted);font-size:18px;text-align:center;">→</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="background:#e8f5ee;color:#1a9e5c;border:1px solid #1a9e5c;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;">/Partner1</div>
+              <div style="background:#e8f5ee;color:#1a9e5c;border:1px solid #1a9e5c;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;">/Partner2</div>
+              <div style="background:#e8f5ee;color:#1a9e5c;border:1px solid #1a9e5c;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;text-align:center;white-space:nowrap;">/Partner3</div>
+            </div>
+            <div style="padding:0 8px;color:var(--text-muted);font-size:18px;align-self:center;">→</div>
+            <div style="background:#e8f5ee;color:#1a9e5c;border:2px solid #1a9e5c;border-radius:8px;padding:16px 20px;font-size:13px;font-weight:700;text-align:center;align-self:center;">
+              <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;opacity:.75;margin-bottom:4px;">Target</div>
+              Headquarters<br>
+              <span style="font-size:11px;font-weight:400;opacity:.8;">SFTP Server</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>Lab Objective: Many-to-One Integration</h3>
+        <p>You will configure a pattern where three partner organizations each have a dedicated SFTP source endpoint in the AFT portal. When a partner uploads a file, MFT routes it automatically to a named subfolder at the headquarters target, ensuring the receiving organization can identify the origin of each file and partners cannot access each other's data.</p>
+        <ul>
+          <li>Partner 1 ➔ MFT ➔ Headquarters <code>/Partner1</code></li>
+          <li>Partner 2 ➔ MFT ➔ Headquarters <code>/Partner2</code></li>
+          <li>Partner 3 ➔ MFT ➔ Headquarters <code>/Partner3</code></li>
+        </ul>
+
+        <h3>Technical Architecture</h3>
+        <ul>
+          <li><strong>Sources:</strong> Three partner organizations, each with a dedicated Thru SFTP endpoint acting as a secure entry point into the platform</li>
+          <li><strong>Target:</strong> A headquarters organization with a single SFTP endpoint, receiving all files into separate subfolders mapped per partner</li>
+          <li><strong>Routing Logic:</strong> Endpoint-to-path mapping in Flow Studio routes each source's files to the correct target subdirectory</li>
+          <li><strong>Security:</strong> Full partner isolation — each partner connects only to their own entry point and cannot see other partners' data or folders</li>
+        </ul>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>This entire lab takes place in the <b style="font-weight:700">AFT Portal</b> at <a href="https://staging.thruinc.com/" target="_blank" style="color:var(--primary)"><b style="font-weight:700">staging.thruinc.com</b></a>. No Boomi Integration account is required.</div>
+        </div>
+
+        <h3>Lab URL</h3>
+        <div class="credentials-box">
+          <h4>Lab Access</h4>
+          <div class="cred-row"><span class="cred-label">AFT Portal</span><span class="cred-value"><a href="https://staging.thruinc.com/" target="_blank" style="color:var(--primary)">https://staging.thruinc.com/</a></span></div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Create Organizations & Endpoints -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 6</div>
+          <h1 class="step-title">Create Organizations &amp; Endpoints</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">In the AFT portal, create four organizations — one for headquarters and one for each of the three partners — then add a Thru SFTP endpoint to each.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Log into the AFT portal at <a href="https://staging.thruinc.com/" target="_blank"><b style="font-weight:700">https://staging.thruinc.com/</b></a> before starting this step.</div>
+        </div>
+
+        <h3>Create the Organizations</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the left-hand navigation, click <strong>Organizations</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Add Organization</strong>.</p>
+              <figure class="screenshot"><img src="images/image21.png" alt="Organizations list — Add Organization button"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Enter the name <code>Headquarters</code> and click <strong>Save</strong>.</p>
+              <figure class="screenshot"><img src="images/image30.png" alt="Define organization name and save"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Repeat steps 2–3 to create three more organizations: <code>Partner 1</code>, <code>Partner 2</code>, and <code>Partner 3</code>.</p>
+              <p>Once done, your Organizations list should show all four entries.</p>
+              <figure class="screenshot"><img src="images/image10.png" alt="Four organizations created — Headquarters, Partner 1, Partner 2, Partner 3"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Add Endpoints to Each Organization</h3>
+        <p>Each organization needs a Thru SFTP endpoint. This endpoint represents the organization's secure entry or exit point within the MFT platform — think of it as the SFTP "slot" that the flow will connect to.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Select the <strong>Headquarters</strong> organization, then click <strong>Endpoints</strong> in the organization detail view.</p>
+              <figure class="screenshot"><img src="images/image12.png" alt="Organization detail — Endpoints tab"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Click <strong>Add Endpoint</strong>. Set the <strong>Type</strong> to <code>Thru SFTP</code>, name it <code>SFTP Server</code>, and click <strong>Save</strong>.</p>
+              <figure class="screenshot"><img src="images/image8.png" alt="Add endpoint — Type: Thru SFTP, Name: SFTP Server"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Repeat steps 5–6 for <strong>Partner 1</strong>, <strong>Partner 2</strong>, and <strong>Partner 3</strong>, giving each the same endpoint type (<code>Thru SFTP</code>) and name (<code>SFTP Server</code>).</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>You should now have <b style="font-weight:700">4 organizations</b>, each with one <code>SFTP Server</code> endpoint. Note that you have not needed to create any folders or configure permissions manually — each flow endpoint creates its own isolated entry and exit point automatically.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Create the Flow & Subscribe Organizations -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 6</div>
+          <h1 class="step-title">Create the Flow &amp; Subscribe Organizations</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Create a new Many-to-One flow in Flow Studio and subscribe all four organizations so they can participate as sources or targets.</p>
+        </header>
+
+        <h3>Create the Flow</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the left-hand navigation, click <strong>Flows</strong>, then click <strong>Add Flow</strong>.</p>
+              <figure class="screenshot"><img src="images/image4.png" alt="Flows list — Add Flow button"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Name the flow <code>Many to One</code> and click <strong>Save</strong>.</p>
+              <figure class="screenshot"><img src="images/image34.png" alt="Create flow — name: Many to One"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Subscribe Organizations to the Flow</h3>
+        <p>Before you can assign endpoints to the flow, each participating organization must be subscribed. Subscribing an organization grants it access to participate in the flow as a source or target.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>From the Flow Studio view of your new flow, click <strong>Add Flow Endpoint</strong> in the blue <strong>Source</strong> window.</p>
+              <figure class="screenshot"><img src="images/image5.png" alt="Flow Studio — Add Flow Endpoint in the Source window"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>A prompt will appear indicating that there are no subscribers yet. Click <strong>Add Organization Subscriptions</strong>.</p>
+              <figure class="screenshot"><img src="images/image40.png" alt="No subscribers prompt — Add Organization Subscriptions"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Select all four organizations (<strong>Headquarters</strong>, <strong>Partner 1</strong>, <strong>Partner 2</strong>, <strong>Partner 3</strong>) and click <strong>Subscribe Selected</strong>.</p>
+              <figure class="screenshot"><img src="images/image7.png" alt="Subscribe all four organizations"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>After subscribing, you will be returned to Flow Studio where the <b style="font-weight:700">Source</b> organization dropdown will now list all four organizations. You are ready to assign endpoints in the next step.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Configure Source Flow Endpoints -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 6</div>
+          <h1 class="step-title">Configure Source Flow Endpoints</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Wire up each of the three partner organizations as a source in the flow by selecting their SFTP endpoint in Flow Studio.</p>
+        </header>
+
+        <p>Now that all organizations are subscribed, you'll add a flow endpoint for each partner in the blue <strong>Source</strong> window. Each source endpoint represents one partner's secure upload path into the MFT platform.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the Flow Studio <strong>Source</strong> window, use the <strong>Organization</strong> dropdown to select <code>Partner 1</code>.</p>
+              <figure class="screenshot"><img src="images/image39.png" alt="Source window — select Partner 1 from the Organization dropdown"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Select the <strong>SFTP Server</strong> endpoint for Partner 1, then click <strong>Add Flow Endpoint</strong>.</p>
+              <figure class="screenshot"><img src="images/image20.png" alt="Select SFTP Server endpoint and click Add Flow Endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Repeat steps 1–2 for <strong>Partner 2</strong> and <strong>Partner 3</strong>.</p>
+              <p>Once all three partners have been added, the Source window in Flow Studio should display all three source endpoints.</p>
+              <figure class="screenshot"><img src="images/image32.png" alt="Source window showing all three partner endpoints"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Notice that source and target users are created automatically when a flow endpoint is added — you do not need to set up SFTP accounts or folder permissions manually. Each endpoint gets its own unique SFTP credentials. You can view or edit these credentials, or switch to SSH key authentication, from within the endpoint settings.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Configure Target & Path Mapping -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 6</div>
+          <h1 class="step-title">Configure Target &amp; Path Mapping</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Add the headquarters SFTP endpoint as the target, define separate delivery folders for each partner, and map each source endpoint to its designated folder.</p>
+        </header>
+
+        <h3>Add the Headquarters Target Endpoint</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the green <strong>Target</strong> window in Flow Studio, click <strong>Add Flow Endpoint</strong>.</p>
+              <figure class="screenshot"><img src="images/image1.png" alt="Target window — Add Flow Endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Select the <strong>Headquarters</strong> organization and its <strong>SFTP Server</strong> endpoint, then click <strong>Add Flow Endpoint</strong>.</p>
+              <figure class="screenshot"><img src="images/image33.png" alt="Select Headquarters SFTP Server endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Flow Studio should now show a source side with three partner endpoints and a target side with the headquarters endpoint.</p>
+              <figure class="screenshot"><img src="images/image15.png" alt="Flow Studio showing three sources and one target"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Define Target Folder Paths</h3>
+        <p>To keep files from each partner organized and isolated at the headquarters side, you'll define three subfolders on the target endpoint — one per partner. MFT will deliver each partner's files into the correct subfolder.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Click on the <strong>Headquarters</strong> target endpoint in Flow Studio to open the <strong>Flow Endpoint Editor</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Scroll down to find the <strong>Endpoint Target Path</strong> section. The default path is already pre-filled — click <strong>Add Path</strong> twice to add two additional paths, giving you three paths in total. Set them to:</p>
+              <ul>
+                <li><code>/Partner1</code></li>
+                <li><code>/Partner2</code></li>
+                <li><code>/Partner3</code></li>
+              </ul>
+              <figure class="screenshot"><img src="images/image22.png" alt="Endpoint Target Path — /Partner1, /Partner2, /Partner3"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save Changes</strong> at the bottom of the page.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Map Sources to Target Paths</h3>
+        <p>Now you'll tell the flow which partner's files should be delivered to which folder. This is done on the <strong>Mapping</strong> tab of the target endpoint.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Click on the <strong>Headquarters</strong> target endpoint again to reopen the Flow Endpoint Editor, then switch to the <strong>Mapping</strong> tab.</p>
+              <figure class="screenshot"><img src="images/image36.png" alt="Flow Endpoint Editor — Mapping tab"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">8</div>
+            <div class="instruction-body">
+              <p>Add two additional mapping rows (there will already be one). Map each source endpoint to its corresponding target path:</p>
+              <ul>
+                <li>Partner 1 → <code>/Partner1</code></li>
+                <li>Partner 2 → <code>/Partner2</code></li>
+                <li>Partner 3 → <code>/Partner3</code></li>
+              </ul>
+              <figure class="screenshot"><img src="images/image38.png" alt="Source-to-target path mappings for all three partners"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">9</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save Changes</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Publish the Flow</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">10</div>
+            <div class="instruction-body">
+              <p>Return to the main Flow Studio view and click <strong>View and Push Changes</strong> to publish and activate the flow.</p>
+              <figure class="screenshot"><img src="images/image9.png" alt="View and Push Changes button in Flow Studio"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>The flow is now live. Each partner has a unique SFTP entry point, and every file they upload will be routed automatically to the correct folder at headquarters — with no manual intervention required.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Test the Flow -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 6</div>
+          <h1 class="step-title">Test the Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Upload a file as a partner and verify it arrives in the correct folder at headquarters. Two paths are available: using FileZilla, or using the built-in upload widget directly in the portal.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>You can find the SFTP connection credentials for each endpoint by opening the endpoint from within its organization. The SFTP host URL is also displayed when you first create the endpoint.</div>
+        </div>
+
+        <figure class="screenshot"><img src="images/image31.png" alt="Connection details for a source or target endpoint"></figure>
+        <figure class="screenshot"><img src="images/image27.png" alt="SFTP host URL shown in the endpoint details"></figure>
+
+        <!-- OPTION A: FileZilla -->
+        <h3>Option A — Test Using FileZilla (or another SFTP client)</h3>
+        <p>If you have FileZilla or a similar SFTP client installed, you can use the AFT portal's built-in export feature to configure your connections automatically rather than entering credentials manually.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate back to the <strong>Flows</strong> list. In the <strong>Actions</strong> column (the three-dot menu ⋯) on your Many to One flow, click the menu.</p>
+              <figure class="screenshot"><img src="images/image23.png" alt="Flows list — three-dot Actions menu"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Export to FileZilla Config</strong>. This will download an XML file with the name of your flow.</p>
+              <figure class="screenshot"><img src="images/image11.png" alt="Export to FileZilla Config option"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Open FileZilla and go to <strong>File &gt; Import</strong>. Select the exported XML file. FileZilla will automatically create connection entries for all source and target endpoints.</p>
+              <figure class="screenshot"><img src="images/image16.png" alt="FileZilla — imported connection entries"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Connect as one of the partner source users and upload a test file. Once uploaded, return to the AFT portal and navigate to the <strong>Activity</strong> dashboard.</p>
+              <p>You will see the uploaded file listed. Notice its status shows <strong>Ready for Download</strong> — this means it has been routed to the correct target folder, but the headquarters user has not yet retrieved it.</p>
+              <figure class="screenshot"><img src="images/image29.png" alt="Activity dashboard — file routed, status: Ready for Download"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Switch to the headquarters connection in FileZilla, navigate to the appropriate partner subfolder (e.g. <code>/Partner1</code>), and download the file.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Refresh the Activity view in the portal. The status should now show <strong>Completed</strong>.</p>
+              <figure class="screenshot"><img src="images/image19.png" alt="Activity dashboard — status updated to Completed"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Click the word <strong>Completed</strong> next to the target entry. This opens the <strong>Transfer Status Details</strong> panel, which shows the complete lifecycle of the file — from upload through routing to delivery and download.</p>
+              <figure class="screenshot"><img src="images/image6.png" alt="Transfer Status Details — full file lifecycle"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <!-- OPTION B: Upload Widget -->
+        <h3>Option B — Test Using the Built-In Upload Widget</h3>
+        <p>If you don't have an SFTP client available, you can upload files directly from the AFT portal using the manual upload widget. This option is built into every source endpoint.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to your flow in Flow Studio. In the blue <strong>Source</strong> window, click the three-dot menu (⋯) on one of the partner source endpoints and select <strong>Upload Files</strong>.</p>
+              <figure class="screenshot"><img src="images/image17.png" alt="Source endpoint — three-dot menu — Upload Files"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>An upload widget will appear. Drag and drop a file (or click to browse) and upload it.</p>
+              <figure class="screenshot"><img src="images/image3.png" alt="Manual upload widget"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Navigate to the <strong>Activity</strong> dashboard to review the transfer. The Transfer Status Details will show that the file was uploaded manually and record the full lifecycle including routing and delivery.</p>
+              <figure class="screenshot"><img src="images/image18.png" alt="Activity dashboard — manual upload transfer details"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>The Transfer Status Details panel records the upload method — you'll see <b style="font-weight:700">Source UI Upload</b> when using the widget, versus a standard SFTP connection event when using a client like FileZilla.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 6: BONUS — Add PGP Encryption -->
+    <section class="step-page" id="page-6">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Bonus Step</div>
+          <h1 class="step-title">Add PGP Encryption</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Extend the flow with end-to-end PGP encryption. Partners will encrypt files using the headquarters public key, and MFT will automatically decrypt them at the target — no manual decryption required by the receiving party.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>This bonus step simulates a real-world security requirement: partners encrypt outbound files so that only headquarters can decrypt them. The public key is distributed to partners; the private key stays securely with headquarters.</div>
+        </div>
+
+        <h3>Generate a PGP Key Pair for Headquarters</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Organizations</strong> and select <strong>Headquarters</strong>. Then click <strong>PGP Keys</strong>.</p>
+              <figure class="screenshot"><img src="images/image35.png" alt="Headquarters organization — PGP Keys section"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Create PGP Keys</strong>, fill in the required fields (name, email, and a passphrase), and click <strong>Generate Keys</strong>.</p>
+              <figure class="screenshot"><img src="images/image14.png" alt="Create PGP Keys form"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>The key pair will be generated. <strong>Download both the public and private keys</strong> — you will need them in the following steps.</p>
+              <figure class="screenshot"><img src="images/image2.png" alt="Generated PGP key pair — download both keys"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>The portal automatically stores the <b style="font-weight:700">public key</b> under the Headquarters organization. However, you must also manually import the <b style="font-weight:700">private key</b> into the same organization for decryption to work at the target endpoint.</div>
+        </div>
+
+        <h3>Import the Private Key into Headquarters</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Still on the Headquarters <strong>PGP Keys</strong> page, click <strong>Import PGP Key</strong>.</p>
+              <figure class="screenshot"><img src="images/image28.png" alt="Import PGP Key button"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Drag and drop (or browse to) the private key file you downloaded in step 3. Name it <code>Demo Private</code>, set a passphrase, and click <strong>Import</strong>.</p>
+              <figure class="screenshot"><img src="images/image25.png" alt="Import private key — name: Demo Private, set passphrase"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Distribute the Public Key to Each Partner</h3>
+        <p>Each partner organization needs the headquarters public key so they can encrypt files before uploading. Import the public key into each partner organization.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>Partner 1</strong>, open <strong>PGP Keys</strong>, and click <strong>Import PGP Key</strong>. Import the headquarters public key file.</p>
+              <figure class="screenshot"><img src="images/image24.png" alt="Import public key into Partner 1"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Repeat step 6 for <strong>Partner 2</strong> and <strong>Partner 3</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Configure Encryption on the Source Endpoints</h3>
+        <p>Now you'll configure each partner's flow endpoint to encrypt outbound files using the public key you just imported.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">8</div>
+            <div class="instruction-body">
+              <p>Return to Flow Studio and click on the <strong>Partner 1</strong> source endpoint to open the Flow Endpoint Editor. Select the <strong>Processing Options</strong> tab and set the processing type to <strong>Encryption</strong>. Then select the public key from the dropdown and click <strong>Save Changes</strong>.</p>
+              <figure class="screenshot"><img src="images/image37.png" alt="Partner 1 source endpoint — Processing Options — Encryption — select public key"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">9</div>
+            <div class="instruction-body">
+              <p>Repeat step 8 for the <strong>Partner 2</strong> and <strong>Partner 3</strong> source endpoints.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Configure Decryption on the Target Endpoint</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">10</div>
+            <div class="instruction-body">
+              <p>Click on the <strong>Headquarters</strong> target endpoint in Flow Studio to open the Flow Endpoint Editor. Select the <strong>Processing Options</strong> tab, set the processing type to <strong>Decryption</strong>, and select the <code>Demo Private</code> key. Click <strong>Save Changes</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">11</div>
+            <div class="instruction-body">
+              <p>Back in Flow Studio, click <strong>View and Push Changes</strong> to apply the updated flow configuration.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Verify Encryption in the Activity Dashboard</h3>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">12</div>
+            <div class="instruction-body">
+              <p>Upload a file through one of the partner sources (using FileZilla or the upload widget, as in Step 5). Then navigate to the <strong>Activity</strong> dashboard and open the <strong>Transfer Status Details</strong> for that transfer.</p>
+              <p>The lifecycle view will now include additional steps showing <strong>encryption</strong> at the source and <strong>decryption</strong> at the target, confirming the full PGP processing chain is working end-to-end.</p>
+              <figure class="screenshot"><img src="images/image26.png" alt="Transfer Status Details showing encryption and decryption steps in the file lifecycle"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>Congratulations — you've completed the lab! You've built a fully automated many-to-one file transfer flow with multi-tenant partner isolation, path-based routing, and optional end-to-end PGP encryption, all configured entirely through the AFT portal with no scripting or infrastructure management required.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
