@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="mft-edi-partner-ex1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore the File Sharing Portal — Trading Partner SFTP &amp; EDI Processing — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Trading Partner SFTP &amp; EDI — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 1 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Log In &amp; Explore the Portal
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Copy the EDI File to Your Inbox
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~20 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Basic
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 1 — Overview</div>
+          <h1 class="step-title">Explore the File Sharing Portal</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Get familiar with Boomi MFT's File Sharing web portal — the hosted SFTP server that trading partners use to drop off and pick up EDI files.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
+            <div style="font-size:14px;font-weight:700;">Boomi MFT File Sharing</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~20 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div>
+            <div style="font-size:14px;font-weight:700;">2 steps</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">File Type</div>
+            <div style="font-size:14px;font-weight:700;">EDI 850</div>
+          </div>
+        </div>
+
+        <h3>What Is the File Sharing Portal?</h3>
+        <p>Boomi MFT's File Sharing module provides a fully hosted SFTP server that your trading partners can connect to — either through a standard SFTP client (FileZilla, WinSCP, command line) or directly through a browser-based web portal. There is nothing for partners to install or maintain on their end.</p>
+        <p>Every user gets an isolated home folder — partners interact only with their own space and cannot see other users' data.</p>
+        <p>By default, the platform creates a basic folder set for each new user. However, for this lab the administrator has used the <strong>User Home Folder Customization</strong> feature to pre-provision a specific folder structure that matches the EDI workflow — <strong>Inbox</strong>, <strong>Outbox</strong>, and a <strong>Returns</strong> folder with subfolders for each output type. This is configured using a JSON template applied at the account level, for example:</p>
+        <pre><code>[
+  { "name": "Inbox" },
+  { "name": "Outbox" },
+  { "name": "Returns", "subfolders": [
+      { "name": "IDoc" },
+      { "name": "Rejected" },
+      { "name": "Errors" }
+  ]}
+]</code></pre>
+        <p>The platform supports regular folders, My Documents (<code>type: 3</code>), and My Dropbox (<code>type: 4</code>) folder types. This customisation means every workshop participant starts with an identical, purpose-built folder structure rather than the platform default.</p>
+
+        <h3>What You'll Do</h3>
+        <p>In this exercise you'll act as the trading partner. You'll log into the web portal, explore the pre-built folder structure, and copy a sample EDI 850 purchase order file from the shared library into your personal Inbox. This simulates a partner uploading a file — which is what Boomi Integration will later pick up and process in Exercise 2.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Keep the File Sharing portal open in a separate browser tab after completing this exercise — you'll return to it in Exercise 2 to retrieve connection details and verify output files.</div>
+        </div>
+
+        <h3>Lab URLs</h3>
+        <div class="credentials-box">
+          <h4>Lab Access</h4>
+          <div class="cred-row"><span class="cred-label">File Sharing Portal</span><span class="cred-value"><a href="https://sftp-trading-partner-demo.boomi.com/" target="_blank" style="color:var(--primary)">https://sftp-trading-partner-demo.boomi.com/</a></span></div>
+          <div class="cred-row"><span class="cred-label">SFTP Host</span><span class="cred-value"><code>us-ftpsbx-02.thruinc.net</code> · Port 22</span></div>
+          <div class="cred-row"><span class="cred-label">SFTP Username format</span><span class="cred-value"><code>sftp-trading-partner-demo.boomi.com\your.email@address.com</code></span></div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Log In & Explore -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 2</div>
+          <h1 class="step-title">Log In &amp; Explore the Portal</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Log into the File Sharing web portal and familiarise yourself with the folder structure before copying any files.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <a href="https://sftp-trading-partner-demo.boomi.com/" target="_blank" style="color:var(--primary)"><strong>https://sftp-trading-partner-demo.boomi.com/</strong></a> and log in with the credentials you received by email.</p>
+              <figure class="screenshot"><img src="images/image28.png" alt="File Sharing portal login screen"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Once logged in, expand the folder tree under your username in the left panel. You will see a set of folders that have been pre-created for this workshop:</p>
+              <ul>
+                <li><strong>Inbox</strong> — where you (as the trading partner) will drop files for Boomi Integration to pick up</li>
+                <li><strong>Outbox</strong> — where Boomi will deliver files back to you, such as EDI 997 functional acknowledgements</li>
+                <li><strong>Returns</strong> — where processed output files are written, with subfolders for different document types (IDoc, Rejected, Errors)</li>
+                <li><strong>SHARED/EDI File</strong> — a shared read-only folder containing sample EDI files for this lab</li>
+              </ul>
+              <figure class="screenshot"><img src="images/image13.png" alt="Folder tree showing Inbox, Outbox, Returns, and SHARED/EDI File folders"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Take a moment to expand the <b style="font-weight:700">Returns</b> folder and note its subfolders. You'll need to map your process to these paths in Exercise 2, so it's worth getting familiar with them now.</div>
+        </div>
+
+        <ol class="instruction-list" style="counter-reset: item 2;">
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Expand the <strong>Returns</strong> folder and take note of the available subfolders — you'll reference these paths when configuring SFTP connections in Exercise 2.</p>
+              <figure class="screenshot"><img src="images/image34.png" alt="Returns folder showing subfolders for IDoc, Rejected, and Errors"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Expand <strong>SHARED &gt; EDI File</strong> and click on the <strong>850</strong> file to select it. This is a sample EDI 850 purchase order — the document type you will process in Exercise 2.</p>
+              <figure class="screenshot"><img src="images/image21.png" alt="EDI File folder — 850 purchase order file selected"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Copy the EDI File to Inbox -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 2</div>
+          <h1 class="step-title">Copy the EDI File to Your Inbox</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use the portal's clipboard feature to copy the sample EDI 850 file from the shared library into your personal Inbox, ready for Boomi Integration to pick up.</p>
+        </header>
+
+        <p>The web portal uses a clipboard mechanism to move files between folders — similar to copy and paste on a desktop. You first add a file to the clipboard from its source location, then navigate to the destination and paste it there.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Navigate to <strong>SHARED &gt; EDI File</strong> and select the <strong>850</strong> file. Click the <strong>Clipboard</strong> button to add the file to the clipboard.</p>
+              <figure class="screenshot"><img src="images/image16.png" alt="Clipboard button — add file to clipboard"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>The file icon will change shade to indicate it has been added to the clipboard.</p>
+              <figure class="screenshot"><img src="images/image31.png" alt="File icon shaded to indicate it is on the clipboard"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Navigate to the <strong>Inbox</strong> folder under your username. Click the <strong>Clipboard</strong> button again to paste the file into your Inbox.</p>
+              <figure class="screenshot"><img src="images/image35.png" alt="Inbox folder — paste file from clipboard"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Confirm the file now appears in your Inbox.</p>
+              <figure class="screenshot"><img src="images/image11.png" alt="EDI 850 file confirmed in Inbox"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>If the clipboard action appears to time out, navigate to a different folder and then retry the steps. This is a known occasional behaviour with the web portal.</div>
+        </div>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>The EDI 850 file is now in your Inbox and waiting to be picked up. In Exercise 2 you will configure the Boomi Integration process to connect to this location via SFTP, retrieve the file, and process it through the full EDI workflow.</div>
+        </div>
+
+        <div style="background:var(--primary-light);border:1px solid var(--primary);border-radius:var(--radius);padding:18px 22px;margin-top:28px;">
+          <div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:6px;">Ready for Exercise 2?</div>
+          <p style="font-size:14px;margin:0 0 12px;">Keep this portal tab open — you'll need to copy your folder paths from here when configuring SFTP connections in the next exercise.</p>
+          <a href="exercise-2.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;text-decoration:none;padding:10px 18px;border-radius:var(--radius);font-size:14px;font-weight:700;">
+            Continue to Exercise 2
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

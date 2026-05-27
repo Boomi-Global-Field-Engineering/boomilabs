@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="mft-edi-partner-ex2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configure the EDI Integration Process — Trading Partner SFTP &amp; EDI Processing — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Trading Partner SFTP &amp; EDI — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 2 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Copy the Process from the Library
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Configure the Trading Partner SFTP
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Configure Simulated SAP &amp; Return Paths
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Configure Rejected &amp; Error Paths
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Test the Process
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~70 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Basic
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 2 — Overview</div>
+          <h1 class="step-title">Configure the EDI Integration Process</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">In Boomi Integration, copy a pre-built EDI process and configure it to connect to your personal File Sharing folder paths, then run a live test to process the EDI file end-to-end.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
+            <div style="font-size:14px;font-weight:700;">Boomi Integration</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~70 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div>
+            <div style="font-size:14px;font-weight:700;">5 steps</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Document</div>
+            <div style="font-size:14px;font-weight:700;">EDI 850 → SAP ORDERS05</div>
+          </div>
+        </div>
+
+        <h3>About the EDI Workshop Process</h3>
+        <p>Rather than building an EDI integration from scratch, this lab provides a pre-built process called <strong>EDI Workshop</strong> in the Source Process Library. You'll copy it into your own workspace and configure a small number of connection settings to point it at your personal File Sharing folders.</p>
+        <p>The process is a multi-path EDI workflow designed to handle incoming EDI 850 purchase orders. When it runs, it connects to the File Sharing SFTP server, retrieves the EDI file from your Inbox, and then routes it through several parallel paths based on document type and business rule validation:</p>
+        <ul>
+          <li><strong>Valid purchase orders</strong> are mapped from EDI 850 format to SAP ORDERS05 format and written to your <code>/Returns/IDoc</code> folder — simulating delivery to a downstream SAP system.</li>
+          <li><strong>Documents that fail business rule validation</strong> are captured and written to your <code>/Returns/Rejected</code> folder, with a notification generated for the originating partner.</li>
+          <li><strong>Processing exceptions</strong> are caught by a Try/Catch mechanism and routed to your <code>/Returns/Errors</code> folder, ensuring that failures never silently disappear.</li>
+          <li><strong>EDI 997 functional acknowledgements</strong> are automatically generated and sent back to the trading partner via the SFTP communication settings configured on the Trading Partner record — these land in the partner's Outbox folder.</li>
+          <li><strong>Unknown or unrecognised document types</strong> are handled gracefully by a passthrough subprocess, allowing them to flow through without interrupting the main workflow.</li>
+        </ul>
+        <p>This multi-path architecture demonstrates enterprise-grade EDI processing — validation, transformation, routing, acknowledgement, and exception handling all in one process.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>You'll need to copy SFTP folder paths from the File Sharing portal during this exercise. Keep that portal tab open alongside Integration — you can copy paths directly from the browser address or folder display.</div>
+        </div>
+
+        <h3>Lab URLs</h3>
+        <div class="credentials-box">
+          <h4>Lab Access</h4>
+          <div class="cred-row"><span class="cred-label">Boomi Integration</span><span class="cred-value"><a href="https://platform.boomi.com/" target="_blank" style="color:var(--primary)">https://platform.boomi.com/</a></span></div>
+          <div class="cred-row"><span class="cred-label">File Sharing Portal</span><span class="cred-value"><a href="https://sftp-trading-partner-demo.boomi.com/" target="_blank" style="color:var(--primary)">https://sftp-trading-partner-demo.boomi.com/</a></span></div>
+          <div class="cred-row"><span class="cred-label">SFTP Host</span><span class="cred-value"><code>us-ftpsbx-02.thruinc.net</code> · Port 22</span></div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Copy the Process -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 5</div>
+          <h1 class="step-title">Copy the Process from the Library</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Copy the pre-built EDI Workshop process from the source library into your personal workspace folder in Boomi Integration.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Log into Boomi Integration at <a href="https://platform.boomi.com/" target="_blank" style="color:var(--primary)"><b style="font-weight:700">https://platform.boomi.com/</b></a> before starting this step. Your workspace folder has been pre-created as part of user registration.</div>
+        </div>
+
+        <p>After logging in, your Integration workspace will look something like this — with a component tree on the left and the canvas area to the right.</p>
+        <figure class="screenshot"><img src="images/image33.png" alt="Boomi Integration workspace overview"></figure>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the component tree on the left, expand <strong>Source Process Library &gt; Processes</strong> and select the <strong>EDI Workshop</strong> process.</p>
+              <figure class="screenshot"><img src="images/image38.png" alt="Source Process Library — EDI Workshop process"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Copy Process</strong> (or the copy action). Give the copy a meaningful name and click the <strong>+</strong> icon next to <strong>Destination Folder</strong> to select where to save it — this field is required.</p>
+              <figure class="screenshot"><img src="images/image14.png" alt="Copy process dialog — name and destination folder"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Select your personal folder from the folder picker and name the destination folder <code>EDI Workshop</code>, then confirm.</p>
+              <figure class="screenshot"><img src="images/image7.png" alt="Folder picker — select your personal workspace folder"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Once the copy is complete, expand your workspace folder under <strong>Processes</strong> and double-click <strong>EDI Workshop</strong> to open it on the canvas.</p>
+              <figure class="screenshot"><img src="images/image15.png" alt="Workspace folder — EDI Workshop process ready to open"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <p>The process will open in the canvas, showing the full multi-path EDI workflow. Take a moment to trace the flow from the start shape through the branching paths — you'll be configuring the SFTP connections on each path in the steps ahead.</p>
+        <figure class="screenshot"><img src="images/image3.png" alt="EDI Workshop process open on the Integration canvas"></figure>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Configure Trading Partner SFTP -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 5</div>
+          <h1 class="step-title">Configure the Trading Partner SFTP</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Configure the ABCD Trading Partner record in Boomi Integration to connect to your personal File Sharing user — so the process knows where to pick up inbound files and send acknowledgements.</p>
+        </header>
+
+        <p>The process retrieves inbound EDI files by connecting to the File Sharing SFTP server as the trading partner. This connection is defined on the <strong>ABCD Trading Partner</strong> component, specifically on its <strong>Communication</strong> tab.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>On the canvas, double-click the <strong>ABCD Trading Partner</strong> shape to open it.</p>
+              <figure class="screenshot"><img src="images/image5.png" alt="ABCD Trading Partner shape on the canvas"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>The Trading Partner overview will open. Navigate to the <strong>Communication</strong> tab.</p>
+              <figure class="screenshot"><img src="images/image23.png" alt="Trading Partner overview page"></figure>
+              <figure class="screenshot"><img src="images/image39.png" alt="Trading Partner — Communication tab"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Double-click on <strong>SFTP</strong> to open the SFTP configuration for this trading partner.</p>
+              <figure class="screenshot"><img src="images/image9.png" alt="Communication tab — SFTP entry to double-click"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Fill in the SFTP connection details using your File Sharing credentials:</p>
+              <ul>
+                <li><strong>Host:</strong> <code>us-ftpsbx-02.thruinc.net</code></li>
+                <li><strong>Port:</strong> <code>22</code></li>
+                <li><strong>User Name:</strong> <code>sftp-trading-partner-demo.boomi.com\your.email@address.com</code> — use the same username you use to log into the File Sharing portal</li>
+                <li><strong>Password:</strong> use the password associated with your File Sharing account</li>
+              </ul>
+              <figure class="screenshot"><img src="images/image8.png" alt="SFTP connection details — host, port, username, password"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Scroll down to the <strong>Get Options</strong> section. Set the <strong>Remote Directory</strong> to the path of your <strong>Inbox</strong> folder in the File Sharing portal.</p>
+              <div class="callout info">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+                <div>You can copy the path directly from the File Sharing portal. Note that the path must start with <b style="font-weight:700">/HOME</b> — not <b style="font-weight:700">/FOLDERS</b> as displayed in the portal UI.</div>
+              </div>
+              <figure class="screenshot"><img src="images/image18.png" alt="Get Options — Remote Directory path for Inbox"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Set the <strong>File Filter</strong> to <code>850_SAP_Basic_2.edi</code> — this matches the filename of the EDI file you placed in your Inbox in Exercise 1, ensuring the process only picks up that specific file.</p>
+              <figure class="screenshot"><img src="images/image24.png" alt="Get Options — File Filter set to 850_SAP_Basic_2.edi"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Scroll down to the <strong>Send Options</strong> section. Set the <strong>Remote Directory</strong> to the path of your <strong>Outbox</strong> folder — this is where EDI 997 acknowledgements will be delivered back to the trading partner.</p>
+              <p>Set the <strong>SFTP Put Action</strong> to <code>Create Unique Name if File Exists</code> to avoid overwriting files on repeat runs.</p>
+              <figure class="screenshot"><img src="images/image37.png" alt="Send Options — Remote Directory for Outbox and SFTP Put Action"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">8</div>
+            <div class="instruction-body">
+              <p>Click <strong>Close</strong>, then <strong>Save &amp; Close</strong> to save the Trading Partner configuration.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Configure Simulated SAP -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 5</div>
+          <h1 class="step-title">Configure Simulated SAP &amp; Return Paths</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Update the Simulated SAP SFTP connection to point to your <code>/Returns/IDoc</code> folder — the destination for successfully processed and transformed purchase orders.</p>
+        </header>
+
+        <p>When a valid EDI 850 purchase order passes business rule validation, the process maps it to SAP ORDERS05 format and writes the resulting IDoc file to a designated output location. In this lab that output location is your <code>/Returns/IDoc</code> folder in the File Sharing portal, simulating delivery to a downstream SAP system via SFTP.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Back on the canvas, locate the <strong>Simulated SAP</strong> connection shape.</p>
+              <figure class="screenshot"><img src="images/image32.png" alt="Simulated SAP connection shape on the canvas"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Double-click <strong>SFTP Connection — IDoc</strong> to open its connection properties.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Update the connection with the following details:</p>
+              <ul>
+                <li><strong>Host:</strong> <code>us-ftpsbx-02.thruinc.net</code></li>
+                <li><strong>Port:</strong> <code>22</code></li>
+                <li><strong>User Name &amp; Password:</strong> your File Sharing credentials (same as used in Step 2)</li>
+                <li><strong>Remote Directory:</strong> the path to your <code>/Returns/IDoc</code> folder — copy this from the File Sharing portal</li>
+              </ul>
+              <div class="callout info">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+                <div>Remember: the path must start with <b style="font-weight:700">/HOME</b>, not <b style="font-weight:700">/FOLDERS</b>.</div>
+              </div>
+              <figure class="screenshot"><img src="images/image17.png" alt="IDoc SFTP path copied from File Sharing portal"></figure>
+              <figure class="screenshot"><img src="images/image30.png" alt="SFTP Connection — IDoc — all fields configured"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save &amp; Close</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Next, open the <strong>SFTP Connector Operation</strong> for the Simulated SAP path and verify it is configured as shown. No changes should be needed here — this step is just a confirmation.</p>
+              <figure class="screenshot"><img src="images/image26.png" alt="SFTP Connector Operation shape for Simulated SAP"></figure>
+              <figure class="screenshot"><img src="images/image29.png" alt="SFTP Connector Operation settings — verify configuration"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save &amp; Close</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Configure Rejected & Error Paths -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 5</div>
+          <h1 class="step-title">Configure Rejected &amp; Error Paths</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Update the Rejected and Error SFTP connections to point to your corresponding return folders, completing the exception-handling paths in the process.</p>
+        </header>
+
+        <p>The process has two additional output paths for documents that cannot be processed normally. Both need to be pointed at your personal return folders so that failed files are delivered to the correct location rather than being silently dropped.</p>
+
+        <h3>Simulated Rejected Path</h3>
+        <p>Documents that fail business rule validation — for example, a purchase order with a missing mandatory field or an unrecognised partner ID — are routed to the Rejected path and written to <code>/Returns/Rejected</code>.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>On the canvas, locate the <strong>Simulated Rejected</strong> connection shape.</p>
+              <figure class="screenshot"><img src="images/image6.png" alt="Simulated Rejected connection shape on the canvas"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Double-click <strong>SFTP Connection — Rejected</strong> and update it with your File Sharing credentials and the path to your <code>/Returns/Rejected</code> folder — following the same pattern as the previous step. Click <strong>Save &amp; Close</strong>.</p>
+              <figure class="screenshot"><img src="images/image27.png" alt="SFTP Connection — Rejected — configured with credentials and path"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Review the <strong>SFTP Connector Operation</strong> for this path — no changes should be needed.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3>Simulated Errors Path</h3>
+        <p>Any unhandled processing exceptions — connectivity failures, parsing errors, unexpected document structures — are caught by the Try/Catch mechanism and written to <code>/Returns/Errors</code>. This ensures that every failure is captured and visible.</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Scroll to the bottom of the canvas. You will see two additional paths: <strong>Acknowledgements</strong> and <strong>Simulated Errors</strong>.</p>
+              <figure class="screenshot"><img src="images/image12.png" alt="Bottom of canvas showing Acknowledgements and Simulated Errors paths"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>The <b style="font-weight:700">Acknowledgements</b> path does not need to be updated — it will automatically use the SFTP send settings you configured on the Trading Partner communication record in Step 2.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Double-click <strong>SFTP Connection — Errors</strong> and configure it with your File Sharing credentials and the path to your <code>/Returns/Errors</code> folder. Click <strong>Save &amp; Close</strong>.</p>
+              <figure class="screenshot"><img src="images/image22.png" alt="SFTP Connection — Errors — configured with credentials and path"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Review the <strong>SFTP Connector Operation</strong> for the Errors path — no changes should be needed.</p>
+              <figure class="screenshot"><img src="images/image36.png" alt="SFTP Connector Operation for Errors path — verify configuration"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Return to the main process canvas and click <strong>Save</strong> to save all changes.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Test the Process -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 5</div>
+          <h1 class="step-title">Test the Process</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Run a live test execution and review the results to confirm the full EDI workflow — from file pickup through to transformation, acknowledgement, and output delivery.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>With the main process open on the canvas, click the <strong>Test</strong> button in the toolbar.</p>
+              <figure class="screenshot"><img src="images/image25.png" alt="Integration canvas toolbar — Test button"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>A runtime selection window will open. Select the <strong>Workshop</strong> runtime from the dropdown and click <strong>OK</strong>.</p>
+              <figure class="screenshot"><img src="images/image20.png" alt="Runtime selection window"></figure>
+              <figure class="screenshot"><img src="images/image2.png" alt="Workshop runtime selected — click OK"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <p>The test will execute the process against your live File Sharing account. When it completes, the results panel will display the documents and log entries for each path that was executed. Review each item to understand what happened at each stage:</p>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p><strong>Source file retrieved:</strong> The process connected to the File Sharing SFTP server and pulled the EDI 850 file from your Inbox. Confirm the document appears in the results with a successful status.</p>
+              <figure class="screenshot"><img src="images/image10.png" alt="Test results — EDI file retrieved from Inbox via SFTP"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p><strong>Acknowledgement sent:</strong> A 997 functional acknowledgement was automatically generated and delivered back to the trading partner via SFTP. Confirm this document appears in the results.</p>
+              <figure class="screenshot"><img src="images/image4.png" alt="Test results — 997 acknowledgement generated and sent"></figure>
+              <p>To verify this in the File Sharing portal, navigate to your <strong>Outbox</strong> folder — the acknowledgement file should now be present there.</p>
+              <figure class="screenshot"><img src="images/image19.png" alt="File Sharing portal — Outbox showing the 997 acknowledgement file"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p><strong>EDI processed and IDoc written:</strong> The EDI 850 was validated against business rules, mapped to SAP ORDERS05 (IDoc) format, and written to your <code>/Returns/IDoc</code> folder. Confirm this in the results log and verify the file is present in your File Sharing portal.</p>
+              <figure class="screenshot"><img src="images/image1.png" alt="Test results — IDoc written to Returns/IDoc folder"></figure>
+              <p>The diagram below shows the full integration process — trace the path from the start shape through validation, mapping, and each output branch to see how this result was produced.</p>
+              <figure class="screenshot"><img src="images/edi-process-test.png" alt="EDI Workshop process canvas showing test results — 7 documents processed successfully"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p><strong>Additional document routing:</strong> Any EDI 997 acknowledgement documents present in the source were detected and routed separately from the 850 purchase orders, as they are handled by a different processing path. This demonstrates the process's ability to handle mixed document types in a single inbound flow.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>Congratulations — you've completed the lab! You've connected Boomi MFT's File Sharing module to Boomi Integration's EDI Trading Partner module, giving a trading partner a fully hosted SFTP server with automated EDI validation, transformation, acknowledgement, and exception handling — all managed through Boomi with no infrastructure to maintain.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
