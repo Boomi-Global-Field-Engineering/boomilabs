@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="customer-operations-ex2" data-next-exercise-href="exercise-3.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Support Triage (Extended) Lab — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+<header class="lab-header"><a href="index.html" class="lab-header-logo"><img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle"><span>Labs</span></a><div class="lab-header-sep"></div><span class="lab-header-title">Customer Support Triage (Extended) Lab</span><div class="lab-header-actions"><button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></header>
+<div class="lab-layout">
+<nav class="lab-sidebar"><div class="sidebar-progress"><div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div></div><div class="sidebar-divider"></div><div class="sidebar-section-label">Lab 2 — Steps</div><ul class="sidebar-nav"><li><a href="#" data-step="0" class="active"><span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li><li><a href="#" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Prerequisites</a></li><li><a href="#" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 1: Build your Tooling</a></li><li><a href="#" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create new folder and install pre-built process bundle</a></li><li><a href="#" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Package, Deploy, and Get Base URL</a></li><li><a href="#" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build API Tool in Agentstudio</a></li><li><a href="#" data-step="6"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 2: Build your Agent</a></li><li><a href="#" data-step="7"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create New Agent</a></li><li><a href="#" data-step="8"><span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Task 1: Research a case</a></li><li><a href="#" data-step="9"><span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Task 2: Generate Response</a></li><li><a href="#" data-step="10"><span class="step-num"><span class="step-num-inner">10</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Test the Agent</a></li><li><a href="#" data-step="11"><span class="step-num"><span class="step-num-inner">11</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 3: Complete and Deploy</a></li><li><a href="#" data-step="12"><span class="step-num"><span class="step-num-inner">12</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Add Guardrails</a></li><li><a href="#" data-step="13"><span class="step-num"><span class="step-num-inner">13</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build Update Case with Comment Integration</a></li><li><a href="#" data-step="14"><span class="step-num"><span class="step-num-inner">14</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build Integration Tool in Agentstudio</a></li><li><a href="#" data-step="15"><span class="step-num"><span class="step-num-inner">15</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Add Update Case Task and Deploy</a></li><li><a href="#" data-step="16"><span class="step-num"><span class="step-num-inner">16</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 4: Use Agents in Processes</a></li><li><a href="#" data-step="17"><span class="step-num"><span class="step-num-inner">17</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configure Agent Control Tower</a></li><li><a href="#" data-step="18"><span class="step-num"><span class="step-num-inner">18</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build [MAIN] Listen for Support Cases and Generate Responses</a></li><li><a href="#" data-step="19"><span class="step-num"><span class="step-num-inner">19</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Test and Add Data Processing Step</a></li><li><a href="#" data-step="20"><span class="step-num"><span class="step-num-inner">20</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 5: Sentiment Analysis</a></li><li><a href="#" data-step="21"><span class="step-num"><span class="step-num-inner">21</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Deploy Route by Sentiment Process</a></li><li><a href="#" data-step="22"><span class="step-num"><span class="step-num-inner">22</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Detect Sentiment Prompt Tool</a></li><li><a href="#" data-step="23"><span class="step-num"><span class="step-num-inner">23</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Route by Sentiment Result Integration Tool</a></li><li><a href="#" data-step="24"><span class="step-num"><span class="step-num-inner">24</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Update Agent and Process</a></li><li><a href="#" data-step="25"><span class="step-num"><span class="step-num-inner">25</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Test and Verify</a></li></ul><div class="sidebar-divider"></div><div class="sidebar-meta"><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Duration: ~60 min</div><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Level: Self-Led</div></div></nav><main class="lab-main">
+<section class="step-page active" id="page-0"><div class="step-content"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Back to Lab Overview</a><header class="step-header"><div class="step-label">Overview</div><h1 class="step-title">Customer Support Triage (Extended) Lab</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">A self-led lab building a Customer Support Insights Agent that automates full support case triage including sentiment analysis and intelligent case routing.</p></header><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;"><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Lab Type</div><div style="font-size:14px;font-weight:700;">Self-Led</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Category</div><div style="font-size:14px;font-weight:700;">Customer Operations</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div><div style="font-size:14px;font-weight:700;">25 steps</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Source</div><div style="font-size:14px;font-weight:700;">labs.boomi.com</div></div></div><p>This self-contained lab builds a complete Customer Support Insights Agent. No workshop event or instructor required! Work through at your own pace using your own Boomi account.</p><h3>Canonical Source</h3><p>This lab guide was authored for the Boomi Labs site. The canonical version with the latest updates can be found at <a href="https://labs.boomi.com/labs/customer-operations/customer-support-triage-extended/intro" target="_blank" style="color:var(--primary)">https://labs.boomi.com/labs/customer-operations/customer-support-triage-extended/intro</a>.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn" disabled>← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section><section class="step-page" id="page-1"><div class="step-content"><header class="step-header"><div class="step-label">Step 1 of 25</div><h1 class="step-title">Prerequisites</h1></header><ul>
+<li>Log in at https://platform.boomi.com (create account at train.boomi.com if needed).
+</li>
+<li>Generate Platform API Token: Settings → Platform API Tokens → Create token named Agentstudio.
+</li>
+<li>Copy and save your Account ID from Account Information.
+</li>
+<li>Create Test Environment: Services → Integration → Manage → Runtime Management.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image01.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image02.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image03.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Environment: Test Env (Test classification) | Runtime: Test (cloud, attach to Test Env).
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image04.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image05.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image06.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-2"><div class="step-content"><header class="step-header"><div class="step-label">Step 2 of 25</div><h1 class="step-title">Part 1: Build your Tooling</h1></header><p>Create a Web Service Listener and API Tool exposing product data to agents.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-3"><div class="step-content"><header class="step-header"><div class="step-label">Step 3 of 25</div><h1 class="step-title">Create new folder and install pre-built process bundle</h1></header><ul>
+<li>Integration → Build → Create folder named Agentstudio.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image07.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Visit https://boomi.to/5174 → Install to your Agentstudio folder.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image08.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Expand Agentstudio → Processes to find the Agentstudio Product GET process.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image09.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-4"><div class="step-content"><header class="step-header"><div class="step-label">Step 4 of 25</div><h1 class="step-title">Package, Deploy, and Get Base URL</h1></header><ul>
+<li>Deploy Agentstudio Product GET to Test Env. Go to Manage → Runtime Management → Test runtime → Shared Web Server.
+</li>
+<li>Copy the Base URL for API Requests.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image10.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Get Username and Token from User Management tab.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image11.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-5"><div class="step-content"><header class="step-header"><div class="step-label">Step 5 of 25</div><h1 class="step-title">Build API Tool in Agentstudio</h1></header><ul>
+<li>Agentstudio → Agent Garden → Tools → Create New Tool.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image12.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Tool Name: Get Product Info by Code | Description: Get Product Info by Product Code
+</li>
+<li>Input Parameter: Product Code (String, Required On)
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image13.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Configuration: Base URL from Section 1 | GET /ws/simple/getProduct | Query: productCode={{Product Code}} | Basic Auth with Username and Token.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image14.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image15.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image16.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy Tool → Deploy.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image17.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-6"><div class="step-content"><header class="step-header"><div class="step-label">Step 6 of 25</div><h1 class="step-title">Part 2: Build your Agent</h1></header><p>Create the CustomerSupportAgent with product research and response generation tasks.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-7"><div class="step-content"><header class="step-header"><div class="step-label">Step 7 of 25</div><h1 class="step-title">Create New Agent</h1></header><ul>
+<li>Agent Garden → Agents → Create New Agent → Blank Template → I will add manually.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image18.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Goal: Customer support assistant to answer support case questions about our products. | Name: CustomerSupportAgent | Voice: Professional
+</li>
+<li>Add Conversation Starters: Tell me about the FP-2100-GRD | Define compatible parts with product code: FP-2100-GRD
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-8"><div class="step-content"><header class="step-header"><div class="step-label">Step 8 of 25</div><h1 class="step-title">Task 1: Research a case</h1></header><ul>
+<li>Task Name: Research a case by retrieving product info | Description: Research the case by querying for product information.
+</li>
+<li>Manage Tools → Add Get Product Info by Code.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-9"><div class="step-content"><header class="step-header"><div class="step-label">Step 9 of 25</div><h1 class="step-title">Task 2: Generate Response</h1></header><ul>
+<li>Task Name: Generate proposed response or resolution | Instructions: Format response as: Dear (customer name), (proposed resolution) Thank you, Acme, Inc.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-10"><div class="step-content"><header class="step-header"><div class="step-label">Step 10 of 25</div><h1 class="step-title">Test the Agent</h1></header><ul>
+<li>Test prompt: Define compatible parts with product code: FP-2100-GRD. Review response.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image19.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-11"><div class="step-content"><header class="step-header"><div class="step-label">Step 11 of 25</div><h1 class="step-title">Part 3: Complete and Deploy</h1></header><p>Add guardrails, build a CRM update integration tool, and deploy the agent.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-12"><div class="step-content"><header class="step-header"><div class="step-label">Step 12 of 25</div><h1 class="step-title">Add Guardrails</h1></header><ul>
+<li>Blocked message: I&#x27;m sorry. I can only help with product-related questions.
+</li>
+<li>Denied Topic: Internal pricing — Do not disclose internal pricing or costs.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image20.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-13"><div class="step-content"><header class="step-header"><div class="step-label">Step 13 of 25</div><h1 class="step-title">Build Update Case with Comment Integration</h1></header><ul>
+<li>Integration → Build → New Process in Agentstudio folder → Type: No Data → Rename: Update Case with Comment
+</li>
+<li>Process: Start → Notify (DPP_CASE_ID: {1}, DPP_CASE_COMMENT: {2}) → Stop
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image21.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image22.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Package, Deploy to Test Env.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image23.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-14"><div class="step-content"><header class="step-header"><div class="step-label">Step 14 of 25</div><h1 class="step-title">Build Integration Tool in Agentstudio</h1></header><ul>
+<li>Agentstudio → Tools → Create New Tool → Integration Tool.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image24.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Tool Name: Update Case with Comment | Inputs: Case ID and Case Comment
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image25.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Environment: Test Env | Process: Update Case with Comment | DPPs: DPP_CASE_ID={{Case ID}}, DPP_CASE_COMMENT={{Case Comment}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image26.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image27.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-15"><div class="step-content"><header class="step-header"><div class="step-label">Step 15 of 25</div><h1 class="step-title">Add Update Case Task and Deploy</h1></header><ul>
+<li>Edit CustomerSupportAgent → Tasks → Add New Task: Update Case with Comment. Manage Tools → add Update Case with Comment integration tool.
+</li>
+<li>Test with case XML → verify agent researches, generates response, and updates CRM. Deploy.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image28.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-16"><div class="step-content"><header class="step-header"><div class="step-label">Step 16 of 25</div><h1 class="step-title">Part 4: Use Agents in Processes</h1></header><p>Configure Agent Control Tower and build an integration process that invokes the agent headlessly.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-17"><div class="step-content"><header class="step-header"><div class="step-label">Step 17 of 25</div><h1 class="step-title">Configure Agent Control Tower</h1></header><ul>
+<li>Agentstudio → Agent Control Tower → Manage Providers → Boomi Agent Garden → Add Account.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image29.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image30.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image31.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-18"><div class="step-content"><header class="step-header"><div class="step-label">Step 18 of 25</div><h1 class="step-title">Build [MAIN] Listen for Support Cases and Generate Responses</h1></header><ul>
+<li>Integration → Build → New Process in Agentstudio folder.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image32.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Steps: Start (No Data) → Message (Mock Support Case with Agent Prompt) → Agent step → Stop.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image33.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Agent step: select CustomerSupportAgent → Generate Configuration → paste Platform API Token.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image34.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image35.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-19"><div class="step-content"><header class="step-header"><div class="step-label">Step 19 of 25</div><h1 class="step-title">Test and Add Data Processing Step</h1></header><ul>
+<li>Test process → View Source Data on Stop step. Review raw agent response.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image36.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image37.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Confirm API Tool was used: Manage → Process Reporting → review Update Case with Comment log.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image38.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image39.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image40.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Data Process step after Agent step with regex to extract final message: [\s\S]*event: message\n.*\&quot;content\&quot;:\s?\&quot;(.*)\&quot;
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image41.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image42.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Test again — View Source Data shows clean final response.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image43.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-20"><div class="step-content"><header class="step-header"><div class="step-label">Step 20 of 25</div><h1 class="step-title">Part 5: Sentiment Analysis</h1></header><p>Extend your agent with sentiment analysis to detect customer emotion and route cases automatically.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-21"><div class="step-content"><header class="step-header"><div class="step-label">Step 21 of 25</div><h1 class="step-title">Deploy Route by Sentiment Process</h1></header><ul>
+<li>Open Route by Sentiment process from your Agentstudio folder. Deploy to Test Env.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image44.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-22"><div class="step-content"><header class="step-header"><div class="step-label">Step 22 of 25</div><h1 class="step-title">Create Detect Sentiment Prompt Tool</h1></header><ul>
+<li>Agentstudio → Tools → Create New Tool → Prompt Tool
+</li>
+<li>Name: Detect Sentiment | Input: Support Case (String, Required)
+</li>
+<li>Prompt: Perform sentiment analysis on the customer support case provided (it is in XML format). Your response should be a single word: negative, neutral, or positive. All lowercase. Here is the case: {{Support Case}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image45.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-23"><div class="step-content"><header class="step-header"><div class="step-label">Step 23 of 25</div><h1 class="step-title">Create Route by Sentiment Result Integration Tool</h1></header><ul>
+<li>Integration Tool → Inputs: Case ID and Sentiment | Environment: Test Env | Process: Route by Sentiment | DPPs: DPP_CASE_ID, DPP_SENTIMENT
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-24"><div class="step-content"><header class="step-header"><div class="step-label">Step 24 of 25</div><h1 class="step-title">Update Agent and Process</h1></header><ul>
+<li>Add new task to CustomerSupportAgent: Detect case sentiment and route accordingly.
+</li>
+<li>Instructions: Perform sentiment analysis using the Detect Sentiment tool. Route using the Route by Sentiment Result tool.
+</li>
+<li>Attach both tools. Redeploy agent.
+</li>
+<li>Update main process message: add 4th instruction &#x27;4. Detect case sentiment and route accordingly.&#x27;
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image46.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image47.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-25"><div class="step-content"><header class="step-header"><div class="step-label">Step 25 of 25</div><h1 class="step-title">Test and Verify</h1></header><ul>
+<li>Test main process. View Source Data shows sentiment result.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image48.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Check Process Reporting — Route by Sentiment process executed.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image49.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image50.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image51.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>You built a Customer Support Insights Agent with sentiment analysis and automated case routing!</div></div>
+<p><br></p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Finish ✓</button></nav></div></section></main></div>
+<script src="../../assets/js/lab.js"></script>
+</body></html>

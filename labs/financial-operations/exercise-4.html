@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="financial-operations-ex4" data-next-exercise-href="exercise-5.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Parts Lab (with DataHub) — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+<header class="lab-header"><a href="index.html" class="lab-header-logo"><img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle"><span>Labs</span></a><div class="lab-header-sep"></div><span class="lab-header-title">Quote Parts Lab (with DataHub)</span><div class="lab-header-actions"><button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></header>
+<div class="lab-layout">
+<nav class="lab-sidebar"><div class="sidebar-progress"><div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div></div><div class="sidebar-divider"></div><div class="sidebar-section-label">Lab 4 — Steps</div><ul class="sidebar-nav"><li><a href="#" data-step="0" class="active"><span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li><li><a href="#" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Activity 1: Create Tools for Your Quote Specialist Agent</a></li><li><a href="#" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Access Agentstudio and Create Parts DataHub Tool</a></li><li><a href="#" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build PIM Classification API Tool</a></li><li><a href="#" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Activity 2: Build Your Quote Specialist Agent</a></li><li><a href="#" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Agent with Build with AI</a></li><li><a href="#" data-step="6"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Attach Tools to Tasks</a></li><li><a href="#" data-step="7"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configure Guardrails and Test</a></li><li><a href="#" data-step="8"><span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Activity 3: Embed Your Agent into Business Processes</a></li><li><a href="#" data-step="9"><span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create a Platform API Token</a></li><li><a href="#" data-step="10"><span class="step-num"><span class="step-num-inner">10</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build the Integration Process</a></li></ul><div class="sidebar-divider"></div><div class="sidebar-meta"><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Duration: ~60 min</div><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Level: Instructor-Led</div></div></nav><main class="lab-main">
+<section class="step-page active" id="page-0"><div class="step-content"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Back to Lab Overview</a><header class="step-header"><div class="step-label">Overview</div><h1 class="step-title">Quote Parts Lab (with DataHub)</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Build a role-based Quote Specialist agent using DataHub that autonomously analyzes BOMs, researches parts, and generates comprehensive quotes.</p></header><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;"><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Lab Type</div><div style="font-size:14px;font-weight:700;">Instructor-Led</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Category</div><div style="font-size:14px;font-weight:700;">Financial Operations</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div><div style="font-size:14px;font-weight:700;">10 steps</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Source</div><div style="font-size:14px;font-weight:700;">labs.boomi.com</div></div></div><p>This lab teaches Architecting for Agents — evolving from task-based automation to role-based digital colleagues. Your Quote Specialist Agent uses DataHub tools to autonomously process BOMs.</p><h3>Canonical Source</h3><p>This lab guide was authored for the Boomi Labs site. The canonical version with the latest updates can be found at <a href="https://labs.boomi.com/labs/financial-operations/quote-parts-datahub/intro" target="_blank" style="color:var(--primary)">https://labs.boomi.com/labs/financial-operations/quote-parts-datahub/intro</a>.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn" disabled>← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section><section class="step-page" id="page-1"><div class="step-content"><header class="step-header"><div class="step-label">Step 1 of 10</div><h1 class="step-title">Activity 1: Create Tools for Your Quote Specialist Agent</h1></header><p>Build two flexible tools: the Parts DataHub Tool and the PIM API Tool.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-2"><div class="step-content"><header class="step-header"><div class="step-label">Step 2 of 10</div><h1 class="step-title">Access Agentstudio and Create Parts DataHub Tool</h1></header><ul>
+<li>Select AI button → Agent Designer → Tools → Create New Tool → DataHub Query Tool.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image01.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Tool Name: [builderInitials] Parts DataHub | Description: Retrieve cleansed and validated parts information from the Golden Record.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image02.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Input Parameters: category (String, Required) and class (String, Required).
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image03.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image04.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Select Fields: Repository AI Workshop, Model Parts, select all fields.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image05.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Filters: category EQUALS {{category}} AND class EQUALS {{class}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image06.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image07.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy Tool → Deploy.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image08.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image09.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-3"><div class="step-content"><header class="step-header"><div class="step-label">Step 3 of 10</div><h1 class="step-title">Build PIM Classification API Tool</h1></header><ul>
+<li>Create New Tool → API Tool → Add Tool.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image10.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Tool Name: [builderInitials] PIM Classification Data | GET /ws/rest/pim/parts | Basic Auth.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image11.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image12.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy Tool → Deploy.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image13.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-4"><div class="step-content"><header class="step-header"><div class="step-label">Step 4 of 10</div><h1 class="step-title">Activity 2: Build Your Quote Specialist Agent</h1></header><p>Define the Quote Specialist role in Agentstudio using Build with AI.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-5"><div class="step-content"><header class="step-header"><div class="step-label">Step 5 of 10</div><h1 class="step-title">Create Agent with Build with AI</h1></header><ul>
+<li>Agent Designer → Agents → Blank Template → Build with AI.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image14.jpg" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image15.jpg" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Enter Goal (quoting automation goal) → Start Building.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image16.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Set Agent Name: [builderInitials] Configure, Price, Quote
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image17.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Review Personality and Voice settings.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image18.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image19.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image20.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-6"><div class="step-content"><header class="step-header"><div class="step-label">Step 6 of 10</div><h1 class="step-title">Attach Tools to Tasks</h1></header><ul>
+<li>Ensure 4 tasks: Process Bill of Materials, Product Catalog Matching, Supplier Data Retrieval, Quote Generation.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image21.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Attach Parts DataHub to Product Catalog Matching task.
+</li>
+<li>Attach PIM Classification Data to Supplier Data Retrieval task.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-7"><div class="step-content"><header class="step-header"><div class="step-label">Step 7 of 10</div><h1 class="step-title">Configure Guardrails and Test</h1></header><figure class="screenshot"><img src="images/ex4/image22.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image23.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image24.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image25.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image26.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Test with BOM XML in the Test Agent panel.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image27.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image28.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy Agent. Open Chat and select your agent.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image29.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-8"><div class="step-content"><header class="step-header"><div class="step-label">Step 8 of 10</div><h1 class="step-title">Activity 3: Embed Your Agent into Business Processes</h1></header><p>Create a Platform API Token and build an integration process to programmatically invoke your Quote Specialist Agent.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-9"><div class="step-content"><header class="step-header"><div class="step-label">Step 9 of 10</div><h1 class="step-title">Create a Platform API Token</h1></header><ul>
+<li>Settings → Platform API Tokens → Add New Token → Generate → Copy and save securely.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-10"><div class="step-content"><header class="step-header"><div class="step-label">Step 10 of 10</div><h1 class="step-title">Build the Integration Process</h1></header><ul>
+<li>Return to Integration → Create New Process → Data Passthrough.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image30.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image31.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image32.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Message step with BOM XML.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image33.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Agent step → select Configure, Price, Quote [builderInitials] → Generate Configuration.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image34.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Authentication tab: paste your Platform API Token.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image35.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Rename to Configure, Price, Quote Agent Step. Add Stop step. Save.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image36.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Test → select runtime → OK. View Step Source Data → JSON payload.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex4/image37.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image38.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex4/image39.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>You built a Configure, Price, Quote Agent that generates accurate quotes from BOMs!</div></div>
+<p><br></p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Finish ✓</button></nav></div></section></main></div>
+<script src="../../assets/js/lab.js"></script>
+</body></html>

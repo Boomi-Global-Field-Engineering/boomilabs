@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="customer-operations-ex3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligent Churn Detection Lab — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+<header class="lab-header"><a href="index.html" class="lab-header-logo"><img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle"><span>Labs</span></a><div class="lab-header-sep"></div><span class="lab-header-title">Intelligent Churn Detection Lab</span><div class="lab-header-actions"><button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></header>
+<div class="lab-layout">
+<nav class="lab-sidebar"><div class="sidebar-progress"><div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div></div><div class="sidebar-divider"></div><div class="sidebar-section-label">Lab 3 — Steps</div><ul class="sidebar-nav"><li><a href="#" data-step="0" class="active"><span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li><li><a href="#" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Prerequisites</a></li><li><a href="#" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Notification and Escalations Integration</a></li><li><a href="#" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Activity 1: API Tools for an AI Agent</a></li><li><a href="#" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build Customer 360 API Tool</a></li><li><a href="#" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build Customer Retention Metadata API Tool</a></li><li><a href="#" data-step="6"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build Notification and Escalations Integration Tool</a></li><li><a href="#" data-step="7"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Activity 2: Building an AI Agent</a></li><li><a href="#" data-step="8"><span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build Agent with AI</a></li><li><a href="#" data-step="9"><span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Attach Tools to Tasks</a></li><li><a href="#" data-step="10"><span class="step-num"><span class="step-num-inner">10</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configure Guardrails</a></li><li><a href="#" data-step="11"><span class="step-num"><span class="step-num-inner">11</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Test and Deploy</a></li><li><a href="#" data-step="12"><span class="step-num"><span class="step-num-inner">12</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Activity 3: Agent Step</a></li><li><a href="#" data-step="13"><span class="step-num"><span class="step-num-inner">13</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create a Platform API Token</a></li><li><a href="#" data-step="14"><span class="step-num"><span class="step-num-inner">14</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Build the Integration Process</a></li><li><a href="#" data-step="15"><span class="step-num"><span class="step-num-inner">15</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Add Message Step</a></li><li><a href="#" data-step="16"><span class="step-num"><span class="step-num-inner">16</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configure Agent Step</a></li><li><a href="#" data-step="17"><span class="step-num"><span class="step-num-inner">17</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Complete and Test</a></li></ul><div class="sidebar-divider"></div><div class="sidebar-meta"><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Duration: ~60 min</div><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Level: Instructor-Led</div></div></nav><main class="lab-main">
+<section class="step-page active" id="page-0"><div class="step-content"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Back to Lab Overview</a><header class="step-header"><div class="step-label">Overview</div><h1 class="step-title">Intelligent Churn Detection Lab</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Build an Intelligent Churn Detection Agent for Retentix that consolidates customer health data, detects risk signals, and triggers proactive retention workflows.</p></header><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;"><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Lab Type</div><div style="font-size:14px;font-weight:700;">Instructor-Led</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Category</div><div style="font-size:14px;font-weight:700;">Customer Operations</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div><div style="font-size:14px;font-weight:700;">17 steps</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Source</div><div style="font-size:14px;font-weight:700;">labs.boomi.com</div></div></div><p>Retentix struggles with siloed customer data across product usage, support, and CRM systems. This lab builds an agent that consolidates data, assesses churn probability, classifies risk segments, and triggers escalation workflows.</p><h3>Canonical Source</h3><p>This lab guide was authored for the Boomi Labs site. The canonical version with the latest updates can be found at <a href="https://labs.boomi.com/labs/customer-operations/intelligent-churn-detection/intro" target="_blank" style="color:var(--primary)">https://labs.boomi.com/labs/customer-operations/intelligent-churn-detection/intro</a>.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn" disabled>← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section><section class="step-page" id="page-1"><div class="step-content"><header class="step-header"><div class="step-label">Step 1 of 17</div><h1 class="step-title">Prerequisites</h1></header><ul>
+<li>Create Agent Testing environment and attach a Basic Runtime (see other labs for detailed steps).
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image01.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-2"><div class="step-content"><header class="step-header"><div class="step-label">Step 2 of 17</div><h1 class="step-title">Create Notification and Escalations Integration</h1></header><ul>
+<li>Navigate to Integration → your folder → New Component → Process → No Data.
+</li>
+<li>Process: Start → Notify (I am simulating an API call to the notification and event applications.) → Stop
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image02.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image03.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Name: [builderInitials] Notification and Escalations Integration. Package, Deploy to Agent Testing.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-3"><div class="step-content"><header class="step-header"><div class="step-label">Step 3 of 17</div><h1 class="step-title">Activity 1: API Tools for an AI Agent</h1></header><p>Build three tools: Customer 360 API Tool, Customer Retention Metadata API Tool, and Notification and Escalations Integration Tool.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-4"><div class="step-content"><header class="step-header"><div class="step-label">Step 4 of 17</div><h1 class="step-title">Build Customer 360 API Tool</h1></header><ul>
+<li>Agentstudio → Agent Garden → Tools → Create New Tool → API Tool → Add Tool.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image04.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Tool Name: [builderInitials] Customer 360 | Description: Retrieve cleansed and validated customer information from the Golden Record.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image05.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Input: contactId (String, Required False) | GET /ws/rest/tools/contact | Query: contactId={{contactId}} | Basic Auth.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image06.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy → Deploy.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image07.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image08.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-5"><div class="step-content"><header class="step-header"><div class="step-label">Step 5 of 17</div><h1 class="step-title">Build Customer Retention Metadata API Tool</h1></header><ul>
+<li>Tool Name: [builderInitials] Customer Retention Metadata | GET /ws/rest/tools/contactMetadata | Query: customerId={{customerId}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image09.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image10.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image11.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-6"><div class="step-content"><header class="step-header"><div class="step-label">Step 6 of 17</div><h1 class="step-title">Build Notification and Escalations Integration Tool</h1></header><ul>
+<li>Integration Tool → Name: [builderInitials] Notification and Escalation
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image12.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image13.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Input: Name (String, Required). Environment: Agent Testing | Process: [builderInitials] Notification and Escalations Integration | DPP: Name={{Name}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image14.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image15.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image16.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image17.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-7"><div class="step-content"><header class="step-header"><div class="step-label">Step 7 of 17</div><h1 class="step-title">Activity 2: Building an AI Agent</h1></header><p>Create the Intelligent Churn Detection Agent using Build with AI and attach tools to tasks.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-8"><div class="step-content"><header class="step-header"><div class="step-label">Step 8 of 17</div><h1 class="step-title">Build Agent with AI</h1></header><ul>
+<li>Agent Designer → Agents → + button → Build with AI.
+</li>
+<li>Enter churn detection goal. Set Name: Intelligent Churn Agent [builderInitials].
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image18.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image19.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image20.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image21.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image22.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-9"><div class="step-content"><header class="step-header"><div class="step-label">Step 9 of 17</div><h1 class="step-title">Attach Tools to Tasks</h1></header><ul>
+<li>Ensure 5 tasks: Customer 360 Data Retrieval, Churn Risk Assessment, Risk Classification, Predictive Reporting, Notification and Escalation.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image23.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Task 1 (Data Retrieval): Attach [builderInitials] Customer 360.
+</li>
+<li>Task 2 (Churn Risk Assessment): Attach [builderInitials] Customer Retention Metadata.
+</li>
+<li>Task 5 (Notification): Attach [builderInitials] Notification and Escalation.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-10"><div class="step-content"><header class="step-header"><div class="step-label">Step 10 of 17</div><h1 class="step-title">Configure Guardrails</h1></header><figure class="screenshot"><img src="images/ex3/image24.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image25.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image26.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-11"><div class="step-content"><header class="step-header"><div class="step-label">Step 11 of 17</div><h1 class="step-title">Test and Deploy</h1></header><figure class="screenshot"><img src="images/ex3/image27.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Test: What are the current churn prediction insights for our customer base?
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image28.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image29.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>View trace steps to see tool invocations.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image30.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image31.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Test: Is Christopher Gonzales a churn risk?
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image32.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy Agent. Open Chat, select your agent.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image33.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image34.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image35.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-12"><div class="step-content"><header class="step-header"><div class="step-label">Step 12 of 17</div><h1 class="step-title">Activity 3: Agent Step</h1></header><p>Create a Platform API Token and build an integration process to programmatically invoke the Churn Detection Agent.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-13"><div class="step-content"><header class="step-header"><div class="step-label">Step 13 of 17</div><h1 class="step-title">Create a Platform API Token</h1></header><ul>
+<li>Settings → Platform API Tokens → Add New Token named &#x27;Intelligent Churn Agent Token&#x27;.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image36.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image37.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image38.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-14"><div class="step-content"><header class="step-header"><div class="step-label">Step 14 of 17</div><h1 class="step-title">Build the Integration Process</h1></header><ul>
+<li>Return to Integration → New Process in your folder → Data Passthrough.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image39.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image40.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image41.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-15"><div class="step-content"><header class="step-header"><div class="step-label">Step 15 of 17</div><h1 class="step-title">Add Message Step</h1></header><ul>
+<li>Search for message step, enter: Is Christopher Gonzales a churn risk? Return as JSON with risk level.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image42.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image43.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-16"><div class="step-content"><header class="step-header"><div class="step-label">Step 16 of 17</div><h1 class="step-title">Configure Agent Step</h1></header><ul>
+<li>Add Agent step → search for agent.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image44.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Select Intelligent Churn Agent [builderInitials].
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image45.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image46.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Authentication tab → paste Platform API Token.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image47.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image48.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-17"><div class="step-content"><header class="step-header"><div class="step-label">Step 17 of 17</div><h1 class="step-title">Complete and Test</h1></header><ul>
+<li>Add Stop step. Rename: Agentstudio Agent Step. Save.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image49.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Test → select Test runtime → OK.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image50.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image51.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Select Stop step → Step Source Data → paper icon → view JSON payload.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex3/image52.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image53.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex3/image54.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>You built an Intelligent Churn Detection Agent that transforms retention from reactive to proactive!</div></div><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Finish ✓</button></nav></div></section></main></div>
+<script src="../../assets/js/lab.js"></script>
+</body></html>

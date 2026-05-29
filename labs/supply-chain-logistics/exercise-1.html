@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="supply-chain-logistics-ex1" data-next-exercise-href="exercise-2.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDI Trading Partner Onboarding Lab — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+<header class="lab-header"><a href="index.html" class="lab-header-logo"><img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle"><span>Labs</span></a><div class="lab-header-sep"></div><span class="lab-header-title">EDI Trading Partner Onboarding Lab</span><div class="lab-header-actions"><button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></header>
+<div class="lab-layout">
+<nav class="lab-sidebar"><div class="sidebar-progress"><div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div></div><div class="sidebar-divider"></div><div class="sidebar-section-label">Lab 1 — Steps</div><ul class="sidebar-nav"><li><a href="#" data-step="0" class="active"><span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li><li><a href="#" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Get Your Platform API Key</a></li><li><a href="#" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 1: Create Tools</a></li><li><a href="#" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create API Tool for Trading Partners</a></li><li><a href="#" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Prompt Tool for XML Generation</a></li><li><a href="#" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 2: Create Agent</a></li><li><a href="#" data-step="6"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create a New Agent</a></li><li><a href="#" data-step="7"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Task 1: Extract EDI Document Variables</a></li><li><a href="#" data-step="8"><span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Task 2: Generate XML Specification</a></li><li><a href="#" data-step="9"><span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Task 3: Boomi Trading Partner Creation</a></li><li><a href="#" data-step="10"><span class="step-num"><span class="step-num-inner">10</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Deploy the Agent</a></li><li><a href="#" data-step="11"><span class="step-num"><span class="step-num-inner">11</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 3: Test the Agent</a></li><li><a href="#" data-step="12"><span class="step-num"><span class="step-num-inner">12</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Find Your Agent and Start Conversation</a></li><li><a href="#" data-step="13"><span class="step-num"><span class="step-num-inner">13</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Submit the EDI Document</a></li><li><a href="#" data-step="14"><span class="step-num"><span class="step-num-inner">14</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Verify the Trading Partner Was Created</a></li></ul><div class="sidebar-divider"></div><div class="sidebar-meta"><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Duration: ~60 min</div><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Level: Self-Led</div></div></nav><main class="lab-main">
+<section class="step-page active" id="page-0"><div class="step-content"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Back to Lab Overview</a><header class="step-header"><div class="step-label">Overview</div><h1 class="step-title">EDI Trading Partner Onboarding Lab</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Build an EDI Trading Partner Onboarding Agent that automates partner data validation and creates trading partner configurations in the Boomi Platform from EDI X12 documents.</p></header><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;"><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Lab Type</div><div style="font-size:14px;font-weight:700;">Self-Led</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Category</div><div style="font-size:14px;font-weight:700;">Supply Chain &amp;amp; Logistics</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div><div style="font-size:14px;font-weight:700;">14 steps</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Source</div><div style="font-size:14px;font-weight:700;">labs.boomi.com</div></div></div><p>Connect-All Logistics must manually create Trading Partner components from EDI X12 documents — an error-prone, time-consuming process. This lab automates it completely using an AI agent that parses EDI documents, generates XML specifications, and calls the Boomi Platform API.</p><h3>Canonical Source</h3><p>This lab guide was authored for the Boomi Labs site. The canonical version with the latest updates can be found at <a href="https://labs.boomi.com/labs/supply-chain-logistics/edi-trading-partner-onboarding/intro" target="_blank" style="color:var(--primary)">https://labs.boomi.com/labs/supply-chain-logistics/edi-trading-partner-onboarding/intro</a>.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn" disabled>← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section><section class="step-page" id="page-1"><div class="step-content"><header class="step-header"><div class="step-label">Prerequisites · Step 1 of 14</div><h1 class="step-title">Get Your Platform API Key</h1></header><ul>
+<li>Settings → Platform API Tokens → + Add New Token named &#x27;EDI Agent Token&#x27; → Generate → Copy to Clipboard.
+</li>
+<li>Copy Account ID from Account Information.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-2"><div class="step-content"><header class="step-header"><div class="step-label">Step 2 of 14</div><h1 class="step-title">Part 1: Create Tools</h1></header><p>Create an API Tool for Trading Partners and a Prompt Tool for XML generation.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-3"><div class="step-content"><header class="step-header"><div class="step-label">Step 3 of 14</div><h1 class="step-title">Create API Tool for Trading Partners</h1></header><ul>
+<li>Agentstudio → Agent Garden → Tools → Create New Tool → API → Add Tool.
+</li>
+<li>Tool Name: [builderInitials] Create Trading Partner | Description: This tool creates a Trading Partner in the Boomi Platform
+</li>
+<li>Input: TradingPartnerXML (String, Required On)
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image01.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex1/image02.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Configuration: Add Manually
+</li>
+<li>Endpoint Base URL: https://api.boomi.com/api/rest/v1/{your account ID}
+</li>
+<li>Method: POST | Path: /TradingPartnerComponent
+</li>
+<li>Basic Auth: Username BOOMI_TOKEN.{your email} | Password: {your Platform API Token}
+</li>
+<li>Request Type: XML | Request Body: {{TradingPartnerXML}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image03.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex1/image04.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy Tool → Deploy.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-4"><div class="step-content"><header class="step-header"><div class="step-label">Step 4 of 14</div><h1 class="step-title">Create Prompt Tool for XML Generation</h1></header><ul>
+<li>Create New Tool → Prompt Tool | Name: Generate TP XML [builderInitials]
+</li>
+<li>Input: Extracted Variables (String, Required)
+</li>
+<li>Prompt: You are provided with extracted variables from an EDI document in JSON format. Generate a complete XML specification for creating a Trading Partner...
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image05.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Example with componentName input/output. Deploy.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-5"><div class="step-content"><header class="step-header"><div class="step-label">Step 5 of 14</div><h1 class="step-title">Part 2: Create Agent</h1></header><p>Build the EDI Trading Partner Onboarding agent with three tasks: extraction, XML generation, and partner creation.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-6"><div class="step-content"><header class="step-header"><div class="step-label">Step 6 of 14</div><h1 class="step-title">Create a New Agent</h1></header><ul>
+<li>Agent Garden → Agents → Create New Agent → Blank Template → I will add manually.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image06.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Goal: Convert EDI documents into Trading Partner configurations on the Boomi Platform through automated extraction and API integration
+</li>
+<li>Name: [builderInitials] Trading Partner Onboarding | Voice: Professional
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-7"><div class="step-content"><header class="step-header"><div class="step-label">Step 7 of 14</div><h1 class="step-title">Create Task 1: Extract EDI Document Variables</h1></header><ul>
+<li>Instructions: Validate EDI structure. Extract ISA Control variables (version, interchangeId, etc.), GS Control Info, Partner Document Type, Contact Information, Trading Partner Name.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image07.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-8"><div class="step-content"><header class="step-header"><div class="step-label">Step 8 of 14</div><h1 class="step-title">Create Task 2: Generate XML Specification</h1></header><ul>
+<li>Instructions: Create XML object with all extracted variables. Validate against ISAControlInfo, GSControlInfo, PartnerDocumentType, and ContactInfo specs. Assemble using Generate TP XML Prompt Tool.
+</li>
+<li>Manage Tools → Add Generate TP XML [builderInitials].
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-9"><div class="step-content"><header class="step-header"><div class="step-label">Step 9 of 14</div><h1 class="step-title">Create Task 3: Boomi Trading Partner Creation</h1></header><ul>
+<li>Instructions: Submit request to create new Trading Partner to the API. Validate successful creation.
+</li>
+<li>Manage Tools → Add [builderInitials] Create Trading Partner.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image08.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-10"><div class="step-content"><header class="step-header"><div class="step-label">Step 10 of 14</div><h1 class="step-title">Deploy the Agent</h1></header><ul>
+<li>Save &amp; Continue → Review tab → Deploy Agent → Deploy.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-11"><div class="step-content"><header class="step-header"><div class="step-label">Step 11 of 14</div><h1 class="step-title">Part 3: Test the Agent</h1></header><p>Submit a sample EDI document and verify the trading partner is created in the Boomi Platform.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-12"><div class="step-content"><header class="step-header"><div class="step-label">Step 12 of 14</div><h1 class="step-title">Find Your Agent and Start Conversation</h1></header><ul>
+<li>Agent Garden → Agents → find your agent → three dots → Start Conversation.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image09.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-13"><div class="step-content"><header class="step-header"><div class="step-label">Step 13 of 14</div><h1 class="step-title">Submit the EDI Document</h1></header><ul>
+<li>Paste the following prompt including the sample EDI:
+</li>
+</ul>
+<pre class="code-block"><code>Convert this EDI document into a Trading Partner:
+ISA*00*          *00*          *ZZ*8019473100SOFS *12*4152562417     *250723*0915*U*00401*205781088*0*P*&gt;
+GS*PO*8019473100SOFS*4152562417*20250723*0915*205790705*X*004010
+ST*850*211881063
+BEG*00*DS*110885110-1*458589334*20250723
+N1*ST*Peter Smith
+N3*3123 main street*Apt 4B
+N4*NY*NY*14850*US
+[...full EDI document...]</code></pre><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-14"><div class="step-content"><header class="step-header"><div class="step-label">Step 14 of 14</div><h1 class="step-title">Verify the Trading Partner Was Created</h1></header><ul>
+<li>Navigate to Integration → Build. Find the Trading Partners (Lab) folder that was auto-created.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex1/image10.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Verify your new Trading Partner component appears in the folder.
+</li>
+</ul>
+<div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>You built an EDI Trading Partner Onboarding Agent that converts EDI documents to platform configurations!</div></div>
+<p><br></p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Finish ✓</button></nav></div></section></main></div>
+<script src="../../assets/js/lab.js"></script>
+</body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="financial-operations-ex2" data-next-exercise-href="exercise-3.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Reconciliation Lab (with DataHub) — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+<header class="lab-header"><a href="index.html" class="lab-header-logo"><img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle"><span>Labs</span></a><div class="lab-header-sep"></div><span class="lab-header-title">Invoice Reconciliation Lab (with DataHub)</span><div class="lab-header-actions"><button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></header>
+<div class="lab-layout">
+<nav class="lab-sidebar"><div class="sidebar-progress"><div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div><div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div></div><div class="sidebar-divider"></div><div class="sidebar-section-label">Lab 2 — Steps</div><ul class="sidebar-nav"><li><a href="#" data-step="0" class="active"><span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li><li><a href="#" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 1: Define Agent Role and Responsibilities</a></li><li><a href="#" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create a New Agent</a></li><li><a href="#" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Define the Agent Profile</a></li><li><a href="#" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Task 1: Data Collection &amp; Validation</a></li><li><a href="#" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Task 2: Analysis &amp; Reporting</a></li><li><a href="#" data-step="6"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Configure Agent Guardrails</a></li><li><a href="#" data-step="7"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 2: Equip Agent with Data Access Capabilities (DataHub…</a></li><li><a href="#" data-step="8"><span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Navigate to the Tools Section</a></li><li><a href="#" data-step="9"><span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create DataHub Query Tool</a></li><li><a href="#" data-step="10"><span class="step-num"><span class="step-num-inner">10</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Select Data Fields</a></li><li><a href="#" data-step="11"><span class="step-num"><span class="step-num-inner">11</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Filter the Data</a></li><li><a href="#" data-step="12"><span class="step-num"><span class="step-num-inner">12</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Attach Tools to Agent</a></li><li><a href="#" data-step="13"><span class="step-num"><span class="step-num-inner">13</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Part 3: Enable Agent Actions and Test Autonomy</a></li><li><a href="#" data-step="14"><span class="step-num"><span class="step-num-inner">14</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Create Send Mail Tool</a></li><li><a href="#" data-step="15"><span class="step-num"><span class="step-num-inner">15</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Attach Action Tools to Analysis &amp; Reporting Task</a></li><li><a href="#" data-step="16"><span class="step-num"><span class="step-num-inner">16</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Final Deployment</a></li><li><a href="#" data-step="17"><span class="step-num"><span class="step-num-inner">17</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Test Agent Autonomy</a></li></ul><div class="sidebar-divider"></div><div class="sidebar-meta"><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Duration: ~60 min</div><div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Level: Instructor-Led</div></div></nav><main class="lab-main">
+<section class="step-page active" id="page-0"><div class="step-content"><a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Back to Lab Overview</a><header class="step-header"><div class="step-label">Overview</div><h1 class="step-title">Invoice Reconciliation Lab (with DataHub)</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Build an Invoice Reconciliation Specialist agent using role-based agentic design principles with Boomi DataHub for data access.</p></header><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;"><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Lab Type</div><div style="font-size:14px;font-weight:700;">Instructor-Led</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Category</div><div style="font-size:14px;font-weight:700;">Financial Operations</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div><div style="font-size:14px;font-weight:700;">17 steps</div></div><div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Source</div><div style="font-size:14px;font-weight:700;">labs.boomi.com</div></div></div><p>This lab uses role-based agentic design rather than task-based workflow automation. You define WHO the agent is (an Invoice Reconciliation Specialist) and WHAT capabilities it has, letting it autonomously determine its approach for each reconciliation scenario.</p><h3>Canonical Source</h3><p>This lab guide was authored for the Boomi Labs site. The canonical version with the latest updates can be found at <a href="https://labs.boomi.com/labs/financial-operations/invoice-reconciliation-datahub/intro" target="_blank" style="color:var(--primary)">https://labs.boomi.com/labs/financial-operations/invoice-reconciliation-datahub/intro</a>.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn" disabled>← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section><section class="step-page" id="page-1"><div class="step-content"><header class="step-header"><div class="step-label">Step 1 of 17</div><h1 class="step-title">Part 1: Define Agent Role and Responsibilities</h1></header><p>Build the foundation of your agent by defining its role as an Invoice Reconciliation Specialist with two broad responsibility areas.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-2"><div class="step-content"><header class="step-header"><div class="step-label">Step 2 of 17</div><h1 class="step-title">Create a New Agent</h1></header><ul>
+<li>In Agentstudio → Agent Garden, click Create New Agent.
+</li>
+<li>Select Blank Template → I will add manually.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-3"><div class="step-content"><header class="step-header"><div class="step-label">Step 3 of 17</div><h1 class="step-title">Define the Agent Profile</h1></header><ul>
+<li>Goal: You are an Invoice Reconciliation Specialist responsible for ensuring accurate procurement and payment processing through intelligent three-way matching.
+</li>
+<li>Agent Name: Invoice Reconciliation Agent [builderInitials]
+</li>
+<li>Leave Model Configuration at defaults (Standard model with Extended Thinking enabled).
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-4"><div class="step-content"><header class="step-header"><div class="step-label">Step 4 of 17</div><h1 class="step-title">Create Task 1: Data Collection &amp; Validation</h1></header><ul>
+<li>Task Name: Data Collection &amp; Validation
+</li>
+<li>Description: Gather and validate Purchase Orders, GRNs, and Invoices using your data tools. Validate document completeness, cross-document consistency, quantities, unit prices, currency, dates. CRITICAL: Invoice Gross Amount must not exceed 50000.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-5"><div class="step-content"><header class="step-header"><div class="step-label">Step 5 of 17</div><h1 class="step-title">Create Task 2: Analysis &amp; Reporting</h1></header><ul>
+<li>Task Name: Analysis &amp; Reporting
+</li>
+<li>Description: Analyze validated documents to identify discrepancies, determine if documents match or require human intervention, update system status, and send comprehensive reports via email.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-6"><div class="step-content"><header class="step-header"><div class="step-label">Step 6 of 17</div><h1 class="step-title">Configure Agent Guardrails</h1></header><ul>
+<li>Blocked message: I cannot process documents that appear to be fraudulent or tampered with.
+</li>
+<li>Add Denied Topic: Document Integrity
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image01.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<figure class="screenshot"><img src="images/ex2/image02.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Click Save and Continue → Save (do NOT deploy yet — tools are added in Parts 2 and 3).
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-7"><div class="step-content"><header class="step-header"><div class="step-label">Step 7 of 17</div><h1 class="step-title">Part 2: Equip Agent with Data Access Capabilities (DataHub Query Tool)</h1></header><p>Create a DataHub Query tool to retrieve invoice information and provide autonomous data access.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-8"><div class="step-content"><header class="step-header"><div class="step-label">Step 8 of 17</div><h1 class="step-title">Navigate to the Tools Section</h1></header><ul>
+<li>From the main Agents list, click the Tools icon in the left navigation bar.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image03.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-9"><div class="step-content"><header class="step-header"><div class="step-label">Step 9 of 17</div><h1 class="step-title">Create DataHub Query Tool</h1></header><ul>
+<li>Click Create New Tool → DataHub Query → Add Tool.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image04.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Tool Name: Query Invoices [builderInitials] | Description: Retrieve Invoice by Invoice Number from DataHub
+</li>
+<li>Add Input Parameter: Invoice Number (String, Required Off)
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image05.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-10"><div class="step-content"><header class="step-header"><div class="step-label">Step 10 of 17</div><h1 class="step-title">Select Data Fields</h1></header><ul>
+<li>Repository: AI Workshop | Model: Invoice | Select all fields.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-11"><div class="step-content"><header class="step-header"><div class="step-label">Step 11 of 17</div><h1 class="step-title">Filter the Data</h1></header><ul>
+<li>Add Filter: INVOICE_DOC EQUALS {{Invoice Number}}
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image06.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Deploy the tool.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-12"><div class="step-content"><header class="step-header"><div class="step-label">Step 12 of 17</div><h1 class="step-title">Attach Tools to Agent</h1></header><ul>
+<li>Navigate to Agents → open your agent → Edit → Tasks tab → Data Collection &amp; Validation → Manage Tools.
+</li>
+<li>Add: Query Invoices [builderInitials], [Invoice] PO Query by PO Number, [Invoice] GRN Query by PO Number.
+</li>
+<li>Save → Save and Continue → Close.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-13"><div class="step-content"><header class="step-header"><div class="step-label">Step 13 of 17</div><h1 class="step-title">Part 3: Enable Agent Actions and Test Autonomy</h1></header><p>Add action capabilities (email and status update tools), deploy, and test the agent&#x27;s autonomous decision-making.</p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-14"><div class="step-content"><header class="step-header"><div class="step-label">Step 14 of 17</div><h1 class="step-title">Create Send Mail Tool</h1></header><ul>
+<li>Tool Type: Integration | Tool Name: Send Mail [builderInitials]
+</li>
+<li>Input Parameter: AGENTREPORT (String, Send Agent Report via Email)
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image07.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Environment: Prod-Cloud | Runtime: Workshop Worker | Process: [Invoice Reconciliation] (TEMPLATE) SEND MAIL
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image08.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Add Dynamic Process Properties: AGENTREPORT, TO (your email), SUBJECT (Invoice Reconciliation Report)
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image09.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-15"><div class="step-content"><header class="step-header"><div class="step-label">Step 15 of 17</div><h1 class="step-title">Attach Action Tools to Analysis &amp; Reporting Task</h1></header><ul>
+<li>Edit agent → Tasks → Analysis &amp; Reporting → Manage Tools → Add: Send Mail [builderInitials], [Invoice] UPDATE STATUS IN HUB
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-16"><div class="step-content"><header class="step-header"><div class="step-label">Step 16 of 17</div><h1 class="step-title">Final Deployment</h1></header><ul>
+<li>Save and Continue → Create Package &amp; Deploy → Start Conversation.
+</li>
+</ul><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Next →</button></nav></div></section>
+<section class="step-page" id="page-17"><div class="step-content"><header class="step-header"><div class="step-label">Step 17 of 17</div><h1 class="step-title">Test Agent Autonomy</h1></header><ul>
+<li>Star the agent to add to favorites.
+</li>
+<li>Ask lab lead for an Invoice ID or find one in DataHub → Services → DataHub → Stewardship → Golden Records → Invoice.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image10.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Prompt: Evaluate [Invoice ID]. Observe how the agent autonomously selects tools and validates.
+</li>
+</ul>
+<figure class="screenshot"><img src="images/ex2/image11.png" alt="" style="max-width:100%;border-radius:6px;border:1px solid var(--border);margin:16px 0"></figure>
+<ul>
+<li>Check your email for the reconciliation report.
+</li>
+</ul>
+<div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>You built an autonomous Invoice Reconciliation Agent using role-based agentic design!</div></div>
+<p><br></p><nav class="step-nav"><button class="step-nav-btn" id="prevBtn">← Back</button><button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button><button class="step-nav-btn primary" id="nextBtn">Finish ✓</button></nav></div></section></main></div>
+<script src="../../assets/js/lab.js"></script>
+</body></html>

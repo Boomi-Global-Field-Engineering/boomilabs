@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Operations Labs — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+.start-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: #fff; text-decoration: none; padding: 12px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 700; margin-bottom: 40px; transition: background .15s; }
+.start-btn:hover { background: var(--primary-dark); }
+.section-heading { font-size: 20px; font-weight: 700; margin: 0 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+.exercise-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
+.exercise-card { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: border-color .15s, box-shadow .15s; }
+.exercise-card:hover { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+.exercise-num { width: 40px; height: 40px; background: var(--primary); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+.exercise-info { flex: 1; min-width: 0; }
+.exercise-info h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
+.exercise-info p { font-size: 13px; color: var(--text-muted); margin: 0 0 8px; }
+.exercise-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.exercise-tag { font-size: 11px; background: var(--primary-light); color: var(--primary); border-radius: 4px; padding: 2px 8px; font-weight: 600; }
+.exercise-meta { font-size: 12px; color: var(--text-muted); display: flex; flex-direction: column; align-items: flex-end; gap: 3px; white-space: nowrap; }
+.exercise-arrow { color: var(--text-muted); transition: color .15s, transform .15s; }
+.exercise-card:hover .exercise-arrow { color: var(--primary); transform: translateX(3px); }
+</style>
+</head>
+<body>
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+</header>
+<div style="background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,#0a5a7a 100%);color:#fff;padding:72px 40px 52px;margin-top:56px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <span style="display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:18px;">Boomi Agentic Labs</span>
+    <h1 style="font-size:34px;font-weight:800;line-height:1.2;margin-bottom:14px;">Customer Operations Labs</h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.82);max-width:640px;margin-bottom:26px;line-height:1.65;">AI agent labs for customer support and retention — Customer Support Triage, an extended Support Insights agent, and Intelligent Churn Detection.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <span class="badge badge-blue">3 labs</span>
+    </div>
+  </div>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:40px 40px 60px;">
+  <a href="exercise-1.html" class="start-btn">Start First Lab
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+  <h2 class="section-heading">Labs in this Category</h2>
+  <div class="exercise-grid">
+    <a href="exercise-1.html" class="exercise-card"><div class="exercise-num">1</div><div class="exercise-info"><h3>Customer Support Triage Lab</h3><p>Build a Customer Support Specialist agent that handles product questions, order inquiries, address updates, and troubleshooting requests in a single conversation.</p><div class="exercise-tags"><span class="exercise-tag">Instructor-Led</span><span class="exercise-tag">Customer Operations</span></div></div><div class="exercise-meta"></div><div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></a><a href="exercise-2.html" class="exercise-card"><div class="exercise-num">2</div><div class="exercise-info"><h3>Customer Support Triage (Extended) Lab</h3><p>A self-led lab building a Customer Support Insights Agent that automates full support case triage including sentiment analysis and intelligent case routing.</p><div class="exercise-tags"><span class="exercise-tag">Self-Led</span><span class="exercise-tag">Customer Operations</span></div></div><div class="exercise-meta"></div><div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></a><a href="exercise-3.html" class="exercise-card"><div class="exercise-num">3</div><div class="exercise-info"><h3>Intelligent Churn Detection Lab</h3><p>Build an Intelligent Churn Detection Agent for Retentix that consolidates customer health data, detects risk signals, and triggers proactive retention workflows.</p><div class="exercise-tags"><span class="exercise-tag">Instructor-Led</span><span class="exercise-tag">Customer Operations</span></div></div><div class="exercise-meta"></div><div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></a>
+  </div>
+</div>
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;">
+  Boomi Agentic Labs &nbsp;·&nbsp; Boomi Global Field Engineering
+</footer>
+</body>
+</html>
