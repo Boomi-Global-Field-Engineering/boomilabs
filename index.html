@@ -3,184 +3,379 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modernizing the Back Office (ERP → Partner) — Boomi Labs</title>
-<link rel="stylesheet" href="../../assets/css/lab.css">
+<title>Boomi Labs — Activate your data with Boomi</title>
+<link rel="stylesheet" href="assets/css/lab.css">
 <style>
-  .prereq-grid { display: grid; grid-template-columns: 1fr 320px; gap: 28px; margin-bottom: 48px; }
-  @media (max-width: 720px) { .prereq-grid { grid-template-columns: 1fr; } }
-  .prereq-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow); }
-  .prereq-list { list-style: none; }
-  .prereq-list li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-  .prereq-list li:last-child { border-bottom: none; }
-  .prereq-icon { color: var(--success); flex-shrink: 0; margin-top: 3px; }
-  .lab-details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
-  .lab-details h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); margin-bottom: 16px; }
-  .detail-item { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid var(--border); }
-  .detail-item:last-child { border-bottom: none; }
-  .detail-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); font-weight: 600; margin-bottom: 3px; }
-  .detail-value { font-size: 14px; font-weight: 600; color: var(--text); }
-  .detail-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-  .detail-tag { font-size: 12px; background: var(--primary-light); color: var(--primary); border-radius: 4px; padding: 2px 8px; }
-  .start-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: #fff; text-decoration: none; padding: 12px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 700; margin-bottom: 40px; transition: background .15s; }
-  .start-btn:hover { background: var(--primary-dark); }
-  .section-heading { font-size: 20px; font-weight: 700; margin: 0 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
-  .exercise-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
-  .exercise-card { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: border-color .15s, box-shadow .15s; }
-  .exercise-card:hover { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
-  .exercise-num { width: 40px; height: 40px; background: var(--primary); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
-  .exercise-info { flex: 1; min-width: 0; }
-  .exercise-info h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
-  .exercise-info p { font-size: 13px; color: var(--text-muted); margin: 0 0 8px; }
-  .exercise-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .exercise-tag { font-size: 11px; background: var(--primary-light); color: var(--primary); border-radius: 4px; padding: 2px 8px; font-weight: 600; }
-  .exercise-meta { font-size: 12px; color: var(--text-muted); display: flex; flex-direction: column; align-items: flex-end; gap: 3px; white-space: nowrap; }
-  .exercise-arrow { color: var(--text-muted); transition: color .15s, transform .15s; }
-  .exercise-card:hover .exercise-arrow { color: var(--primary); transform: translateX(3px); }
+  .catalog-section-heading {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-muted);
+    margin: 0 0 20px;
+  }
+  .catalog-featured {
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+  }
+  .catalog-featured-banner {
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+  }
+  .catalog-featured-body {
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+  }
+  .catalog-featured-body h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .catalog-featured-body p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 0 16px;
+  }
+  .catalog-featured-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .catalog-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .15s;
+  }
+  .catalog-btn:hover { background: var(--primary-dark); }
+  @media (max-width: 600px) {
+    .catalog-featured-body { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
 <header class="lab-header">
-  <a href="../../index.html" class="lab-header-logo">
-    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
-    <span>Labs</span>
+  <a href="index.html" class="lab-header-logo">
+    <img src="assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
   </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Activate your data with Boomi</span>
 </header>
 
-<div style="background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,#0a5a7a 100%);color:#fff;padding:72px 40px 52px;margin-top:56px;">
-  <div style="max-width:860px;margin:0 auto;">
-    <span style="display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:18px;">Boomi MFT</span>
-    <h1 style="font-size:34px;font-weight:800;line-height:1.2;margin-bottom:14px;">Modernizing the Back Office<br>(ERP → Partner)</h1>
-    <p style="font-size:16px;color:rgba(255,255,255,.82);max-width:620px;margin-bottom:26px;line-height:1.65;">Automate the distribution of invoices, purchase orders, and shipping notices from your ERP system to multiple automotive partners using Boomi's Managed File Transfer platform. Implement the fan-out pattern — routing files to BMW, Mazda, and Volkswagen automatically based on filename rules.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;">
-      <span class="badge badge-blue">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        ~90 minutes
-      </span>
-      <span class="badge badge-blue">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-        2 exercises
-      </span>
-      <span class="badge badge-green">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Intermediate
-      </span>
+<div style="padding-top: 56px;">
+
+  <div class="catalog-hero">
+    <h1>Boomi Labs</h1>
+    <p>Activate your data with Boomi for Boomi users. Step-by-step guides covering real-world SAP, Salesforce, and database integration patterns.</p>
+  </div>
+
+  <div class="catalog-body">
+
+    <p class="catalog-section-heading">Featured Lab</p>
+
+    <div class="catalog-featured">
+      <div class="catalog-featured-banner"></div>
+      <div class="catalog-featured-body">
+        <div>
+          <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+            <span class="lab-card-tag">SAP Integration</span>
+            <span class="lab-card-tag" style="background: #ecfdf5; color: var(--success);">New</span>
+          </div>
+          <h2>Boomi for SAP — Hands-on Lab</h2>
+          <p>Master the three core integration patterns for SAP using Boomi for SAP: BAPI calls for transactional operations, Table Services for structured data extraction, and Business Object Events for real-time event-driven architectures.</p>
+          <div class="catalog-featured-meta">
+            <span class="lab-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              ~2.5 hours
+            </span>
+            <span class="lab-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              Intermediate
+            </span>
+            <span class="lab-meta-tag">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              3 Exercises
+            </span>
+          </div>
+        </div>
+        <a href="labs/boomi-for-sap/index.html" class="catalog-btn">
+          Start Lab
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
     </div>
+
+    <p class="catalog-section-heading">All Labs</p>
+
+    <div class="catalog-grid">
+
+      <a href="labs/boomi-for-sap/index.html" class="lab-card">
+        <div class="lab-card-banner"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag">SAP Integration</span>
+          <h3>Boomi for SAP — Hands-on Lab</h3>
+          <p>Master BAPI calls, Table Services, and Business Object Events using the Boomi for SAP connector against a live SAP S/4HANA system.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~2.5 hours
+          </span>
+          <span class="lab-meta-tag">3 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/mft-guided-demos/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #0097a7, #1a9e5c);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #e0f7fa; color: #006064;">Boomi MFT</span>
+          <h3>MFT Guided Demos</h3>
+          <p>Six guided walkthroughs covering every major Boomi MFT integration pattern — hosted SFTP, PGP encryption, scheduled transfers, SFTP pull, fan-out routing, and on-premises runtime.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~60 min
+          </span>
+          <span class="lab-meta-tag">6 demos</span>
+        </div>
+      </a>
+
+      <a href="labs/mft-erp-to-partner/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0a5a7a);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Boomi MFT</span>
+          <h3>Modernizing the Back Office (ERP → Partner)</h3>
+          <p>Automate ERP-to-partner file distribution using the MFT fan-out pattern — routing invoices, POs, and shipping notices to BMW, Mazda, and VW based on filename rules.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~90 min
+          </span>
+          <span class="lab-meta-tag">2 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/mft-many-to-one/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #0a5a7a, #1a9e5c);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Boomi MFT</span>
+          <h3>Many to One (Partners → Headquarters)</h3>
+          <p>Automate secure file delivery from multiple partner organizations into a single headquarters server. Implement the many-to-one MFT pattern with partner isolation and optional PGP encryption.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~90 min
+          </span>
+          <span class="lab-meta-tag">1 exercise</span>
+        </div>
+      </a>
+
+      <a href="labs/mft-edi-partner/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0097a7);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #e0f7fa; color: #006064;">Boomi MFT · EDI</span>
+          <h3>Trading Partner SFTP &amp; EDI Processing</h3>
+          <p>Combine Boomi MFT File Sharing with the EDI Trading Partner module to host a secure SFTP server for partners — process inbound EDI 850 purchase orders, transform to SAP ORDERS05, and route acknowledgements automatically.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~90 min
+          </span>
+          <span class="lab-meta-tag">2 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/boomi-flow/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #f97c67, #c94000);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #fff5f0; color: #c94000;">Boomi Flow</span>
+          <h3>Boomi Flow — Hands-on Lab</h3>
+          <p>Build, publish, and customize a Boomi Flow application — from creating a Flow Service that wraps an existing Atom process, through publishing and installing it, to building the Flow UI and theming the player.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~95 min
+          </span>
+          <span class="lab-meta-tag">5 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/integration-fundamentals/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0a5a7a);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Integration</span>
+          <h3>Boomi Integration Fundamentals</h3>
+          <p>Build your first Boomi integration end-to-end — query Salesforce for prospect accounts, check for duplicates against a database, and write new records back. A foundational walkthrough for first-time Boomi users.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~90 min
+          </span>
+          <span class="lab-meta-tag">3 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/tech-workshop/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #063d58, #4f46e5);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #eef2ff; color: #3730a3;">Technical Workshop</span>
+          <h3>Boomi Technical Workshop</h3>
+          <p>Comprehensive technical workshop covering provisioning, Pub/Sub event streams, REST APIs, ETL processes, SAP ECC and S/4HANA integration, CI/CD pipelines, data cataloging, API management, and platform monitoring.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~5 hours
+          </span>
+          <span class="lab-meta-tag">8 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/integration-apim/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #0a5a7a, #063d58);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #e6f0f5; color: #063d58;">Integration &amp; APIM</span>
+          <h3>Boomi Integration &amp; API Management — Hands-on Lab</h3>
+          <p>Build a Salesforce-to-database integration process step-by-step, then expose it as a managed API — covering connectors, decision logic, mapping, web service listeners, the API Catalog, plans, and the Developer Portal.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~2.5 hours
+          </span>
+          <span class="lab-meta-tag">4 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/datahub/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #4f46e5, #0a5a7a);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #eef2ff; color: #3730a3;">Data Hub</span>
+          <h3>Data Hub — Hands-on Lab</h3>
+          <p>Build a complete MDH solution end-to-end — define a Model, configure match rules and data quality, attach Salesforce and Netsuite as sources, and synchronize golden records to a marketing database.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ~2 hours
+          </span>
+          <span class="lab-meta-tag">4 exercises</span>
+        </div>
+      </a>
+
+      <a href="labs/customer-operations/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #ec4899, #8b5cf6);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · Customer Ops</span>
+          <h3>Customer Operations — Agentic Labs</h3>
+          <p>Three AI agent labs covering customer support and retention — build a Customer Support Triage agent, extend it into a full Support Insights agent with sentiment analysis and case routing, and build an Intelligent Churn Detection agent for proactive retention.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Multi-lab
+          </span>
+          <span class="lab-meta-tag">3 labs</span>
+        </div>
+      </a>
+
+      <a href="labs/financial-operations/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #10b981, #14b8a6);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · Finance</span>
+          <h3>Financial Operations — Agentic Labs</h3>
+          <p>Five AI agent labs for finance — Invoice Reconciliation (three-way PO/GRN/invoice match), a DataHub-backed Invoice Recon variant, Quote Parts processing for BOMs and supplier sourcing (plus DataHub variant), and Remittance Reconciliation across banking portals.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Multi-lab
+          </span>
+          <span class="lab-meta-tag">5 labs</span>
+        </div>
+      </a>
+
+      <a href="labs/it-operations/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #f59e0b, #ea580c);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · IT Ops</span>
+          <h3>IT Operations — Agentic Labs</h3>
+          <p>AI agent labs for IT operations and platform observability. Build an Error Analyst Agent that monitors Boomi integration processes in real time, identifies root causes of process failures, and surfaces remediation steps for operators.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Self-led
+          </span>
+          <span class="lab-meta-tag">1 lab</span>
+        </div>
+      </a>
+
+      <a href="labs/supply-chain-logistics/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #0ea5e9, #06b6d4);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · Supply Chain</span>
+          <h3>Supply Chain &amp; Logistics — Agentic Labs</h3>
+          <p>Two AI agent labs for supply chain operations — an EDI Trading Partner Onboarding Agent that automates partner data validation and trading-partner setup, and an Inventory Management Agent that monitors stock levels and validates purchase orders.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Multi-lab
+          </span>
+          <span class="lab-meta-tag">2 labs</span>
+        </div>
+      </a>
+
+      <a href="labs/cftp/index.html" class="lab-card">
+        <div class="lab-card-banner" style="background: linear-gradient(90deg, #7c3aed, #4f46e5);"></div>
+        <div class="lab-card-body">
+          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Training</span>
+          <h3>Certified File Transfer Professional (CFTP)</h3>
+          <p>A comprehensive course covering every file transfer protocol — FTP, FTPS, SFTP, HTTP, AS2/AS4, accelerated UDP transfers, and at-rest encryption. Six modules with quizzes.</p>
+        </div>
+        <div class="lab-card-footer">
+          <span class="lab-meta-tag">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Self-paced
+          </span>
+          <span class="lab-meta-tag">6 modules</span>
+        </div>
+      </a>
+
+    </div>
+
   </div>
 </div>
-
-<div style="max-width:860px;margin:0 auto;padding:40px 40px 60px;">
-
-  <a href="exercise-1.html" class="start-btn">
-    Start Lab
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-  </a>
-
-  <h2 class="section-heading">Exercises</h2>
-  <div class="exercise-grid">
-
-    <a href="exercise-1.html" class="exercise-card">
-      <div class="exercise-num">1</div>
-      <div class="exercise-info">
-        <h3>Configure the MFT Flow</h3>
-        <p>Set up the AFT portal with partner organizations (BMW, Mazda, VW), add SFTP and iPaaS connector endpoints, create the distribution flow in Flow Studio, subscribe all organizations, and wire up source and target endpoints. Capture connection credentials for the integration step.</p>
-        <div class="exercise-tags">
-          <span class="exercise-tag">AFT Portal</span>
-          <span class="exercise-tag">Organizations</span>
-          <span class="exercise-tag">Flow Studio</span>
-        </div>
-      </div>
-      <div class="exercise-meta">
-        <span>~30 min</span>
-        <span>4 steps</span>
-      </div>
-      <div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-
-    <a href="exercise-2.html" class="exercise-card">
-      <div class="exercise-num">2</div>
-      <div class="exercise-info">
-        <h3>Build the Integration Process</h3>
-        <p>In Boomi Integration, build a process that simulates ERP file generation using Branch and Message shapes, apply Set Properties steps to tag files per partner, connect an MFT Connector (Drop Off), add regex routing filters in the AFT flow, and verify that each partner receives only their files.</p>
-        <div class="exercise-tags">
-          <span class="exercise-tag">Boomi Integration</span>
-          <span class="exercise-tag">MFT Connector</span>
-          <span class="exercise-tag">Fan-Out</span>
-          <span class="exercise-tag">Regex Routing</span>
-        </div>
-      </div>
-      <div class="exercise-meta">
-        <span>~60 min</span>
-        <span>6 steps</span>
-      </div>
-      <div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
-    </a>
-
-  </div>
-
-  <!-- Workshop notice -->
-  <div style="background:#fff8e1;border:1px solid #f59e0b;border-radius:var(--radius);padding:18px 22px;margin-bottom:32px;display:flex;gap:14px;align-items:flex-start;">
-    <svg style="flex-shrink:0;margin-top:2px;color:#f59e0b" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <div>
-      <strong style="font-size:14px;color:#92400e;">This lab was originally built for a live workshop.</strong>
-      <p style="margin:6px 0 0;font-size:13.5px;color:#78350f;line-height:1.6;">If you're working through this outside of a workshop session, you'll need to set up your own accounts before starting. You can get access via a <a href="https://boomi.com/form/trial/" target="_blank" style="color:var(--primary);font-weight:600;">Boomi Integration trial</a> or a <a href="https://boomi.com/form/boomi-mft-trial/" target="_blank" style="color:var(--primary);font-weight:600;">Boomi MFT trial</a>. Workshop participants will have accounts pre-provisioned — check your inbox for a registration email.</p>
-    </div>
-  </div>
-
-  <div class="prereq-grid">
-    <div class="prereq-card">
-      <h2 style="font-size:18px;margin-bottom:16px;">Prerequisites</h2>
-      <ul class="prereq-list">
-        <li>
-          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Boomi Integration account — <em>workshop attendees:</em> your account will be created in advance and you will receive an email to complete registration. <em>Self-guided:</em> sign up at <a href="https://boomi.com/form/trial/" target="_blank" style="color:var(--primary)">boomi.com/form/trial</a>. Log in at <a href="https://platform.boomi.com/" target="_blank" style="color:var(--primary)">platform.boomi.com</a></span>
-        </li>
-        <li>
-          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>AFT portal account — <em>workshop attendees:</em> your account will be created in advance and you will receive an email to complete registration. <em>Self-guided:</em> contact your Boomi representative to request MFT trial access. Log in at <a href="https://staging.thruinc.com/" target="_blank" style="color:var(--primary)">staging.thruinc.com</a></span>
-        </li>
-        <li>
-          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>Basic familiarity with the Boomi Integration canvas (shapes, connectors, process flow)</span>
-        </li>
-        <li>
-          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <span>A personal workspace folder pre-created in Boomi Integration (set up as part of user registration)</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="lab-details">
-      <h3>Lab Details</h3>
-      <div class="detail-item">
-        <span class="detail-label">Product</span>
-        <span class="detail-value">Boomi MFT (Managed File Transfer)</span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">Patterns</span>
-        <div class="detail-tags">
-          <span class="detail-tag">Fan-Out</span>
-          <span class="detail-tag">File Routing</span>
-          <span class="detail-tag">B2B Integration</span>
-          <span class="detail-tag">SFTP</span>
-        </div>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">Duration</span>
-        <span class="detail-value">~90 minutes</span>
-      </div>
-      <div class="detail-item">
-        <span class="detail-label">Level</span>
-        <span class="detail-value">Intermediate</span>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;">
-  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
-</footer>
 
 </body>
 </html>
