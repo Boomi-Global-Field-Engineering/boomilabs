@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-lab-id="mft-edi-partner-ex1">
+<html lang="en" data-lab-id="mft-erp-to-partner-ex1">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explore the File Sharing Portal — Trading Partner SFTP &amp; EDI Processing — Boomi Labs</title>
+<title>Configure the MFT Flow — Modernizing the Back Office — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
     <span>Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">Trading Partner SFTP &amp; EDI — Exercise 1</span>
+  <span class="lab-header-title">Modernizing the Back Office — Exercise 1</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -37,22 +37,30 @@
       </a></li>
       <li><a href="#" data-step="1">
         <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Log In &amp; Explore the Portal
+        Create Organizations &amp; Endpoints
       </a></li>
       <li><a href="#" data-step="2">
         <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Copy the EDI File to Your Inbox
+        Create the Distribution Flow
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add Subscribers &amp; Flow Endpoints
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Capture Connection Details
       </a></li>
     </ul>
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <div class="meta-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Duration: ~20 min
+        Duration: ~30 min
       </div>
       <div class="meta-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Level: Basic
+        Level: Intermediate
       </div>
     </div>
   </nav>
@@ -68,58 +76,59 @@
         </a>
         <header class="step-header">
           <div class="step-label">Exercise 1 — Overview</div>
-          <h1 class="step-title">Explore the File Sharing Portal</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Get familiar with Boomi MFT's File Sharing web portal — the hosted SFTP server that trading partners use to drop off and pick up EDI files.</p>
+          <h1 class="step-title">Configure the MFT Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Set up your Automated File Transfer (AFT) portal with partner organizations, endpoints, and a distribution flow.</p>
         </header>
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
-            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
-            <div style="font-size:14px;font-weight:700;">Boomi MFT File Sharing</div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Scenario</div>
+            <div style="font-size:14px;font-weight:700;">ERP → Partner Fan-Out</div>
           </div>
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
-            <div style="font-size:14px;font-weight:700;">~20 minutes</div>
+            <div style="font-size:14px;font-weight:700;">~30 minutes</div>
           </div>
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div>
-            <div style="font-size:14px;font-weight:700;">2 steps</div>
+            <div style="font-size:14px;font-weight:700;">4 steps</div>
           </div>
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
-            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">File Type</div>
-            <div style="font-size:14px;font-weight:700;">EDI 850</div>
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
+            <div style="font-size:14px;font-weight:700;">AFT Portal</div>
           </div>
         </div>
 
-        <h3>What Is the File Sharing Portal?</h3>
-        <p>Boomi MFT's File Sharing module provides a fully hosted SFTP server that your trading partners can connect to — either through a standard SFTP client (FileZilla, WinSCP, command line) or directly through a browser-based web portal. There is nothing for partners to install or maintain on their end.</p>
-        <p>Every user gets an isolated home folder — partners interact only with their own space and cannot see other users' data.</p>
-        <p>By default, the platform creates a basic folder set for each new user. However, for this lab the administrator has used the <strong>User Home Folder Customization</strong> feature to pre-provision a specific folder structure that matches the EDI workflow — <strong>Inbox</strong>, <strong>Outbox</strong>, and a <strong>Returns</strong> folder with subfolders for each output type. This is configured using a JSON template applied at the account level, for example:</p>
-        <pre><code>[
-  { "name": "Inbox" },
-  { "name": "Outbox" },
-  { "name": "Returns", "subfolders": [
-      { "name": "IDoc" },
-      { "name": "Rejected" },
-      { "name": "Errors" }
-  ]}
-]</code></pre>
-        <p>The platform supports regular folders, My Documents (<code>type: 3</code>), and My Dropbox (<code>type: 4</code>) folder types. This customisation means every workshop participant starts with an identical, purpose-built folder structure rather than the platform default.</p>
+        <h3>The Scenario</h3>
+        <p>You are representing <strong>X Battery</strong>, a major supplier in the automotive industry. Your ERP system generates invoices, purchase orders, and shipping notices that need to be automatically distributed to multiple automotive partners: <strong>BMW</strong>, <strong>Mazda</strong>, and <strong>Volkswagen</strong>.</p>
+        <p>The challenge: files are generated from an internal system (simulated by a Boomi process) that appends the partner name to each filename. These files need to be routed automatically so each partner receives only their specific files — with full multi-tenant isolation.</p>
 
-        <h3>What You'll Do</h3>
-        <p>In this exercise you'll act as the trading partner. You'll log into the web portal, explore the pre-built folder structure, and copy a sample EDI 850 purchase order file from the shared library into your personal Inbox. This simulates a partner uploading a file — which is what Boomi Integration will later pick up and process in Exercise 2.</p>
+        <h3>Lab Objective: The "Fan-Out" Pattern</h3>
+        <p>You will configure a distribution pattern where a single Boomi integration pushes files into the MFT platform, which then routes them to the correct partner based on file naming rules:</p>
+        <ul>
+          <li>Integration ➔ MFT ➔ Target: BMW</li>
+          <li>Integration ➔ MFT ➔ Target: Mazda</li>
+          <li>Integration ➔ MFT ➔ Target: Volkswagen</li>
+        </ul>
+
+        <h3>Technical Architecture</h3>
+        <ul>
+          <li><strong>Source:</strong> A Boomi integration process that creates source data and passes it to the Boomi MFT connector</li>
+          <li><strong>Routing Logic:</strong> MFT routes files to each partner target endpoint based on filename regex filters</li>
+          <li><strong>Security:</strong> Multi-tenant isolation — partners cannot "see" into other directories</li>
+        </ul>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>Keep the File Sharing portal open in a separate browser tab after completing this exercise — you'll return to it in Exercise 2 to retrieve connection details and verify output files.</div>
+          <div>In Exercise 1 you will work entirely in the <b style="font-weight:700">AFT Portal</b>. In Exercise 2 you will switch to the Boomi Integration platform to build the process that feeds into it.</div>
         </div>
 
         <h3>Lab URLs</h3>
         <div class="credentials-box">
           <h4>Lab Access</h4>
-          <div class="cred-row"><span class="cred-label">File Sharing Portal</span><span class="cred-value"><a href="https://sftp-trading-partner-demo.boomi.com/" target="_blank" style="color:var(--primary)">https://sftp-trading-partner-demo.boomi.com/</a></span></div>
-          <div class="cred-row"><span class="cred-label">SFTP Host</span><span class="cred-value"><code>us-ftpsbx-02.thruinc.net</code> · Port 22</span></div>
-          <div class="cred-row"><span class="cred-label">SFTP Username format</span><span class="cred-value"><code>sftp-trading-partner-demo.boomi.com\your.email@address.com</code></span></div>
+          <div class="cred-row"><span class="cred-label">AFT Portal</span><span class="cred-value"><a href="https://staging.thruinc.com/" target="_blank" style="color:var(--primary)">https://staging.thruinc.com/</a></span></div>
+
+          <div class="cred-row"><span class="cred-label">Integration</span><span class="cred-value"><a href="https://platform.boomi.com/" target="_blank" style="color:var(--primary)">https://platform.boomi.com/</a></span></div>
         </div>
 
         <nav class="step-nav">
@@ -133,59 +142,60 @@
       </div>
     </section>
 
-    <!-- PAGE 1: Log In & Explore -->
+    <!-- PAGE 1: Create Organizations & Endpoints -->
     <section class="step-page" id="page-1">
       <div class="step-content">
         <header class="step-header">
-          <div class="step-label">Step 1 of 2</div>
-          <h1 class="step-title">Log In &amp; Explore the Portal</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Log into the File Sharing web portal and familiarise yourself with the folder structure before copying any files.</p>
+          <div class="step-label">Step 1 of 4</div>
+          <h1 class="step-title">Create Organizations &amp; Endpoints</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">In the AFT portal, create organizations for each automotive partner and add the appropriate endpoints to each.</p>
         </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Log into the AFT portal at <a href="https://staging.thruinc.com/" target="_blank"><b style="font-weight:700">https://staging.thruinc.com/</b></a> before starting this step.</div>
+        </div>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Navigate to <a href="https://sftp-trading-partner-demo.boomi.com/" target="_blank" style="color:var(--primary)"><strong>https://sftp-trading-partner-demo.boomi.com/</strong></a> and log in with the credentials you received by email.</p>
-              <figure class="screenshot"><img src="images/image28.png" alt="File Sharing portal login screen"></figure>
+              <p>From the overview page, navigate to <strong>Organizations</strong>.</p>
+              <figure class="screenshot"><img src="images/image20.png" alt="Navigate to Organizations"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Once logged in, expand the folder tree under your username in the left panel. You will see a set of folders that have been pre-created for this workshop:</p>
-              <ul>
-                <li><strong>Inbox</strong> — where you (as the trading partner) will drop files for Boomi Integration to pick up</li>
-                <li><strong>Outbox</strong> — where Boomi will deliver files back to you, such as EDI 997 functional acknowledgements</li>
-                <li><strong>Returns</strong> — where processed output files are written, with subfolders for different document types (IDoc, Rejected, Errors)</li>
-                <li><strong>SHARED/EDI File</strong> — a shared read-only folder containing sample EDI files for this lab</li>
-              </ul>
-              <figure class="screenshot"><img src="images/image13.png" alt="Folder tree showing Inbox, Outbox, Returns, and SHARED/EDI File folders"></figure>
+              <p>Click <strong>Add Organization</strong> and create three organizations named: <code>BMW</code>, <code>Mazda</code>, and <code>VW</code>.</p>
             </div>
           </li>
-        </ol>
-
-        <div class="callout info">
-          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>Take a moment to expand the <b style="font-weight:700">Returns</b> folder and note its subfolders. You'll need to map your process to these paths in Exercise 2, so it's worth getting familiar with them now.</div>
-        </div>
-
-        <ol class="instruction-list" style="counter-reset: item 2;">
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Expand the <strong>Returns</strong> folder and take note of the available subfolders — you'll reference these paths when configuring SFTP connections in Exercise 2.</p>
-              <figure class="screenshot"><img src="images/image34.png" alt="Returns folder showing subfolders for IDoc, Rejected, and Errors"></figure>
+              <p>Within each of these organizations, select <strong>Endpoints</strong> and add an endpoint of type <strong>Thru SFTP Server</strong>. Name each endpoint <code>SFTP Server</code>.</p>
+              <figure class="screenshot"><img src="images/image44.png" alt="Add SFTP Endpoint to organization"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">4</div>
             <div class="instruction-body">
-              <p>Expand <strong>SHARED &gt; EDI File</strong> and click on the <strong>850</strong> file to select it. This is a sample EDI 850 purchase order — the document type you will process in Exercise 2.</p>
-              <figure class="screenshot"><img src="images/image21.png" alt="EDI File folder — 850 purchase order file selected"></figure>
+              <p>Add an additional organization called <code>Integration</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Within the <strong>Integration</strong> organization, add an Endpoint. Choose the type <strong>Thru iPaaS Connector</strong> and name it <code>Boomi Integration</code>.</p>
+              <figure class="screenshot"><img src="images/image15.png" alt="Add Boomi Integration endpoint"></figure>
             </div>
           </li>
         </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>You should now have <b style="font-weight:700">4 organizations</b> (BMW, Mazda, VW, Integration) each with an endpoint configured. These are all the participants that will take part in the MFT flow.</div>
+        </div>
 
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">← Back</button>
@@ -198,65 +208,43 @@
       </div>
     </section>
 
-    <!-- PAGE 2: Copy the EDI File to Inbox -->
+    <!-- PAGE 2: Create the Distribution Flow -->
     <section class="step-page" id="page-2">
       <div class="step-content">
         <header class="step-header">
-          <div class="step-label">Step 2 of 2</div>
-          <h1 class="step-title">Copy the EDI File to Your Inbox</h1>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use the portal's clipboard feature to copy the sample EDI 850 file from the shared library into your personal Inbox, ready for Boomi Integration to pick up.</p>
+          <div class="step-label">Step 2 of 4</div>
+          <h1 class="step-title">Create the Distribution Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Create a new MFT Flow that defines how files will be distributed from the Boomi integration to the three automotive partners.</p>
         </header>
-
-        <p>The web portal uses a clipboard mechanism to move files between folders — similar to copy and paste on a desktop. You first add a file to the clipboard from its source location, then navigate to the destination and paste it there.</p>
 
         <ol class="instruction-list">
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Navigate to <strong>SHARED &gt; EDI File</strong> and select the <strong>850</strong> file. Click the <strong>Clipboard</strong> button to add the file to the clipboard.</p>
-              <figure class="screenshot"><img src="images/image16.png" alt="Clipboard button — add file to clipboard"></figure>
+              <p>From the AFT portal, select <strong>Flow</strong> from the sidebar and click <strong>Add Flow</strong>.</p>
+              <figure class="screenshot"><img src="images/image56.png" alt="Add Flow"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>The file icon will change shade to indicate it has been added to the clipboard.</p>
-              <figure class="screenshot"><img src="images/image31.png" alt="File icon shaded to indicate it is on the clipboard"></figure>
+              <p>Name the Flow:</p>
+              <pre><code>Boomi Integration (ERP/Source → AFT → (Multiple Partner Targets)</code></pre>
+              <figure class="screenshot"><img src="images/image55.png" alt="Name the Flow"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
-              <p>Navigate to the <strong>Inbox</strong> folder under your username. Click the <strong>Clipboard</strong> button again to paste the file into your Inbox.</p>
-              <figure class="screenshot"><img src="images/image35.png" alt="Inbox folder — paste file from clipboard"></figure>
-            </div>
-          </li>
-          <li>
-            <div class="instruction-num">4</div>
-            <div class="instruction-body">
-              <p>Confirm the file now appears in your Inbox.</p>
-              <figure class="screenshot"><img src="images/image11.png" alt="EDI 850 file confirmed in Inbox"></figure>
+              <p>Click <strong>Save</strong>. Once saved, you will land in <strong>Flow Studio</strong>.</p>
+              <figure class="screenshot"><img src="images/image13.png" alt="Flow Studio"></figure>
             </div>
           </li>
         </ol>
 
-        <div class="callout warning">
-          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
-          <div>If the clipboard action appears to time out, navigate to a different folder and then retry the steps. This is a known occasional behaviour with the web portal.</div>
-        </div>
-
-        <div class="callout tip">
-          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div>The EDI 850 file is now in your Inbox and waiting to be picked up. In Exercise 2 you will configure the Boomi Integration process to connect to this location via SFTP, retrieve the file, and process it through the full EDI workflow.</div>
-        </div>
-
-        <div style="background:var(--primary-light);border:1px solid var(--primary);border-radius:var(--radius);padding:18px 22px;margin-top:28px;">
-          <div style="font-size:13px;font-weight:700;color:var(--primary);margin-bottom:6px;">Ready for Exercise 2?</div>
-          <p style="font-size:14px;margin:0 0 12px;">Keep this portal tab open — you'll need to copy your folder paths from here when configuring SFTP connections in the next exercise.</p>
-          <a href="exercise-2.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--primary);color:#fff;text-decoration:none;padding:10px 18px;border-radius:var(--radius);font-size:14px;font-weight:700;">
-            Continue to Exercise 2
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-          </a>
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Flow Studio is where you will visually wire together the source (Boomi Integration) and targets (BMW, Mazda, VW). You'll configure this in the next step.</div>
         </div>
 
         <nav class="step-nav">
@@ -265,7 +253,150 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
             Mark complete
           </button>
-          <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Add Subscribers & Flow Endpoints -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 4</div>
+          <h1 class="step-title">Add Subscribers &amp; Flow Endpoints</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Subscribe all organizations to the flow, then wire up both the target (partner) and source (integration) endpoints in Flow Studio.</p>
+        </header>
+
+        <h2>Add Subscribers</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In Flow Studio, click on <strong>Subscribers</strong>, then click <strong>Add Subscribers</strong>.</p>
+              <figure class="screenshot"><img src="images/image35.png" alt="Add Subscribers"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Select <strong>all</strong> the organizations (BMW, Mazda, VW, Integration) and click <strong>Subscribe Selected</strong>.</p>
+              <figure class="screenshot"><img src="images/image38.png" alt="Subscribe Selected"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Add Target Flow Endpoints</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Back in Flow Studio, click <strong>ADD FLOW ENDPOINT</strong> on the <strong>Target Side</strong>. Add each manufacturer in turn, selecting the <strong>SFTP Server Endpoint</strong> for each. Repeat for BMW, Mazda, and VW.</p>
+              <figure class="screenshot"><img src="images/image2.png" alt="Add BMW endpoint"></figure>
+              <figure class="screenshot"><img src="images/image30.png" alt="Add Mazda endpoint"></figure>
+              <figure class="screenshot"><img src="images/image51.png" alt="Add VW endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Flow Studio should now look like this on the target side — three partner endpoints visible.</p>
+              <figure class="screenshot"><img src="images/image17.png" alt="Target side with three endpoints"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Add Source Flow Endpoint</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Click <strong>ADD FLOW ENDPOINT</strong> on the <strong>Source Side</strong>. From the available sources, choose <strong>Integration</strong>.</p>
+              <figure class="screenshot"><img src="images/image53.png" alt="Source side - choose Integration"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Select the available endpoint (<strong>Boomi Integration</strong>). The Source side should now look like this.</p>
+              <figure class="screenshot"><img src="images/image52.png" alt="Select Boomi Integration endpoint"></figure>
+              <figure class="screenshot"><img src="images/image4.png" alt="Completed source side"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>The base configuration of the MFT is complete. You will return to Flow Studio in Exercise 2 to add regex routing filters to each target endpoint.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Capture Connection Details -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 4</div>
+          <h1 class="step-title">Capture Connection Details</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Retrieve the connection credentials from the Boomi Integration Flow Endpoint — you'll need these when configuring the MFT Connector in Exercise 2.</p>
+        </header>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>Don't skip this step — you <b style="font-weight:700">must</b> capture the connection details now. You'll need them when setting up the MFT Connector in Boomi Integration (Exercise 2, Step 4).</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In Flow Studio, select the <strong>Boomi Integration</strong> Source Flow Endpoint, or use the <strong>Actions</strong> menu and choose <strong>Edit Flow Endpoint Settings</strong>.</p>
+              <figure class="screenshot"><img src="images/image31.png" alt="Edit Flow Endpoint Settings"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>From the <strong>Flow Endpoint Editor — Source</strong>, change from the <strong>Configuration</strong> tab to the <strong>Connection</strong> tab.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>You will see connection credentials. <strong>Capture this information to a text file</strong> — enter these exact values into your MFT Connector configuration in Exercise 2.</p>
+              <figure class="screenshot"><img src="images/image42.png" alt="Connection tab with credentials"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><b style="font-weight:700">Exercise 1 complete!</b> You have successfully configured your AFT flow with partner organizations, endpoints, and a distribution flow. Move on to Exercise 2 to build the Boomi integration process that feeds files into this flow.</div>
+        </div>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
+            <h3 style="font-size:16px;margin:0;">Exercise 2: Build the Integration Process</h3>
+          </div>
+          <a href="exercise-2.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Exercise 2 →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish ✓</button>
         </nav>
       </div>
     </section>
@@ -274,7 +405,7 @@
 </div>
 
 <footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
-  Created by <a href="https://boomi.to/alexei" target="_blank" style="color:rgba(255,255,255,.85);text-decoration:none;font-weight:700;">Alexei Godek</a> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
 </footer>
 
 <script src="../../assets/js/lab.js"></script>
