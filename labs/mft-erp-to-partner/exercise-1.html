@@ -83,7 +83,7 @@
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Scenario</div>
-            <div style="font-size:14px;font-weight:700;">ERP → Partner Fan-Out</div>
+            <div style="font-size:14px;font-weight:700;">CRM → Partner Fan-Out</div>
           </div>
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
             <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
@@ -100,7 +100,7 @@
         </div>
 
         <h3>The Scenario</h3>
-        <p>You are representing <strong>X Battery</strong>, a major supplier in the automotive industry. Your ERP system generates invoices, purchase orders, and shipping notices that need to be automatically distributed to multiple automotive partners: <strong>BMW</strong>, <strong>Mazda</strong>, and <strong>Volkswagen</strong>.</p>
+        <p>You are representing <strong>X Battery</strong>, a major supplier in the automotive industry. Your CRM system generates invoices, purchase orders, and shipping notices that need to be automatically distributed to multiple automotive partners: <strong>BMW</strong>, <strong>Mazda</strong>, and <strong>Volkswagen</strong>.</p>
         <p>The challenge: files are generated from an internal system (simulated by a Boomi process) that appends the partner name to each filename. These files need to be routed automatically so each partner receives only their specific files — with full multi-tenant isolation.</p>
 
         <h3>Lab Objective: The "Fan-Out" Pattern</h3>
@@ -229,7 +229,7 @@
             <div class="instruction-num">2</div>
             <div class="instruction-body">
               <p>Name the Flow:</p>
-              <pre><code>Boomi Integration (ERP/Source → AFT → (Multiple Partner Targets)</code></pre>
+              <pre><code>Boomi Integration (CRM/Source → AFT → (Multiple Partner Targets)</code></pre>
               <figure class="screenshot"><img src="images/image55.png" alt="Name the Flow"></figure>
             </div>
           </li>
