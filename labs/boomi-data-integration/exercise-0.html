@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="bdi-lab-ex0" data-next-exercise-href="exercise-1.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Up Your Snowflake Target — BDI Hands-on Lab — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">BDI Hands-on Lab — Exercise 0</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 0 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create a Snowflake Trial
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Note Your Account Identifier
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create Database &amp; Warehouse
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Connect BDI to Snowflake
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~10 min</div>
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Beginner</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 0 — Overview</div>
+          <h1 class="step-title">Set Up Your Snowflake Target</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Before BDI can load any data, you need a destination. You'll provision a Snowflake trial, create the target database and schemas, and wire up the connection inside BDI.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 28px;">
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Duration</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">~10 minutes</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Steps</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">4 steps</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Platform</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">Snowflake + BDI</div>
+          </div>
+        </div>
+
+        <h3>What you'll do</h3>
+        <p>You are acting as the data engineer for <strong>Praxis Consumer Electronics</strong>. Before you can bring data into Snowflake, you need to provision the target environment and tell BDI where to send it.</p>
+        <p>In this exercise you will create a Snowflake trial account, run a short SQL script to provision the database, schemas, and warehouse, then create and test the Snowflake connection in BDI.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>If you already have a Snowflake account, skip Step 1 and go straight to Step 3 to create the lab database and warehouse.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1 -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 4</div>
+          <h1 class="step-title">Create a Snowflake Trial</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Sign up for a free Snowflake trial account.</p>
+        </header>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Go to <a href="https://signup.snowflake.com" target="_blank">signup.snowflake.com</a> and complete the sign-up form. When prompted, choose:</p>
+              <div class="credentials-box">
+                <div class="cred-row"><span class="cred-label">Edition</span><span class="cred-value">Standard (sufficient for this lab)</span></div>
+                <div class="cred-row"><span class="cred-label">Cloud</span><span class="cred-value">Any (AWS / Azure / GCP)</span></div>
+                <div class="cred-row"><span class="cred-label">Region</span><span class="cred-value">Closest to you</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Confirm your email, set a password, and log in. You'll land in <strong>Snowsight</strong>, the Snowflake web UI.</p>
+            </div>
+          </li>
+        </ol>
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 4</div>
+          <h1 class="step-title">Note Your Account Identifier</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">You'll need the account identifier when configuring the BDI connection in Step 4.</p>
+        </header>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In Snowsight, click your <strong>account name</strong> in the bottom-left corner &rarr; <strong>Account</strong> &rarr; copy the <strong>Account Identifier</strong>. It looks like <code>xy12345.us-east-1</code>. Save it to a text file — you will need it in Step 4.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>Use the exact string from Snowsight (e.g. <code>xy12345.us-east-1</code>). Do <strong>not</strong> append <code>.snowflakecomputing.com</code>.</div>
+        </div>
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 4</div>
+          <h1 class="step-title">Create the Lab Database and Warehouse</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Run a short SQL script in Snowsight to provision everything the lab needs.</p>
+        </header>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In Snowsight, open a new SQL Worksheet: <strong>left sidebar &rarr; Projects &rarr; Worksheets &rarr; +</strong></p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Paste the following SQL and click <strong>Run All</strong>:</p>
+              <pre><code>-- Database + schemas for the lab
+CREATE DATABASE IF NOT EXISTS BDI_LAB;
+CREATE SCHEMA IF NOT EXISTS BDI_LAB.RAW;        -- landing zone
+CREATE SCHEMA IF NOT EXISTS BDI_LAB.ANALYTICS;  -- transformed models
+
+-- Warehouse for the lab
+CREATE WAREHOUSE IF NOT EXISTS BDI_WH
+  WAREHOUSE_SIZE = 'XSMALL'
+  AUTO_SUSPEND = 60
+  AUTO_RESUME = TRUE;</code></pre>
+            </div>
+          </li>
+        </ol>
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>You now have database <strong>BDI_LAB</strong> with a <strong>RAW</strong> schema for incoming data and an <strong>ANALYTICS</strong> schema for transformed models. BDI creates tables inside RAW automatically — no pre-building required.</div>
+        </div>
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 4</div>
+          <h1 class="step-title">Connect BDI to Snowflake</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Create and test the Snowflake connection in the BDI platform.</p>
+        </header>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In BDI, go to <strong>Connections &rarr; New Connection</strong> and choose <strong>Snowflake</strong>. Enter the following:</p>
+              <div class="credentials-box">
+                <div class="cred-row"><span class="cred-label">Account</span><span class="cred-value">Your account identifier from Step 2</span></div>
+                <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Your Snowflake username</span></div>
+                <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Your Snowflake password</span></div>
+                <div class="cred-row"><span class="cred-label">Warehouse</span><span class="cred-value">BDI_WH</span></div>
+                <div class="cred-row"><span class="cred-label">Database</span><span class="cred-value">BDI_LAB</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Test Connection</strong>. Once the test passes, click <strong>Save</strong>.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>If the test fails, the most common cause is the account identifier format. BDI does not accept the <code>.snowflakecomputing.com</code> suffix.</div>
+        </div>
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Exercise 0 complete!</strong> Snowflake is provisioned and BDI is connected. Move on to Exercise 1 to load your first dataset.</div>
+        </div>
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 4px;">Next up</p>
+            <h3 style="font-size:16px;margin:0;font-weight:700;">Exercise 1: Replicate PostgreSQL Data into Snowflake</h3>
+          </div>
+          <a href="exercise-1.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;">Start Exercise 1 &rarr;</a>
+        </div>
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next exercise &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Boomi Labs &nbsp;·&nbsp; BDI Hands-on Lab
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
