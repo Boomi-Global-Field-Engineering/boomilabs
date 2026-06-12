@@ -72,6 +72,86 @@
   @media (max-width: 600px) {
     .catalog-featured-body { grid-template-columns: 1fr; }
   }
+
+  /* Category cards */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+  }
+  .category-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    transform: translateY(-2px);
+  }
+  .category-card-banner { height: 8px; }
+  .category-card-body { padding: 22px 24px; }
+  .category-card-body h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; line-height: 1.2; }
+  .category-card-body p { color: var(--text-muted); font-size: 13.5px; line-height: 1.55; margin: 0; }
+  .category-card-footer {
+    margin-top: auto;
+    padding: 14px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .category-card-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    background: var(--primary-light);
+    border-radius: 20px;
+    padding: 3px 11px;
+  }
+
+  /* View toggling */
+  .labs-view { display: none; }
+  body[data-view="category"] .category-section { display: none; }
+  body[data-view="category"] .labs-view { display: block; }
+
+  .labs-view-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .back-to-categories {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .back-to-categories:hover { border-color: var(--primary); background: var(--primary-light); }
+  .labs-view-title { font-size: 22px; font-weight: 800; margin: 0; }
+  /* Hide lab cards not in the active category */
+  body[data-view="category"] .catalog-grid > .lab-card { display: none; }
 </style>
 </head>
 <body>
@@ -128,11 +208,109 @@
       </div>
     </div>
 
-    <p class="catalog-section-heading">All Labs</p>
+    <div class="category-section">
+      <p class="catalog-section-heading">Browse by Category</p>
+      <div class="category-grid">
+
+        <a class="category-card" data-category="mft" href="#category=mft">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, #0097a7, #1a9e5c);"></div>
+          <div class="category-card-body">
+            <h3>Managed File Transfer</h3>
+            <p>Hosted SFTP, EDI trading-partner processing, fan-out routing, PGP encryption, and the CFTP protocol course.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="mft"></span>
+          </div>
+        </a>
+
+        <a class="category-card" data-category="agentic" href="#category=agentic">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, #ec4899, #8b5cf6);"></div>
+          <div class="category-card-body">
+            <h3>Agentic</h3>
+            <p>AI agent labs across customer operations, finance, IT operations, and supply chain &amp; logistics.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="agentic"></span>
+          </div>
+        </a>
+
+        <a class="category-card" data-category="integration" href="#category=integration">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0a5a7a);"></div>
+          <div class="category-card-body">
+            <h3>Integration &amp; APIM</h3>
+            <p>Foundational integration patterns plus publishing and managing APIs with the API Catalog and Developer Portal.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="integration"></span>
+          </div>
+        </a>
+
+        <a class="category-card" data-category="sap" href="#category=sap">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, var(--primary), var(--accent));"></div>
+          <div class="category-card-body">
+            <h3>SAP</h3>
+            <p>BAPI calls, Table Services, and Business Object Events with the Boomi for SAP connector against live S/4HANA.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="sap"></span>
+          </div>
+        </a>
+
+        <a class="category-card" data-category="datahub" href="#category=datahub">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, #4f46e5, #0a5a7a);"></div>
+          <div class="category-card-body">
+            <h3>Data Hub</h3>
+            <p>Master data management — models, match rules, data quality, and synchronizing golden records to downstream systems.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="datahub"></span>
+          </div>
+        </a>
+
+        <a class="category-card" data-category="flow" href="#category=flow">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, #f97c67, #c94000);"></div>
+          <div class="category-card-body">
+            <h3>Boomi Flow</h3>
+            <p>Build, publish, and theme low-code Flow applications that wrap existing Atom processes.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="flow"></span>
+          </div>
+        </a>
+
+        <a class="category-card" data-category="tech" href="#category=tech">
+          <div class="category-card-banner" style="background: linear-gradient(90deg, #063d58, #4f46e5);"></div>
+          <div class="category-card-body">
+            <h3>Technical Workshop</h3>
+            <p>A full-platform technical deep dive spanning provisioning, event streams, APIs, ETL, SAP, CI/CD, and monitoring.</p>
+          </div>
+          <div class="category-card-footer">
+            <span>View labs →</span>
+            <span class="category-card-count" data-count-for="tech"></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="labs-view">
+      <div class="labs-view-head">
+        <a class="back-to-categories" href="#">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          All categories
+        </a>
+        <h2 class="labs-view-title" id="labsViewTitle">Labs</h2>
+      </div>
 
     <div class="catalog-grid">
 
-      <a href="labs/boomi-for-sap/index.html" class="lab-card">
+      <a href="labs/boomi-for-sap/index.html" class="lab-card" data-category="sap">
         <div class="lab-card-banner"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag">SAP Integration</span>
@@ -148,7 +326,7 @@
         </div>
       </a>
 
-      <a href="labs/mft-guided-demos/index.html" class="lab-card">
+      <a href="labs/mft-guided-demos/index.html" class="lab-card" data-category="mft">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #0097a7, #1a9e5c);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #e0f7fa; color: #006064;">Boomi MFT</span>
@@ -164,7 +342,7 @@
         </div>
       </a>
 
-      <a href="labs/mft-erp-to-partner/index.html" class="lab-card">
+      <a href="labs/mft-erp-to-partner/index.html" class="lab-card" data-category="mft">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0a5a7a);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Boomi MFT</span>
@@ -180,7 +358,7 @@
         </div>
       </a>
 
-      <a href="labs/mft-many-to-one/index.html" class="lab-card">
+      <a href="labs/mft-many-to-one/index.html" class="lab-card" data-category="mft">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #0a5a7a, #1a9e5c);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Boomi MFT</span>
@@ -196,7 +374,7 @@
         </div>
       </a>
 
-      <a href="labs/mft-edi-partner/index.html" class="lab-card">
+      <a href="labs/mft-edi-partner/index.html" class="lab-card" data-category="mft">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0097a7);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #e0f7fa; color: #006064;">Boomi MFT · EDI</span>
@@ -212,7 +390,7 @@
         </div>
       </a>
 
-      <a href="labs/boomi-flow/index.html" class="lab-card">
+      <a href="labs/boomi-flow/index.html" class="lab-card" data-category="flow">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #f97c67, #c94000);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #fff5f0; color: #c94000;">Boomi Flow</span>
@@ -228,7 +406,7 @@
         </div>
       </a>
 
-      <a href="labs/integration-fundamentals/index.html" class="lab-card">
+      <a href="labs/integration-fundamentals/index.html" class="lab-card" data-category="integration">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #1a9e5c, #0a5a7a);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #ecfdf5; color: #065f46;">Integration</span>
@@ -244,7 +422,7 @@
         </div>
       </a>
 
-      <a href="labs/tech-workshop/index.html" class="lab-card">
+      <a href="labs/tech-workshop/index.html" class="lab-card" data-category="tech">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #063d58, #4f46e5);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #eef2ff; color: #3730a3;">Technical Workshop</span>
@@ -260,7 +438,7 @@
         </div>
       </a>
 
-      <a href="labs/integration-apim/index.html" class="lab-card">
+      <a href="labs/integration-apim/index.html" class="lab-card" data-category="integration">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #0a5a7a, #063d58);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #e6f0f5; color: #063d58;">Integration &amp; APIM</span>
@@ -276,7 +454,7 @@
         </div>
       </a>
 
-      <a href="labs/datahub/index.html" class="lab-card">
+      <a href="labs/datahub/index.html" class="lab-card" data-category="datahub">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #4f46e5, #0a5a7a);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #eef2ff; color: #3730a3;">Data Hub</span>
@@ -292,7 +470,7 @@
         </div>
       </a>
 
-      <a href="labs/customer-operations/index.html" class="lab-card">
+      <a href="labs/customer-operations/index.html" class="lab-card" data-category="agentic">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #ec4899, #8b5cf6);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · Customer Ops</span>
@@ -308,7 +486,7 @@
         </div>
       </a>
 
-      <a href="labs/financial-operations/index.html" class="lab-card">
+      <a href="labs/financial-operations/index.html" class="lab-card" data-category="agentic">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #10b981, #14b8a6);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · Finance</span>
@@ -324,7 +502,7 @@
         </div>
       </a>
 
-      <a href="labs/it-operations/index.html" class="lab-card">
+      <a href="labs/it-operations/index.html" class="lab-card" data-category="agentic">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #f59e0b, #ea580c);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · IT Ops</span>
@@ -340,7 +518,7 @@
         </div>
       </a>
 
-      <a href="labs/supply-chain-logistics/index.html" class="lab-card">
+      <a href="labs/supply-chain-logistics/index.html" class="lab-card" data-category="agentic">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #0ea5e9, #06b6d4);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Agentic · Supply Chain</span>
@@ -356,10 +534,10 @@
         </div>
       </a>
 
-      <a href="labs/cftp/index.html" class="lab-card">
+      <a href="labs/cftp/index.html" class="lab-card" data-category="mft">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #7c3aed, #4f46e5);"></div>
         <div class="lab-card-body">
-          <span class="lab-card-tag" style="background: #f5f3ff; color: #6d28d9;">Training</span>
+          <span class="lab-card-tag" style="background: #e0f7fa; color: #006064;">Boomi MFT · Training</span>
           <h3>Certified File Transfer Professional (CFTP)</h3>
           <p>A comprehensive course covering every file transfer protocol — FTP, FTPS, SFTP, HTTP, AS2/AS4, accelerated UDP transfers, and at-rest encryption. Six modules with quizzes.</p>
         </div>
@@ -374,8 +552,71 @@
 
     </div>
 
+    </div><!-- /.labs-view -->
+
   </div>
 </div>
+
+<script>
+(function () {
+  var CATEGORY_LABELS = {
+    sap: 'SAP',
+    mft: 'Managed File Transfer',
+    flow: 'Boomi Flow',
+    integration: 'Integration & APIM',
+    datahub: 'Data Hub',
+    agentic: 'Agentic',
+    tech: 'Technical Workshop'
+  };
+
+  var body = document.body;
+  var titleEl = document.getElementById('labsViewTitle');
+  var labCards = Array.prototype.slice.call(document.querySelectorAll('.catalog-grid > .lab-card'));
+
+  // Fill the count badge on each category card
+  Object.keys(CATEGORY_LABELS).forEach(function (cat) {
+    var n = labCards.filter(function (c) { return c.dataset.category === cat; }).length;
+    var badge = document.querySelector('[data-count-for="' + cat + '"]');
+    if (badge) badge.textContent = n + (n === 1 ? ' lab' : ' labs');
+  });
+
+  function parseHash() {
+    var m = (location.hash || '').match(/category=([a-z]+)/);
+    return m ? m[1] : null;
+  }
+
+  function render() {
+    var cat = parseHash();
+    if (cat && CATEGORY_LABELS[cat]) {
+      var shown = 0;
+      labCards.forEach(function (c) {
+        var match = c.dataset.category === cat;
+        c.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      titleEl.textContent = CATEGORY_LABELS[cat] + ' Labs (' + shown + ')';
+      body.setAttribute('data-view', 'category');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else {
+      labCards.forEach(function (c) { c.style.display = ''; });
+      body.setAttribute('data-view', 'categories');
+    }
+  }
+
+  // "All categories" back control clears the hash
+  var back = document.querySelector('.back-to-categories');
+  if (back) back.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (location.hash) {
+      history.pushState('', document.title, location.pathname + location.search);
+    }
+    render();
+  });
+
+  window.addEventListener('hashchange', render);
+  render();
+})();
+</script>
 
 </body>
 </html>
