@@ -150,8 +150,7 @@
   }
   .back-to-categories:hover { border-color: var(--primary); background: var(--primary-light); }
   .labs-view-title { font-size: 22px; font-weight: 800; margin: 0; }
-  /* Hide lab cards not in the active category */
-  body[data-view="category"] .catalog-grid > .lab-card { display: none; }
+  /* Lab card show/hide within a category is controlled by JS (inline display). */
 </style>
 </head>
 <body>
@@ -260,15 +259,15 @@
           </div>
         </a>
 
-        <a class="category-card" data-category="datahub" href="#category=datahub">
+        <a class="category-card" data-category="datamgmt" href="#category=datamgmt">
           <div class="category-card-banner" style="background: linear-gradient(90deg, #4f46e5, #0a5a7a);"></div>
           <div class="category-card-body">
-            <h3>Data Hub</h3>
-            <p>Master data management — models, match rules, data quality, and synchronizing golden records to downstream systems.</p>
+            <h3>Data Management</h3>
+            <p>Master data management with Data Hub plus ELT data pipelines — models, match rules, data quality, and landing data into cloud warehouses.</p>
           </div>
           <div class="category-card-footer">
             <span>View labs →</span>
-            <span class="category-card-count" data-count-for="datahub"></span>
+            <span class="category-card-count" data-count-for="datamgmt"></span>
           </div>
         </a>
 
@@ -454,10 +453,10 @@
         </div>
       </a>
 
-      <a href="labs/boomi-data-integration/index.html" class="lab-card" data-category="integration">
+      <a href="labs/boomi-data-integration/index.html" class="lab-card" data-category="datamgmt">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #29b5e8, #0a5a7a);"></div>
         <div class="lab-card-body">
-          <span class="lab-card-tag" style="background: #e6f0f5; color: #063d58;">Integration · ELT</span>
+          <span class="lab-card-tag" style="background: #eef2ff; color: #3730a3;">Data Management · ELT</span>
           <h3>Boomi Data Integration — Hands-on Lab</h3>
           <p>Build two ELT flows that land PostgreSQL and Salesforce data into Snowflake, orchestrate them into an automated pipeline with push-down SQL transformations, and visualise the results with Cortex AI.</p>
         </div>
@@ -470,7 +469,7 @@
         </div>
       </a>
 
-      <a href="labs/datahub/index.html" class="lab-card" data-category="datahub">
+      <a href="labs/datahub/index.html" class="lab-card" data-category="datamgmt">
         <div class="lab-card-banner" style="background: linear-gradient(90deg, #4f46e5, #0a5a7a);"></div>
         <div class="lab-card-body">
           <span class="lab-card-tag" style="background: #eef2ff; color: #3730a3;">Data Hub</span>
@@ -580,7 +579,7 @@
     mft: 'Managed File Transfer',
     flow: 'Boomi Flow',
     integration: 'Integration & APIM',
-    datahub: 'Data Hub',
+    datamgmt: 'Data Management',
     agentic: 'Agentic',
     tech: 'Technical Workshop'
   };
