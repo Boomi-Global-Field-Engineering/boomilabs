@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal to External (HR / Workday) — FedEx Freight MFT — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .mapping-table { width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .mapping-table th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+  .mapping-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .mapping-table tr:last-child td { border-bottom:none; }
+  .mapping-table tr:nth-child(even) td { background:var(--surface); }
+  .flow-row { display:flex; align-items:flex-start; gap:10px; flex-wrap:wrap; margin:20px 0; }
+  .flow-node { padding:12px 16px; border-radius:8px; font-weight:600; font-size:13px; text-align:center; min-width:110px; line-height:1.3; }
+  .flow-arrow { color:var(--text-muted); font-size:20px; font-weight:700; padding-top:14px; }
+  .flow-label { font-size:11px; color:var(--text-muted); text-align:center; margin-top:4px; font-weight:400; }
+  .fanout-wrap { display:flex; align-items:center; gap:12px; }
+  .fanout-targets { display:flex; flex-direction:column; gap:8px; }
+  .quote-box { background:var(--surface); border-left:3px solid var(--primary); padding:14px 18px; border-radius:0 6px 6px 0; margin:12px 0; font-style:italic; font-size:14px; color:var(--text-muted); }
+  .quote-box cite { display:block; margin-top:6px; font-style:normal; font-size:12px; font-weight:600; color:var(--text); }
+  .demo-moment { padding:14px 18px; border-bottom:1px solid var(--border); }
+  .demo-moment:last-child { border-bottom:none; }
+  .demo-moment-alt { background:var(--surface); }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">FedEx Freight MFT — Use Case 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Use Case 2 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Current FedEx Net Setup</a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Boomi MFT Fan-Out Config</a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Demo &amp; Proof Points</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~25 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Advanced</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+        <header class="step-header">
+          <div class="step-label">Use Case 2 — Overview</div>
+          <h1 class="step-title">Internal to External: HR &amp; Workday Multi-Destination Fan-Out</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Workday SaaS → Ab Initio managed servers → FedEx Net → Bank of America, BNY Mellon, Nations Bank. Runs hourly. All HR files encrypted.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Pattern</div>
+            <div style="font-size:14px;font-weight:700;">Internal → Many External</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Frequency</div>
+            <div style="font-size:14px;font-weight:700;">Hourly (Workday jobs)</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">File Size Range</div>
+            <div style="font-size:14px;font-weight:700;">250 KB – 7 GB</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Destinations</div>
+            <div style="font-size:14px;font-weight:700;">3+ banking SFTP servers</div>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          "Workday runs hourly jobs — it deposits those through Ab Initio and then they get sent out. All of those HR files are encrypted."
+          <cite>— Nicole (FedEx Freight Technical)</cite>
+        </div>
+
+        <h3>Why This Use Case Matters for the Demo</h3>
+        <p>This is FedEx Freight's highest-frequency automated transfer. The fan-out to multiple banking destinations is exactly where FedEx Net's manual destination management creates the most friction — every new banking partner requires a separate destination configuration in FedEx Net. In Boomi, one flow definition handles the fan-out; adding a new destination is a single endpoint addition with no flow rebuild.</p>
+        <p><strong>Ab Initio</strong> is a third-party managed server service that FedEx Freight uses as an intermediary. Workday (SaaS) pushes HR files into Ab Initio via their managed servers, and Ab Initio pushes those files into FedEx Net. This means the true source is Workday SaaS, but FedEx Net only ever sees Ab Initio as the sender.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>For the Wednesday demo:</strong> File size variance (250KB to 7GB) is worth calling out explicitly — it shows that their use case isn't trivial and that Boomi MFT is built for production-scale file volumes, not just test files.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Current Setup -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 3</div>
+          <h1 class="step-title">Current FedEx Net Setup</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">How this fan-out flow is configured in FedEx Net — and why the multi-destination setup is painful to maintain.</p>
+        </header>
+
+        <h3>Current Architecture</h3>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;">
+          <div class="fanout-wrap">
+            <div>
+              <div class="flow-node" style="background:#dbeafe;color:#1d4ed8;">Workday<br><small style="font-weight:400">SaaS HR System</small></div>
+              <div class="flow-label">Hourly jobs<br>push HR files</div>
+            </div>
+            <div class="flow-arrow" style="padding-top:18px;">→</div>
+            <div>
+              <div class="flow-node" style="background:#e0e7ff;color:#4338ca;">Ab Initio<br><small style="font-weight:400">Managed Servers</small></div>
+              <div class="flow-label">Intermediary;<br>pushes into FedEx Net</div>
+            </div>
+            <div class="flow-arrow" style="padding-top:18px;">→</div>
+            <div>
+              <div class="flow-node" style="background:#fef9c3;color:#854d0e;">FedEx Net<br><small style="font-weight:400">MFT Server</small></div>
+              <div class="flow-label">Routes to multiple<br>destinations</div>
+            </div>
+            <div class="flow-arrow" style="padding-top:18px;">→</div>
+            <div class="fanout-targets">
+              <div>
+                <div class="flow-node" style="background:#dcfce7;color:#166534;">Bank of America<br><small style="font-weight:400">SFTP</small></div>
+              </div>
+              <div>
+                <div class="flow-node" style="background:#dcfce7;color:#166534;">BNY Mellon<br><small style="font-weight:400">SFTP</small></div>
+              </div>
+              <div>
+                <div class="flow-node" style="background:#dcfce7;color:#166534;">Nations Bank<br><small style="font-weight:400">SFTP</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <h3>FedEx Net Configuration for This Flow</h3>
+        <table class="mapping-table">
+          <thead><tr><th>FedEx Net Field</th><th>Value for This Flow</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sender</strong></td><td>Ab Initio managed servers</td><td>FedEx Net sees Ab Initio as the sender, not Workday directly</td></tr>
+            <tr><td><strong>Receivers</strong></td><td>Bank of America, BNY Mellon, Nations Bank</td><td>Each bank requires a separate destination entry in FedEx Net</td></tr>
+            <tr><td><strong>Application Type</strong></td><td>HR / payroll data</td><td>Encrypted; treated as highest sensitivity classification</td></tr>
+            <tr><td><strong>Encryption</strong></td><td>All HR files encrypted at rest</td><td>Encryption applied by Workday/Ab Initio before the file reaches FedEx Net</td></tr>
+            <tr><td><strong>Frequency</strong></td><td>Hourly (Workday-triggered)</td><td>Not a fixed schedule — triggered when Workday job completes</td></tr>
+            <tr><td><strong>File Size Variance</strong></td><td>250 KB to 7 GB</td><td>Determined by payroll cycle size; weekly run = much larger than daily delta</td></tr>
+            <tr><td><strong>Destination Mgmt</strong></td><td>One destination config per bank</td><td>Three separate destination entries, each with its own public key and SFTP URL</td></tr>
+          </tbody>
+        </table>
+
+
+        <h3>Pain Points in This Flow</h3>
+        <ul>
+          <li><strong>Destination sprawl:</strong> Every banking partner = a completely independent destination configuration (SFTP host, path, public key). No bulk setup, no templating.</li>
+          <li><strong>No fan-out confirmation:</strong> FedEx Net doesn't aggregate delivery status across all destinations. If delivery to BNY Mellon fails while BofA succeeds, there's no single view showing partial failure.</li>
+          <li><strong>File size uncertainty:</strong> The 250KB–7GB variance means the team can't reliably predict transfer windows. Large files + a system bounce = file stuck mid-transfer, manual restart required.</li>
+          <li><strong>No idempotency protection:</strong> If Workday pushes a file and then the Ab Initio server retries due to a timeout, FedEx Net may receive the same file twice. No duplicate detection.</li>
+        </ul>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Boomi Configuration -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 3</div>
+          <h1 class="step-title">Boomi MFT Fan-Out Configuration</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Replacing FedEx Net's manual per-destination configuration with a single Boomi flow that fans out to all banking endpoints simultaneously.</p>
+        </header>
+
+        <h3>Architecture in Boomi MFT</h3>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;">
+          <div class="fanout-wrap">
+            <div>
+              <div class="flow-node" style="background:#dbeafe;color:#1d4ed8;">Workday<br><small style="font-weight:400">SaaS HR System</small></div>
+              <div class="flow-label">Hourly jobs<br>push HR files</div>
+            </div>
+            <div class="flow-arrow" style="padding-top:18px;">→</div>
+            <div>
+              <div class="flow-node" style="background:#e0e7ff;color:#4338ca;">Ab Initio<br><small style="font-weight:400">Managed Servers</small></div>
+              <div class="flow-label">Intermediary;<br>pushes into Boomi MFT</div>
+            </div>
+            <div class="flow-arrow" style="padding-top:18px;">→</div>
+            <div>
+              <div class="flow-node" style="background:#f3e8ff;color:#7c3aed;">Boomi MFT<br><small style="font-weight:400">Platform</small></div>
+              <div class="flow-label">Routes to multiple<br>destinations</div>
+            </div>
+            <div class="flow-arrow" style="padding-top:18px;">→</div>
+            <div class="fanout-targets">
+              <div>
+                <div class="flow-node" style="background:#dcfce7;color:#166534;">Bank of America<br><small style="font-weight:400">SFTP</small></div>
+              </div>
+              <div>
+                <div class="flow-node" style="background:#dcfce7;color:#166534;">BNY Mellon<br><small style="font-weight:400">SFTP</small></div>
+              </div>
+              <div>
+                <div class="flow-node" style="background:#dcfce7;color:#166534;">Nations Bank<br><small style="font-weight:400">SFTP</small></div>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;margin-bottom:0;">Each banking org/endpoint stores credentials independently. Adding a 4th bank = add one org + one endpoint. No flow change.</p>
+        </div>
+
+        <div class="callout info" style="margin:16px 0;">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>Discussion point — can Ab Initio be replaced?</strong> Ab Initio currently acts as the intermediary between Workday and FedEx Net. Boomi MFT can accept the SFTP push from Ab Initio exactly as-is — nothing changes on the Workday/Ab Initio side in the short term. However, it is worth discussing whether Ab Initio is still needed long-term: if Workday can be configured to push directly to Boomi MFT via SFTP, the Ab Initio hop becomes redundant, reducing cost and complexity. This is a scoping question for the wider engagement.</div>
+        </div>
+
+        <h3>FedEx Net → Boomi MFT: Fan-Out Concept Mapping</h3>
+        <table class="mapping-table">
+          <thead><tr><th>FedEx Net Concept</th><th>Boomi MFT Equivalent</th><th>Why It's Better</th></tr></thead>
+          <tbody>
+            <tr><td><strong>One destination entry per bank</strong></td><td>Target Organizations linked to one flow</td><td>Adding a new banking destination doesn't require rebuilding the flow</td></tr>
+            <tr><td><strong>Per-destination public key</strong></td><td>SSH key stored per Organization in Boomi Secrets</td><td>Each bank's key managed independently; rotation doesn't affect other banks</td></tr>
+            <tr><td><strong>No aggregate delivery status</strong></td><td>Per-destination delivery state in Activity Log</td><td>Single view shows Delivered/Failed per destination in one screen</td></tr>
+            <tr><td><strong>Manual bounce restart</strong></td><td>Automatic retry (built-in, not configurable)</td><td>For connection failures, Boomi retries for up to 3 minutes. For mid-transfer errors (e.g. connection interrupted), Boomi retries up to 10 times with exponential backoff (~15–17 min total). If all retries are exhausted, the file is marked Error and an Alert is sent.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout info" style="margin:0 0 24px;">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>
+            <strong>How does Boomi route a file to the right target?</strong>
+            <p style="margin:8px 0 0;">In this fan-out flow, every file received from AbInitio-Workday is delivered to all subscribed target endpoints simultaneously. If you need to route selectively — for example, only certain files go to BofA — each target flow endpoint can be configured with a filename regex filter in the Flow Endpoint Editor. Only files whose names match the filter are delivered to that target. For this workshop no filters are needed; all banks receive every test file.</p>
+          </div>
+        </div>
+
+        <h3>Configuration Steps for Wednesday Demo</h3>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body"><p>Create three target <strong>Organizations</strong>: <code>BofA-HR</code>, <code>BNY-Mellon-HR</code>, <code>Nations-Bank-HR</code>. Add an <strong>External SFTP</strong> endpoint for each. Use test/demo SFTP credentials — the actual bank credentials won't be available for the POC.</p>
+              <figure style="margin:12px 0 0;">
+                <img src="images/banks.png" alt="Bank organizations configured in Boomi MFT" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
+              </figure></div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body"><p>Create a source Organization <code>AbInitio-Workday</code> with a <strong>Thru SFTP</strong> listener endpoint.</p></div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body"><p>In <strong>Flow Studio</strong>, create a fan-out flow: <em>AbInitio-Workday → [BofA-HR, BNY-Mellon-HR, Nations-Bank-HR]</em>. Subscribe the four newly created organizations and add the relevant endpoints to the source and target.</p>
+              <figure style="margin:12px 0 8px;">
+                <img src="images/banks_subs.png" alt="Bank organizations subscribed in Flow Studio" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
+              </figure>
+              <figure style="margin:8px 0 0;">
+                <img src="images/bankflow.png" alt="Completed bank fan-out flow in Flow Studio" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
+              </figure></div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body"><p>Push a test file (any encrypted file, or a file renamed to match Workday naming conventions). Watch the Activity Log show <strong>three parallel delivery lines</strong> — one per destination — all sourced from the same file receipt event.</p>
+              <p style="margin-top:10px;">As an optional extension, click into any target flow endpoint and set a <strong>filename regex filter</strong> in the Flow Endpoint Editor — for example, configure BofA-HR to only accept files matching <code>.*bofa.*</code> and BNY-Mellon-HR to match <code>.*bny.*</code>. With filters in place, each target will only receive files whose names match its pattern, demonstrating selective fan-out routing from a single source.</p>
+              <p style="margin-top:10px;font-weight:600;font-size:13px;">Test files for this exercise:</p>
+              <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px;">
+                <a href="files/test.bofa.cvs" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  test.bofa.cvs
+                </a>
+                <a href="files/test.bny.cvs" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  test.bny.cvs
+                </a>
+                <a href="files/test.nation.cvs" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  test.nation.cvs
+                </a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body"><p><strong>Partial failure demo</strong> <em style="color:var(--text-muted);font-size:13px;">(time permitting)</em><strong>:</strong> Break credentials on the BNY Mellon endpoint only. Show that BofA and Nations Bank still deliver successfully while BNY Mellon retries independently. This is the moment that lands hardest.</p></div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body"><p><strong>New partner in 3 clicks</strong> <em style="color:var(--text-muted);font-size:13px;">(time permitting)</em><strong>:</strong> Add a 4th banking org (e.g., <code>JPMorgan-HR</code>) and add it to the existing flow. Count and call out the clicks. Compare to the 17-step FedEx Net process.</p></div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Demo & Proof Points -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 3</div>
+          <h1 class="step-title">Demo &amp; Proof Points</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The moments that differentiate Boomi from FedEx Net's manual fan-out model.</p>
+        </header>
+
+        <h3>Key Demo Moments</h3>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;">
+          <div class="demo-moment demo-moment-alt">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Partial Failure / Independent Retry Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Break one of three destination endpoints. Show all three delivery lines in the Activity Log — two showing "Delivered", one showing "Retrying". The file delivered to two banks without human intervention. This doesn't exist in FedEx Net (which has no per-destination retry).</p>
+          </div>
+          <div class="demo-moment">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The New Destination in 3 Clicks Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Add a 4th banking organization live. Show that the flow definition itself doesn't change — just add an endpoint to the fan-out list. The contrast with FedEx Net's manual 17-step process for each new destination is the sharpest value demonstration in this use case.</p>
+          </div>
+          <div class="demo-moment demo-moment-alt">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The File Size Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">State explicitly: "You mentioned files range from 250KB to 7GB. Boomi MFT handles this in a single flow config — no special handling for large files, no separate timeout settings per destination. The platform scales to the file, not the other way around."</p>
+          </div>
+          <div class="demo-moment">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Ab Initio Intermediary Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Nicole confirmed that Workday can't push directly to Boomi MFT because it uses Ab Initio as a managed intermediary. Frame this as a feature, not a constraint: "Boomi accepts the push from Ab Initio exactly as FedEx Net does today — nothing changes on the Workday/Ab Initio side. You're replacing the fan-out layer only."</p>
+          </div>
+        </div>
+
+        <h3>Discovery Questions Still Open</h3>
+        <ul>
+          <li>What is the naming convention for Workday-generated files? (needed for matching/routing logic in Boomi)</li>
+          <li>Is there any ordering dependency between the three banking destinations, or are they truly independent fan-out targets?</li>
+          <li>What happens today if one bank's SFTP server is unreachable — does FedEx Net retry, or does the file silently fail?</li>
+        </ul>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Continue to Use Case 3</strong> — Invoice Image and mailbox distribution is their internal pull pattern. Hundreds of receivers, files up to 45–50GB, and custom port 60022. This is the most technically complex use case and the closest analog to Boomi's Virtual Folder model.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <a href="exercise-3.html" class="step-nav-btn primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Next Use Case →</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="text-align:center;padding:24px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:40px;">
+  Created by Alexei Godek &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal to External (Banking) — FedEx Freight MFT — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .mapping-table { width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .mapping-table th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+  .mapping-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .mapping-table tr:last-child td { border-bottom:none; }
+  .mapping-table tr:nth-child(even) td { background:var(--surface); }
+  .flow-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:20px 0; }
+  .flow-node { padding:12px 16px; border-radius:8px; font-weight:600; font-size:13px; text-align:center; min-width:110px; line-height:1.3; }
+  .flow-arrow { color:var(--text-muted); font-size:20px; font-weight:700; }
+  .flow-label { font-size:11px; color:var(--text-muted); text-align:center; margin-top:4px; font-weight:400; }
+  .quote-box { background:var(--surface); border-left:3px solid var(--primary); padding:14px 18px; border-radius:0 6px 6px 0; margin:12px 0; font-style:italic; font-size:14px; color:var(--text-muted); }
+  .quote-box cite { display:block; margin-top:6px; font-style:normal; font-size:12px; font-weight:600; color:var(--text); }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">FedEx Freight MFT — Use Case 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Use Case 1 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Current FedEx Net Setup</a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Boomi MFT Configuration</a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Demo &amp; Proof Points</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~20 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Advanced</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+        <header class="step-header">
+          <div class="step-label">Use Case 1 — Overview</div>
+          <h1 class="step-title">Internal to External: Banking File Transfer</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">CDAS → FedEx Net → Scotia Bank. Weekly encrypted banking file pushed via SFTP every Wednesday at 8–9 PM.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Pattern</div>
+            <div style="font-size:14px;font-weight:700;">Internal → External</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Frequency</div>
+            <div style="font-size:14px;font-weight:700;">Weekly (Wednesdays)</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">File Size</div>
+            <div style="font-size:14px;font-weight:700;">1–2 GB typical</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Auth</div>
+            <div style="font-size:14px;font-weight:700;">SSH Public Key</div>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          "CDAS prepares the file and this file is sent to us every Wednesday around 8 or 9 PM. This is a huge banking file that contains all of our numbers and pay data for that week. That file is then sent to Scotia Bank."
+          <cite>— Chastity (FedEx Freight MFT Lead)</cite>
+        </div>
+
+        <h3>Business Context</h3>
+        <p>This is FedEx Freight's highest-volume, highest-risk weekly file transfer. The <strong>CDAS</strong> finance system generates a complete pay data file every Wednesday. That file travels through FedEx Net to Scotia Bank, which processes payroll reconciliation. Failure or delay has direct payroll consequences.</p>
+        <p>The flow is <strong>bidirectional</strong> — after processing, Scotia Bank pushes a reconciliation file back to FedEx Net via SFTP. The back-end recon file is Scotia's responsibility to push.</p>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>POC constraint:</strong> The CDAS system requires VPN-gated credentials that the team does not currently have access to. For the Wednesday demo, simulate the file source with a test file dropped manually into the watched directory.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Current FedEx Net Setup -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 3</div>
+          <h1 class="step-title">Current FedEx Net Setup</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">How this flow is configured in FedEx Net today — every concept here maps directly to a Boomi MFT equivalent.</p>
+        </header>
+
+        <h3>Current Architecture</h3>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;">
+          <div class="flow-row">
+            <div>
+              <div class="flow-node" style="background:#dbeafe;color:#1d4ed8;">CDAS<br><small style="font-weight:400">Finance System</small></div>
+              <div class="flow-label">Internal source<br>(auto-pushes)</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div>
+              <div class="flow-node" style="background:#fef9c3;color:#854d0e;">FedEx Net<br><small style="font-weight:400">MFT Server</small></div>
+              <div class="flow-label">DMZ-hosted<br>homegrown system</div>
+            </div>
+            <div class="flow-arrow">→ SFTP Push →</div>
+            <div>
+              <div class="flow-node" style="background:#dcfce7;color:#166534;">Scotia Bank<br><small style="font-weight:400">SFTP Server</small></div>
+              <div class="flow-label">External receiver<br>(target URL)</div>
+            </div>
+          </div>
+          <div class="flow-row" style="justify-content:flex-end;margin-top:0;">
+            <div style="font-size:12px;color:var(--text-muted);text-align:right;">
+              ← SFTP Push (recon file back) ←<br>
+              <span style="font-size:11px;">Scotia Bank pushes reconciliation file back after processing</span>
+            </div>
+          </div>
+        </div>
+
+        <h3>FedEx Net Configuration for This Flow</h3>
+        <table class="mapping-table">
+          <thead><tr><th>FedEx Net Field</th><th>Value for This Flow</th><th>What It Means</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sender</strong></td><td>CDAS system</td><td>The internal system pushing the file into FedEx Net</td></tr>
+            <tr><td><strong>Receiver</strong></td><td>Scotia Bank</td><td>The external SFTP destination</td></tr>
+            <tr><td><strong>Application Type</strong></td><td>Banking / pay data</td><td>File classification; also used for bypass rules and routing logic</td></tr>
+            <tr><td><strong>Destination Type</strong></td><td>SFTP server (target URL)</td><td>External SFTP endpoint at Scotia Bank's URL</td></tr>
+            <tr><td><strong>Auth Method</strong></td><td>Public key (RSA/DSA/SHA/Ed25519)</td><td>Scotia Bank's public key is stored in FedEx Net; no password exchange</td></tr>
+            <tr><td><strong>Encryption</strong></td><td>At-rest encryption on file</td><td>The banking file itself is encrypted before it leaves CDAS</td></tr>
+            <tr><td><strong>Sequence</strong></td><td>Active (sequence number set)</td><td>Flow is "on" — if sequence is blank, the flow is disabled</td></tr>
+            <tr><td><strong>Schedule</strong></td><td>Wednesday ~8–9 PM</td><td>File arrives weekly; timing driven by CDAS processing cycle</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Pain Points (from Nicole)</h3>
+        <ul>
+          <li>Entire setup is manual — 17+ clicks to configure a new destination</li>
+          <li>No automatic retry — if delivery fails, team must manually restart the file</li>
+          <li>System bounces 4–8 times per day, which can interrupt active transfers</li>
+          <li>Error diagnosis requires manually clicking into each queued file to view logs</li>
+          <li>No proactive alerting — team finds out about failures reactively</li>
+        </ul>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Boomi MFT Configuration -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 3</div>
+          <h1 class="step-title">Boomi MFT Configuration</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">How to configure this flow in Boomi MFT — mapping every FedEx Net concept to its Boomi equivalent.</p>
+        </header>
+
+        <h3>Architecture in Boomi MFT</h3>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;">
+          <div class="flow-row">
+            <div>
+              <div class="flow-node" style="background:#dbeafe;color:#1d4ed8;">CDAS<br><small style="font-weight:400">Internal Finance System</small></div>
+              <div class="flow-label">SFTP push directly<br>into Boomi MFT</div>
+            </div>
+            <div class="flow-arrow">→ SFTP Push →</div>
+            <div>
+              <div class="flow-node" style="background:#f3e8ff;color:#7c3aed;">Boomi MFT<br><small style="font-weight:400">Platform</small></div>
+              <div class="flow-label">Routes, logs,<br>manages creds</div>
+            </div>
+            <div class="flow-arrow">→ SFTP Push →</div>
+            <div>
+              <div class="flow-node" style="background:#dcfce7;color:#166534;">Scotia Bank<br><small style="font-weight:400">SFTP Server</small></div>
+              <div class="flow-label">External target endpoint</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>FedEx Net → Boomi MFT Concept Mapping</h3>
+        <table class="mapping-table">
+          <thead><tr><th>FedEx Net Concept</th><th>Boomi MFT Equivalent</th><th>Key Difference</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sender</strong></td><td>Source Organization / Connector</td><td>Boomi uses named Organizations with endpoint types (iPaaS, SFTP, S3, etc.)</td></tr>
+            <tr><td><strong>Receiver</strong></td><td>Target Organization / SFTP Connection</td><td>Credentials stored centrally, reusable across flows</td></tr>
+            <tr><td><strong>Destination</strong></td><td>Flow Target Endpoint</td><td>Configured once in Flow Studio; no per-file manual setup</td></tr>
+            <tr><td><strong>Sequence Number</strong></td><td>Flow Active/Inactive toggle</td><td>Boomi flows can be enabled/disabled with a single toggle</td></tr>
+            <tr><td><strong>Application Type</strong></td><td>Flow name or Description</td><td>Boomi uses regex filters for routing; no XML parsing required</td></tr>
+            <tr><td><strong>Public Key (stored per receiver)</strong></td><td>SSH Key stored in Boomi Secrets</td><td>Centrally managed, audited, rotated without touching flow config</td></tr>
+            <tr><td><strong>Mailbox</strong></td><td>Virtual Folder</td><td>Isolated per partner with access controls; see Use Case 3</td></tr>
+            <tr><td><strong>View Log</strong></td><td>Activity Log (Received → Validated → Processed → Delivered)</td><td>4-state audit trail, real-time, searchable — not manual click-through</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Configuration Steps for Wednesday Demo</h3>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body"><p>Navigate to <strong>Organizations</strong> and click <strong>Add Organization</strong>. Name it <code>CDAS</code> and click Save.</p></div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body"><p>Within the CDAS organization, click <strong>Endpoints → Add Endpoint</strong>. Enter an Endpoint Name, then in the <strong>Type</strong> dropdown select <strong>Thru SFTP</strong>. Save the endpoint.</p></div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body"><p>Create a second <strong>Organization</strong> named <code>Scotia Bank</code> and click Save.</p></div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body"><p>Within the Scotia Bank organization, add an endpoint of the type <strong>External SFTP</strong> and name it <strong>Scotia Bank External SFTP</strong>. Populate the fields with the credentials below and click <strong>Test Connection</strong> to confirm Boomi MFT can reach it.</p>
+              <table style="font-size:13px;border-collapse:collapse;margin-top:10px;width:100%;max-width:420px;">
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Host</td><td style="padding:5px 0;font-family:monospace;">us-ftpsbx-02.thruinc.net</td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Port</td><td style="padding:5px 0;font-family:monospace;">22</td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Username</td><td style="padding:5px 0;font-family:monospace;">demo102.thruinc.net\workshop</td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Password</td><td style="padding:5px 0;font-style:italic;color:var(--text-muted);">Will be shared during workshop</td></tr>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>In <strong>Flow Studio</strong>, create a flow: <em>CDAS → Scotia Bank</em>. Subscribe the two organizations.</p>
+              <p style="margin-top:10px;">In the blue <strong>Source</strong> panel click <strong>Add Flow Endpoint</strong>. From the Source Organization dropdown choose <strong>CDAS</strong> and select the endpoint, then click <strong>Add Flow Endpoint</strong> to confirm.</p>
+              <figure style="margin:12px 0;">
+                <img src="images/cdas_source_endpoint.png" alt="Available Sources dialog — CDAS (Source-Sender) selected with Thru SFTP endpoint type" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
+                <figcaption style="font-size:12px;color:var(--text-muted);margin-top:4px;">Available Sources — select the CDAS endpoint (Type: Thru SFTP) and click Add Flow Endpoint</figcaption>
+              </figure>
+              <p>In the green <strong>Target</strong> panel click <strong>Add Flow Endpoint</strong>. From the Target Organization dropdown choose <strong>Scotia Bank</strong> and select the endpoint, then click <strong>Add Flow Endpoint</strong> to confirm.</p>
+              <p style="margin-top:10px;">Once added to the flow, click on the <strong>Scotia Bank</strong> flow endpoint. In the <strong>Flow Endpoint Editor</strong>, firstly in the <strong>Configuration</strong> tab scroll down to set the <strong>Endpoint Target Paths</strong>. The path will be <code>/SHARED/Workshop/Scotia-Bank</code>. Then go to the <strong>Schedule</strong> tab, change the schedule to <strong>1 minute</strong> instead of the default of one hour, and click <strong>Save Changes</strong>.</p>
+              <p style="margin-top:10px;">Once back in Flow Studio, click the pulsing blue <strong>View and Push Changes</strong> button and accept the pending changes by clicking <strong>Push Changes</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body"><p>As we do not have direct access to CDAS, we will simulate the file push using <strong>FileZilla</strong> or <strong>WinSCP</strong>. Connect to the Boomi MFT SFTP endpoint using the credentials extracted from the associated flow endpoint in the Flow Endpoint Editor.</p>
+              <table style="font-size:13px;border-collapse:collapse;margin-top:10px;margin-bottom:10px;width:100%;max-width:420px;">
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Host</td><td style="padding:5px 0;font-family:monospace;">staging-sftps.thruinc.com</td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Port</td><td style="padding:5px 0;font-family:monospace;">22</td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Username</td><td style="padding:5px 0;font-style:italic;color:var(--text-muted);">Extract from the CDAS flow endpoint</td></tr>
+                <tr><td style="padding:5px 16px 5px 0;color:var(--text-muted);font-weight:600;white-space:nowrap;">Password</td><td style="padding:5px 0;font-style:italic;color:var(--text-muted);">Extract from the CDAS flow endpoint</td></tr>
+              </table>
+              <p>Once connected, upload a test file. Watch it move through the <strong>Activity Log</strong> in real time: Received → Scanned → Processed → Delivered.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body"><p><strong>Failure demo</strong> <em style="color:var(--text-muted);font-size:13px;">(time permitting)</em><strong>:</strong> Intentionally break the SFTP credentials on Scotia Bank. Show the failure in the Activity Log at the <em>Delivered</em> stage.</p></div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Demo & Proof Points -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 3</div>
+          <h1 class="step-title">Demo &amp; Proof Points</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The moments that will land hardest with Chastity and Nicole on Wednesday.</p>
+        </header>
+
+        <h3>Key Moments to Hit in the Demo</h3>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;">
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border);background:var(--surface);">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Click Count Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Chastity explicitly said: <em>"We might be looking at 17 clicks just to do a whole partner onboarding — can Boomi give us this in three clicks?"</em> Time the partner setup in front of them. Create a new Organization + SFTP endpoint + Flow. Count the clicks out loud.</p>
+          </div>
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border);">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Retry Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Their current system requires a manual restart when files get stuck. Break delivery in the demo, show Boomi automatically retrying, then show the file delivering on the second attempt — no human intervention.</p>
+          </div>
+          <div style="padding:14px 18px;border-bottom:1px solid var(--border);background:var(--surface);">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Audit Trail Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Nicole currently has to click through a queue, select a file, click View Log, then find the error inside raw XML. Show the 4-state Activity Log — Received, Validated, Processed, Delivered — instantly visible without any manual navigation.</p>
+          </div>
+          <div style="padding:14px 18px;">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Uptime Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Their FedEx Net bounces 4–8 times daily (2–3 min each). Position Boomi's 99.99% uptime SLA = ~8 minutes downtime per year total vs. potentially 8+ minutes downtime per day.</p>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Continue to Use Case 2</strong> — the Workday/HR multi-destination flow is their highest-frequency pattern (hourly) and involves the most complexity: multiple destinations, large file variance (250KB–7GB), and encrypted payloads.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <a href="exercise-2.html" class="step-nav-btn primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Next Use Case →</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="text-align:center;padding:24px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:40px;">
+  Created by Alexei Godek &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
