@@ -277,27 +277,40 @@
               <figure style="margin:12px 0 8px;">
                 <img src="images/banks_subs.png" alt="Bank organizations subscribed in Flow Studio" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
               </figure>
-              <figure style="margin:8px 0 0;">
+              <figure style="margin:8px 0 12px;">
                 <img src="images/bankflow.png" alt="Completed bank fan-out flow in Flow Studio" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
-              </figure></div>
+              </figure>
+              <p>For each <strong>target</strong> flow endpoint, click into the <strong>Flow Endpoint Editor</strong> and configure the following:</p>
+              <ul style="margin:8px 0 12px;">
+                <li><strong>Configuration tab → Target Path:</strong> Set the path for each bank endpoint:
+                  <ul style="margin:6px 0 0;">
+                    <li><code>BofA-HR</code> → <code>/SHARED/Workshop/BofA-HR</code></li>
+                    <li><code>BNY-Mellon-HR</code> → <code>/SHARED/Workshop/BNY-Mellon-HR</code></li>
+                    <li><code>Nations-Bank-HR</code> → <code>/SHARED/Workshop/Nations-Bank-HR</code></li>
+                  </ul>
+                </li>
+                <li style="margin-top:8px;"><strong>Schedule tab:</strong> Change the schedule from the default of <strong>1 hour</strong> to <strong>1 minute</strong> for this workshop. Click <strong>Save Changes</strong>.</li>
+              </ul>
+              <p>Once all three target endpoints are configured, click the pulsing blue <strong>View and Push Changes</strong> button to commit the flow.</p>
+            </div>
           </li>
           <li>
             <div class="instruction-num">4</div>
             <div class="instruction-body"><p>Push a test file (any encrypted file, or a file renamed to match Workday naming conventions). Watch the Activity Log show <strong>three parallel delivery lines</strong> — one per destination — all sourced from the same file receipt event.</p>
-              <p style="margin-top:10px;">As an optional extension, click into any target flow endpoint and set a <strong>filename regex filter</strong> in the Flow Endpoint Editor — for example, configure BofA-HR to only accept files matching <code>.*bofa.*</code> and BNY-Mellon-HR to match <code>.*bny.*</code>. With filters in place, each target will only receive files whose names match its pattern, demonstrating selective fan-out routing from a single source.</p>
+              <p style="margin-top:10px;">As an additional extra, click into each target flow endpoint and set a <strong>filename regex filter</strong> in the Flow Endpoint Editor — for example, configure BofA-HR to only accept files matching <code>.*bofa.*</code> and BNY-Mellon-HR to match <code>.*bny.*</code>. With filters in place, each target will only receive files whose names match its pattern, demonstrating selective fan-out routing from a single source.</p>
               <p style="margin-top:10px;font-weight:600;font-size:13px;">Test files for this exercise:</p>
               <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px;">
-                <a href="files/test.bofa.cvs" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
+                <a href="files/test.bofa.csv" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  test.bofa.cvs
+                  test.bofa.csv
                 </a>
-                <a href="files/test.bny.cvs" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
+                <a href="files/test.bny.csv" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  test.bny.cvs
+                  test.bny.csv
                 </a>
-                <a href="files/test.nation.cvs" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
+                <a href="files/test.nation.csv" download style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--primary);text-decoration:none;padding:7px 12px;background:var(--surface);border:1px solid var(--border);border-radius:6px;width:fit-content;">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                  test.nation.cvs
+                  test.nation.csv
                 </a>
               </div>
             </div>
@@ -308,7 +321,7 @@
           </li>
           <li>
             <div class="instruction-num">6</div>
-            <div class="instruction-body"><p><strong>New partner in 3 clicks</strong> <em style="color:var(--text-muted);font-size:13px;">(time permitting)</em><strong>:</strong> Add a 4th banking org (e.g., <code>JPMorgan-HR</code>) and add it to the existing flow. Count and call out the clicks. Compare to the 17-step FedEx Net process.</p></div>
+            <div class="instruction-body"><p><strong>New partner in 3 clicks</strong> <em style="color:var(--text-muted);font-size:13px;">(time permitting)</em><strong>:</strong> Add a 4th banking org (e.g., <code>JPMorgan-HR</code>) and add it to the existing flow. In the Flow Endpoint Editor set the Target Path to <code>/SHARED/Workshop/JPMorgan-HR</code>. Count and call out the clicks — compare to the 17-step FedEx Net process. New partner in less than 17 clicks.</p></div>
           </li>
         </ol>
 
