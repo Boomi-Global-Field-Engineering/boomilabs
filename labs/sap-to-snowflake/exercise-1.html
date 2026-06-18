@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="sap-snowflake-ex1" data-next-exercise-href="exercise-2.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 1 — Connect to SAP & Create a Table Service — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">SAP to Snowflake — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 1 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Log In to Boomi for SAP
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add Tables to the Canvas
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Join VBAK and VBAP
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Select Fields
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Publish the Table Service
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~25 min</div>
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Beginner</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: Overview -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+        <header class="step-header">
+          <div class="step-label">Exercise 1 — Overview</div>
+          <h1 class="step-title">Connect to SAP and Create a Table Service</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use the Boomi for SAP UI to expose SAP sales order data as an OData-style Table Service.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:0 0 28px;">
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Duration</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">~25 minutes</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Steps</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">5 steps</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Product</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">Boomi for SAP</div>
+          </div>
+        </div>
+
+        <h3>What you'll do</h3>
+        <p>SAP stores sales orders across two related tables: <strong>VBAK</strong> (Sales Document Header — one row per order) and <strong>VBAP</strong> (Sales Document Items — one row per line item). In this exercise you'll use the Boomi for SAP drag-and-drop UI to join those tables and publish a Table Service — a managed OData endpoint that Boomi Data Integration can query in Exercise 2.</p>
+
+        <div class="callout info" style="margin-top:20px;">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>What you'll learn</strong>
+            <ul>
+              <li>How to navigate the Boomi for SAP UI</li>
+              <li>How to join SAP tables on the Table Service canvas</li>
+              <li>How to select only the fields your data warehouse needs</li>
+              <li>How to publish a Table Service so it's queryable from Boomi Data Integration</li>
+            </ul>
+          </div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Log in -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 5</div>
+          <h1 class="step-title">Log In to Boomi for SAP</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Open the Boomi for SAP UI and navigate to Table Services.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Open a new browser tab and navigate to the Boomi for SAP UI. Log in with the credentials below.</p>
+              <div class="credentials-box">
+                <h4>Credentials</h4>
+                <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.demo.boomi.com:44300/zbx/home</a></span></div>
+                <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+                <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Welcome1</span></div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>After logging in you will land on the Boomi for SAP home screen. In the left navigation, click <strong>Table Services</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image01.png" alt="Boomi for SAP home screen with Table Services highlighted in navigation" loading="lazy">
+                <figcaption>Navigate to Table Services in the left sidebar</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Click the <strong>+ Create</strong> button in the top-right corner to open the Table Service canvas.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image02.png" alt="Table Services list with Create button highlighted" loading="lazy">
+                <figcaption>Click + Create to open a new Table Service canvas</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Add tables -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 5</div>
+          <h1 class="step-title">Add VBAK and VBAP to the Canvas</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Search for the two SAP sales order tables and drag them onto the canvas.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>SAP Table Quick Reference</strong><br>
+            <strong>VBAK</strong> — Sales Document Header: one row per sales order (order number, customer, total value, currency, dates).<br>
+            <strong>VBAP</strong> — Sales Document Items: one row per line item within an order (material number, quantity, description).
+          </div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the <strong>Table Search</strong> box on the left panel, type <code>VBAK</code>. The search results will show <em>Sales Document: Header Data</em>.</p>
+              <p>Click the table name or drag it onto the canvas area.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image03.png" alt="Searching for VBAK in the Table Search box" loading="lazy">
+                <figcaption>Search for VBAK and add it to the canvas</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Clear the search box and type <code>VBAP</code>. Find <em>Sales Document: Item Data</em> and drag it onto the canvas to the right of VBAK.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image04.png" alt="Both VBAK and VBAP tables on the canvas" loading="lazy">
+                <figcaption>Both tables are now on the canvas</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Join -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 5</div>
+          <h1 class="step-title">Join VBAK and VBAP on VBELN</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Connect the two tables using the shared Sales Document Number field.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>On the VBAK table card, locate the field <strong>VBELN</strong> (Sales Document Number). Hover over it — a connector dot will appear on the right edge of the field row.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click and drag from the VBAK <strong>VBELN</strong> connector dot across to the <strong>VBELN</strong> field on the VBAP table. Release to create the join line.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image05.png" alt="Join line connecting VBELN on VBAK to VBELN on VBAP" loading="lazy">
+                <figcaption>The join line represents an inner join on VBELN (Sales Document Number)</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Click the join line to confirm it is an <strong>Inner Join</strong>. This means only sales orders that have at least one line item will be returned — which is the correct behavior for our data warehouse.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image06.png" alt="Join configuration showing Inner Join type" loading="lazy">
+                <figcaption>Confirm the join type is Inner Join</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Select fields -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 5</div>
+          <h1 class="step-title">Select the Fields for Your Data Warehouse</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Trim each table down to only the fields needed for analytics.</p>
+        </header>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>SAP tables can have hundreds of fields. Always select only what your downstream consumers need — this keeps data loads fast and the Snowflake schema clean.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>On the <strong>VBAK</strong> table card, click the <strong>filter fields</strong> icon (funnel icon). Deselect all fields by unchecking the top "select all" checkbox, then re-select only these fields:</p>
+              <pre><code>VBELN   — Sales Document Number
+ERDAT   — Created On (date)
+KUNNR   — Sold-to Party (Customer ID)
+NETWR   — Net Value of Sales Order
+WAERK   — Currency
+VKORG   — Sales Organization
+VTWEG   — Distribution Channel
+SPART   — Division</code></pre>
+              <figure class="screenshot">
+                <img src="images/ex1/image07.png" alt="VBAK field selection with 8 fields checked" loading="lazy">
+                <figcaption>Select 8 fields from VBAK</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click the filter fields icon on the <strong>VBAP</strong> table card. Deselect all, then re-select:</p>
+              <pre><code>VBELN   — Sales Document Number
+POSNR   — Item Number
+MATNR   — Material Number
+ARKTX   — Short Description of Item
+KWMENG  — Cumulative Order Quantity
+KMEIN   — Unit of Measure</code></pre>
+              <figure class="screenshot">
+                <img src="images/ex1/image08.png" alt="VBAP field selection with 6 fields checked" loading="lazy">
+                <figcaption>Select 6 fields from VBAP</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Publish -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 5</div>
+          <h1 class="step-title">Name and Publish the Table Service</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Save the configuration and activate it so Boomi Data Integration can use it as a source.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Click the <strong>Settings</strong> tab (or gear icon) at the top of the canvas. Set the <strong>Service Name</strong> to:</p>
+              <pre><code>SALES_ORDER_DW_XX</code></pre>
+              <p>Replace <strong>XX</strong> with your assigned user number (e.g., <code>SALES_ORDER_DW_01</code>).</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save</strong>, then click <strong>Publish</strong>. The service status will change from <em>Draft</em> to <strong>Active</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image09.png" alt="Table Service showing Active status after publishing" loading="lazy">
+                <figcaption>A green Active badge confirms the Table Service is live</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Copy the <strong>OData URL</strong> shown in the service details panel — you will need it in Exercise 2 when you configure Boomi Data Integration to pull data from this service.</p>
+              <figure class="screenshot">
+                <img src="images/ex1/image10.png" alt="OData URL displayed in the service details panel" loading="lazy">
+                <figcaption>Copy the OData URL — paste it into a notepad for Exercise 2</figcaption>
+              </figure>
+              <div class="callout tip" style="margin-top:16px;">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Exercise 1 complete!</strong> Your SAP Table Service is published and ready. In Exercise 2 you'll connect Boomi Data Integration to this service and load the data into Snowflake.</div>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next Exercise &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+
+</body>
+</html>
