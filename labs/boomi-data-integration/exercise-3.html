@@ -40,7 +40,7 @@
     └── Salesforce → Snowflake  ┘
   SQL Transformation → BDI_LAB.ANALYTICS.SHIPMENTS_FACT
   SQL Transformation → BDI_LAB.ANALYTICS.SHIPMENTS_DIM</code></pre>
-        <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>This is where BDI goes beyond simple data movement. A Logic Flow sequences and parallelises your data flows, then executes SQL transformations <strong>inside Snowflake</strong> — no separate ETL tool required.</div></div>
+        <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>This is where BDI goes beyond simple data movement. A Logic Flow sequences and parallelises your data flows, then executes SQL transformations <strong>inside Snowflake.</strong> No separate ETL tool is required.</div></div>
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
           <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
@@ -68,7 +68,7 @@
       <header class="step-header"><div class="step-label">Step 2 of 4</div><h1 class="step-title">Add a Parallel Container</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Group both ingestion flows and enable parallel execution.</p></header>
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p>Click the <strong>Add Container</strong> dropdown in the top right of the Logic Flow editor.</p>
+          <p>Click the <strong>Add Container</strong> dropdown in the top right of the Logic Flow editor. Choose <strong>Run Once</strong> from the Container options.</p>
             <figure class="screenshot"><img src="images/ex3/image02.png" alt="Add Container dropdown"></figure>
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body"><p>Click <strong>+Add Logic Step</strong> inside the Container. Set this new step to <strong>bdi-lab-salesforce-snowflake</strong> from Exercise 2.</p></div></li>
@@ -93,7 +93,7 @@
             <figure class="screenshot"><img src="images/ex3/image04.png" alt="SQL Transformation step configuration"></figure>
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
-          <p>In the <strong>Source</strong> section paste the first query:</p>
+          <p>In the <strong>Source</strong> section of the Logic step, paste the first query:</p>
           <pre><code>select
   shipment.id as shipment_id,
   shipment.wms_shipment_number,
@@ -108,7 +108,7 @@ from bdi_lab.raw.shipments shipment
 left join bdi_lab.raw.account account
   on account.id = shipment.salesforce_account_id
 where shipment.salesforce_account_id is not null</code></pre>
-          <p>In <strong>Target</strong>: Database <code>BDI_LAB</code>, Schema <code>ANALYTICS</code>, Table <code>SHIPMENTS_FACT</code>, Mode <strong>Overwrite</strong>.</p>
+          <p>In the <strong>Target</strong> section: Database <code>BDI_LAB</code>, Schema <code>ANALYTICS</code>, Table <code>SHIPMENTS_FACT</code>, Loading Mode <strong>Overwrite</strong>.</p>
         </div></li>
         <li><div class="instruction-num">3</div><div class="instruction-body">
           <p>Add a second SQL Transformation step with the dimensional query:</p>
@@ -127,10 +127,10 @@ left join bdi_lab.raw.driver_assignments da on da.shipment_id = shipment.id
 left join bdi_lab.raw.drivers driver on driver.id = da.driver_id
 left join bdi_lab.raw.vehicles vehicle on vehicle.id = da.vehicle_id
 where shipment.salesforce_account_id is not null</code></pre>
-          <p>In <strong>Target</strong>: Database <code>BDI_LAB</code>, Schema <code>ANALYTICS</code>, Table <code>SHIPMENTS_DIM</code>, Mode <strong>Overwrite</strong>.</p>
+          <p>In <strong>Target</strong>: Database <code>BDI_LAB</code>, Schema <code>ANALYTICS</code>, Table <code>SHIPMENTS_DIM</code>, Loading Mode <strong>Overwrite</strong>.</p>
         </div></li>
       </ol>
-        <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>The transformation SQL runs push-down <strong>inside Snowflake</strong> — the orchestration layer just triggers it. No data leaves your warehouse.</div></div>
+        <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>The transformation SQL runs push-down inside Snowflake, the orchestration layer just triggers it. No data leaves your warehouse.</div></div>
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
           <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>

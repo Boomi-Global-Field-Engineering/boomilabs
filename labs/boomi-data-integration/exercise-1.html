@@ -147,15 +147,15 @@
             <div class="instruction-body">
               <p>Navigate to the <strong>Configure Schema</strong> tab. Select all six tables: <strong>Carriers, Driver_assignments, Drivers, Shipments, Vehicles, Warehouses</strong>.</p>
               <figure class="screenshot"><img src="images/ex1/image04.png" alt="Target tab — Snowflake BDI_LAB.RAW"></figure>
-			  <p>For the <strong>Shipments</strong> table, change the Extract Method to <strong>Incremental</strong> via the dropdown.</p>
-            <figure class="screenshot"><img src="images/ex1/image05.png" alt="Schema tab with 6 tables selected, Shipments set to Incremental"></figure>
+			  <p>For the <strong>Shipments</strong> table, change the Extract Method to <strong>Incremental</strong> via the dropdown. In the <strong>Incremental Field</strong> dropdown, choose <strong>updated_at</strong> and select a start value of 2022-01-01.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">5</div>
             <div class="instruction-body">
-              <p>Navigate to <strong>Schedule &amp; Settings</strong>. Switch Schedule to OFF. Name the flow <strong>bdi-lab-postgres-snowflake</strong> and click <strong>Save</strong>.</p>
-            </div>
+              <p>Navigate to <strong>Schedule &amp; Settings</strong>. Switch the Schedule toggle to OFF. Name the flow <strong>bdi-lab-postgres-snowflake</strong> and click <strong>Activate</strong> in the bottom right corner.</p>
+			  <figure class="screenshot"><img src="images/ex1/image05.png" alt="Schema tab with 6 tables selected, Shipments set to Incremental"></figure>
+			</div>
           </li>
         </ol>
         <nav class="step-nav">
@@ -178,21 +178,14 @@
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>Click <strong>Activate</strong> in the bottom right of the screen.</p>
+              <p>Once the activation completes, click <strong>Run Data Flow</strong>.</p>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Once activation completes, click <strong>Run Data Flow</strong>.</p>
-            </div>
-          </li>
-          <li>
-            <div class="instruction-num">3</div>
-            <div class="instruction-body">
-			<figure class="screenshot"><img src="images/ex1/image06.png" alt="Activate data flow button"></figure>
-              <p>Click the <strong>television-shaped icon</strong> on the right side to open the live run tree. Watch each table load in real time. Once all tables show a green check mark, the load is complete.</p>
-            <figure class="screenshot"><img src="images/ex1/image07.png" alt="Run tree showing all 6 tables with green checkmarks"></figure>
+              <p>Click the <strong>television-shaped icon</strong> on the right side to open the Activities screen. Watch each table load in real time. Once all tables show a green check mark, the load is complete.</p>
+            <figure class="screenshot"><img src="images/ex1/image06.png" alt="Activate data flow button"></figure>
             </div>
           </li>
         </ol>
@@ -220,6 +213,7 @@
               <pre><code>SELECT COUNT(*) AS shipment_rows FROM BDI_LAB.RAW.SHIPMENTS;
 SELECT * FROM BDI_LAB.RAW.SHIPMENTS LIMIT 5;</code></pre>
 			<p>Ensure that the above query returns data.</p>
+			<figure class="screenshot"><img src="images/ex1/image07.png" alt="Run tree showing all 6 tables with green checkmarks"></figure>
             </div>
           </li>
         </ol>
