@@ -72,7 +72,7 @@
         </header>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:0 0 28px;"><div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Duration</div><div style="font-size:15px;font-weight:700;color:var(--primary-dark);">~15 minutes</div></div><div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Steps</div><div style="font-size:15px;font-weight:700;color:var(--primary-dark);">4 steps</div></div><div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Source</div><div style="font-size:15px;font-weight:700;color:var(--primary-dark);">PostgreSQL</div></div></div>
         <h3>What you'll do</h3>
-        <p>NorthWind's operational data lives in a PostgreSQL database called <strong>WMS_Data</strong>. In this exercise you'll create a BDI Source-to-Target Flow that connects to it, selects six tables, sets the Shipments table to Incremental extraction, and loads everything into <code>BDI_LAB.RAW</code> in Snowflake.</p>
+        <p>Praxis's operational data lives in a PostgreSQL database called <strong>wander_freight_wms</strong>. In this exercise you'll create a BDI Source-to-Target Flow that connects to it, selects six tables, sets the Shipments table to Incremental extraction, and loads everything into <code>BDI_LAB.RAW</code> in Snowflake.</p>
         <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>BDI creates target tables automatically — no need to pre-define schemas in Snowflake.</div></div>
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
@@ -94,14 +94,14 @@
           <li>
             <div class="instruction-num">1</div>
             <div class="instruction-body">
-              <p>In BDI, go to <strong>Connections</strong>. You should see a PostgreSQL connection called <strong>WMS_Data</strong> already provisioned for this lab.</p>
+              <p>In BDI, go to <strong>Connections</strong>. You should see a PostgreSQL connection called <strong>WMS_Database</strong> already provisioned for this lab.</p>
             <figure class="screenshot"><img src="images/ex1/image01.png" alt="BDI Connections list showing WMS_Data PostgreSQL connection"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Click on <strong>WMS_Data</strong> and verify the test passes.</p>
+              <p>Click on <strong>WMS_Database</strong> and verify the test passes.</p>
             <figure class="screenshot"><img src="images/ex1/image02.png" alt="PostgreSQL connection test successful"></figure>
             </div>
           </li>
@@ -132,7 +132,7 @@
           <li>
             <div class="instruction-num">2</div>
             <div class="instruction-body">
-              <p>Search for <strong>PostgreSQL</strong> in the Source search bar and select the <strong>WMS_Data</strong> connection.</p>
+              <p>Search for <strong>PostgreSQL</strong> in the Source search bar and select the <strong>WMS_Database</strong> connection.</p>
             <figure class="screenshot"><img src="images/ex1/image03.png" alt="Source selection — PostgreSQL WMS_Data"></figure>
             </div>
           </li>
@@ -140,14 +140,14 @@
             <div class="instruction-num">3</div>
             <div class="instruction-body">
               <p>Navigate to the <strong>Target</strong> tab. Choose <strong>Snowflake</strong> and select your connection from Exercise 0. In <strong>Data Loading Settings</strong> enter Database <code>BDI_LAB</code> and Schema <code>RAW</code>.</p>
-            <figure class="screenshot"><img src="images/ex1/image04.png" alt="Target tab — Snowflake BDI_LAB.RAW"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">4</div>
             <div class="instruction-body">
               <p>Navigate to the <strong>Configure Schema</strong> tab. Select all six tables: <strong>Carriers, Driver_assignments, Drivers, Shipments, Vehicles, Warehouses</strong>.</p>
-              <p>For the <strong>Shipments</strong> table, change the Extract Method to <strong>Incremental</strong> via the dropdown.</p>
+              <figure class="screenshot"><img src="images/ex1/image04.png" alt="Target tab — Snowflake BDI_LAB.RAW"></figure>
+			  <p>For the <strong>Shipments</strong> table, change the Extract Method to <strong>Incremental</strong> via the dropdown.</p>
             <figure class="screenshot"><img src="images/ex1/image05.png" alt="Schema tab with 6 tables selected, Shipments set to Incremental"></figure>
             </div>
           </li>
@@ -179,7 +179,6 @@
             <div class="instruction-num">1</div>
             <div class="instruction-body">
               <p>Click <strong>Activate</strong> in the bottom right of the screen.</p>
-            <figure class="screenshot"><img src="images/ex1/image06.png" alt="Activate data flow button"></figure>
             </div>
           </li>
           <li>
@@ -191,6 +190,7 @@
           <li>
             <div class="instruction-num">3</div>
             <div class="instruction-body">
+			<figure class="screenshot"><img src="images/ex1/image06.png" alt="Activate data flow button"></figure>
               <p>Click the <strong>television-shaped icon</strong> on the right side to open the live run tree. Watch each table load in real time. Once all tables show a green check mark, the load is complete.</p>
             <figure class="screenshot"><img src="images/ex1/image07.png" alt="Run tree showing all 6 tables with green checkmarks"></figure>
             </div>
@@ -219,6 +219,7 @@
               <p>In Snowsight, open a SQL Worksheet and run:</p>
               <pre><code>SELECT COUNT(*) AS shipment_rows FROM BDI_LAB.RAW.SHIPMENTS;
 SELECT * FROM BDI_LAB.RAW.SHIPMENTS LIMIT 5;</code></pre>
+			<p>Ensure that the above query returns data.</p>
             </div>
           </li>
         </ol>

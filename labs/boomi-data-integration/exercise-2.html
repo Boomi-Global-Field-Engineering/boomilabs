@@ -35,7 +35,7 @@
       <header class="step-header"><div class="step-label">Exercise 2 — Overview</div><h1 class="step-title">Ingest Salesforce Data into Snowflake</h1><p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use BDI's native Salesforce connector to pull CRM objects into the same RAW schema.</p></header>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:0 0 28px;"><div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Duration</div><div style="font-size:15px;font-weight:700;color:var(--primary-dark);">~15 minutes</div></div><div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Steps</div><div style="font-size:15px;font-weight:700;color:var(--primary-dark);">3 steps</div></div><div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Source</div><div style="font-size:15px;font-weight:700;color:var(--primary-dark);">Salesforce CRM</div></div></div>
       <h3>What you'll do</h3>
-      <p>Now the other half of the picture: the CRM. You'll use the same Source-to-Target interface, but connect to a SaaS API instead of a database. You'll pull <strong>Account</strong>, <strong>Opportunity</strong>, and <strong>Contact</strong> objects into <code>BDI_LAB.RAW</code>.</p>
+      <p>Now the other half of the picture: the CRM. You'll use the same Source-to-Target interface, but connect to a SaaS API instead of a database. You'll pull <strong>Account</strong>, <strong>Opportunity</strong>, and <strong>Contact</strong> objects from Salesforce into <code>BDI_LAB.RAW</code>.</p>
         <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Notice you'll connect to a completely different type of source — a SaaS API rather than a relational database — using the same Flow interface as Exercise 1.</div></div>
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
@@ -48,8 +48,8 @@
       <header class="step-header"><div class="step-label">Step 1 of 3</div><h1 class="step-title">Connect BDI to Salesforce</h1></header>
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p>In BDI, go to <strong>Connections</strong>. You should see a Salesforce connection called <strong>Salesforce_CRM</strong> already provisioned. Click it and verify the test passes.</p>
-            <figure class="screenshot"><img src="images/ex2/image01.png" alt="BDI Connections — Salesforce_CRM"></figure>
+          <p>In BDI, go to <strong>Connections</strong>. You should see a Salesforce connection called <strong>Salesforce</strong> already provisioned. Click it and verify the test passes.</p>
+            <figure class="screenshot"><img src="images/ex2/image01.png" alt="BDI Connections — Salesforce"></figure>
         </div></li>
       </ol>
         <nav class="step-nav">
@@ -63,8 +63,9 @@
       <header class="step-header"><div class="step-label">Step 2 of 3</div><h1 class="step-title">Create the Salesforce &rarr; Snowflake Flow</h1></header>
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p>Click <strong>Create &rarr; Source to Target Flow</strong>. Search for <strong>Salesforce</strong> and choose <strong>Salesforce_CRM</strong>.</p>
-            <figure class="screenshot"><img src="images/ex2/image02.png" alt="Source selection — Salesforce_CRM"></figure>
+          <p>Click <strong>Create &rarr; Source to Target Flow</strong>. Search for <strong>Salesforce</strong> and choose the <strong>Salesforce (Legacy) </strong>option.</p>
+          <div class="callout warning"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div>Due to authentication limitations in this lab environment, use the Salesforce (Legacy) connector. In production you would use the standard OAuth connector.</div></div>
+			<figure class="screenshot"><img src="images/ex2/image02.png" alt="Source selection — Salesforce"></figure>
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
           <p>In the Source tab, check the <strong>Include Deleted Rows</strong> box.</p>
@@ -86,7 +87,6 @@
           <p>Navigate to <strong>Settings</strong>. Name the flow <strong>bdi-lab-salesforce-snowflake</strong> and click <strong>Save</strong>.</p>
         </div></li>
       </ol>
-        <div class="callout warning"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div>Due to authentication limitations in this lab environment, use the <strong>Legacy</strong> Salesforce connector. In production you would use the standard OAuth connector.</div></div>
         <nav class="step-nav">
           <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
           <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
