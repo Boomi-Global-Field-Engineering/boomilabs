@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="sap-snowflake-ex2" data-next-exercise-href="exercise-3.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 2 — Extract SAP Data into Snowflake — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">SAP to Snowflake — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 2 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Set Up Snowflake
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Connect BDI to Snowflake
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add the SAP Source
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create the Source-to-Target Flow
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Run &amp; Verify
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~30 min</div>
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Beginner</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: Overview -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+        <header class="step-header">
+          <div class="step-label">Exercise 2 — Overview</div>
+          <h1 class="step-title">Extract SAP Data into Snowflake</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use Boomi Data Integration to pull your Table Service data into a Snowflake RAW schema.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:0 0 28px;">
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Duration</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">~30 minutes</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Steps</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">5 steps</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Product</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">Boomi Data Integration</div>
+          </div>
+        </div>
+
+        <h3>What you'll do</h3>
+        <p>In Exercise 1 you created a Table Service that exposes SAP sales orders as a clean, queryable feed. Now you'll connect <strong>Boomi Data Integration (BDI)</strong> to that feed as a source, point it at a new Snowflake database as a target, and run an initial full load. BDI will automatically create the target table in Snowflake — no DDL required.</p>
+
+        <div class="callout info" style="margin-top:20px;">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>What you'll learn</strong>
+            <ul>
+              <li>How to provision a Snowflake trial account and create a target database</li>
+              <li>How to create a Snowflake connection in BDI</li>
+              <li>How to connect BDI to a Boomi for SAP Table Service as an OData source</li>
+              <li>How to configure and run a BDI Source-to-Target flow</li>
+              <li>How to verify loaded data directly in Snowflake</li>
+            </ul>
+          </div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Set up Snowflake -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 5</div>
+          <h1 class="step-title">Set Up Your Snowflake Target</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Create the database and schemas that will hold the SAP data warehouse.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>If your trainer has pre-provisioned a Snowflake environment, skip sub-steps 1–2 and use the provided credentials.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Go to <a href="https://signup.snowflake.com" target="_blank">signup.snowflake.com</a> and create a free 30-day trial. Choose the <strong>Standard</strong> tier and <strong>AWS</strong> as the cloud provider. Select the region closest to you.</p>
+              <p style="font-size:13.5px;">New to Snowflake? Follow the <a href="snowflake-signup.html">step-by-step Snowflake trial signup guide</a> for a full walkthrough with screenshots.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Log in to your new Snowflake account. Open a <strong>Worksheet</strong> and run the following SQL to create the target database and two schemas — one for raw SAP data and one for the transformed data warehouse.</p>
+              <pre><code>-- Create the lab database
+CREATE DATABASE SAP_DW_LAB;
+
+-- RAW schema: landing zone for data from SAP
+CREATE SCHEMA SAP_DW_LAB.RAW;
+
+-- DW schema: transformed, analytics-ready tables (used in Exercise 3)
+CREATE SCHEMA SAP_DW_LAB.DW;</code></pre>
+              <figure class="screenshot">
+                <img src="images/ex2/image01.png" alt="Snowflake worksheet with the three CREATE statements" loading="lazy">
+                <figcaption>Run all three statements — you should see "Statement executed successfully" for each</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Note your Snowflake <strong>Account Identifier</strong>. You can find it under <strong>Admin → Accounts</strong>, or it appears in your browser URL as <code>&lt;org&gt;-&lt;account&gt;.snowflakecomputing.com</code>. You'll need this for the BDI connection in the next step.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Connect BDI to Snowflake -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 5</div>
+          <h1 class="step-title">Connect Boomi Data Integration to Snowflake</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Add your Snowflake account as a target connection in BDI.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Log in to Boomi Data Integration at <a href="https://console.rivery.io/" target="_blank">console.rivery.io</a> using the credentials provided by your trainer.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>In the left sidebar, go to <strong>Connections</strong> and click <strong>+ New Connection</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex2/image02.png" alt="BDI Connections page with New Connection button" loading="lazy">
+                <figcaption>Click + New Connection</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Search for <strong>Snowflake</strong> and select it. Fill in the fields below, then click <strong>Test Connection</strong>.</p>
+              <table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:8px;">
+                <thead><tr style="background:var(--primary-light);">
+                  <th style="padding:8px 12px;text-align:left;border:1px solid var(--border);">Field</th>
+                  <th style="padding:8px 12px;text-align:left;border:1px solid var(--border);">Value</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Connection Name</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>Snowflake_SAP_DW</code></td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Account</td><td style="padding:8px 12px;border:1px solid var(--border);">Your account identifier (e.g., <code>myorg-myaccount</code>)</td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Username</td><td style="padding:8px 12px;border:1px solid var(--border);">Your Snowflake username</td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Password</td><td style="padding:8px 12px;border:1px solid var(--border);">Your Snowflake password</td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Warehouse</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>COMPUTE_WH</code></td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Database</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>SAP_DW_LAB</code></td></tr>
+                </tbody>
+              </table>
+              <figure class="screenshot">
+                <img src="images/ex2/image03.png" alt="Snowflake connection form in BDI" loading="lazy">
+                <figcaption>Fill in your Snowflake connection details and click Test Connection</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>When the test returns a green <strong>Connection Successful</strong> message, click <strong>Save</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Add SAP source -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 5</div>
+          <h1 class="step-title">Add the SAP Table Service as a Source</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Register your Exercise 1 Table Service as an OData connection in BDI.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In BDI, go back to <strong>Connections → + New Connection</strong>. Search for <strong>OData</strong> (or <strong>Boomi for SAP</strong> if available as a native connector) and select it.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Fill in the connection details using the OData URL you copied at the end of Exercise 1.</p>
+              <table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:8px;">
+                <thead><tr style="background:var(--primary-light);">
+                  <th style="padding:8px 12px;text-align:left;border:1px solid var(--border);">Field</th>
+                  <th style="padding:8px 12px;text-align:left;border:1px solid var(--border);">Value</th>
+                </tr></thead>
+                <tbody>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Connection Name</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>SAP_Table_Service_XX</code> (replace XX)</td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Base URL</td><td style="padding:8px 12px;border:1px solid var(--border);">The OData URL from Exercise 1</td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Authentication</td><td style="padding:8px 12px;border:1px solid var(--border);">Basic Auth</td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Username</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>BOOMI_WRKSHP</code></td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);">Password</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>Welcome1</code></td></tr>
+                </tbody>
+              </table>
+              <figure class="screenshot">
+                <img src="images/ex2/image04.png" alt="OData source connection form in BDI" loading="lazy">
+                <figcaption>Enter the SAP Table Service OData URL and basic auth credentials</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Click <strong>Test Connection</strong>. A successful test confirms BDI can reach your SAP Table Service. Click <strong>Save</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Create the flow -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 5</div>
+          <h1 class="step-title">Create the Source-to-Target Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Wire SAP as the source and Snowflake RAW as the target in a BDI flow.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the BDI left sidebar, click <strong>Create</strong> and choose <strong>Source to Target Flow</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex2/image05.png" alt="BDI Create menu with Source to Target Flow highlighted" loading="lazy">
+                <figcaption>Select Source to Target Flow from the Create menu</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>On the <strong>Source</strong> tab, select the <code>SAP_Table_Service_XX</code> connection you just created. BDI will load the available entities — you should see <code>SALES_ORDER_DW_XX</code> (the Table Service from Exercise 1). Select it.</p>
+              <figure class="screenshot">
+                <img src="images/ex2/image06.png" alt="Source tab showing the SAP Table Service entity selected" loading="lazy">
+                <figcaption>Select the SALES_ORDER_DW_XX entity as your source</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Switch to the <strong>Target</strong> tab. Select the <code>Snowflake_SAP_DW</code> connection. Under <strong>Data Loading Settings</strong>, set:</p>
+              <table style="width:100%;font-size:13px;border-collapse:collapse;margin-top:8px;">
+                <tbody>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);font-weight:600;">Database</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>SAP_DW_LAB</code></td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);font-weight:600;">Schema</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>RAW</code></td></tr>
+                  <tr><td style="padding:8px 12px;border:1px solid var(--border);font-weight:600;">Table Name</td><td style="padding:8px 12px;border:1px solid var(--border);"><code>SAP_SALES_ORDERS_RAW</code></td></tr>
+                </tbody>
+              </table>
+              <figure class="screenshot">
+                <img src="images/ex2/image07.png" alt="Target tab in BDI showing Snowflake SAP_DW_LAB.RAW configuration" loading="lazy">
+                <figcaption>Configure the Snowflake target: SAP_DW_LAB.RAW.SAP_SALES_ORDERS_RAW</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Go to <strong>Schedule &amp; Settings</strong>. Set Schedule to <strong>OFF</strong> (we'll run manually). Name the flow <code>sap-to-snowflake-raw-XX</code> and click <strong>Save</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Run & Verify -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 5</div>
+          <h1 class="step-title">Run the Flow and Verify in Snowflake</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Trigger the initial load and confirm the SAP data has landed in Snowflake.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Click <strong>Activate</strong> in the bottom-right corner of the flow editor. Wait for BDI to confirm activation.</p>
+              <figure class="screenshot">
+                <img src="images/ex2/image08.png" alt="Activate button in BDI flow editor" loading="lazy">
+                <figcaption>Click Activate to enable the flow</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Run Data Flow</strong>. Open the live run tree by clicking the monitor icon on the right. Watch the rows load — when you see a green checkmark and a row count next to <code>SAP_SALES_ORDERS_RAW</code>, the load is complete.</p>
+              <figure class="screenshot">
+                <img src="images/ex2/image09.png" alt="BDI run tree showing SAP_SALES_ORDERS_RAW with green checkmark and row count" loading="lazy">
+                <figcaption>A green checkmark and row count confirm a successful load</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Switch to your Snowflake tab. Open a Worksheet and run the query below to verify the data arrived correctly.</p>
+              <pre><code>SELECT
+    VBELN  AS order_number,
+    ERDAT  AS order_date,
+    KUNNR  AS customer_id,
+    NETWR  AS net_value,
+    WAERK  AS currency,
+    MATNR  AS material_number,
+    ARKTX  AS item_description,
+    KWMENG AS quantity,
+    KMEIN  AS unit
+FROM SAP_DW_LAB.RAW.SAP_SALES_ORDERS_RAW
+LIMIT 20;</code></pre>
+              <figure class="screenshot">
+                <img src="images/ex2/image10.png" alt="Snowflake query results showing SAP sales order rows" loading="lazy">
+                <figcaption>You should see SAP sales order rows in Snowflake</figcaption>
+              </figure>
+              <div class="callout tip" style="margin-top:16px;">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><strong>Exercise 2 complete!</strong> SAP sales order data is now in Snowflake. In Exercise 3 you'll transform it into structured fact and dimension tables.</div>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next Exercise &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-4">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reference: FedEx Net → Boomi MFT — FedEx Freight MFT — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .ref-table { width:100%; border-collapse:collapse; font-size:14px; margin:16px 0 32px; }
+  .ref-table th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+  .ref-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .ref-table tr:last-child td { border-bottom:none; }
+  .ref-table tr:nth-child(even) td { background:var(--surface); }
+  .pain-badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:700; margin-bottom:6px; }
+  .pain-high { background:#fee2e2; color:#b91c1c; }
+  .pain-med { background:#fef3c7; color:#92400e; }
+  .arch-row { display:flex; align-items:flex-start; gap:12px; padding:14px; border-bottom:1px solid var(--border); }
+  .arch-row:last-child { border-bottom:none; }
+  .arch-fedexnet { flex:1; padding:12px; background:#fef9c3; border-radius:6px; border:1px solid #fde047; font-size:13px; }
+  .arch-boomi { flex:1; padding:12px; background:#dcfce7; border-radius:6px; border:1px solid #86efac; font-size:13px; }
+  .arch-sep { display:flex; align-items:center; padding-top:12px; color:var(--text-muted); font-size:18px; font-weight:700; }
+  .arch-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); margin-bottom:4px; }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">FedEx Freight MFT — Reference</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Sections</span></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Contents</div>
+    <ul class="sidebar-nav" style="font-size:13px;">
+      <li><a href="#glossary" style="display:block;padding:8px 16px;color:var(--text-muted);text-decoration:none;border-radius:6px;">Terminology Glossary</a></li>
+      <li><a href="#arch-map" style="display:block;padding:8px 16px;color:var(--text-muted);text-decoration:none;border-radius:6px;">Architecture Mapping</a></li>
+      <li><a href="#pain-points" style="display:block;padding:8px 16px;color:var(--text-muted);text-decoration:none;border-radius:6px;">Pain Point Inventory</a></li>
+      <li><a href="#use-case-summary" style="display:block;padding:8px 16px;color:var(--text-muted);text-decoration:none;border-radius:6px;">Use Case Summary</a></li>
+      <li><a href="#pre-demo" style="display:block;padding:8px 16px;color:var(--text-muted);text-decoration:none;border-radius:6px;">Pre-Demo Checklist</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Reference page</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>For SE use</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+    <div class="step-content">
+
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+
+      <header class="step-header">
+        <div class="step-label">Reference Guide</div>
+        <h1 class="step-title">FedEx Net Terminology → Boomi MFT</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Complete glossary, architecture mapping, and pain point inventory from the FedEx Freight discovery session. Use this before the Wednesday workshop to speak their language.</p>
+      </header>
+
+      <!-- GLOSSARY -->
+      <h2 id="glossary" style="font-size:20px;font-weight:700;margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);">FedEx Net Terminology Glossary</h2>
+      <table class="ref-table">
+        <thead>
+          <tr><th style="width:22%">FedEx Net Term</th><th style="width:26%">Definition</th><th style="width:26%">Boomi MFT Equivalent</th><th>Notes from Discovery</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Trading Partner ID</strong></td>
+            <td>Unique identifier binding a sender/receiver pair in a flow. Controls which mailbox receives which files.</td>
+            <td>Organization pair + Virtual Folder namespace</td>
+            <td>Nicole explicitly said this is how the system knows which mailbox a file belongs to. Critical for the Invoice Image use case.</td>
+          </tr>
+          <tr>
+            <td><strong>Sender</strong></td>
+            <td>The system or user pushing files into FedEx Net. Has its own SFTP login credentials separate from Receiver.</td>
+            <td>Source Organization + SFTP credentials</td>
+            <td>Each sender has a unique login. The sender pushes into a specific mailbox by addressing to a Trading Partner ID.</td>
+          </tr>
+          <tr>
+            <td><strong>Receiver</strong></td>
+            <td>The system or user retrieving files from FedEx Net. Authenticates separately from the Sender.</td>
+            <td>Target Organization + SFTP user (scoped to Virtual Folder)</td>
+            <td>CDATA authenticates as a Receiver on port 60022 and GETs their files every 45–60 min.</td>
+          </tr>
+          <tr>
+            <td><strong>Destination</strong></td>
+            <td>A configured external SFTP endpoint. FedEx Net pushes files to this external server when the destination type is "remote server" (vs. "mailbox").</td>
+            <td>Target Organization SFTP endpoint</td>
+            <td>Used for Use Case 1 (Scotia Bank) and Use Case 2 (BofA, BNY Mellon, etc.). One destination entry per external server.</td>
+          </tr>
+          <tr>
+            <td><strong>Mailbox Flow</strong></td>
+            <td>A FedEx Net flow type where files are held in an intermediate store (mailbox) until the receiver pulls them.</td>
+            <td>Virtual Folder with SFTP GET access enabled</td>
+            <td>Used for Use Case 3 (Invoice Image). Receiver determines when to pick up files.</td>
+          </tr>
+          <tr>
+            <td><strong>Sequence Number</strong></td>
+            <td>A field in FedEx Net flow configuration. When set to a number, the flow is active. When blank, the flow is disabled.</td>
+            <td>Flow Active / Inactive toggle</td>
+            <td>Chastity mentioned this is how they enable/disable flows without deleting them. Easy to miss that a blank sequence = disabled flow.</td>
+          </tr>
+          <tr>
+            <td><strong>Application Type</strong></td>
+            <td>A file classification label assigned to a flow. Used for routing logic, audit trail labeling, and bypass rules.</td>
+            <td>File metadata tag / Flow routing rule</td>
+            <td>Each use case has its own Application Type (banking, HR, invoice). Affects how files are categorized in the View Log.</td>
+          </tr>
+          <tr>
+            <td><strong>View Log</strong></td>
+            <td>FedEx Net's audit trail for a specific file delivery. Shows the stages the file passed through and any errors.</td>
+            <td>Activity Log (Received → Validated → Processed → Delivered)</td>
+            <td>Nicole demonstrated this during the call — requires manual navigation to each queued file. Boomi surfaces this without clicking into individual records.</td>
+          </tr>
+          <tr>
+            <td><strong>Ab Initio</strong></td>
+            <td>A third-party managed file server service. Acts as an intermediary between Workday (SaaS) and FedEx Net. FedEx Net only sees Ab Initio as the sender.</td>
+            <td>External source Organization (SFTP push)</td>
+            <td>Workday cannot push directly to Boomi — it always goes through Ab Initio. Boomi accepts the push from Ab Initio exactly as FedEx Net does today.</td>
+          </tr>
+          <tr>
+            <td><strong>CDAS</strong></td>
+            <td>FedEx Freight's internal finance system. Generates the weekly banking file sent to Scotia Bank every Wednesday.</td>
+            <td>Source Organization (agent-based or watched directory)</td>
+            <td>Team does not have CDAS credentials for the POC — file source will be simulated manually in Wednesday's demo.</td>
+          </tr>
+          <tr>
+            <td><strong>Invoice Image</strong></td>
+            <td>Internal system that generates bills of lading PDFs. Acts as the sender for Use Case 3. Files up to 45–50GB.</td>
+            <td>Source Organization with Virtual Folder write access</td>
+            <td>Pushes into FedEx Net mailboxes. Hundreds of receivers pull on their own schedule.</td>
+          </tr>
+          <tr>
+            <td><strong>Port 60022</strong></td>
+            <td>Non-standard SFTP port used by FedEx Net for receiver pull access. Receivers must configure this port explicitly.</td>
+            <td>Standard SFTP port 22</td>
+            <td>Boomi uses standard port 22 — eliminates the need for custom firewall exceptions from every trading partner.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- ARCHITECTURE MAPPING -->
+      <h2 id="arch-map" style="font-size:20px;font-weight:700;margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);">Architecture Mapping</h2>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">High-level correspondence between FedEx Net architecture concepts and Boomi MFT. Use this to bridge terminology in front of Chastity and Nicole.</p>
+
+      <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:32px;">
+        <div style="display:grid;grid-template-columns:1fr 48px 1fr;gap:0;padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#92400e;">FedEx Net</div>
+          <div></div>
+          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#166534;">Boomi MFT</div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-fedexnet"><div class="arch-label">FedEx Net</div>Homegrown MFT system, hosted on-premises in DMZ. All config done through web UI.</div>
+          <div class="arch-sep">→</div>
+          <div class="arch-boomi"><div class="arch-label">Boomi MFT</div>Cloud-native MFT platform. On-prem Boomi MFT Runtime can also act as a DMZ component. Config done through MFT Control Plane.</div>
+        </div>
+        <div class="arch-row" style="background:var(--surface);">
+          <div class="arch-fedexnet"><div class="arch-label">FedEx Net</div>Destination: manual SFTP endpoint entry (host, port, path, public key) per trading partner.</div>
+          <div class="arch-sep">→</div>
+          <div class="arch-boomi"><div class="arch-label">Boomi MFT</div>Organization + SFTP endpoint. Credentials stored once in Boomi Secrets; reused across flows.</div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-fedexnet"><div class="arch-label">FedEx Net</div>Mailbox: intermediate store with Trading Partner ID isolation. Receiver pulls via SFTP on port 60022.</div>
+          <div class="arch-sep">→</div>
+          <div class="arch-boomi"><div class="arch-label">Boomi MFT</div>Virtual Folder: isolated namespace per partner. Receiver pulls via standard SFTP port 22.</div>
+        </div>
+        <div class="arch-row" style="background:var(--surface);">
+          <div class="arch-fedexnet"><div class="arch-label">FedEx Net</div>View Log: per-file audit trail. Navigate queue → select file → click View Log → read XML log.</div>
+          <div class="arch-sep">→</div>
+          <div class="arch-boomi"><div class="arch-label">Boomi MFT</div>Activity Log: Real-time feed (Received → Validated → Processed → Delivered). No manual navigation.</div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-fedexnet"><div class="arch-label">FedEx Net</div>Sequence number: blank = disabled, number = active. No retry on failure. Manual restart required.</div>
+          <div class="arch-sep">→</div>
+          <div class="arch-boomi"><div class="arch-label">Boomi MFT</div>Flow toggle + automatic retry. Failure triggers alert, not silence.</div>
+        </div>
+        <div class="arch-row" style="background:var(--surface);">
+          <div class="arch-fedexnet"><div class="arch-label">FedEx Net</div>Public key: stored per destination entry in UI. Rotation = re-enter through the same multi-step form.</div>
+          <div class="arch-sep">→</div>
+          <div class="arch-boomi"><div class="arch-label">Boomi MFT</div>SSH key stored in Boomi Secrets (per Organization).</div>
+        </div>
+      </div>
+
+      <!-- PAIN POINTS -->
+      <h2 id="pain-points" style="font-size:20px;font-weight:700;margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);">Pain Point Inventory</h2>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Captured directly from Chastity and Nicole in the discovery session. Reference these during the Wednesday workshop.</p>
+
+      <table class="ref-table">
+        <thead><tr><th style="width:30%">Pain Point</th><th style="width:10%">Severity</th><th style="width:28%">What They Said</th><th>Boomi Solution</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>17-click partner onboarding</strong></td>
+            <td><span class="pain-badge pain-high">High</span></td>
+            <td><em>"Can Boomi give us this in three clicks?"</em> — Chastity</td>
+            <td>New Organization + endpoint + flow addition = 3–5 clicks. Demonstrate live during Wednesday demo.</td>
+          </tr>
+          <tr>
+            <td><strong>No automatic retry</strong></td>
+            <td><span class="pain-badge pain-high">High</span></td>
+            <td>Files get stuck; team must manually identify and restart stuck transfers.</td>
+            <td>Automatic retry. Failed delivery triggers an alert with the error code, not silence.</td>
+          </tr>
+          <tr>
+            <td><strong>4–8 system bounces per day</strong></td>
+            <td><span class="pain-badge pain-high">High</span></td>
+            <td>Each bounce is 2–3 minutes of downtime. Files mid-transfer when the bounce occurs get stuck.</td>
+            <td>Boomi MFT 99.99% uptime SLA = ~8 min/year downtime. Cite this directly.</td>
+          </tr>
+          <tr>
+            <td><strong>Manual error diagnosis</strong></td>
+            <td><span class="pain-badge pain-med">Medium</span></td>
+            <td>Nicole demonstrated clicking through a queue, selecting each file, clicking View Log to find errors.</td>
+            <td>Activity Log surfaces errors at the flow level — no per-file navigation. Error code and timestamp visible immediately.</td>
+          </tr>
+          <tr>
+            <td><strong>No polling visibility</strong></td>
+            <td><span class="pain-badge pain-med">Medium</span></td>
+            <td>No way to know if CDATA last polled 5 minutes ago or 5 hours ago without checking logs manually.</td>
+            <td>Activity Log shows last pickup timestamp per Virtual Folder. SLA breach visibility out of the box.</td>
+          </tr>
+          <tr>
+            <td><strong>No self-service onboarding</strong></td>
+            <td><span class="pain-badge pain-med">Medium</span></td>
+            <td>Every new trading partner requires Nicole's team to manually create Trading Partner ID, logins, and keys.</td>
+            <td>Boomi Organization API allows programmatic onboarding. Partner portal capability (future state) enables self-service key upload.</td>
+          </tr>
+          <tr>
+            <td><strong>Non-standard port 60022</strong></td>
+            <td><span class="pain-badge pain-med">Medium</span></td>
+            <td>Every receiver needs a custom firewall rule for port 60022. Creates friction for new partner onboarding.</td>
+            <td>Standard SFTP port 22. No custom firewall requests from trading partners.</td>
+          </tr>
+          <tr>
+            <td><strong>VPN blocking POC access</strong></td>
+            <td><span class="pain-badge pain-high">High (POC-specific)</span></td>
+            <td>Recent VPN update blocks access to Boomi MFT cloud. IP whitelisting in progress.</td>
+            <td>IP whitelist in progress. Fallback: Boomi-hosted demo environment accessible without VPN.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- USE CASE SUMMARY -->
+      <h2 id="use-case-summary" style="font-size:20px;font-weight:700;margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);">Use Case Summary</h2>
+      <table class="ref-table">
+        <thead><tr><th>Use Case</th><th>Pattern</th><th>Source</th><th>Destination(s)</th><th>Frequency</th><th>File Size</th><th>Auth</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>1 — Banking</strong></td>
+            <td>Internal → External (1:1)</td>
+            <td>CDAS</td>
+            <td>Scotia Bank (SFTP)</td>
+            <td>Weekly (Wed 8–9 PM)</td>
+            <td>1–2 GB</td>
+            <td>SSH Public Key</td>
+          </tr>
+          <tr>
+            <td><strong>2 — HR / Workday</strong></td>
+            <td>Internal → External (1:Many)</td>
+            <td>Workday → Ab Initio</td>
+            <td>BofA, BNY Mellon, Nations Bank</td>
+            <td>Hourly</td>
+            <td>250 KB – 7 GB</td>
+            <td>SSH Public Key (per bank)</td>
+          </tr>
+          <tr>
+            <td><strong>3 — Invoice Image</strong></td>
+            <td>Internal → Internal (Mailbox/Pull)</td>
+            <td>Invoice Image system</td>
+            <td>CDATA + hundreds of receivers pull via SFTP GET</td>
+            <td>Receivers poll every 45–60 min</td>
+            <td>Up to 45–50 GB</td>
+            <td>Username/Password + SSH Key</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- PRE-DEMO CHECKLIST -->
+      <h2 id="pre-demo" style="font-size:20px;font-weight:700;margin:32px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--border);">Pre-Demo Checklist (Wednesday)</h2>
+
+      <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:32px;">
+        <div style="padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);">Confirm before the session</div>
+
+        <div id="checklist-items">
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>VPN / IP whitelist status — confirm Boomi MFT is accessible from FedEx Freight's network, or have Boomi-hosted fallback ready</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;background:var(--surface);">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Use Case 1: Create <code>CDAS-Finance</code> and <code>Scotia-Bank</code> Organizations in Boomi demo environment; configure SFTP endpoints with test credentials</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Use Case 2: Create <code>AbInitio-Workday</code>, <code>BofA-HR</code>, <code>BNY-Mellon-HR</code>, <code>Nations-Bank-HR</code> Organizations; build fan-out flow</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;background:var(--surface);">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Use Case 3: Create Virtual Folder for CDATA; create sender org (Invoice-Image); confirm isolation with two separate SFTP logins</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Prepare test files for each use case (any file, correctly named to match FedEx conventions is a bonus)</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;background:var(--surface);">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Prepare intentional failure scenario for the retry demo — broken SFTP credentials on one of three banking destinations</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Script the "click count" live demo — practice new partner onboarding under 5 clicks vs. FedEx Net's 17-step process</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:12px;padding:12px 16px;cursor:pointer;font-size:14px;background:var(--surface);">
+            <input type="checkbox" style="margin-top:2px;flex-shrink:0;">
+            <span>Verify Activity Log is visible and populated in the demo environment before Chastity and Nicole join</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;justify-content:flex-start;margin-top:8px;">
+        <a href="exercise-3.html" class="step-nav-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">← Use Case 3</a>
+        <a href="index.html" class="step-nav-btn primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Back to Overview</a>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<footer style="text-align:center;padding:24px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:40px;">
+  Created by Alexei Godek &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

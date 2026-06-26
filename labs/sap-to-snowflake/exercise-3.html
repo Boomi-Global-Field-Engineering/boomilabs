@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="sap-snowflake-ex3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 3 — Transform SAP Data into a Data Warehouse — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">SAP to Snowflake — Exercise 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 3 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add a SQL Transformation
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Build Fact &amp; Dim Tables
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Run the Full Pipeline
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Explore with Cortex AI
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~20 min</div>
+      <div class="meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Beginner</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: Overview -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+        <header class="step-header">
+          <div class="step-label">Exercise 3 — Overview</div>
+          <h1 class="step-title">Transform SAP Data into a Data Warehouse</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use a BDI SQL Transformation to reshape raw SAP data into analytics-ready fact and dimension tables, then explore with Snowflake Cortex.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:0 0 28px;">
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Duration</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">~20 minutes</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Steps</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">4 steps</div>
+          </div>
+          <div style="background:var(--primary-light);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--primary);font-weight:700;margin-bottom:4px;">Product</div>
+            <div style="font-size:15px;font-weight:700;color:var(--primary-dark);">BDI + Snowflake</div>
+          </div>
+        </div>
+
+        <h3>What you'll do</h3>
+        <p>The raw table you created in Exercise 2 (<code>SAP_SALES_ORDERS_RAW</code>) is a flat denormalized dump of SAP data — great for landing data quickly, but not ideal for analytics. In this exercise you'll add a <strong>SQL Transformation</strong> step to your BDI pipeline that runs push-down SQL directly inside Snowflake to build two proper data warehouse tables:</p>
+        <ul style="margin:16px 0 16px 20px;line-height:2;">
+          <li><strong>DW.FACT_SALES</strong> — one row per sales order line item with all measurable facts</li>
+          <li><strong>DW.DIM_CUSTOMER</strong> — one row per unique customer with descriptive attributes</li>
+        </ul>
+        <p>Finally, you'll use <strong>Snowflake Cortex AI</strong> to ask natural-language questions about the data you've built.</p>
+
+        <div class="callout info" style="margin-top:20px;">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><strong>Push-down SQL</strong> means BDI sends the SQL to Snowflake for execution rather than pulling data out and transforming it in BDI. This keeps large data sets inside the warehouse where they belong — fast and cost-efficient.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Add SQL Transformation -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 4</div>
+          <h1 class="step-title">Add a SQL Transformation to the Pipeline</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Open the flow from Exercise 2 and attach a SQL Transformation step.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In BDI, go to your <code>sap-to-snowflake-raw-XX</code> flow from Exercise 2 and click <strong>Edit</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>At the bottom of the flow editor, click <strong>+ Add Step</strong> and choose <strong>SQL Transformation</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex3/image01.png" alt="BDI flow editor with Add Step menu open, SQL Transformation highlighted" loading="lazy">
+                <figcaption>Click + Add Step → SQL Transformation</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>In the SQL Transformation settings, confirm the <strong>Connection</strong> is set to <code>Snowflake_SAP_DW</code> — this ensures the SQL runs inside Snowflake (push-down). Name the step <strong>Build DW Tables</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex3/image02.png" alt="SQL Transformation settings showing Snowflake_SAP_DW connection selected" loading="lazy">
+                <figcaption>Confirm the Snowflake connection is selected for push-down execution</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Build Fact & Dim tables -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 4</div>
+          <h1 class="step-title">Write the SQL for Fact and Dimension Tables</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Paste the transformation SQL into the BDI SQL editor.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>BDI's SQL Transformation step accepts multiple statements separated by semicolons. Both tables will be created (or replaced) in a single step execution.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the SQL editor, paste the following SQL. This creates the <strong>FACT_SALES</strong> table — one row per sales order line item.</p>
+              <pre><code>-- Fact table: one row per order line item
+CREATE OR REPLACE TABLE SAP_DW_LAB.DW.FACT_SALES AS
+SELECT
+    VBELN                        AS order_id,
+    POSNR                        AS line_item_id,
+    KUNNR                        AS customer_id,
+    MATNR                        AS material_id,
+    TO_DATE(ERDAT, 'YYYYMMDD')   AS order_date,
+    TRY_CAST(KWMENG AS FLOAT)    AS quantity,
+    KMEIN                        AS unit_of_measure,
+    TRY_CAST(NETWR AS FLOAT)     AS net_order_value,
+    WAERK                        AS currency,
+    VKORG                        AS sales_org,
+    VTWEG                        AS distribution_channel,
+    SPART                        AS division,
+    ARKTX                        AS item_description
+FROM SAP_DW_LAB.RAW.SAP_SALES_ORDERS_RAW
+WHERE VBELN IS NOT NULL;</code></pre>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Add a second statement (after a semicolon) to create the <strong>DIM_CUSTOMER</strong> dimension — one row per unique customer.</p>
+              <pre><code>-- Dimension table: one row per unique customer
+CREATE OR REPLACE TABLE SAP_DW_LAB.DW.DIM_CUSTOMER AS
+SELECT DISTINCT
+    KUNNR                        AS customer_id,
+    VKORG                        AS sales_org,
+    VTWEG                        AS distribution_channel,
+    SPART                        AS division
+FROM SAP_DW_LAB.RAW.SAP_SALES_ORDERS_RAW
+WHERE KUNNR IS NOT NULL;</code></pre>
+              <figure class="screenshot">
+                <img src="images/ex3/image03.png" alt="BDI SQL editor showing both CREATE OR REPLACE TABLE statements" loading="lazy">
+                <figcaption>Both SQL statements in the BDI SQL editor</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Click <strong>Validate SQL</strong>. BDI will connect to Snowflake and confirm there are no syntax errors. Then click <strong>Save</strong>.</p>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Run the full pipeline -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 4</div>
+          <h1 class="step-title">Run the Full Pipeline and Verify</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Trigger a fresh run that loads RAW then transforms into DW tables.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Click <strong>Run Data Flow</strong>. Open the live run tree. You should now see two steps:</p>
+              <ul style="margin:8px 0 8px 20px;line-height:2;">
+                <li>The source-to-target step loading <code>SAP_SALES_ORDERS_RAW</code></li>
+                <li>The <strong>Build DW Tables</strong> SQL transformation step</li>
+              </ul>
+              <p>Wait for both steps to show a green checkmark.</p>
+              <figure class="screenshot">
+                <img src="images/ex3/image04.png" alt="BDI run tree showing both steps completed with green checkmarks" loading="lazy">
+                <figcaption>Both pipeline steps complete successfully</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Switch to your Snowflake Worksheet and run the following to verify both DW tables were created:</p>
+              <pre><code>-- Check the fact table
+SELECT COUNT(*) AS total_line_items FROM SAP_DW_LAB.DW.FACT_SALES;
+
+-- Check the dimension table
+SELECT COUNT(*) AS unique_customers FROM SAP_DW_LAB.DW.DIM_CUSTOMER;
+
+-- Sample: top 5 customers by total order value
+SELECT
+    customer_id,
+    SUM(net_order_value) AS total_value,
+    currency
+FROM SAP_DW_LAB.DW.FACT_SALES
+GROUP BY customer_id, currency
+ORDER BY total_value DESC
+LIMIT 5;</code></pre>
+              <figure class="screenshot">
+                <img src="images/ex3/image05.png" alt="Snowflake query results showing row counts and top customers" loading="lazy">
+                <figcaption>Row counts confirm both tables were created and populated</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next &rarr;</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Cortex AI -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 4</div>
+          <h1 class="step-title">Explore with Snowflake Cortex AI</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Use natural language to ask questions about your SAP data warehouse.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In the Snowflake UI, click the <strong>Cortex AI</strong> icon (sparkle icon) in the left navigation, or navigate to <strong>AI &amp; ML → Cortex Analyst</strong>.</p>
+              <figure class="screenshot">
+                <img src="images/ex3/image06.png" alt="Snowflake left navigation with Cortex AI highlighted" loading="lazy">
+                <figcaption>Open Cortex AI from the left sidebar</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Point Cortex at your <code>SAP_DW_LAB.DW</code> schema and try the following natural-language questions:</p>
+              <div style="background:var(--primary-light);border-radius:var(--radius);padding:16px 20px;margin-top:8px;display:flex;flex-direction:column;gap:10px;">
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <span style="background:var(--primary);color:#fff;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;margin-top:2px;">Try it</span>
+                  <span style="font-size:14px;">"What are the top 10 customers by total sales value?"</span>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <span style="background:var(--primary);color:#fff;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;margin-top:2px;">Try it</span>
+                  <span style="font-size:14px;">"Show me monthly sales totals for this year."</span>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start;">
+                  <span style="background:var(--primary);color:#fff;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;white-space:nowrap;margin-top:2px;">Try it</span>
+                  <span style="font-size:14px;">"Which materials have the highest order quantities?"</span>
+                </div>
+              </div>
+              <figure class="screenshot">
+                <img src="images/ex3/image07.png" alt="Snowflake Cortex AI chat interface with a natural language query and chart result" loading="lazy">
+                <figcaption>Cortex AI translates natural language into SQL and renders results as charts</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <div class="callout tip">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div>
+                  <strong>Lab complete! 🎉</strong> You've built a full SAP-to-Snowflake data warehouse pipeline with Boomi:
+                  <ul style="margin-top:8px;">
+                    <li>Published a <strong>Table Service</strong> in Boomi for SAP exposing VBAK + VBAP sales data</li>
+                    <li>Used <strong>Boomi Data Integration</strong> to load that data into a Snowflake RAW schema</li>
+                    <li>Transformed the raw data into <strong>FACT_SALES</strong> and <strong>DIM_CUSTOMER</strong> tables using push-down SQL</li>
+                    <li>Explored the results with <strong>Snowflake Cortex AI</strong></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div style="margin-top:24px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;">
+                <h3 style="font-size:16px;margin-bottom:12px;">Next Steps</h3>
+                <ul style="line-height:2;font-size:14px;padding-left:20px;">
+                  <li>Schedule the BDI flow to run nightly for incremental SAP loads</li>
+                  <li>Add more SAP Table Services (e.g., customer master data from KNA1) to enrich <code>DIM_CUSTOMER</code></li>
+                  <li>Connect a BI tool like Tableau or Power BI to <code>SAP_DW_LAB.DW</code> for dashboarding</li>
+                  <li>Explore the <a href="../boomi-for-sap/index.html">Boomi for SAP Lab</a> to learn BAPI invocations and real-time events</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">&larr; Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Back to Lab Home</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+
+</body>
+</html>

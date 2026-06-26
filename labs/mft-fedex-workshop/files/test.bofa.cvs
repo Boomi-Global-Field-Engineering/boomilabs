@@ -1,0 +1,19 @@
+User Case :
+
+ Detect File arrival to File System regardless of MFT protocol - ignoring files ending in "part", "part1" "partn", on arrival and/or ignoring files still in transit , 
+  demonstrate each of the following , including logging and audit trails
+  move file to file share with success
+  move file to file share with failure - demonstrate SNMP Trapping
+  Invoke remote agent type transfer
+  Invoke transfer using SFTP Protocol
+  Invoke Transfer using Cloud connector
+
+Detect File arrival to File System regardless of MFT protocol - ignoring files ending in "part", "part1" "partn", on arrival , ignoring files still in transit
+  In additional to the above , create a companion file using the Original filename and appending ".cmp" , ie test.txt creates a .test.txt.cmp
+  This file will be in JSON Format
+  It will contain the file attributes with description fields
+    FileName
+    Last Modified Date / Last Modified time 
+    File Size
+    Transaction / Boomi reference that can be used in Audit logs to see all the logs for that transaction
+  Will send cmp file to either Rabbit or IBM Mq queue

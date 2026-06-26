@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internal to Internal (Invoice Image) — FedEx Freight MFT — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .mapping-table { width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .mapping-table th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+  .mapping-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .mapping-table tr:last-child td { border-bottom:none; }
+  .mapping-table tr:nth-child(even) td { background:var(--surface); }
+  .flow-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:20px 0; }
+  .flow-node { padding:12px 16px; border-radius:8px; font-weight:600; font-size:13px; text-align:center; min-width:110px; line-height:1.3; }
+  .flow-arrow { color:var(--text-muted); font-size:20px; font-weight:700; }
+  .flow-label { font-size:11px; color:var(--text-muted); text-align:center; margin-top:4px; font-weight:400; }
+  .quote-box { background:var(--surface); border-left:3px solid var(--primary); padding:14px 18px; border-radius:0 6px 6px 0; margin:12px 0; font-style:italic; font-size:14px; color:var(--text-muted); }
+  .quote-box cite { display:block; margin-top:6px; font-style:normal; font-size:12px; font-weight:600; color:var(--text); }
+  .demo-moment { padding:14px 18px; border-bottom:1px solid var(--border); }
+  .demo-moment:last-child { border-bottom:none; }
+  .demo-moment-alt { background:var(--surface); }
+  .vf-diagram { display:grid; grid-template-columns:1fr 2fr; gap:16px; margin:16px 0; }
+  .vf-left { display:flex; flex-direction:column; justify-content:center; gap:8px; }
+  .vf-right { border:2px dashed var(--border); border-radius:8px; padding:16px; background:var(--surface); }
+  .vf-folder { padding:8px 12px; border-radius:6px; font-size:13px; font-weight:600; margin:4px 0; display:flex; align-items:center; gap:8px; }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">FedEx Freight MFT — Use Case 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Use Case 3 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Current FedEx Net Setup</a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Boomi Virtual Folders</a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Demo &amp; Proof Points</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~25 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Advanced</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Back to Lab Overview</a>
+        <header class="step-header">
+          <div class="step-label">Use Case 3 — Overview</div>
+          <h1 class="step-title">Internal to Internal: Invoice Image &amp; Mailbox Distribution</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Invoice Image (bills of lading PDFs) pushes files into a FedEx Net mailbox. Hundreds of internal and external receivers pull their files via SFTP GET on port 60022. Files up to 45–50 GB.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Pattern</div>
+            <div style="font-size:14px;font-weight:700;">Mailbox / SFTP GET Pull</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Poll Interval</div>
+            <div style="font-size:14px;font-weight:700;">Every 45–60 min</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Max File Size</div>
+            <div style="font-size:14px;font-weight:700;">45–50 GB</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">SFTP Port</div>
+            <div style="font-size:14px;font-weight:700;">60022 (non-standard)</div>
+          </div>
+        </div>
+
+        <div class="quote-box">
+          "Invoice Image pushes files into our FedEx Net, and then CDATA — which is our receiver on the other end — comes and pulls those files out. They log in as that trading partner with a unique username and password, they do an SFTP GET on port 60022."
+          <cite>— Chastity (FedEx Freight MFT Lead)</cite>
+        </div>
+
+        <h3>Why This Use Case Is the Most Complex</h3>
+        <p>This use case introduces key concepts around <strong>Trading Partner ID</strong> (the key that ties sender to receiver in FedEx Net) and <strong>pull-based delivery</strong> (the sender deposits the file into a mailbox first, and the receiver collects it on their own schedule via SFTP GET). On the isolation front — Boomi MFT provides isolation of each source and target by default, so rather than being a new concept to configure, it is simply how the platform works out of the box.</p>
+        <p>The invoice files are bills of lading PDFs — enormous by file transfer standards (up to 45–50GB). This is also the only use case with hundreds of trading partners, making multi-tenant isolation the central architectural concern.</p>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><strong>Demo constraint:</strong> The 45–50GB file sizes make live end-to-end transfers impractical for a Wednesday demo. Focus on demonstrating the Virtual Folder isolation model and the login experience — use a small test file, explain the production sizing during the walkthrough.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Current FedEx Net Setup -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 3</div>
+          <h1 class="step-title">Current FedEx Net Setup</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">How FedEx Net implements mailbox isolation, trading partner identity, and pull-based distribution today.</p>
+        </header>
+
+        <h3>Current Architecture</h3>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;">
+          <div class="flow-row">
+            <div>
+              <div class="flow-node" style="background:#dbeafe;color:#1d4ed8;">Invoice Image<br><small style="font-weight:400">Internal Sender</small></div>
+              <div class="flow-label">Pushes bills of lading<br>PDFs into FedEx Net</div>
+            </div>
+            <div class="flow-arrow">→ SFTP Push →</div>
+            <div>
+              <div class="flow-node" style="background:#fef9c3;color:#854d0e;">FedEx Net<br><small style="font-weight:400">Mailbox (Trading Partner)</small></div>
+              <div class="flow-label">Files wait in<br>isolated mailbox</div>
+            </div>
+            <div class="flow-arrow">← SFTP GET ←</div>
+            <div>
+              <div class="flow-node" style="background:#f0fdf4;color:#166534;">CDATA / Receivers<br><small style="font-weight:400">Hundreds of partners</small></div>
+              <div class="flow-label">Each partner polls<br>port 60022 every 45–60 min</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;margin-bottom:0;"><strong>Key isolation:</strong> Each receiver logs in with a unique Trading Partner username. They can only see files in their own mailbox — not other partners' files.</p>
+        </div>
+
+
+        <h3>Key FedEx Net Concepts for This Flow</h3>
+        <table class="mapping-table">
+          <thead><tr><th>FedEx Net Concept</th><th>What It Is</th><th>How It Works</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Trading Partner ID</strong></td><td>Unique identifier for each sender/receiver pair</td><td>Ties a specific sender (Invoice Image) to a specific receiver (CDATA). The ID is set in the Sender field and matched on the Receiver side.</td></tr>
+            <tr><td><strong>Mailbox Flow</strong></td><td>A FedEx Net flow that uses a mailbox as the intermediate store</td><td>Files land in the mailbox and wait. Receiver pulls on their own schedule rather than being pushed to.</td></tr>
+            <tr><td><strong>Sender Login</strong></td><td>SFTP credentials for the sender (Invoice Image)</td><td>Invoice Image has its own login; it pushes files addressed to a specific receiver's mailbox</td></tr>
+            <tr><td><strong>Receiver Login</strong></td><td>SFTP credentials for each receiver (CDATA, etc.)</td><td>Separate username/password from the sender. Receiver authenticates to FedEx Net and pulls only their files.</td></tr>
+            <tr><td><strong>Port 60022</strong></td><td>Non-standard SFTP port used by FedEx Net</td><td>Standard SFTP is port 22. FedEx Net uses 60022 — receivers must configure this port explicitly in their SFTP clients.</td></tr>
+            <tr><td><strong>Application Type</strong></td><td>File classification label</td><td>For Invoice Image: set to "invoice" or equivalent. Used for routing rules and audit trail labeling.</td></tr>
+          </tbody>
+        </table>
+
+
+        <h3>Pain Points in This Flow</h3>
+        <ul>
+          <li><strong>Manual public key management:</strong> Nicole showed that each trading partner requires a separate public key entry in FedEx Net's UI. With hundreds of partners, this is a significant ongoing maintenance burden.</li>
+          <li><strong>Non-standard port exposure:</strong> Port 60022 is non-standard and requires firewall exceptions on the receiver side. Any receiver behind a strict firewall must whitelist this specific port.</li>
+          <li><strong>No self-service:</strong> Partners can't onboard themselves. Every new trading partner requires Nicole's team to manually create the Trading Partner ID, Sender/Receiver logins, and public key entries.</li>
+          <li><strong>No SLA visibility:</strong> There's no dashboard showing whether CDATA polled recently, whether files are waiting past their expected pickup window, or whether any partner's polling has gone silent.</li>
+        </ul>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Boomi Virtual Folders -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 3</div>
+          <h1 class="step-title">Boomi MFT: Virtual Folders</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Virtual Folders are Boomi's direct equivalent to FedEx Net's mailbox/trading partner isolation model — with a simpler configuration model and standard port 22.</p>
+        </header>
+
+        <h3>Virtual Folder Architecture</h3>
+        <p>A <strong>Virtual Folder</strong> in Boomi MFT is a namespace that maps to an isolated storage location. Each trading partner connects via standard SFTP on port 22 and authenticates with their own credentials. When they browse their folder, they see only files deposited to their namespace — they cannot list, access, or even detect the existence of other partners' files.</p>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;">
+          <p style="font-size:13px;font-weight:700;margin:0 0 12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;">Virtual Folder Isolation Model</p>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;">
+            <div style="display:flex;flex-direction:column;gap:6px;padding-right:16px;border-right:2px dashed var(--border);">
+              <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">SFTP Server (port 22)</div>
+              <div class="flow-node" style="background:#dbeafe;color:#1d4ed8;font-size:12px;padding:8px;">Invoice Image<br>logs in → pushes</div>
+              <div class="flow-node" style="background:#f0fdf4;color:#166534;font-size:12px;padding:8px;">CDATA<br>logs in → GETs</div>
+              <div class="flow-node" style="background:#fdf4ff;color:#7c3aed;font-size:12px;padding:8px;">Partner-B<br>logs in → GETs</div>
+              <div style="font-size:11px;color:var(--text-muted);text-align:center;margin-top:4px;">... hundreds of partners</div>
+            </div>
+            <div>
+              <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;font-weight:600;">Virtual Folders (each partner sees only theirs)</div>
+              <div class="vf-folder" style="background:#dbeafe;color:#1d4ed8;">/inbox/CDATA/ → Invoice files for CDATA only</div>
+              <div class="vf-folder" style="background:#fdf4ff;color:#7c3aed;">/inbox/PARTNER-B/ → Files for Partner B only</div>
+              <div class="vf-folder" style="background:#fef9c3;color:#854d0e;">/inbox/PARTNER-C/ → Files for Partner C only</div>
+              <p style="font-size:11px;color:var(--text-muted);margin:8px 0 0;">Isolation enforced at the filesystem layer — CDATA cannot traverse to /inbox/PARTNER-B/ even if they guess the path.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>FedEx Net → Boomi MFT: Mailbox / Pull Concept Mapping</h3>
+        <table class="mapping-table">
+          <thead><tr><th>FedEx Net Concept</th><th>Boomi MFT Equivalent</th><th>Key Difference</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mailbox Flow</strong></td><td>Virtual Folder with SFTP GET access</td><td>Same logical model; Boomi uses standard port 22 (not 60022)</td></tr>
+            <tr><td><strong>Trading Partner ID</strong></td><td>Organization + Virtual Folder path</td><td>The Trading Partner ID becomes the folder namespace; no separate ID system needed</td></tr>
+            <tr><td><strong>Sender Login</strong></td><td>Source Organization credentials</td><td>Invoice Image authenticates as a Boomi Organization; deposited files route to receiver namespaces automatically</td></tr>
+            <tr><td><strong>Receiver Login</strong></td><td>Partner SFTP user (scoped to their Virtual Folder)</td><td>Each partner gets their own SFTP user; filesystem isolation prevents cross-partner access</td></tr>
+            <tr><td><strong>Public Key per partner</strong></td><td>SSH key stored per Organization in Boomi</td><td>Centrally managed; no per-partner UI clicks required for key rotation</td></tr>
+            <tr><td><strong>Port 60022</strong></td><td>Standard SFTP port 22</td><td>Partners don't need custom port configurations; reduces firewall friction for new onboarding</td></tr>
+            <tr><td><strong>No polling visibility</strong></td><td>Activity Log shows last pickup per partner</td><td>Chastity can see which partners polled recently and which have files waiting beyond SLA</td></tr>
+          </tbody>
+        </table>
+
+
+        <h3>Configuration Steps for Wednesday Demo</h3>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Create an Organization named <code>CDATA</code>. Add an endpoint of type <strong>Thru SFTP</strong> and name it <strong>Outbound</strong>.</p>
+              <p style="margin-top:8px;">Create a second Organization named <code>Invoice-Image</code>. Add an endpoint of type <strong>Thru SFTP</strong> and name it <strong>Inbound</strong>.</p>
+              <p style="margin-top:8px;color:var(--text-muted);font-size:13px;font-style:italic;">Optional: configure SSH key auth on the Invoice-Image endpoint by uploading Invoice Image's public key.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>In <strong>Flow Studio</strong>, create a flow called <strong>Internal to Internal: Invoice Image &amp; Mailbox Distribution</strong>. Subscribe the two organizations to the flow and add the source (Invoice-Image → Inbound) and target (CDATA → Outbound) endpoints.</p>
+              <figure style="margin:12px 0 0;">
+                <img src="images/flow.gif" alt="Internal to Internal flow setup in Flow Studio" style="max-width:100%;border-radius:6px;border:1px solid var(--border);">
+              </figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Once added to the flow, each endpoint becomes an isolated <strong>flow endpoint</strong> — the source (Invoice-Image) is an isolated entry point and the target (CDATA) is an isolated exit point. No additional isolation configuration is required; this is how Boomi MFT works by default.</p>
+              <p style="margin-top:8px;">From within the <strong>Flow Endpoint Editor</strong>, you can optionally define <strong>Endpoint Source Paths</strong> (on the source) or <strong>Endpoint Target Paths</strong> (on the target) to control exactly where files are read from or written to within each organization's namespace.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body"><p>Connect using the Invoice Image SFTP credentials, or simulate with a manual UI upload and upload a file into the source.</p></div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body"><p><strong>Isolation demo</strong> <em style="color:var(--text-muted);font-size:13px;">(time permitting)</em><strong>:</strong> Log in as the CDATA partner. Navigate the virtual folder — show the file is present. Then demonstrate that attempting to access another partner's path returns "Permission denied" or shows an empty directory.</p>
+              <p style="margin-top:8px;font-size:13px;color:var(--text-muted);">Note: to demonstrate cross-partner isolation, a second organization will need to be added to the flow beforehand to provide a second isolated exit point to compare against.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body"><p>Show the <strong>Activity Log</strong> for the CDATA virtual folder — file Received → Delivered (picked up). Point out the timestamp: this is how Chastity can tell when CDATA last pulled and whether SLA is being met.</p></div>
+          </li>
+        </ol>
+
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Demo & Proof Points -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 3</div>
+          <h1 class="step-title">Demo &amp; Proof Points</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The moments that show Boomi's Virtual Folder model is a direct replacement for FedEx Net's mailbox/trading partner system — with standard ports and zero manual key management.</p>
+        </header>
+
+        <h3>Key Demo Moments</h3>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;">
+          <div class="demo-moment demo-moment-alt">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Isolation Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Log in as two different trading partner accounts in separate browser tabs. Show that Partner A sees their files; Partner B sees their files. Then show Partner A's SFTP session cannot navigate to Partner B's path. This is the multi-tenant isolation model they rely on today — and Boomi delivers it natively.</p>
+          </div>
+          <div class="demo-moment">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The Port 22 Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">FedEx Net uses port 60022 — a non-standard port. Boomi MFT uses standard SFTP port 22, which is simpler for trading partners to configure. However, it is worth noting that all inbound SFTP/FTPS connections to Boomi MFT still require IP allowlisting — a support ticket is raised to add a trading partner's static public IP. This is a one-time process per partner and is handled by the Boomi MFT team, not by FedEx Freight's internal IT. The key difference vs. FedEx Net is that partners connect on standard port 22 rather than a custom port requiring their own firewall exceptions.</p>
+          </div>
+          <div class="demo-moment demo-moment-alt">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The SLA Visibility Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">Nicole said there's no dashboard today to see if CDATA has polled recently. In Boomi, there are two places this is visible. The <strong>Activity dashboard</strong> captures all file transfers in real time. Beyond that, the <strong>Audit Log</strong> (Admin → Audit Log) records every user action across the system — including when a partner logs in via SFTP, which is captured as a security event (Login Success/Failed). This means Chastity can see not just whether files were delivered, but whether CDATA actually connected — providing a complete picture of partner activity without digging through raw logs.</p>
+          </div>
+          <div class="demo-moment">
+            <div style="font-weight:700;margin-bottom:4px;">🎯 The 50GB File Size Moment</div>
+            <p style="margin:0;font-size:14px;color:var(--text-muted);">You can't demo a 45GB file on Wednesday — but you can say: "You mentioned bills of lading up to 45–50GB. Boomi MFT is tested for files of this size with no special configuration. The same Virtual Folder setup you're looking at right now handles 50MB or 50GB with identical config."</p>
+          </div>
+        </div>
+
+        <h3>Discovery Questions Still Open</h3>
+        <ul>
+          <li>How many trading partners currently exist in FedEx Net for the Invoice Image flow? (estimate for onboarding scope)</li>
+          <li>Does CDATA poll on a fixed 45-minute schedule, or is it variable? Is there a downstream SLA CDATA is trying to meet?</li>
+          <li>Are receivers internal-only (FedEx Freight employees) or a mix of internal + external trading partners?</li>
+          <li>Who sets up new trading partners today — Nicole's team, or does Invoice Image team manage their own onboarding?</li>
+          <li>Are there any trading partners that push files back (bidirectional), or is this strictly pull-only for receivers?</li>
+        </ul>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Continue to the Reference page</strong> — complete glossary mapping FedEx Net terminology to Boomi MFT, plus a full pain point inventory. Use this before the Wednesday workshop to speak FedEx Freight's language.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>Mark complete</button>
+          <a href="exercise-4.html" class="step-nav-btn primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Reference →</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="text-align:center;padding:24px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:40px;">
+  Created by Alexei Godek &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
