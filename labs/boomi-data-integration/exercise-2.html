@@ -63,28 +63,23 @@
       <header class="step-header"><div class="step-label">Step 2 of 3</div><h1 class="step-title">Create the Salesforce &rarr; Snowflake Flow</h1></header>
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p>Click <strong>Create &rarr; Source to Target Flow</strong>. Search for <strong>Salesforce</strong> and choose the <strong>Salesforce (Legacy) </strong>option.</p>
-          <div class="callout warning"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div>Due to authentication limitations in this lab environment, use the Salesforce (Legacy) connector. In production you would use the standard OAuth connector.</div></div>
+          <p>Click <strong>Create &rarr; Source to Target Flow</strong>. Search for <strong>Salesforce</strong> and choose the <strong>Salesforce </strong>option. From the connection dropdown, choose the <strong>Salesforce</strong> connection if not already selected.</p>
 			<figure class="screenshot"><img src="images/ex2/image02.png" alt="Source selection — Salesforce"></figure>
-			<p>In the Source tab, check the <strong>Include Deleted Rows</strong> box.</p>
 		</div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
-            <p>Navigate to the <strong>Target</strong> tab. Choose <strong>Snowflake</strong> and your Exercise 0 connection. Set Database to <code>BDI_LAB</code> and Schema to <code>RAW</code>.</p>
+            <p>Navigate to the <strong>Select Data Target</strong> tab. Choose <strong>Snowflake</strong> and your Exercise 0 connection. Set Database to <code>BDI_LAB</code> and Schema to <code>RAW</code>.</p>
 			<figure class="screenshot"><img src="images/ex2/image03.png" alt="Source tab with Include Deleted Rows checked"></figure>
         </div></li>
         <li><div class="instruction-num">3</div><div class="instruction-body">
-            <p>Navigate to the <strong>Schema</strong> tab. Select: <strong>Account</strong>, <strong>Opportunity</strong>, <strong>Contact</strong>.</p>
+            <p>Navigate to the <strong>Configure Schema</strong> tab. For the extraction mode, select <strong>Bulk API.</strong> Next you'll see a list of Salesforce entities. Select: <strong>Account</strong>, <strong>Opportunity</strong>, <strong>Contact</strong>.</p>
 			<figure class="screenshot"><img src="images/ex2/image04.png" alt="Target tab — Snowflake BDI_LAB.RAW"></figure>
         </div></li>
         <li><div class="instruction-num">4</div><div class="instruction-body">
-          <p>Click into <strong>Opportunity &rarr; Table Settings</strong>. Set Extraction Method to <strong>Incremental</strong> and Start Date to <strong>January 1, 2022</strong>. Leave End Date empty.</p>
+          <p>On the <strong>Opportunity</strong> entity, set the Extract Method to <strong>Incremental</strong> with <strong>systemmodstamp</strong> as the incremental field.and Start Date to <strong>January 1, 2022</strong>. Leave End Date empty.</p>
             <figure class="screenshot"><img src="images/ex2/image05.png" alt="Opportunity incremental extraction settings"></figure>
-            <figure class="screenshot"><img src="images/ex2/image06.png" alt="Date range — Jan 1, 2022 start"></figure>
-          <p>Click <strong>All Tables</strong> to return to the entity list and confirm all three are checked.</p>
-            <figure class="screenshot"><img src="images/ex2/image07.png" alt="Schema tab — 3 entities selected"></figure>
         </div></li>
         <li><div class="instruction-num">5</div><div class="instruction-body">
-          <p>Navigate to <strong>Settings</strong>. Name the flow <strong>bdi-lab-salesforce-snowflake</strong> and click <strong>Save</strong>.</p>
+          <p>Navigate to the <strong>Sechedule and Settings</strong> tab. Name the flow <strong>bdi-lab-salesforce-snowflake</strong> and click <strong>Activate</strong> to activate the data flow.</p>
         </div></li>
       </ol>
         <nav class="step-nav">
@@ -98,7 +93,7 @@
       <header class="step-header"><div class="step-label">Step 3 of 3</div><h1 class="step-title">Run &amp; Verify</h1></header>
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p>Click <strong>Run</strong> at the bottom of the screen. Open the <strong>Activities</strong> screen and wait for all three tables to show green check marks.</p>
+          <p>After the activation process, click <strong>Run Data Flow</strong> at the bottom of the screen. Open the <strong>Activities</strong> screen and wait for all three tables to show green check marks.</p>
             <figure class="screenshot"><img src="images/ex2/image08.png" alt="Run tree — Salesforce tables loading"></figure>
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
