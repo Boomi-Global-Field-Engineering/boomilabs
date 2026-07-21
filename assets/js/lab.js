@@ -24,6 +24,23 @@
   var state = loadState();
   var nextExerciseHref = document.documentElement.dataset.nextExerciseHref || null;
   var finishHref = document.documentElement.dataset.finishHref || 'index.html';
+  var gaStarted = false;
+
+  // Fire a GA4 page_view for a step. Skips the initial render (the gtag
+  // 'config' call in analytics.js already counts that), so we only send
+  // events for user-driven step changes — the per-step tracking GA4's
+  // Enhanced Measurement history tracking misses for hash navigation.
+  function trackStep(idx) {
+    if (!gaStarted) { gaStarted = true; return; }
+    if (typeof window.gtag !== 'function') return;
+    var page = pages[idx];
+    var titleEl = page && page.querySelector('.step-title');
+    var stepTitle = titleEl ? titleEl.textContent.trim() : ('Step ' + idx);
+    window.gtag('event', 'page_view', {
+      page_title: document.title + ' — ' + stepTitle,
+      page_location: location.origin + location.pathname + '#step-' + idx
+    });
+  }
 
   // Get the nav buttons from the currently active page
   function activePage() { return pages[currentStep]; }
@@ -62,6 +79,7 @@
 
     updateMarkDoneBtn();
     updateProgress();
+    trackStep(idx);
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     if (pushHistory) history.pushState({ step: idx }, '', '#step-' + idx);

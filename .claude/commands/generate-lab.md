@@ -177,6 +177,7 @@ For each exercise, generate `labs/<lab-id>/exercise-N.html` following **exactly*
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{step_title} — {lab_title} — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
 </head>
 <body>
 
@@ -304,7 +305,7 @@ Create `labs/<lab-id>/index.html` following the pattern of `labs/boomi-for-sap/i
 - Prerequisites section — include any prerequisite block from the document (look for `h2` with text "Prerequisites" or "Before you begin")
 - Lab Details aside — products covered (from metadata `Product`), integration patterns (from metadata `Tags`), total duration, level
 
-Asset paths use `../../assets/...`.
+Asset paths use `../../assets/...`. Include `<script src="../../assets/js/analytics.js"></script>` before `</head>` on the index page too (every page on the site carries the shared Google Analytics loader).
 
 ### 7 — Update the catalog `index.html`
 
@@ -365,6 +366,7 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>"
 Before reporting done, verify:
 
 - [ ] Every exercise file has a `<script src="../../assets/js/lab.js"></script>` at end of body
+- [ ] Every page (index + exercises) has `<script src="../../assets/js/analytics.js"></script>` in `<head>`
 - [ ] `data-lab-id` attribute on `<html>` matches `exercise-N`
 - [ ] Each `.step-page` has a unique `id="page-K"`
 - [ ] Nav buttons exist on every page (`id="prevBtn"`, `id="markDoneBtn"`, `id="nextBtn"`)
