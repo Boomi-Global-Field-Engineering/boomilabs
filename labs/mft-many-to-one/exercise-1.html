@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Configure the MFT Flow — Many to One — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
-<script src="../../assets/js/analytics.js"></script>
 </head>
 <body>
 
@@ -377,10 +376,17 @@
             <div class="instruction-body">
               <p>Repeat steps 1–2 for <strong>Partner 2</strong> and <strong>Partner 3</strong>.</p>
               <p>Once all three partners have been added, the Source window in Flow Studio should display all three source endpoints.</p>
-              <figure class="screenshot"><img src="images/image32.png" alt="Source window showing all three partner endpoints"></figure>
+              <figure class="screenshot"><img src="images/sources-partners.png" alt="Source window showing all three partner endpoints"></figure>
             </div>
           </li>
         </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Rename your flow endpoints now.</strong> By default, flow endpoints inherit the endpoint name (e.g. <code>23700: SFTP Server</code>). Rename them to <code>P1</code>, <code>P2</code>, and <code>P3</code> — this makes the target path mapping in the next step much easier to follow. To rename, click the three-dot menu next to each endpoint and select <strong>Edit</strong>.
+          <figure class="screenshot" style="margin-top:14px;"><img src="images/sources-renamed.png" alt="Source window with flow endpoints renamed to P1, P2, P3"></figure>
+          </div>
+        </div>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
@@ -428,7 +434,7 @@
             <div class="instruction-num">3</div>
             <div class="instruction-body">
               <p>Flow Studio should now show a source side with three partner endpoints and a target side with the headquarters endpoint.</p>
-              <figure class="screenshot"><img src="images/image15.png" alt="Flow Studio showing three sources and one target"></figure>
+              <figure class="screenshot"><img src="images/sources-targets-renamed.png" alt="Flow Studio showing three sources and one target"></figure>
             </div>
           </li>
         </ol>
@@ -483,7 +489,7 @@
                 <li>Partner 2 → <code>/Partner2</code></li>
                 <li>Partner 3 → <code>/Partner3</code></li>
               </ul>
-              <figure class="screenshot"><img src="images/image38.png" alt="Source-to-target path mappings for all three partners"></figure>
+              <figure class="screenshot"><img src="images/path-mappings.png" alt="Source-to-target path mappings for all three partners"></figure>
             </div>
           </li>
           <li>
@@ -501,7 +507,7 @@
             <div class="instruction-num">10</div>
             <div class="instruction-body">
               <p>Return to the main Flow Studio view and click <strong>View and Push Changes</strong> to publish and activate the flow.</p>
-              <figure class="screenshot"><img src="images/image9.png" alt="View and Push Changes button in Flow Studio"></figure>
+              <figure class="screenshot"><img src="images/push.gif" alt="View and Push Changes button in Flow Studio"></figure>
             </div>
           </li>
         </ol>
@@ -562,7 +568,7 @@
             <div class="instruction-num">3</div>
             <div class="instruction-body">
               <p>Open FileZilla and go to <strong>File &gt; Import</strong>. Select the exported XML file. FileZilla will automatically create connection entries for all source and target endpoints.</p>
-              <figure class="screenshot"><img src="images/image16.png" alt="FileZilla — imported connection entries"></figure>
+              <figure class="screenshot"><img src="images/filezilla-import.png" alt="FileZilla — imported connection entries"></figure>
             </div>
           </li>
           <li>
@@ -570,7 +576,7 @@
             <div class="instruction-body">
               <p>Connect as one of the partner source users and upload a test file. Once uploaded, return to the AFT portal and navigate to the <strong>Activity</strong> dashboard.</p>
               <p>You will see the uploaded file listed. Notice its status shows <strong>Ready for Download</strong> — this means it has been routed to the correct target folder, but the headquarters user has not yet retrieved it.</p>
-              <figure class="screenshot"><img src="images/image29.png" alt="Activity dashboard — file routed, status: Ready for Download"></figure>
+              <figure class="screenshot"><img src="images/activity-routed.png" alt="Activity dashboard — file routed, status: Ready for Download"></figure>
             </div>
           </li>
           <li>
@@ -583,14 +589,14 @@
             <div class="instruction-num">6</div>
             <div class="instruction-body">
               <p>Refresh the Activity view in the portal. The status should now show <strong>Completed</strong>.</p>
-              <figure class="screenshot"><img src="images/image19.png" alt="Activity dashboard — status updated to Completed"></figure>
+              <figure class="screenshot"><img src="images/activity-completed.png" alt="Activity dashboard — status updated to Completed"></figure>
             </div>
           </li>
           <li>
             <div class="instruction-num">7</div>
             <div class="instruction-body">
               <p>Click the word <strong>Completed</strong> next to the target entry. This opens the <strong>Transfer Status Details</strong> panel, which shows the complete lifecycle of the file — from upload through routing to delivery and download.</p>
-              <figure class="screenshot"><img src="images/image6.png" alt="Transfer Status Details — full file lifecycle"></figure>
+              <figure class="screenshot"><img src="images/transfer-status-details.png" alt="Transfer Status Details — full file lifecycle"></figure>
             </div>
           </li>
         </ol>
@@ -604,7 +610,7 @@
             <div class="instruction-num">1</div>
             <div class="instruction-body">
               <p>Navigate to your flow in Flow Studio. In the blue <strong>Source</strong> window, click the three-dot menu (⋯) on one of the partner source endpoints and select <strong>Upload Files</strong>.</p>
-              <figure class="screenshot"><img src="images/image17.png" alt="Source endpoint — three-dot menu — Upload Files"></figure>
+              <figure class="screenshot"><img src="images/upload-files-menu.png" alt="Source endpoint — three-dot menu — Upload Files"></figure>
             </div>
           </li>
           <li>
@@ -618,7 +624,7 @@
             <div class="instruction-num">3</div>
             <div class="instruction-body">
               <p>Navigate to the <strong>Activity</strong> dashboard to review the transfer. The Transfer Status Details will show that the file was uploaded manually and record the full lifecycle including routing and delivery.</p>
-              <figure class="screenshot"><img src="images/image18.png" alt="Activity dashboard — manual upload transfer details"></figure>
+              <figure class="screenshot"><img src="images/transfer-status-ui-upload.png" alt="Activity dashboard — manual upload transfer details"></figure>
             </div>
           </li>
         </ol>
