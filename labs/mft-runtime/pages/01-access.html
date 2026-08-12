@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get into your lab environment &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item active" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:10%;"></div></div>
+  <div class="progress-label">Phase 1 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">1</div>
+    <div>
+      <h1>Get into your lab environment</h1>
+      <p class="phase-desc">Every registered workshop user gets a temporary, pre-configured VM &mdash; no local software to install, no infrastructure to request.</p>
+      <span class="phase-time">&#9200; ~3 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Log in to your Amazon WorkSpaces environment</h4>
+        <p>Go to:</p><pre class="code">https://appstream2.us-east-1.aws.amazon.com/userpools#/signin?ref=7nLyvX7ryL</pre><p>Enter the email and password from your registration email and select <strong>Log in</strong>. WorkSpaces gives you a clean Windows desktop in the browser, in the cloud &mdash; this is where you'll do all of the install and testing work below.</p><figure class="shot">
+      <img src="../assets/img/01_workspaces_login.jpg" alt="Amazon WorkSpaces Applications login page" loading="lazy">
+      <figcaption>Amazon WorkSpaces Applications login page</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Choose your catalog</h4>
+        <p>After logging in, you'll be asked to choose a catalog. Select <strong>MFTLabs-Boomi4SAP-Stack</strong> &mdash; not <code>field_engineering_stack</code>. Once you select it, an application picker appears below it on the same page.</p><figure class="shot">
+      <img src="../assets/img/01c_choose_catalog.jpg" alt="Choose your catalog — select MFTLabs-Boomi4SAP-Stack, not field_engineering_stack" loading="lazy">
+      <figcaption>Choose your catalog — select MFTLabs-Boomi4SAP-Stack, not field_engineering_stack</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Choose your application to get started</h4>
+        <p>Below the catalog picker, select <strong>Desktop</strong> (not chrome). This launches your full Windows desktop, which is where you'll do the rest of this lab.</p><figure class="shot">
+      <img src="../assets/img/01b_choose_application_desktop.jpg" alt="Choose your application to get started — select Desktop" loading="lazy">
+      <figcaption>Choose your application to get started — select Desktop</figcaption>
+    </figure>
+      </div>
+    </div>
+  </div>
+  <div class="callout highlight">
+      <div class="callout-title">Following this outside a workshop?</div>
+      <div class="callout-body">This guide assumes the pre-provisioned workshop VM and account. If you're doing this on your own instead:<ul style='margin:8px 0 0; padding-left:20px;'><li>You'll need a machine with <strong>Windows installed</strong> &mdash; the install steps in this lab are Windows-specific.</li><li>You'll need your own Boomi MFT account. Workshop participants get one pre-provisioned automatically (check your inbox for a registration email) &mdash; everyone else can sign up for a <a href='https://boomi.com/form/boomi-mft-trial/' target='_blank' rel='noopener'>Boomi MFT trial</a> first.</li></ul></div>
+    </div>
+</section>
+<div class="pager">
+  <a href="index.html">&larr; Overview</a>
+  <div class="spacer"></div>
+  <a class="primary" href="02-login.html">2. Log in to Boomi MFT &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

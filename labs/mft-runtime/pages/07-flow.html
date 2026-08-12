@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build the LAN-to-LAN flow &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item active" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:70%;"></div></div>
+  <div class="progress-label">Phase 7 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">7</div>
+    <div>
+      <h1>Build the LAN-to-LAN flow</h1>
+      <p class="phase-desc">Now we will connect the endpoint to a flow by subscribing the organization. Once subscribed we can add the endpoint as a Source and as a Target, simulating a LAN to LAN workflow. This shows how the local runtime can move the file without the file ever leaving the local network, but orchestrated by the cloud.</p>
+      <span class="phase-time">&#9200; ~5 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Select Flows and add the Runtime endpoint to Source and Target</h4>
+        <p>In the left nav, select <strong>Flows</strong>, then <strong>Add Flow</strong> and name it <em>LAN-to-LAN</em>.</p><figure class="shot">
+      <img src="../assets/img/22a_flows_list_empty.gif" alt="Creating the LAN-to-LAN flow and adding the Runtime endpoint to Source and Target" loading="lazy">
+      <figcaption>Creating the LAN-to-LAN flow and adding the Runtime endpoint to Source and Target</figcaption>
+    </figure><p>Subscribe your organization to the flow, then open it in <strong>Flow Studio</strong>. A LAN-to-LAN flow has two panels: a blue <strong>Source</strong> panel and a green <strong>Target</strong> panel.</p><ul><li>In the blue Source panel, click <strong>Add Flow Endpoint</strong>, select your Runtime endpoint, then click <strong>Add Flow Endpoint</strong> again to confirm.</li><li>In the green Target panel, click <strong>Add Flow Endpoint</strong>, select the same Runtime endpoint, then click <strong>Add Flow Endpoint</strong> again to confirm.</li></ul>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Configure the Source flow endpoint</h4>
+        <p>Click on the Source flow endpoint, then scroll to the bottom of the Flow Endpoint Editor &mdash; you'll see <strong>Endpoint Source Paths</strong>. The <strong>Endpoint File Share Path</strong> is already defined with the root path you set on the endpoint.</p><p>Update the <strong>Flow Endpoint Source Path</strong> by adding <code>Source</code> &mdash; the subfolder you created earlier with the test file &mdash; then click <strong>Save Changes</strong>.</p><figure class="shot">
+      <img src="../assets/img/24_flow_endpoint_config.jpg" alt="Endpoint Source Paths editor with Flow Endpoint Source Path set to /Source" loading="lazy">
+      <figcaption>Endpoint Source Paths editor with Flow Endpoint Source Path set to /Source</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Configure the Target flow endpoint the same way</h4>
+        <p>Repeat for the target side, pointing it at your <code>Target</code> subfolder. Both directions use the same runtime and the same File Share Endpoint &mdash; they're just two independent flow endpoints.</p><p>Before you click Save Changes, click <strong>Schedule</strong> at the top of the Flow Endpoint Editor, and change the schedule from <em>Continuously</em> to <strong>On Arrival</strong>. Then click <strong>Save Changes</strong>.</p><figure class="shot">
+      <img src="../assets/img/23_flow_source_target_added.jpg" alt="Flow Endpoint Editor Schedule tab, set to On Arrival" loading="lazy">
+      <figcaption>Flow Endpoint Editor Schedule tab, set to On Arrival</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Push your changes</h4>
+        <p>To make this flow live you need to push the changes. You should see <strong>No Pending Changes</strong> and a confirmation that your changes were pushed successfully.</p><figure class="shot">
+      <img src="../assets/img/25_flow_pushed_success.gif" alt="Pushing flow changes and confirming No Pending Changes" loading="lazy">
+      <figcaption>Pushing flow changes and confirming No Pending Changes</figcaption>
+    </figure>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<div class="pager">
+  <a href="06-endpoint.html">&larr; 6. Create a File Share Endpoint</a>
+  <div class="spacer"></div>
+  <a class="primary" href="08-test.html">8. Trigger the flow and verify the transfer &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

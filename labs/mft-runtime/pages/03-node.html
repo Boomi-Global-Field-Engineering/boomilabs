@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create your Organization and Runtime (Node) &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item active" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:30%;"></div></div>
+  <div class="progress-label">Phase 3 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">3</div>
+    <div>
+      <h1>Create your Organization and Runtime (Node)</h1>
+      <p class="phase-desc">Nothing is pre-created for you here &mdash; you'll set up your own Organization and your own Thru Node, exactly as a customer would during a POC.</p>
+      <span class="phase-time">&#9200; ~5 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Create your Organization</h4>
+        <p>From the <strong>Organizations</strong> list, select <strong>Add Organization</strong>, give it a name (for example, your own name or team), and save.</p><figure class="shot">
+      <img src="../assets/img/03a_add_organization.jpg" alt="Organizations list with Add Organization button" loading="lazy">
+      <figcaption>Organizations list with Add Organization button</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Open your new Organization and go to Thru Nodes</h4>
+        <p>"Thru Node" is the name you'll see in the app &mdash; it's the same thing as the MFT Runtime. From your Organization's Properties page, select <strong>Thru Nodes</strong> in the left nav.</p><figure class="shot">
+      <img src="../assets/img/06_org_thru_nodes_list.jpg" alt="Organization Properties page with Thru Nodes selected in the left nav" loading="lazy">
+      <figcaption>Organization Properties page with Thru Nodes selected in the left nav</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Add a Thru Node</h4>
+        <p>Give it a name (for example, <em>yourname-Runtime</em>) and save.</p><figure class="shot">
+      <img src="../assets/img/03b_add_thru_node.jpg" alt="Add Thru Node form with Thru Node Name field" loading="lazy">
+      <figcaption>Add Thru Node form with Thru Node Name field</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Open your node</h4>
+        <p>Select your new node to view its properties and Node Key. The <strong>Download Thru Node</strong> button is at the top of this page, next to Save and Delete.</p><figure class="shot">
+      <img src="../assets/img/07_node_properties.jpg" alt="Thru Node properties page" loading="lazy">
+      <figcaption>Thru Node properties page</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Click Download Thru Node</h4>
+        <p>This opens an install popup containing a ready-to-run PowerShell command, pre-filled with your node's unique key &mdash; no manual configuration required. Use the copy icon on the right-hand side of the script box to copy the whole command in one click.</p><figure class="shot">
+      <img src="../assets/img/08_download_thru_node_popup.jpg" alt="Thru Node Installation popup with PowerShell install command" loading="lazy">
+      <figcaption>Thru Node Installation popup with PowerShell install command</figcaption>
+    </figure>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<div class="pager">
+  <a href="02-login.html">&larr; 2. Log in to Boomi MFT</a>
+  <div class="spacer"></div>
+  <a class="primary" href="04-install.html">4. Install and start the runtime &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

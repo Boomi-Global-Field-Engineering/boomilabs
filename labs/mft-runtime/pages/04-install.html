@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Install and start the runtime &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item active" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:40%;"></div></div>
+  <div class="progress-label">Phase 4 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">4</div>
+    <div>
+      <h1>Install and start the runtime</h1>
+      <p class="phase-desc">In a real customer environment this step needs local admin rights (to register a Windows Scheduled Task that keeps the runtime alive). Your workshop VM doesn't give you admin rights &mdash; and that's fine. We'll skip the scheduled task and start the runtime manually instead.</p>
+      <span class="phase-time">&#9200; ~10 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Open Windows PowerShell</h4>
+        <p>From the Start menu, open <strong>Windows PowerShell</strong>.</p><figure class="shot">
+      <img src="../assets/img/09_start_menu_powershell.jpg" alt="Opening Windows PowerShell from the Start menu" loading="lazy">
+      <figcaption>Opening Windows PowerShell from the Start menu</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Paste and run the install command</h4>
+        <p>Paste the full command copied from the Download Thru Node popup and press Enter. It downloads the runtime, unpacks it, and starts asking you a few setup questions.</p><figure class="shot">
+      <img src="../assets/img/10_paste_install_script.jpg" alt="Install command pasted and running in PowerShell" loading="lazy">
+      <figcaption>Install command pasted and running in PowerShell</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Answer the install/temp/log directory prompts</h4>
+        <p>The script asks for three locations &mdash; you can accept the suggested defaults by pressing Enter for each:</p><ul><li>Install directory (where the runtime files land)</li><li>Temp repository (working directory for in-flight files)</li><li>Log directory (where runtime logs are written)</li></ul><figure class="shot">
+      <img src="../assets/img/11_script_prompts_paths.jpg" alt="Script prompting for install, temp, and log directory paths" loading="lazy">
+      <figcaption>Script prompting for install, temp, and log directory paths</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Skip the Windows Scheduled Task prompt</h4>
+        <p>Next, the script asks which user should run the Windows Scheduled Task that keeps the runtime alive. This requires admin rights you don't have in the lab &mdash; <strong>press Ctrl+C to cancel this last part of setup</strong> and move on. The scheduled task is a production convenience, not a requirement for this workshop.</p><figure class="shot">
+      <img src="../assets/img/12_skip_scheduled_task.jpg" alt="Cancelling the scheduled task setup step with Ctrl+C" loading="lazy">
+      <figcaption>Cancelling the scheduled task setup step with Ctrl+C</figcaption>
+    </figure><div class="callout tip">
+      <div class="callout-title">Why this is safe to skip</div>
+      <div class="callout-body">In production, the Scheduled Task restarts the runtime automatically every minute. In this lab you'll start it manually with <code>launcher.ps1</code> instead &mdash; same runtime, just no auto-restart.</div>
+    </div>
+      </div>
+    </div><div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Review the installed folder structure</h4>
+        <p>Navigate into your install directory. By default, PowerShell opens in <code>C:\Windows\system32</code> &mdash; type the following to change to the runtime directory:</p><pre class="code">cd ..\..\Thru\TNQLKDNA\</pre><p>Then list its contents. You'll see the versioned runtime folder, <code>appsettings.json</code>, <code>launcher.ps1</code>, <code>NLog.config</code>, and the <code>version</code> file.</p><figure class="shot">
+      <img src="../assets/img/13_installed_folder_listing.jpg" alt="Installed runtime folder structure (ls of the install directory)" loading="lazy">
+      <figcaption>Installed runtime folder structure (ls of the install directory)</figcaption>
+    </figure><p class="muted">The folder name here (<code>TNQLKDNA</code>) is this node's own key &mdash; yours will be a different string. If your folder name doesn't match this screenshot, that's expected; it's tied to your own node, not a fixed value.</p>
+      </div>
+    </div><div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h4>Start the runtime with launcher.ps1</h4>
+        <p>From inside the install directory, run:</p><pre class="code">.\launcher.ps1</pre><p>This is the same script a Scheduled Task would normally run automatically &mdash; here, you're running it yourself.</p><figure class="shot">
+      <img src="../assets/img/14_run_launcher.jpg" alt="Running launcher.ps1 to start the node" loading="lazy">
+      <figcaption>Running launcher.ps1 to start the node</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h4>Confirm the node is starting</h4>
+        <p>You'll see the Thru Node banner and startup log lines, including its version number.</p><figure class="shot">
+      <img src="../assets/img/15_node_starting_banner.jpg" alt="Node startup banner and log" loading="lazy">
+      <figcaption>Node startup banner and log</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <h4>Confirm the node is running and connected</h4>
+        <p>Look for <code>Application started. Press Ctrl+C to shut down</code> and log lines about consuming node requests &mdash; this confirms the runtime is live and talking to the MFT cloud.</p><figure class="shot">
+      <img src="../assets/img/16_node_running_confirmed.jpg" alt="Confirmation that the runtime is running and connected" loading="lazy">
+      <figcaption>Confirmation that the runtime is running and connected</figcaption>
+    </figure><div class="callout note">
+      <div class="callout-title">Verify the heartbeat</div>
+      <div class="callout-body">Back in the MFT app, refresh your Thru Nodes list. Within a few minutes you should see a green heartbeat indicator &mdash; that's your confirmation the install succeeded and the runtime is checking in with the cloud.</div>
+    </div><figure class="shot">
+      <img src="../assets/img/16b_heartbeat_green.jpg" alt="Thru Nodes list showing a green Last HeartBeat Time for Workshop-Runtime" loading="lazy">
+      <figcaption>Thru Nodes list showing a green Last HeartBeat Time for Workshop-Runtime</figcaption>
+    </figure><div class="callout important">
+      <div class="callout-title">Never run the .exe directly</div>
+      <div class="callout-body">If a Scheduled Task is enabled, starting the executable by hand creates two competing processes fighting over the same node key. Since we skipped the Scheduled Task in this lab, <code>launcher.ps1</code> is your only way to start (or restart) the node &mdash; just re-run it if the window closes.</div>
+    </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<div class="pager">
+  <a href="03-node.html">&larr; 3. Create your Organization and Runtime (Node)</a>
+  <div class="spacer"></div>
+  <a class="primary" href="05-folders.html">5. Create your test folders and files &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

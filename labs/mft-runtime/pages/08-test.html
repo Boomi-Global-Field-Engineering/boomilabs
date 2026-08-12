@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigger the flow and verify the transfer &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item active" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:80%;"></div></div>
+  <div class="progress-label">Phase 8 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">8</div>
+    <div>
+      <h1>Trigger the flow and verify the transfer</h1>
+      <p class="phase-desc">Every external flow endpoint has a manual trigger &mdash; use it the first time you set up a new flow so you don't have to wait on a schedule to confirm everything works.</p>
+      <span class="phase-time">&#9200; ~5 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Open the Actions menu on your Source flow endpoint</h4>
+        <p>Select the <strong>&vellip;</strong> action icon next to your Source endpoint and choose <strong>Run Flow Endpoint Now</strong>.</p><figure class="shot">
+      <img src="../assets/img/28_action_run_flow_endpoint_now.jpg" alt="Actions menu with Run Flow Endpoint Now option" loading="lazy">
+      <figcaption>Actions menu with Run Flow Endpoint Now option</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Confirm the trigger was accepted</h4>
+        <p>You'll see a toast confirming the request was sent to the runtime.</p><figure class="shot">
+      <img src="../assets/img/29_run_request_sent_toast.jpg" alt="Confirmation toast: request sent to run flow endpoint" loading="lazy">
+      <figcaption>Confirmation toast: request sent to run flow endpoint</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Watch the runtime process it live</h4>
+        <p>Flip back to your PowerShell window running <code>launcher.ps1</code> &mdash; you'll see live log lines as the runtime picks up the file, sends it through the flow, and releases the lock once the transfer completes.</p><figure class="shot">
+      <img src="../assets/img/30_runtime_log_transfer.jpg" alt="Runtime log showing the transfer being processed" loading="lazy">
+      <figcaption>Runtime log showing the transfer being processed</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Check the Activity page in MFT</h4>
+        <p>Go to the <strong>Activity</strong> dashboard. You should see <code>test_file.txt</code> with a status of <strong>Completed</strong>. Expand the Source row so the Target is also displayed.</p><figure class="shot">
+      <img src="../assets/img/31_activity_completed.jpg" alt="Activity dashboard with the Source row expanded, showing both Source and Target as Completed" loading="lazy">
+      <figcaption>Activity dashboard with the Source row expanded, showing both Source and Target as Completed</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Open the transfer for full detail</h4>
+        <p>In the <strong>Last State Update</strong> column, click on <strong>Completed</strong> for the Target row. This shows the complete file history &mdash; source transfer, source processing, source delete (remember: the runtime copies, then deletes the original only after processing succeeds), target processing, and target transfer, each timestamped.</p><figure class="shot">
+      <img src="../assets/img/32_transfer_status_details.jpg" alt="Transfer Status Details showing the full file history" loading="lazy">
+      <figcaption>Transfer Status Details showing the full file history</figcaption>
+    </figure><div class="callout tip">
+      <div class="callout-title">You're done!</div>
+      <div class="callout-body">If your test_file.txt shows up in the Target folder on disk and the Activity log shows Completed on both sides, your runtime, endpoint, and flow are all working correctly end to end.</div>
+    </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<div class="pager">
+  <a href="07-flow.html">&larr; 7. Build the LAN-to-LAN flow</a>
+  <div class="spacer"></div>
+  <a class="primary" href="09-sftp-exercise.html">9. Bonus exercise: push files to an external SFTP server &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

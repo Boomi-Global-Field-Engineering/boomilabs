@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concepts, FAQ & Checklist &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item active" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">&#9737;</div>
+    <div>
+      <h1>Concepts, FAQ &amp; checklist</h1>
+      <p class="phase-desc">The mental model behind everything you just did, plus reference material.</p>
+    </div>
+  </div>
+
+  <div class="callout tip" style="max-width:760px; margin-top:22px;">
+    <div class="callout-title">You just did in under an hour what used to take days</div>
+    <div class="callout-body">No VM request tickets, no waiting on a customer's IT team &mdash; you stood up a runtime, wired it into a flow, and proved a real file transfer end to end. That's the exact setup step that used to stall POC engagements. Bring this same pattern into a live customer environment and you're already past the slowest part.</div>
+  </div>
+
+  <h2 style="font-size:18px; margin-top:30px;">Concepts recap</h2>
+  <p style="font-size:13.6px; color:#333; max-width:760px; margin-top:10px;">An <strong>Organization</strong> is the top-level container holding your <strong>Endpoints</strong> (the sources/targets, like your File Share). Your <strong>Runtime</strong> is assigned to those endpoints to physically pick up or deliver files. The runtime always initiates the connection outward as a client &mdash; it never accepts inbound connections, which is why only one outbound port (443) is ever required.</p>
+  <div class="concepts"><div class="concept-card"><h4>Cloud &harr; Runtime (inbound/outbound)</h4><p>The most common pattern. A file is staged in the MFT cloud and the runtime pulls it down, or the runtime picks up a local file and pushes it to the cloud for a partner to collect. The cloud is the intermediary.</p></div><div class="concept-card"><h4>LAN to LAN</h4><p>The runtime moves a file from one local location to another entirely within your network, without the file ever touching the MFT cloud. Useful for sensitive files or when egress cost is a concern. This is the pattern you just built.</p></div><div class="concept-card"><h4>Direct delivery / fan-out</h4><p>The runtime picks up one source file and delivers it simultaneously to multiple external destinations, each with its own independent processing &mdash; common in manufacturing, retail, and supply chain scenarios.</p></div></div>
+
+  <h2 id="faq" style="font-size:18px; margin-top:38px;">Frequently asked questions</h2>
+  <div style="margin-top:10px;"><div class="faq"><div class="faq-q">Why does the runtime copy files instead of moving them?</div><div class="faq-a">During a transfer the runtime may need to process the file (encrypt, compression). It keeps the original in place until processing completes, so if something goes wrong your original file is still safe.</div></div><div class="faq"><div class="faq-q">What is the heartbeat, and why does it matter?</div><div class="faq-a">It's a recurring API call the runtime sends to the cloud every few minutes to say "I'm still here." If no heartbeat arrives within 5 minutes, an alert fires. A green heartbeat is your confirmation the install succeeded.</div></div><div class="faq"><div class="faq-q">Can two runtimes talk directly to each other?</div><div class="faq-a">No. Runtimes never connect to each other directly &mdash; every transfer between two runtimes goes through the MFT cloud. The runtime always initiates the connection outward; it's a client, never a server.</div></div><div class="faq"><div class="faq-q">What ports does the runtime need?</div><div class="faq-a">By default just one: 443 outbound. But if you need the runtime to talk directly to other external SFTP, FTPS, or even FTP servers, you may need to open other ports that those servers require. No inbound firewall rules are ever required, because the runtime always initiates the connection to the cloud.</div></div></div>
+
+  <h2 style="font-size:18px; margin-top:38px;">Appendix: Pre-installation checklist</h2>
+  <p style="font-size:13.6px; color:#444; margin-top:8px;">For reference &mdash; this is what a customer environment needs before a real (non-workshop) install. Most of this is already handled for you on the workshop VM.</p>
+  <div class="checklist-grid"><div class="checklist-group"><h4>System &amp; access</h4><ul><li>OS version confirmed and supported</li><li>PowerShell 5.1 or later confirmed (Windows only)</li><li>Admin user account identified</li><li>Permission to create a Scheduled Task confirmed (Windows only)</li></ul></div><div class="checklist-group"><h4>Network</h4><ul><li>Port 443 outbound confirmed open with network/firewall team</li><li>Proxy settings documented, if applicable</li></ul></div><div class="checklist-group"><h4>Linux configuration</h4><ul><li>SystemD or CronTab decided (SystemD recommended &mdash; Linux only)</li></ul></div><div class="checklist-group"><h4>Storage planning</h4><ul><li>Installation drive and path decided</li><li>Temp repository drive and path decided (separate drive recommended)</li><li>Log folder location decided</li><li>Available disk space calculated (at least 2x peak transfer load)</li><li>Flow endpoint volume estimated, if high volume</li></ul></div></div>
+  <div class="callout tip" style="margin-top:18px; max-width:760px;">
+    <div class="callout-title">Tip</div>
+    <div class="callout-body">Store your temp repository on a separate physical drive from your installation directory in production. This prevents storage contention during high-volume transfers.</div>
+  </div>
+</section>
+<div class="pager">
+  <a href="09-sftp-exercise.html">&larr; 9. Bonus exercise: push files to an external SFTP server</a>
+  <div class="spacer"></div>
+  <a class="primary" href="../index.html">Back to overview</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

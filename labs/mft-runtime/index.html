@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overview &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="hero">
+  <div class="hero-sphere" style="width:260px;height:260px; top:-110px; right:-50px;"></div>
+  <div class="hero-sphere" style="width:110px;height:110px; top:40px; right:200px;"></div>
+  <img class="logo" src="assets/img/boomi-logo-white.png" alt="Boomi">
+  <div class="eyebrow">MFT Runtime Workshop &middot; Tech Lab Exercise</div>
+  <h1>Install &amp; test the MFT Runtime (Thru Node)</h1>
+  <p class="subtitle">A hands-on, step-by-step lab for installing the Boomi MFT Runtime on a pre-provisioned workshop VM, and running a real LAN-to-LAN file transfer end to end &mdash; no customer infrastructure required.</p>
+  <div class="meta">
+    <div><span>Audience:</span> POC &amp; workshop participants</div>
+    <div><span>Estimated time:</span> ~40 min core lab &middot; +15 min bonus exercise</div>
+  </div>
+</div>
+
+<div class="intro-block">
+  <div class="intro-grid">
+    <div class="card-box">
+      <h3>Why this lab exists</h3>
+      <p>POC engagements were losing days waiting on customers to provision a VM just to test the MFT Runtime. This lab pairs a hands-on exercise with an on-demand, pre-provisioned VM so you can go from zero to a working, tested runtime in under an hour &mdash; no IT ticket required.</p>
+      <p>You'll create an Organization and a Runtime, install it, configure a File Share Endpoint, build a LAN-to-LAN flow, and prove a file moves end to end &mdash; the exact pattern used in real customer POCs.</p>
+    </div>
+    <div class="card-box accent">
+      <h3>What you'll need</h3>
+      <ul>
+        <li>Your workshop registration email (WorkSpaces + MFT credentials)</li>
+        <li>It's useful to have already preset your MFT password before the workshop starts</li>
+        <li>About 30&ndash;45 minutes, uninterrupted</li>
+        <li>No admin rights required &mdash; the lab is designed around that constraint</li>
+      </ul>
+      <p style="font-size:12.3px; margin-top:14px; padding:12px 14px; border-left:4px solid #E8A800; background:#FFF8DE; border-radius:8px; color:#332b00;">
+        <strong style="color:#332b00;">Not at a workshop?</strong> You'll need a machine with Windows installed, plus your own Boomi MFT account &mdash; sign up for a <a href="https://boomi.com/form/boomi-mft-trial/" target="_blank" rel="noopener" style="color:#7a5b00; font-weight:600; text-decoration:underline;">Boomi MFT trial</a>. Workshop participants get an account pre-provisioned automatically &mdash; check your inbox for a registration email.
+      </p>
+    </div>
+  </div>
+  <div class="patterns"><div class="pattern-card"><h4>Cloud &harr; Runtime (inbound/outbound)</h4><p>The most common pattern. A file is staged in the MFT cloud and the runtime pulls it down, or the runtime picks up a local file and pushes it to the cloud for a partner to collect. The cloud is the intermediary.</p></div><div class="pattern-card"><h4>LAN to LAN</h4><p>The runtime moves a file from one local location to another entirely within your network, without the file ever touching the MFT cloud. Useful for sensitive files or when egress cost is a concern. This is the pattern you just built.</p></div><div class="pattern-card"><h4>Direct delivery / fan-out</h4><p>The runtime picks up one source file and delivers it simultaneously to multiple external destinations, each with its own independent processing &mdash; common in manufacturing, retail, and supply chain scenarios.</p></div></div>
+</div>
+
+<div class="section-heading">Lab phases</div>
+<div class="phase-grid"><a class="phase-card" href="pages/01-access.html">
+    <div class="num">1</div>
+    <div><h4>Get into your lab environment <span class="card-time">~3 min</span></h4><p>Every registered workshop user gets a temporary, pre-configured VM &amp;mdash; no local software to install, no in&hellip;</p></div>
+  </a><a class="phase-card" href="pages/02-login.html">
+    <div class="num">2</div>
+    <div><h4>Log in to Boomi MFT <span class="card-time">~5 min</span></h4><p>Standard login, done inside your WorkSpaces browser session.</p></div>
+  </a><a class="phase-card" href="pages/03-node.html">
+    <div class="num">3</div>
+    <div><h4>Create your Organization and Runtime (Node) <span class="card-time">~5 min</span></h4><p>Nothing is pre-created for you here &amp;mdash; you'll set up your own Organization and your own Thru Node, exactl&hellip;</p></div>
+  </a><a class="phase-card" href="pages/04-install.html">
+    <div class="num">4</div>
+    <div><h4>Install and start the runtime <span class="card-time">~10 min</span></h4><p>In a real customer environment this step needs local admin rights (to register a Windows Scheduled Task that k&hellip;</p></div>
+  </a><a class="phase-card" href="pages/05-folders.html">
+    <div class="num">5</div>
+    <div><h4>Create your test folders and files <span class="card-time">~3 min</span></h4><p>The runtime needs somewhere on disk to watch for files. We'll create a simple Source/Target folder pair and a &hellip;</p></div>
+  </a><a class="phase-card" href="pages/06-endpoint.html">
+    <div class="num">6</div>
+    <div><h4>Create a File Share Endpoint <span class="card-time">~4 min</span></h4><p>Think of the File Share Endpoint as the door to your runtime's file system &amp;mdash; it tells Boomi MFT where th&hellip;</p></div>
+  </a><a class="phase-card" href="pages/07-flow.html">
+    <div class="num">7</div>
+    <div><h4>Build the LAN-to-LAN flow <span class="card-time">~5 min</span></h4><p>Now we will connect the endpoint to a flow by subscribing the organization. Once subscribed we can add the end&hellip;</p></div>
+  </a><a class="phase-card" href="pages/08-test.html">
+    <div class="num">8</div>
+    <div><h4>Trigger the flow and verify the transfer <span class="card-time">~5 min</span></h4><p>Every external flow endpoint has a manual trigger &amp;mdash; use it the first time you set up a new flow so you d&hellip;</p></div>
+  </a><a class="phase-card" href="pages/09-sftp-exercise.html">
+    <div class="num">9</div>
+    <div><h4>Bonus exercise: push files to an external SFTP server <span class="card-time">~15 min &middot; optional</span></h4><p>The LAN-to-LAN flow keeps everything local. This exercise points your runtime at a real external SFTP server i&hellip;</p></div>
+  </a><a class="phase-card" href="pages/10-resources.html">
+    <div class="num">&#9737;</div>
+    <div><h4>Concepts, FAQ &amp; checklist</h4><p>Reference material and the pre-installation checklist.</p></div>
+  </a></div>
+
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+</body>
+</html>

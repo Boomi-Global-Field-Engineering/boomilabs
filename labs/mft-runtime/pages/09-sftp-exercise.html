@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bonus exercise: push files to an external SFTP server &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item active" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:90%;"></div></div>
+  <div class="progress-label">Phase 9 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">9</div>
+    <div>
+      <h1>Bonus exercise: push files to an external SFTP server</h1>
+      <p class="phase-desc">The LAN-to-LAN flow keeps everything local. This exercise points your runtime at a real external SFTP server instead, so you can test the pattern most POCs actually care about: getting files off the customer's network and out to a partner.</p>
+      <span class="phase-time">&#9200; ~15 min &middot; optional</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Create a second Organization and an External SFTP endpoint</h4>
+        <p>To keep this exercise realistic, we'll model the external server as belonging to a different company. Go to <strong>Organizations</strong>, add a new org called <em>Partner</em>, then go into it and add an <strong>Endpoint</strong>. Give it a name (for example <em>EXT SFTP</em>) and leave it enabled.</p><figure class="shot">
+      <img src="../assets/img/33_new_ext_endpoint_empty.gif" alt="Creating the Partner organization and adding an EXT SFTP endpoint under it" loading="lazy">
+      <figcaption>Creating the Partner organization and adding an EXT SFTP endpoint under it</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Set the type and connection details</h4>
+        <p>Set <strong>Type</strong> to <em>External SFTP</em>, then fill in the connection details.</p><p>For this workshop, use the following values:</p><ul><li><strong>Host:</strong> <code>us-ftpsbx-02.thruinc.net</code></li><li><strong>Port:</strong> <code>22</code></li><li><strong>User:</strong> <code>mft-file-share-demo.boomi.com\nodeworkshop</code></li><li><strong>Auth Type:</strong> <code>User Password</code></li><li><strong>Password:</strong> will be provided live in the workshop</li></ul><p>Once the credentials are set correctly, use <strong>Test Connection</strong> to validate before saving.</p><figure class="shot">
+      <img src="../assets/img/34_ext_sftp_form_filled.jpg" alt="External SFTP endpoint filled in with the workshop Host, Port, User, and Auth Type" loading="lazy">
+      <figcaption>External SFTP endpoint filled in with the workshop Host, Port, User, and Auth Type</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Create a new flow for this pattern</h4>
+        <p>Create a second flow (for example <em>LAN-to-EXT</em>) separate from your LAN-to-LAN flow, so the two tests never collide.</p><p>Subscribe the two organizations, then add the runtime's File Share endpoint as the <strong>Source</strong> and your new org's External SFTP endpoint as the <strong>Target</strong>.</p><figure class="shot">
+      <img src="../assets/img/35_new_flow_created.gif" alt="Creating the LAN-to-EXT flow and subscribing both organizations" loading="lazy">
+      <figcaption>Creating the LAN-to-EXT flow and subscribing both organizations</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Use a dedicated source folder</h4>
+        <p>To keep this test independent of your LAN-to-LAN flow, create a new subfolder (for example <code>Partner</code>) alongside your existing <code>Source</code>/<code>Target</code> folders, and point this flow's source at it instead of reusing the original <code>Source</code> folder.</p><figure class="shot">
+      <img src="../assets/img/38_mkdir_lan_source.jpg" alt="Home Folder showing Source, Target, and the new Partner subfolder" loading="lazy">
+      <figcaption>Home Folder showing Source, Target, and the new Partner subfolder</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Update Source Flow Endpoint Path</h4>
+        <p>Back in the flow, open the Source flow endpoint and scroll to the bottom to set the <strong>Endpoint Source Paths</strong>. In the <strong>Flow Endpoint Source Path</strong> field, set <code>/Partner</code> and click <strong>Save Changes</strong>.</p><figure class="shot">
+      <img src="../assets/img/36_flow_sources_targets_configured.jpg" alt="Endpoint Source Paths editor with Flow Endpoint Source Path set to /Partner" loading="lazy">
+      <figcaption>Endpoint Source Paths editor with Flow Endpoint Source Path set to /Partner</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h4>Set the remote target path</h4>
+        <p>Open the Target flow endpoint's configuration and, under <strong>Endpoint Target Paths</strong>, enter the folder path on the <em>remote</em> SFTP server where files should land, which for this workshop will be <code>/SHARED/NodeWorkshop</code>.</p><figure class="shot">
+      <img src="../assets/img/36b_flow_endpoint_editor_target.jpg" alt="Target flow endpoint configuration for the External SFTP endpoint" loading="lazy">
+      <figcaption>Target flow endpoint configuration for the External SFTP endpoint</figcaption>
+    </figure><figure class="shot">
+      <img src="../assets/img/37_endpoint_target_path_shared.jpg" alt="Endpoint Target Paths set to /SHARED/NodeWorkshop" loading="lazy">
+      <figcaption>Endpoint Target Paths set to /SHARED/NodeWorkshop</figcaption>
+    </figure><p>Also go to the <strong>Schedule</strong> tab and change the schedule to <strong>On Arrival</strong>, then click <strong>Save Changes</strong>.</p><figure class="shot">
+      <img src="../assets/img/37b_flow_endpoint_editor_schedule.jpg" alt="Flow Endpoint Editor Schedule tab, set to On Arrival" loading="lazy">
+      <figcaption>Flow Endpoint Editor Schedule tab, set to On Arrival</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h4>Create unique source file and then push changes so the flow is live</h4>
+        <p>Back in Windows Explorer, in the <code>Partner</code> folder, create a new file named with your actual name and today's date (for example <code>YourName_Date</code>) &mdash; this keeps your test file unique on a shared external server.</p><figure class="shot">
+      <img src="../assets/img/38b_create_unique_source_file.jpg" alt="Creating a uniquely named test file inside the Partner folder" loading="lazy">
+      <figcaption>Creating a uniquely named test file inside the Partner folder</figcaption>
+    </figure><p>Then switch back to MFT and click <strong>View and Push Changes</strong> (Flow is unpublished) to make this flow live.</p>
+      </div>
+    </div><div class="step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <h4>Trigger the source Flow Endpoint manually and view the result in Activity</h4>
+        <p>Use <strong>Run Flow Endpoint Now</strong> on the Source flow endpoint, just like before.</p><figure class="shot">
+      <img src="../assets/img/38c_ext_run_flow_endpoint_now.jpg" alt="Actions menu with Run Flow Endpoint Now selected for the LAN-to-EXT flow" loading="lazy">
+      <figcaption>Actions menu with Run Flow Endpoint Now selected for the LAN-to-EXT flow</figcaption>
+    </figure><p>Then monitor the <strong>Activity</strong> dashboard to see the result.</p><figure class="shot">
+      <img src="../assets/img/38d_ext_activity_completed.jpg" alt="Activity dashboard showing Source and Target both Completed, with the file delivered to /SHARED/NodeWorkshop/YourName_Date.txt" loading="lazy">
+      <figcaption>Activity dashboard showing Source and Target both Completed, with the file delivered to /SHARED/NodeWorkshop/YourName_Date.txt</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">9</div>
+      <div class="step-content">
+        <h4>Final step &amp;mdash; Transfer Status Details</h4>
+        <p>Make sure you can see the Source and Target in the <strong>Activity</strong> dashboard. On the right-hand side, click on <strong>Completed</strong> to open the Transfer Status Details.</p><figure class="shot">
+      <img src="../assets/img/40_ext_transfer_status_details.jpg" alt="Transfer Status Details showing the full Source and Target file history for the LAN-to-EXT transfer" loading="lazy">
+      <figcaption>Transfer Status Details showing the full Source and Target file history for the LAN-to-EXT transfer</figcaption>
+    </figure>
+      </div>
+    </div>
+  </div>
+  <div class="callout note">
+      <div class="callout-title">Going the other direction</div>
+      <div class="callout-body">This exercise pushes files out to the external server. To pull files in instead, add the same External SFTP endpoint as a <strong>Source</strong> in a flow (with your runtime's File Share as the Target) &mdash; the same endpoint can serve as source and target independently, exactly like your runtime did in the LAN-to-LAN exercise.</div>
+    </div>
+</section>
+<div class="pager">
+  <a href="08-test.html">&larr; 8. Trigger the flow and verify the transfer</a>
+  <div class="spacer"></div>
+  <a class="primary" href="10-resources.html">Concepts, FAQ &amp; checklist &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

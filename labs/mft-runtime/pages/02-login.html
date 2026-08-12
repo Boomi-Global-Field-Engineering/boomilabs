@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log in to Boomi MFT &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item active" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:20%;"></div></div>
+  <div class="progress-label">Phase 2 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">2</div>
+    <div>
+      <h1>Log in to Boomi MFT</h1>
+      <p class="phase-desc">Standard login, done inside your WorkSpaces browser session.</p>
+      <span class="phase-time">&#9200; ~5 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Launch Chrome and navigate to the workshop landing page</h4>
+        <p>Launch Chrome and go to:</p><pre class="code">boomi.to/nodeworkshop</pre><p class="muted">That short link redirects here, to this same lab guide &mdash; so if you're reading this inside your WorkSpaces desktop, you're already in the right place. The Boomi MFT login link is <a href="https://staging.thruinc.com/" target="_blank" rel="noopener">https://staging.thruinc.com/</a>, so you don't need to hunt for it or open anything from your email inside this virtual environment.</p>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Open the Boomi MFT login page</h4>
+        <p>Navigate to this link: <a href="https://staging.thruinc.com/" target="_blank" rel="noopener">https://staging.thruinc.com/</a> and log in &mdash; hopefully you've already set your password.</p><figure class="shot">
+      <img src="../assets/img/02_browser_login_page.jpg" alt="Boomi Managed File Transfer login page" loading="lazy">
+      <figcaption>Boomi Managed File Transfer login page</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Enter your workshop username and password</h4>
+        <p>Use the credentials provided to you for the workshop.</p><figure class="shot">
+      <img src="../assets/img/03_enter_credentials.jpg" alt="Entering workshop username on the login form" loading="lazy">
+      <figcaption>Entering workshop username on the login form</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Complete the one-time passcode</h4>
+        <p>Workshop accounts have MFA enabled, so you'll be sent a one-time password (OTP) to your email as a second verification step. Enter it and continue.</p><figure class="shot">
+      <img src="../assets/img/04_otp_verification.jpg" alt="One-time password verification screen" loading="lazy">
+      <figcaption>One-time password verification screen</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Confirm you're on the Overview dashboard</h4>
+        <p>A successful login lands you on your organization's Overview page, showing transfer activity, storage, and summary stats.</p><figure class="shot">
+      <img src="../assets/img/05_mft_dashboard.jpg" alt="MFT Overview dashboard after login" loading="lazy">
+      <figcaption>MFT Overview dashboard after login</figcaption>
+    </figure>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<div class="pager">
+  <a href="01-access.html">&larr; 1. Get into your lab environment</a>
+  <div class="spacer"></div>
+  <a class="primary" href="03-node.html">3. Create your Organization and Runtime (Node) &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>

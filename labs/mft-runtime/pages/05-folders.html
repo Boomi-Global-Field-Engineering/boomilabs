@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create your test folders and files &mdash; MFT Runtime Workshop</title>
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="topbar">
+      <div class="brand">
+        <img src="../assets/img/boomi-logo-white.png" alt="Boomi">
+        <span>MFT Runtime Workshop &middot; Tech Lab</span>
+      </div>
+      <div class="topbar-links">
+        <a class="home-link" href="10-resources.html#faq">Need help?</a>
+        <a class="home-link" href="../index.html">&larr; All phases</a>
+      </div>
+    </div>
+<div class="layout">
+<nav class="side-nav">
+      <div class="side-nav-label">Lab phases</div>
+      <a class="side-item" href="01-access.html"><span class="side-num">1</span><span class="side-title">Get into your lab environment</span></a><a class="side-item" href="02-login.html"><span class="side-num">2</span><span class="side-title">Log in to Boomi MFT</span></a><a class="side-item" href="03-node.html"><span class="side-num">3</span><span class="side-title">Create your Organization and Runtime (Node)</span></a><a class="side-item" href="04-install.html"><span class="side-num">4</span><span class="side-title">Install and start the runtime</span></a><a class="side-item active" href="05-folders.html"><span class="side-num">5</span><span class="side-title">Create your test folders and files</span></a><a class="side-item" href="06-endpoint.html"><span class="side-num">6</span><span class="side-title">Create a File Share Endpoint</span></a><a class="side-item" href="07-flow.html"><span class="side-num">7</span><span class="side-title">Build the LAN-to-LAN flow</span></a><a class="side-item" href="08-test.html"><span class="side-num">8</span><span class="side-title">Trigger the flow and verify the transfer</span></a><a class="side-item" href="09-sftp-exercise.html"><span class="side-num">9</span><span class="side-title">Bonus exercise: push files to an external SFTP server</span></a><a class="side-item" href="10-resources.html"><span class="side-num">&#9737;</span><span class="side-title">Concepts, FAQ &amp; checklist</span></a>
+    </nav>
+<div class="main-col">
+<div class="progress-wrap">
+  <div class="progress-track"><div class="progress-fill" style="width:50%;"></div></div>
+  <div class="progress-label">Phase 5 of 9</div>
+</div>
+<section class="phase">
+  <div class="phase-head">
+    <div class="phase-num">5</div>
+    <div>
+      <h1>Create your test folders and files</h1>
+      <p class="phase-desc">The runtime needs somewhere on disk to watch for files. We'll create a simple Source/Target folder pair and a test file to move between them.</p>
+      <span class="phase-time">&#9200; ~3 min</span>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Find your home folder path</h4>
+        <p>Open <strong>Windows Explorer</strong>. On the left-hand side, you'll see a pinned <strong>Home Folder</strong>. Right-click on it and choose <strong>Copy as path</strong>.</p><figure class="shot">
+      <img src="../assets/img/17_create_test_folder.jpg" alt="Right-clicking the pinned Home Folder in Windows Explorer and choosing Copy as path" loading="lazy">
+      <figcaption>Right-clicking the pinned Home Folder in Windows Explorer and choosing Copy as path</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Create a Source and Target subfolder</h4>
+        <p>Inside the Home Folder, make a <code>Source</code> and a <code>Target</code> subfolder. You'll point flow endpoints at these in a few minutes.</p><figure class="shot">
+      <img src="../assets/img/26_mkdir_source_target.jpg" alt="Source and Target subfolders created inside the Home Folder" loading="lazy">
+      <figcaption>Source and Target subfolders created inside the Home Folder</figcaption>
+    </figure>
+      </div>
+    </div><div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Create a test file in the Source folder</h4>
+        <p>Open Notepad, type a few characters, and save it as <code>test_file.txt</code> inside your <code>Source</code> folder. This is the file you'll transfer end to end later.</p><figure class="shot">
+      <img src="../assets/img/27_create_test_file_notepad.gif" alt="Creating test_file.txt inside the Source folder" loading="lazy">
+      <figcaption>Creating test_file.txt inside the Source folder</figcaption>
+    </figure>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<div class="pager">
+  <a href="04-install.html">&larr; 4. Install and start the runtime</a>
+  <div class="spacer"></div>
+  <a class="primary" href="06-endpoint.html">6. Create a File Share Endpoint &rarr;</a>
+</div>
+</div>
+</div>
+<footer>Created by <a href="https://boomi.to/alexei" style="color:white; text-decoration:underline;" target="_blank" rel="noopener">Alexei Godek</a> &middot; Field Engineer &middot; Boomi</footer>
+<script src="../assets/js/lightbox.js"></script>
+</body>
+</html>
