@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="bfs-v2-ex3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 3 — Business Object Events: Real-time SAP Notifications — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .flow-strip { display:flex; align-items:center; gap:6px; flex-wrap:wrap; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px 14px; margin:0 0 22px; }
+  .flow-strip .fs-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--text-muted); margin-right:4px; }
+  .flow-node { font-size:12px; font-weight:600; padding:4px 11px; border-radius:20px; background:var(--primary-light); color:var(--primary-dark); white-space:nowrap; }
+  .flow-node.on { background:var(--primary); color:#fff; }
+  .flow-arrow { color:var(--text-muted); font-size:12px; }
+  .why-box { background:#fbf6ef; border:1px solid #efe2cd; border-left:4px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:14px 0; font-size:14px; line-height:1.6; }
+  .why-box .why-label { display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:#b45309; margin-bottom:6px; }
+  .why-box p { margin:0 0 8px; } .why-box p:last-child { margin-bottom:0; }
+  .trainer-box { background:#f5f3ff; border:1px solid #e4defc; border-left:4px solid #7c3aed; border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:14px 0; font-size:14px; line-height:1.6; }
+  .trainer-box .tr-label { display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:#6d28d9; margin-bottom:6px; }
+  .trainer-box p { margin:0 0 8px; } .trainer-box p:last-child { margin-bottom:0; }
+  .mode-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:12px; margin:14px 0; }
+  .mode-card { border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); padding:14px 16px; }
+  .mode-card.hero { border-color:var(--accent); box-shadow:0 0 0 3px #fff0eb; }
+  .mode-card h4 { font-size:13px; font-weight:800; margin:0 0 6px; }
+  .mode-card .tagline { display:inline-block; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); margin-bottom:6px; }
+  .mode-card.hero .tagline { color:#c2410c; }
+  .mode-card p { font-size:12.5px; color:var(--text-muted); line-height:1.55; margin:0; }
+  .mode-card code { font-size:11.5px; }
+</style>
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi for SAP — Exercise 3 <span style="opacity:.6;font-size:11px;">· V2 preview</span></span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Subscribe to the Event</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Configure Topic &amp; Payload</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Build the Listener</a></li>
+      <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Deploy the Process</a></li>
+      <li><a href="#step-5" data-step="5"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>5 · Trigger &amp; Verify</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~45 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Intermediate</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+  <!-- ============ PAGE 0 — OVERVIEW ============ -->
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 3 — Business Object Events: Real-time SAP Notifications</h1>
+      </header>
+
+      <p>Exercises 1 and 2 were request-driven: your process asked, SAP answered. This exercise inverts the relationship — <strong>SAP tells you</strong>, the instant something changes. You'll subscribe to the Sales Order <em>CHANGED</em> event, route it through a Topic, and receive it in real time in a Boomi listener process. No polling, no schedules, no "check every five minutes."</p>
+
+      <div class="flow-strip">
+        <span class="fs-label">The flow you'll build</span>
+        <span class="flow-node">SAP change · VA02</span><span class="flow-arrow">→</span>
+        <span class="flow-node">BUS2032 event</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Subscription + Topic</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi listener</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why events beat polling</div>
+        <p>The Exercise 2 query pulled 100 orders whether or not anything changed. An event fires <em>once, for the one order that changed, at the moment it changed</em> — the pattern behind live inventory counts on a storefront, instant order-status updates in a CRM, and data warehouses that stay current without batch windows. And because the payload can be enriched by the Table Service you built in Exercise 2, the notification arrives carrying full joined data, not just an order number.</p>
+      </div>
+
+      <h2>Flow</h2>
+      <ol>
+        <li><strong>Section 1</strong> (Steps 1–2) — subscribe to the Sales Order <em>CHANGED</em> event in the Boomi for SAP UI and route it to a Topic</li>
+        <li><strong>Section 2</strong> (Steps 3–4) — build and deploy a Boomi Web Services Server listener</li>
+        <li><strong>Section 3</strong> (Step 5) — trigger the event in SAP and watch it arrive</li>
+      </ol>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>What you&#x27;ll learn</strong>
+        <ul>
+          <li>How SAP Business Object events work — and what it takes to expose one</li>
+          <li>What Topics are and why listeners subscribe to them</li>
+          <li>The difference between event metadata and a full, table-service-enriched payload</li>
+          <li>How to deploy a listener and verify real-time delivery end-to-end</li>
+        </ul></div>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Replace XX</strong>Replace <strong>XX</strong> with your assigned initials throughout this exercise. You'll also reuse your <strong>SALES_ORDERS_XX</strong> Table Service from Exercise 2.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 1 — S1 STEP 1 ============ -->
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 1 of 5</div>
+        <h1 class="step-title">Create a Business Object Event Subscription</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">SAP change · VA02</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">BUS2032 event</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Subscription + Topic</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi listener</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Before you subscribe: how SAP events get exposed</div>
+        <p>SAP business objects (like <strong>BUS2032</strong>, the Sales Order) define events — <em>CREATED</em>, <em>CHANGED</em>, <em>COMPLETED</em> — but an event only fires if an <strong>event handler is linked</strong> on the SAP side. In the Boomi for SAP UI, exposed events show a <strong>lightning-bolt icon</strong>; events without it exist in the catalog but won't trigger anything yet.</p>
+        <p>Wiring that linkage is one-time SAP Basis configuration (event linkage activation and, for master-data changes, change-pointer settings via transactions like <code>BD50</code>). <strong>Our workshop system is already configured</strong> — but on a customer project, "why isn't my event firing?" is almost always this. The <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">Boomi for SAP docs</a> cover the full event-configuration procedure.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Log in to the Boomi for SAP UI.</p>
+            <div class="credentials-box">
+              <h4>Credentials</h4>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.demo.boomi.com:44300/zbx/home</a></span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Welcome1</span></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>In the <strong>Create</strong> menu, click <strong>Event</strong> → <strong>Business Object Event</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image2.png" alt="Navigate to Business Object Event" loading="lazy">
+              <figcaption>Create → Event → Business Object Event</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Search for the Business Object <strong>BUS2032</strong> (Sales Order) and drag it onto the canvas. Notice the <strong>lightning-bolt icons</strong> on its event nodes — that's the exposure marker from the why-box above.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image10.png" alt="Add BUS2032 to canvas" loading="lazy">
+              <figcaption>Add BUS2032 (Sales Order) to the canvas</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Select the frequency radio button <strong>Realtime</strong> and the event type <strong>CHANGED</strong>. Click <strong>Continue</strong>.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">You could equally pick <em>CREATED</em> (fire on new orders) — the pattern is identical. <em>Realtime</em> means the event pushes the moment SAP commits the change; the alternative is a scheduled batch of accumulated events.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image21.png" alt="Select Realtime CHANGED event" loading="lazy">
+              <figcaption>Select Realtime + CHANGED</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Set <strong>Deployment Mode</strong> to <strong>Local</strong> and click <strong>Continue</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image5.png" alt="Set Deployment Mode to Local" loading="lazy">
+              <figcaption>Set Deployment Mode to Local</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Select the receiver <strong>BOOMI SC TRAINING</strong> and click <strong>Continue</strong>.</p>
+            <div class="why-box">
+              <div class="why-label">What the receiver is</div>
+              <p>The receiver is <em>where the event gets delivered</em> — a registered Boomi endpoint. Several receivers exist on this Core (other demos, other environments); picking the wrong one sends your events somewhere you'll never see them. <strong>BOOMI SC TRAINING</strong> points at the training environment where you'll deploy your listener in Step 4.</p>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex3/image20.png" alt="Select receiver BOOMI SC TRAINING" loading="lazy">
+              <figcaption>Select the BOOMI SC TRAINING receiver</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 — S1 STEP 2 ============ -->
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 1 · Step 2 of 5</div>
+        <h1 class="step-title">Configure the Subscription, Topic &amp; Payload</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">SAP change · VA02</span><span class="flow-arrow">→</span>
+        <span class="flow-node">BUS2032 event</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Subscription + Topic</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi listener</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Topics — and what your event actually carries</div>
+        <p>A <strong>Topic</strong> is the named channel the event publishes onto. Your listener process subscribes to that channel by path — which is why the Topic ID here and the listener's Object name in Step&nbsp;3 have to line up. One topic can fan out to many subscribers.</p>
+        <p>Just as important is <strong>how much data</strong> rides on the event. Three levels:</p>
+      </div>
+
+      <div class="mode-grid">
+        <div class="mode-card">
+          <h4>Event metadata only</h4>
+          <span class="tagline">"Something changed"</span>
+          <p>You get the business object key — <em>sales order 123 changed</em> — and nothing else. Every downstream consumer must call back into SAP for details.</p>
+        </div>
+        <div class="mode-card">
+          <h4>Full object payload</h4>
+          <span class="tagline">"Here's the header"</span>
+          <p>The event carries the changed object's data — header-level fields for the order. Better, but still no line items.</p>
+        </div>
+        <div class="mode-card hero">
+          <h4>Table-service enriched</h4>
+          <span class="tagline">This lab · the Boomi for SAP difference</span>
+          <p>The event key is matched against a <strong>Table Service</strong> — your <code>SALES_ORDERS_XX</code> join from Exercise 2 — so the notification arrives with header <em>and</em> line items for exactly the one order that changed.</p>
+        </div>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>In the <strong>Subscription ID</strong> field, enter a unique identifier using your initials (e.g., <code>SALESCHANGE_XX</code>).</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image13.png" alt="Enter Subscription ID" loading="lazy">
+              <figcaption>Enter the Subscription ID</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Click <strong>Create New Topic</strong> and set:</p>
+            <table class="mapping-table">
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Deployment Mode</td><td><code>Local</code></td></tr>
+                <tr><td>Topic ID</td><td><code>SALESEXERCISE_XX</code> (replace XX with your initials)</td></tr>
+              </tbody>
+            </table>
+            <figure class="screenshot">
+              <img src="images/ex3/image1.png" alt="Create New Topic" loading="lazy">
+              <figcaption>Create a new Topic</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Once the topic is created, click <strong>Create Subscription</strong> to finalize.</p>
+            <div class="callout tip">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Note your IDs</strong> — the listener's Object name in Step 3 must correspond to this subscription (e.g., <code>Saleschangexx</code>). Behind the scenes, the enrichment works by matching the event's key — the changed order's <code>VBELN</code> — against the key field of your table service, so only that one order's joined rows are pulled.</div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 3 — S2 STEP 1 ============ -->
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 3 of 5</div>
+        <h1 class="step-title">Build the Boomi Listener Process</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">SAP change · VA02</span><span class="flow-arrow">→</span>
+        <span class="flow-node">BUS2032 event</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Subscription + Topic</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Boomi listener</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why you're doing this</div>
+        <p>Something has to be standing at the other end of the topic when the event arrives. A <strong>Web Services Server listener</strong> is a process whose start shape <em>waits</em> for inbound calls instead of running on demand. The <strong>Object name</strong> becomes part of its URL path — that's the contract with your subscription. And the <strong>Request Profile</strong> is your <code>SALES_ORDERS_XX</code> Query Response from Exercise 2, because that's exactly the shape of the enriched payload the event will deliver. In a real build, everything downstream of this start shape — alerts, warehouse updates, CRM sync — is just normal Boomi process design; here we simply return the document so you can inspect it.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>In the Boomi platform, navigate to your <strong>USERXX</strong> folder and create a new process via <strong>New Component → Process</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image22.png" alt="New Component menu" loading="lazy">
+              <figcaption>New Component menu</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex3/image9.png" alt="Select Process type" loading="lazy">
+              <figcaption>Select the Process type</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Configure the Start shape: set type to <strong>Connector</strong>, select the <strong>Web Services Server</strong> connector, and set Action to <strong>Listen</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image19.png" alt="Configure Start shape — Web Services Server" loading="lazy">
+              <figcaption>Start shape — Web Services Server, Listen</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Configure the connector operation with these values:</p>
+            <table class="mapping-table">
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Operation Type</td><td><code>EXECUTE</code></td></tr>
+                <tr><td>Object</td><td><code>Saleschangexx</code> (replace xx with your initials — this becomes the URL path the event calls)</td></tr>
+                <tr><td>Expected Input Type</td><td><code>Single JSON Object</code></td></tr>
+                <tr><td>Request Profile</td><td><code>Boomi for SAP connector SALES_ORDERS_XX Query Response</code></td></tr>
+                <tr><td>Response Output Type</td><td><code>Single Data</code></td></tr>
+              </tbody>
+            </table>
+            <figure class="screenshot">
+              <img src="images/ex3/image12.png" alt="Web Services Server operation configuration" loading="lazy">
+              <figcaption>Web Services Server operation configuration</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Click <strong>Save and Close</strong>, then <strong>OK</strong> to return to the canvas.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image15.png" alt="Return to canvas" loading="lazy">
+              <figcaption>Return to the canvas</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Add a <strong>Return Documents</strong> shape to the canvas and connect it to the Start shape. This simply echoes the received payload back as the response — the minimal listener, and exactly what you want for inspecting what arrives.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image8.png" alt="Add Return Documents shape" loading="lazy">
+              <figcaption>Add a Return Documents shape</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 4 — S2 STEP 2 ============ -->
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 2 · Step 4 of 5</div>
+        <h1 class="step-title">Deploy the Listener</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">SAP change · VA02</span><span class="flow-arrow">→</span>
+        <span class="flow-node">BUS2032 event</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Subscription + Topic</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Boomi listener</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why deploy — when Exercises 1 and 2 didn't need it</div>
+        <p>Test mode runs a process once, on demand, and stops. A listener has to be <em>always on</em>, waiting at its URL for whenever SAP fires — and only <strong>deployed</strong> processes run continuously on an Atom. Packaging and deploying is what turns your canvas into a live endpoint.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Save the process. Then click <strong>Create Packaged Component</strong> and deploy the process to the <strong>Boomi Training Dev</strong> environment.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image17.png" alt="Deploy process to Boomi Training Dev" loading="lazy">
+              <figcaption>Deploy to the Boomi Training Dev environment</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 5 — S3 STEP 1 ============ -->
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Section 3 · Step 5 of 5</div>
+        <h1 class="step-title">Trigger the Event in SAP &amp; Verify</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">Running the whole flow</span>
+        <span class="flow-node on">SAP change · VA02</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">BUS2032 event</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Subscription + Topic</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Boomi listener</span>
+      </div>
+
+      <div class="trainer-box">
+        <div class="tr-label">Trainer moment</div>
+        <p>Your trainer will make the first change live on the projector so everyone sees the full round trip: save in SAP → event fires → listener execution appears in Process Reporting within seconds. Then follow the steps below to trigger one yourself.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Log in to the SAP client where Boomi for SAP is installed.</p>
+            <div class="credentials-box">
+              <h4>Credentials</h4>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300" target="_blank">https://boomiforsap.demo.boomi.com:44300</a></span></div>
+              <div class="cred-row"><span class="cred-label">Client</span><span class="cred-value">100</span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Welcome1</span></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Navigate to transaction <strong>VA02</strong> (Change Sales Order) by typing <code>VA02</code> in the transaction code box and pressing Enter.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image3.png" alt="Enter VA02 transaction code" loading="lazy">
+              <figcaption>Enter the VA02 transaction code</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Enter a Sales Order number and press Enter to open it.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image4.png" alt="Open Sales Order in VA02" loading="lazy">
+              <figcaption>Open a Sales Order in VA02</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Change a field value — for example, <strong>Payment Terms</strong> — and save the order with the <strong>Floppy Disk</strong> icon. The save is the commit, and the commit is what fires the <em>CHANGED</em> event.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image18.png" alt="Change field and save" loading="lazy">
+              <figcaption>Change a field and save</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Return to the Boomi platform and open <strong>Process Reporting</strong> — your listener's execution should appear within moments of the save.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image11.png" alt="Event appears in Process Reporting" loading="lazy">
+              <figcaption>The event execution in Process Reporting</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Click the timestamp of the event, then click the <strong>Web Services Server</strong> shape's <strong>Successes</strong> link.</p>
+            <figure class="screenshot">
+              <img src="images/ex3/image6.png" alt="Click event timestamp" loading="lazy">
+              <figcaption>Click the event timestamp</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex3/image7.png" alt="Click Successes link" loading="lazy">
+              <figcaption>Click the Successes link</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">7</div>
+          <div class="instruction-body">
+            <p>Click the <strong>gear icon</strong> under Actions and select <strong>View Document</strong> to inspect the payload. Read it closely — this is the punchline of the exercise:</p>
+            <ul>
+              <li>It contains <strong>only the one order you changed</strong> — the event key filtered the table service to that single <code>VBELN</code>. Compare that to Exercise 2's query, which pulled 100 rows.</li>
+              <li>It contains <strong>header <em>and</em> line-item fields</strong> — your Exercise 2 join, riding along on the event. Metadata-only would have given you little more than "order 123 changed."</li>
+            </ul>
+            <figure class="screenshot">
+              <img src="images/ex3/image14.png" alt="View Document payload" loading="lazy">
+              <figcaption>View Document</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex3/image16.png" alt="SAP event payload JSON" loading="lazy">
+              <figcaption>The enriched event payload — header + items for exactly the changed order</figcaption>
+            </figure>
+            <div class="callout tip">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Congratulations!</strong> You've built the full event pipeline: SAP change → exposed event → subscription and topic → deployed listener → enriched real-time payload. This is the pattern behind live inventory, instant order tracking, and event-driven data warehouses on SAP.</div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

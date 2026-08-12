@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="bfs-v2-ex1" data-next-exercise-href="exercise-2.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 1 — Creating a Sales Order in SAP from a Salesforce Opportunity — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  /* v2 additions: process locator, why-boxes, trainer moments */
+  .flow-strip { display:flex; align-items:center; gap:6px; flex-wrap:wrap; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px 14px; margin:0 0 22px; }
+  .flow-strip .fs-label { font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--text-muted); margin-right:4px; }
+  .flow-node { font-size:12px; font-weight:600; padding:4px 11px; border-radius:20px; background:var(--primary-light); color:var(--primary-dark); white-space:nowrap; }
+  .flow-node.on { background:var(--primary); color:#fff; }
+  .flow-arrow { color:var(--text-muted); font-size:12px; }
+  .why-box { background:#fbf6ef; border:1px solid #efe2cd; border-left:4px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:14px 0; font-size:14px; line-height:1.6; }
+  .why-box .why-label { display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:#b45309; margin-bottom:6px; }
+  .why-box p { margin:0 0 8px; } .why-box p:last-child { margin-bottom:0; }
+  .trainer-box { background:#f5f3ff; border:1px solid #e4defc; border-left:4px solid #7c3aed; border-radius:0 var(--radius) var(--radius) 0; padding:14px 18px; margin:14px 0; font-size:14px; line-height:1.6; }
+  .trainer-box .tr-label { display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; color:#6d28d9; margin-bottom:6px; }
+  .trainer-box p { margin:0 0 8px; } .trainer-box p:last-child { margin-bottom:0; }
+  .xml-anno { border-collapse:collapse; width:100%; font-size:13px; margin:12px 0; }
+  .xml-anno th { background:var(--primary-dark); color:#fff; text-align:left; padding:7px 12px; font-size:11.5px; letter-spacing:.03em; }
+  .xml-anno td { border-bottom:1px solid var(--border); padding:8px 12px; vertical-align:top; }
+  .xml-anno code { font-family:var(--font-mono); font-size:12px; background:var(--primary-light); color:var(--primary-dark); padding:1px 6px; border-radius:4px; }
+</style>
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi for SAP — Exercise 1 <span style="opacity:.6;font-size:11px;">· V2 preview</span></span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Log In &amp; Copy the Process</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Read the Salesforce Payload</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Configure Boomi for SAP</a></li>
+      <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Copy the SF XML Profile</a></li>
+      <li><a href="#step-5" data-step="5"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>5 · Configure the Map</a></li>
+      <li><a href="#step-6" data-step="6"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>6 · Map Functions</a></li>
+      <li><a href="#step-7" data-step="7"><span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>7 · Surface the BAPI Response</a></li>
+      <li><a href="#step-8" data-step="8"><span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>8 · Test &amp; Verify</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~50 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Intermediate</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+  <!-- ============ PAGE 0 — OVERVIEW ============ -->
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 1 — Creating a Sales Order in SAP from a Salesforce Opportunity</h1>
+      </header>
+
+      <p>A sales rep just closed a deal in Salesforce. Someone — or something — now has to create the matching sales order in SAP so the business can fulfill it. In this exercise you build that "something": a Boomi integration process that reads a closed Salesforce opportunity and creates a Sales Order in SAP S/4HANA by calling the standard SAP function <a href="https://www.sapdatasheet.org/abap/func/bapi_salesorder_createfromdat2.html" target="_blank" rel="noopener"><code>BAPI_SALESORDER_CREATEFROMDAT2</code></a>.</p>
+
+      <div class="flow-strip">
+        <span class="fs-label">The process you'll build</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <h2>How this works under the hood</h2>
+      <p>The <strong>Boomi for SAP connector</strong> you'll use is a branded connector — it doesn't screen-scrape SAP or log into the SAP GUI. It talks to <strong>Boomi for SAP Core</strong>, a certified NetWeaver add-on installed <em>inside</em> the SAP system (on-premises or private cloud). The Core exposes SAP's standard function library — including every BAPI — as importable operations, so calling an ABAP function from an integration becomes a point-and-click configuration instead of custom development.</p>
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Curious how the add-on gets there?</strong> The optional <a href="step-0.html">Step 0 — Installing Boomi for SAP</a> walks through the one-time install (transport upload, SAINT, ICF service). The full product docs live at <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">help.boomi.com — Boomi for SAP</a>.</div>
+      </div>
+
+      <h2>What we set up for you</h2>
+      <ul>
+        <li><strong>The SAP connection</strong> — the <em>SAP S4 Connection</em> component is pre-configured and points at the workshop's Boomi for SAP Core. You select it; you never handle SAP credentials.</li>
+        <li><strong>A sample process skeleton</strong> — the shapes are on the canvas; you configure each one.</li>
+        <li><strong>Product master data</strong> — the products in the Salesforce opportunity are already synced into SAP. That matters: SAP will only accept an order for a material it knows, so in any real implementation product master sync happens before order integration.</li>
+        <li><strong>A realistic Salesforce payload</strong> — a Message shape holds the XML a live Salesforce connection would deliver, so you can build and test end-to-end without waiting on a rep to close a deal.</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>What you&#x27;ll learn</strong>
+        <ul>
+          <li>How the Boomi for SAP connector calls BAPIs through the Boomi for SAP Core</li>
+          <li>How to read a CRM payload and map it to the SAP request structure</li>
+          <li>Why SAP needs leading zeros, line-item increments of 10, and hardcoded org values — and how to handle each</li>
+          <li>How to read the BAPI response and surface the created Sales Document number</li>
+        </ul></div>
+      </div>
+
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Replace USERXX</strong>Throughout this exercise, replace <strong>USERXX</strong> with your assigned user number (e.g., USER01).</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 1 — STEP 1 ============ -->
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 8</div>
+        <h1 class="step-title">Log In &amp; Copy the Sample Process</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node on">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Log in to the Boomi training account using the credentials below.</p>
+            <div class="credentials-box">
+              <h4>Credentials</h4>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://platform.boomi.com/AtomSphere.html#build;accountId=boomi_solutions_engineeri-IH374I" target="_blank">platform.boomi.com — account boomi_solutions_engineeri-IH374I</a></span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by trainer</span></div>
+              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by trainer</span></div>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image9.png" alt="Boomi AtomSphere login screen" loading="lazy">
+              <figcaption>Boomi login screen</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>In the <strong>Trainer</strong> folder, locate the sample process named <strong>Create SO SFDC to SAP Sample</strong>. Right-click the process and select <strong>Copy to folder</strong>, choosing your <strong>USERXX</strong> folder as the destination.</p>
+            <div class="why-box">
+              <div class="why-label">Why you're copying it</div>
+              <p>Everyone in the workshop shares this account. Copying the sample into your own <strong>USERXX</strong> folder gives you a private working copy — you can configure, break, and re-test it without touching anyone else's work, and the trainer's original stays pristine for the next group.</p>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image30.png" alt="Copy process to USERXX folder" loading="lazy">
+              <figcaption>Copy process to USERXX folder</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Navigate to your <strong>USERXX</strong> folder. Double-click the copied process (<strong>Create SO SFDC to SAP USERXX</strong>) to open it on the canvas.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image8.png" alt="Process opened on canvas" loading="lazy">
+              <figcaption>Process opened on canvas</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 — STEP 2 ============ -->
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 8</div>
+        <h1 class="step-title">Read the Salesforce Payload</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <p>The canvas shows the pre-built process skeleton. Before configuring anything, take a minute to understand the data you're about to move — the whole exercise is easier when you know what's in the payload and what should come out the other side.</p>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Familiarize yourself with the shapes on the canvas:</p>
+            <ul>
+              <li><strong>SFDC Opportunity</strong> — a Message shape holding the sample Salesforce XML</li>
+              <li><strong>Map</strong> — transforms the Salesforce XML into the SAP BAPI request</li>
+              <li><strong>Boomi for SAP</strong> — calls the BAPI on SAP</li>
+              <li><strong>Display Sales Document</strong> — shows the SAP document number that comes back</li>
+            </ul>
+            <figure class="screenshot">
+              <img src="images/ex1/image15.png" alt="Process canvas showing shapes" loading="lazy">
+              <figcaption>Process canvas showing the four shapes</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Click the <strong>SFDC Opportunity</strong> Message shape and read through the XML payload. <strong>Do not change it</strong> — it's your test input. As you scan it, find these elements:</p>
+            <table class="xml-anno">
+              <thead><tr><th>What to find in the XML</th><th>What it becomes in SAP</th></tr></thead>
+              <tbody>
+                <tr><td><code>Opportunity → Id</code> — the Salesforce opportunity</td><td>The customer PO reference on the order header</td></tr>
+                <tr><td>The account / customer number</td><td>The <strong>sold-to party</strong> on the order</td></tr>
+                <tr><td><code>OpportunityLineItems</code> — each line's <code>ProductCode</code> and <code>Quantity</code></td><td>The <strong>order line items</strong>: materials and quantities</td></tr>
+              </tbody>
+            </table>
+            <div class="why-box">
+              <div class="why-label">Why this payload matters</div>
+              <p>This is completely standard CRM XML — if your company runs NetSuite, HubSpot, or ServiceNow instead of Salesforce, the payload would look nearly identical and this whole exercise would work the same way. Salesforce is sending the deal; SAP is creating the order.</p>
+              <p>Note the product codes in the line items — <strong>those exact products will appear on the SAP sales order at the end of this exercise</strong>. They can only do that because product master data is already synced between Salesforce and SAP; you can't order a material SAP has never heard of.</p>
+            </div>
+            <div class="trainer-box">
+              <div class="tr-label">Trainer moment</div>
+              <p>In production this XML wouldn't sit in a Message shape — a Salesforce listener would deliver it the instant an opportunity goes <em>Closed&nbsp;Won</em>. Your trainer will show the same opportunity live in Salesforce so you can see where this payload really comes from.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 3 — STEP 3 ============ -->
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 8</div>
+        <h1 class="step-title">Configure the Boomi for SAP Shape</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why you're doing this</div>
+        <p>This shape is where the integration actually reaches SAP. You'll do three things: pick <strong>which SAP system</strong> to talk to (the connection — it points at a specific Boomi for SAP Core), pick <strong>what to do there</strong> (the operation — importing the <code>BAPI_SALESORDER_CREATEFROMDAT2</code> function), and let the import generate <strong>request/response profiles</strong> that mirror the BAPI's exact structure — every field, table, and length as SAP defines it.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>On the canvas, find the <strong>Boomi for SAP</strong> shape and click <strong>Configure</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image13.png" alt="Boomi for SAP shape on canvas" loading="lazy">
+              <figcaption>Boomi for SAP shape on canvas</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>In the connector configuration, select <strong>SAP S4 Connection</strong> from the drop-down and make sure <strong>Action</strong> is <code>FUNCTION</code>.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">The connection was pre-built for the workshop — it holds the address of the Boomi for SAP Core in the demo SAP system. Choosing a connection = choosing which SAP environment this shape calls. The <code>FUNCTION</code> action means "invoke a function module / BAPI" (in Exercise 2 you'll use <code>QUERY</code> against a Table Service instead).</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image12.png" alt="Select SAP S4 Connection" loading="lazy">
+              <figcaption>Select SAP S4 Connection</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Create a new operation by clicking the <strong>+</strong> icon next to the Operation field.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image6.png" alt="Add new operation" loading="lazy">
+              <figcaption>Add new operation</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>On the New Operation screen, enter a name (e.g., <code>Create SO USERXX</code>) and click <strong>Import</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image20.png" alt="Name the operation" loading="lazy">
+              <figcaption>Name the operation</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>In the Import Wizard, verify all fields are populated and click <strong>Next</strong>. The wizard is now browsing the live function catalog of the SAP system through the Core.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image11.png" alt="Import Wizard — first screen" loading="lazy">
+              <figcaption>Import Wizard — first screen</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Select <strong>BAPI_SALESORDER_CREATEFROMDAT2</strong> from the function drop-down and click <strong>Next</strong>.</p>
+            <div class="callout info">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+              <div><strong>Know your BAPI</strong> — <code>BAPI_SALESORDER_CREATEFROMDAT2</code> is SAP's standard function for creating sales orders. Its full signature — every import parameter and table, with which are required — is documented on the <a href="https://www.sapdatasheet.org/abap/func/bapi_salesorder_createfromdat2.html" target="_blank" rel="noopener">SAP datasheet</a>. Keep that page handy for the mapping step: it tells you what must be mapped and what's optional.</div>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image3.png" alt="Select BAPI function" loading="lazy">
+              <figcaption>Select the BAPI function</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">7</div>
+          <div class="instruction-body">
+            <p>Once the profile has been generated, click <strong>Finish</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image5.png" alt="Profile generated — click Finish" loading="lazy">
+              <figcaption>Profile generated — click Finish</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">8</div>
+          <div class="instruction-body">
+            <p>Click the <strong>pencil icon</strong> next to the Request Profile. In the profile editor, locate <code>ITM_NUMBER</code> under both <strong>T_ORDER_ITEMS_IN</strong> and <strong>T_ORDER_SCHEDULES_IN</strong>, and make sure the <strong>Field Length Validation</strong> checkbox is <strong>UNCHECKED</strong> for both.</p>
+            <div class="why-box">
+              <div class="why-label">Why field lengths matter — and why you're relaxing this one</div>
+              <p>SAP fields are <strong>fixed-length</strong>, and the imported profile carries every field's exact SAP length so bad data is caught before it ever reaches SAP (an 11-character value aimed at a 10-character field would otherwise error inside SAP). That validation is normally your friend.</p>
+              <p>For <code>ITM_NUMBER</code> you switch it off because in Step&nbsp;6 a map function will <em>generate</em> these line numbers, and the function's numeric output doesn't match the imported fixed-length format. Leaving validation on makes the process fail at runtime on data you know is correct.</p>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image31.png" alt="Uncheck Field Length Validation for ITM_NUMBER" loading="lazy">
+              <figcaption>Uncheck Field Length Validation for ITM_NUMBER</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">9</div>
+          <div class="instruction-body">
+            <p>Click <strong>Save and Close</strong> on the operation screen, then <strong>OK</strong> to finish configuring the shape and return to the canvas.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image28.png" alt="Save and Close operation" loading="lazy">
+              <figcaption>Save and Close the operation</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 4 — STEP 4 ============ -->
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 8</div>
+        <h1 class="step-title">Copy the Salesforce XML Profile</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why you're doing this</div>
+        <p>A map needs to know the shape of the data on both sides. The <strong>destination</strong> profile already exists — the import wizard generated it from the BAPI in Step&nbsp;3. The <strong>source</strong> profile describes the Salesforce XML, and that's what you copy here. With both profiles in your folder, the map in Step&nbsp;5 can show source fields on the left, SAP fields on the right.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>In the <strong>Trainer</strong> folder, find the SF XML profile (e.g., <strong>SF Opp XML Profile</strong>). Right-click and copy it to your <strong>USERXX</strong> folder.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image24.png" alt="Copy SF XML profile" loading="lazy">
+              <figcaption>Copy the SF XML profile</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Give the profile a new name that includes your username (e.g., <strong>SF Opp XML Profile USERXX</strong>), confirm your folder selection, then click <strong>Copy</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image10.png" alt="Name the copied profile" loading="lazy">
+              <figcaption>Name the copied profile</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Heads-up for Step 6</strong> — in the previous version of this lab you also copied a pre-built "Add Leading Zeros" map function here. In this version <strong>you'll build that function yourself</strong> inside the map, so you learn how it's done. (A pre-built copy still exists in the Trainer folder if you need a fallback.)</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 5 — STEP 5 ============ -->
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 5 of 8</div>
+        <h1 class="step-title">Configure the Map</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why you're doing this</div>
+        <p>The map is the translation layer: Salesforce speaks "opportunity and line items," SAP speaks "order header, partners, items, and schedules." Three values come <em>from the payload</em> (mapped fields); the rest are <em>constants for this SAP system</em> (default values). Getting clear on which is which is most of the work of real-world SAP integration.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>On the canvas, click the <strong>Map</strong> shape to configure it, then click <strong>+</strong> to create a new map.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image4.png" alt="Map shape on canvas" loading="lazy">
+              <figcaption>Map shape on canvas</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex1/image32.png" alt="Create new map" loading="lazy">
+              <figcaption>Create a new map</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Name your map (e.g., <strong>SF to SAP SO Map USERXX</strong>). In the <strong>Source</strong> panel, assign your <strong>SF Opp XML Profile USERXX</strong>. In the <strong>Destination</strong> panel, assign the <strong>Boomi for SAP BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Request</strong> profile.</p>
+            <div class="callout tip">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Choose beats drag-and-drop</strong> — you can drag profiles into the panels, but clicking <strong>Choose</strong>, picking the profile type (XML / JSON), and browsing to the exact component is more reliable and avoids accidentally re-assigning a side. Most experienced builders use Choose.</div>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image16.png" alt="Assign source and destination profiles" loading="lazy">
+              <figcaption>Assign source and destination profiles</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Map these three fields by dragging a line from source to destination:</p>
+            <table class="mapping-table">
+              <thead><tr><th>Source Element</th><th>Destination Element</th><th>What it carries</th></tr></thead>
+              <tbody>
+                <tr><td>Opportunity → Id</td><td>I_ORDER_HEADER_IN → PURCH_NO_C</td><td>The SF opportunity ID becomes the customer PO reference — your cross-system audit trail</td></tr>
+                <tr><td>Opportunity → OpportunityLineItems → OpportunityLineItem → Quantity</td><td>T_ORDER_SCHEDULES_IN → REQ_QTY</td><td>Requested quantity per line</td></tr>
+                <tr><td>Opportunity → OpportunityLineItems → OpportunityLineItem → PricebookEntry → ProductCode</td><td>T_ORDER_ITEMS_IN → MATERIAL</td><td>The product code — resolves to the synced SAP material</td></tr>
+              </tbody>
+            </table>
+            <div class="callout tip">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Try Boomi Suggest</strong> — the <em>Suggest</em> button will propose mappings automatically. It's a great head start on big profiles, but <strong>always walk each suggested line and verify it</strong> before trusting it; a plausible-but-wrong suggestion is worse than an empty map.</div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Now set constants on the destination side. Click a destination field, choose <strong>Set Default Value</strong>, and enter the value — repeat for each row below.</p>
+            <figure class="screenshot">
+              <img src="images/ex2/image2.png" alt="Set Default Value on a destination field" loading="lazy">
+              <figcaption>Setting a default value: click the destination field → Set Default Value → enter the constant</figcaption>
+            </figure>
+            <table class="mapping-table">
+              <thead><tr><th>Field</th><th>Value</th><th>Why</th></tr></thead>
+              <tbody>
+                <tr><td>I_IXBX_FORCE_COMMIT_OR_ROLLBACK</td><td><code>X</code></td><td>Tells the Core to <strong>commit</strong> the BAPI's work. Without <code>X</code>, SAP rolls the transaction back and no order is saved — useful for dry runs, wrong for us</td></tr>
+                <tr><td>I_ORDER_HEADER_IN → DISTR_CHAN</td><td><code>10</code></td><td rowspan="4" style="vertical-align:middle;">The sales area — org <code>1710</code>, channel <code>10</code>, division <code>00</code> — and order type <code>SO</code> are the standard values for this SAP demo instance. They're constants here, so hardcoding is correct</td></tr>
+                <tr><td>I_ORDER_HEADER_IN → DIVISION</td><td><code>00</code></td></tr>
+                <tr><td>I_ORDER_HEADER_IN → SALES_ORG</td><td><code>1710</code></td></tr>
+                <tr><td>I_ORDER_HEADER_IN → DOC_TYPE</td><td><code>SO</code></td></tr>
+                <tr><td>T_ORDER_PARTNERS → PARTN_ROLE</td><td><code>AG</code></td><td><code>AG</code> is SAP's partner role for <strong>sold-to party</strong> — it declares that the partner number you'll map in Step 6 identifies who is buying</td></tr>
+              </tbody>
+            </table>
+            <div class="why-box">
+              <div class="why-label">When you would NOT hardcode these</div>
+              <p>A real company with multiple sales orgs, channels, or divisions can't use constants — the right values depend on the deal. In that design you'd add a <strong>lookup</strong> in the map (a cross-reference table keyed on, say, the Salesforce account or region) that resolves the correct sales area per document. Same map, reusable across every org — that's the pattern to remember even though the demo instance only needs one set of values.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 6 — STEP 6 ============ -->
+  <section class="step-page" id="page-6">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 6 of 8</div>
+        <h1 class="step-title">Map Functions: Line Item Increment &amp; Leading Zeros</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Display Result</span>
+      </div>
+
+      <p>Two values SAP needs don't exist in the Salesforce payload at all — they have to be <em>generated</em>. Map functions do that inline, and both of the ones you'll use here are classic SAP integration patterns you'll reuse on every project.</p>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Still inside the map, click <strong>Add Function</strong>. Choose category <strong>Numeric</strong> and select <strong>Line Item Increment</strong> — this is a standard built-in function.</p>
+            <div class="why-box">
+              <div class="why-label">Why increments of 10?</div>
+              <p>SAP numbers order lines 10, 20, 30… — a convention as old as SAP itself. The gaps let users and programs insert corrections between existing lines without renumbering the document, and every SAP user expects to see it. The function takes each incoming line and stamps 10, 20, 30… onto it.</p>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image29.png" alt="Add Numeric function" loading="lazy">
+              <figcaption>Add Function → Numeric</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex1/image14.png" alt="Choose Line Item Increment" loading="lazy">
+              <figcaption>Choose Line Item Increment</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Configure the Line Item Increment defaults as shown:</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image7.png" alt="Configure Line Item Increment defaults" loading="lazy">
+              <figcaption>Line Item Increment configuration — increment by 10</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Wire the function into the map: drag <strong>PricebookEntryID</strong> (path: <code>Opportunity → OpportunityLineItems → OpportunityLineItem → PricebookEntryID</code>) to the function's <em>input</em>, then map the function's <em>output</em> to <strong>ITM_NUMBER</strong> in both <code>T_ORDER_ITEMS_IN</code> and <code>T_ORDER_SCHEDULES_IN</code>.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">The input just gives the function one trigger per line item — each occurrence produces the next increment. This is also why you unchecked Field Length Validation on <code>ITM_NUMBER</code> in Step 3: the generated numbers don't match the imported fixed-length format.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Now build the second function yourself. Click <strong>Add Function</strong> again and create a new <strong>String</strong> function using <strong>String Pad Left</strong> (name it <strong>Add Leading Zeros USERXX</strong>) with:</p>
+            <table class="mapping-table">
+              <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Function type</td><td><code>String Pad Left</code></td></tr>
+                <tr><td>Fixed Length</td><td><code>10</code></td></tr>
+                <tr><td>Pad Character</td><td><code>0</code></td></tr>
+              </tbody>
+            </table>
+            <div class="why-box">
+              <div class="why-label">Why SAP needs leading zeros</div>
+              <p>SAP stores customer numbers as fixed 10-character keys, zero-padded — customer <code>17100001</code> lives in the database as <code>0017100001</code>. The SAP GUI hides the zeros, so people forget they exist, but the BAPI matches on the <em>stored</em> value: send the unpadded number and SAP simply won't find the customer. (You can verify this from SE16 on the KNA1 table — the zeros are really there.)</p>
+              <p>Salesforce sends the human-readable number, so the map pads it. Build the function once and it's <strong>reusable in every map in your account</strong> — you never think about zeros again. The mirror-image trick also matters: going SAP → elsewhere you'd <em>trim</em> the zeros with the same technique.</p>
+            </div>
+            <div class="callout info">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+              <div><strong>Fallback</strong> — if you get stuck, a pre-built <strong>Add Leading Zeros to SAP Customer ID</strong> function is in the Trainer folder; copy it to your USERXX folder and drag it onto the map instead.</div>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex1/image21.png" alt="Leading Zeros function on the map" loading="lazy">
+              <figcaption>The leading-zeros function placed on the map</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Wire the customer number from the source profile into the function's <em>input</em>, and map the function's <em>output</em> to <strong>T_ORDER_PARTNERS → PARTN_NUMB</strong> (the sold-to partner declared by the <code>AG</code> role you set in Step 5). Then click <strong>Save and Close</strong>, and <strong>OK</strong> to return to the canvas.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image27.png" alt="Map leading zeros result to PARTN_NUMB" loading="lazy">
+              <figcaption>Leading-zeros output mapped to PARTN_NUMB</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Optional add-on: map with Boomi Companion</strong> — if you use Claude Code with the Boomi Companion skill, it can cross-check your mapping against the BAPI's required fields, flag anything missing, and even generate a clean visual diagram of the finished map (much easier to read than crossing lines on the canvas). Ask your trainer for a demo at the end of this exercise.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 7 — STEP 7 ============ -->
+  <section class="step-page" id="page-7">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 7 of 8</div>
+        <h1 class="step-title">Surface the BAPI Response — the Sales Document Number</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">You are here</span>
+        <span class="flow-node">Setup</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Display Result</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why you're doing this</div>
+        <p>Calling a BAPI is a conversation, not a fire-and-forget. <code>BAPI_SALESORDER_CREATEFROMDAT2</code> <strong>returns</strong> the number of the document it just created in its <code>E_SALESDOCUMENT</code> export — plus a RETURN table of messages. This step pulls that number out of the response profile and displays it, which is how you'll prove the order exists.</p>
+        <p><strong>In production you'd go one step further:</strong> map <code>E_SALESDOCUMENT</code> into a Salesforce update and write the SAP order number back onto the opportunity — sales sees the SAP order without leaving their CRM, and the two systems stay cross-referenced. We display it instead of writing back to keep the shared demo org clean, but the response element you're using here is exactly the one you'd use for the write-back.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>On the canvas, click the <strong>Display Sales Document</strong> Message shape to configure it.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image26.png" alt="Select Display Sales Document shape" loading="lazy">
+              <figcaption>Select the Display Sales Document shape</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Click the <strong>+</strong> icon in the Message Shape configuration window to add a dynamic field.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image17.png" alt="Add field to message shape" loading="lazy">
+              <figcaption>Add a dynamic field to the message</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>On the Parameter Value screen, fill in the following:</p>
+            <table class="mapping-table">
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Type</td><td><code>Profile Element</code></td></tr>
+                <tr><td>Profile Type</td><td><code>JSON</code></td></tr>
+                <tr><td>Profile</td><td><code>Boomi for SAP BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Response</code></td></tr>
+                <tr><td>Element</td><td><code>E_SALESDOCUMENT</code></td></tr>
+              </tbody>
+            </table>
+            <figure class="screenshot">
+              <img src="images/ex1/image2.png" alt="Parameter value configuration" loading="lazy">
+              <figcaption>Parameter value configuration — pulling E_SALESDOCUMENT from the response</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Click <strong>OK</strong> and then <strong>Save</strong> the process.</p>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 8 — STEP 8 ============ -->
+  <section class="step-page" id="page-8">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 8 of 8</div>
+        <h1 class="step-title">Test &amp; Verify End-to-End</h1>
+      </header>
+
+      <div class="flow-strip">
+        <span class="fs-label">Running the whole flow</span>
+        <span class="flow-node on">Salesforce XML</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Map</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Boomi for SAP · BAPI</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Display Result</span>
+      </div>
+
+      <div class="why-box">
+        <div class="why-label">Why Test is the trigger</div>
+        <p>This process starts from a Message shape, so nothing fires it automatically — <strong>Test mode is how you push the XML through</strong>. That's deliberate for the lab: the Message shape stands in for the Salesforce listener that would trigger the process in production, letting you exercise the whole flow on demand.</p>
+      </div>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Save the process, then click <strong>Test</strong> on the canvas toolbar.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image18.png" alt="Save and Test the process" loading="lazy">
+              <figcaption>Save and Test the process</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>In the test panel, select the appropriate Atom and start the test run. After execution completes, open the process logs.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>In the logs, locate the output of the <strong>Display Sales Document</strong> shape. You should see a 10-digit SAP Sales Document number — the BAPI's response confirming the order was created.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/image1.png" alt="SAP Sales Document number in logs" loading="lazy">
+              <figcaption>The Sales Document number returned by the BAPI</figcaption>
+            </figure>
+            <div class="callout tip">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <div><strong>Success!</strong> If you see a Sales Document number (e.g., <code>0000007220</code> — note the leading zeros!), the exercise is complete. If you see an error, re-check the default values (Step 5) and the Field Length Validation setting on ITM_NUMBER (Step 3).</div>
+            </div>
+          </div>
+        </li>
+      </ol>
+
+      <div class="trainer-box">
+        <div class="tr-label">Trainer moment — closing the loop</div>
+        <p>Your trainer will now show the same flow running <em>for real</em>: flipping an opportunity to <strong>Closed&nbsp;Won</strong> in Salesforce, watching the live-triggered execution land in Process Reporting, and then opening the new order in SAP (<code>VA03</code>). Look at the order lines — they're the exact products you read in the XML back in Step&nbsp;2. Salesforce sent the deal; SAP created the order; nothing was typed in between.</p>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next exercise →</button>
+      </nav>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

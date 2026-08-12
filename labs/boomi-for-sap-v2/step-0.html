@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="bfs-v2-install">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Step 0 (Optional) — Installing Boomi for SAP — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .val-callout { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color:#fff; border-radius: var(--radius); padding: 20px 24px; margin: 4px 0 28px; display:flex; gap:14px; align-items:flex-start; }
+  .val-callout svg { flex-shrink:0; margin-top:2px; }
+  .val-callout strong { display:block; margin-bottom:4px; }
+  .val-callout p { margin:0; color:rgba(255,255,255,.85); font-size:14px; line-height:1.6; }
+  .diff-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:16px 0 8px; }
+  .diff-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow); }
+  .diff-card h4 { font-size:14px; font-weight:700; margin:0 0 6px; color:var(--primary-dark); display:flex; align-items:center; gap:8px; }
+  .diff-card p { font-size:13px; color:var(--text-muted); line-height:1.55; margin:0; }
+  .diff-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); flex-shrink:0; }
+  .cap-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin:14px 0; }
+  .cap-item { background:var(--primary-light); border-radius:6px; padding:10px 14px; font-size:13px; font-weight:600; color:var(--primary-dark); }
+  .cap-item span { display:block; font-weight:400; font-size:12px; color:var(--text-muted); margin-top:2px; }
+  .phase-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:20px 0 8px; }
+  .phase-tile { border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; background:var(--surface); }
+  .phase-tile .pn { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--accent); margin-bottom:4px; }
+  .phase-tile .pt { font-size:14px; font-weight:700; margin-bottom:2px; }
+  .phase-tile .ps { font-size:12px; color:var(--text-muted); }
+  .tcode { font-family:var(--font-mono); font-size:12.5px; font-weight:700; background:var(--primary-dark); color:#fff; padding:2px 8px; border-radius:4px; letter-spacing:.03em; }
+  .screenshot img { cursor:zoom-in; }
+  .recap-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:16px 0; }
+  .recap-card { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow); }
+  .recap-card h4 { font-size:13px; font-weight:700; margin:0 0 6px; }
+  .recap-card p { font-size:13px; color:var(--text-muted); line-height:1.55; margin:0; }
+  .recap-card code { font-family:var(--font-mono); font-size:12px; background:var(--primary-light); color:var(--primary-dark); padding:1px 6px; border-radius:4px; }
+</style>
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi for SAP — Step 0 (Optional)</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Walkthrough</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Why Boomi for SAP
+      </a></li>
+      <li><a href="#step-1" data-step="1">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 1 of 6 — Prerequisites
+      </a></li>
+      <li><a href="#step-2" data-step="2">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 2 of 6 — Upload Transports
+      </a></li>
+      <li><a href="#step-3" data-step="3">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 3 of 6 — SAINT Wizard
+      </a></li>
+      <li><a href="#step-4" data-step="4">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 4 of 6 — ICF Service
+      </a></li>
+      <li><a href="#step-5" data-step="5">
+        <span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 5 of 6 — Launch &amp; Verify
+      </a></li>
+      <li><a href="#step-6" data-step="6">
+        <span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 6 of 6 — Recap
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~10 min read-through
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 22l2-7L2 9h7z"/></svg>
+        Optional · No hands-on required
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+  <!-- PAGE 0 — WHY BOOMI FOR SAP -->
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 0 · Optional Module</div>
+        <h1 class="step-title">Installing Boomi for SAP</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Before you build, understand what Boomi for SAP is, why it matters, and how it gets installed into an SAP system.</p>
+      </header>
+
+      <div class="val-callout">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>
+          <strong>You won't install anything in this lab.</strong>
+          <p>Your lab environment already has Boomi for SAP installed and running. This optional walkthrough is a guided click-through so you understand what's under the hood — installing the add-on is normally a one-time task handled by an SAP Basis administrator. Click <em>Next</em> to advance; you won't perform any of these steps yourself.</p>
+        </div>
+      </div>
+
+      <h2>Why Boomi for SAP</h2>
+      <p>SAP is the system of record for the enterprise — orders, materials, customers, financials. The hard part has never been the data; it's getting to it cleanly. Traditional approaches bolt an external connector onto SAP and reach in from the outside, or require custom ABAP development gated behind transport requests and developer queues.</p>
+      <p><strong>Boomi for SAP</strong> takes a different approach: it's an <strong>SAP-certified add-on that runs natively inside the SAP system</strong>. A drag-and-drop UI — served directly from SAP — lets you expose SAP data and processes as clean, reusable services that the wider Boomi platform can consume. No middleware to scrape data from the outside, and no custom ABAP to write.</p>
+
+      <h2>What makes it different</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <h4><span class="diff-dot"></span>Runs inside SAP</h4>
+          <p>A certified ABAP add-on installed in the SAP system itself — not an external connector reaching in. It uses SAP's own security, authorizations, and user model.</p>
+        </div>
+        <div class="diff-card">
+          <h4><span class="diff-dot"></span>No custom ABAP</h4>
+          <p>Expose tables, function modules, and events through a UI. Integration teams stop waiting on developer transports to get at SAP data.</p>
+        </div>
+        <div class="diff-card">
+          <h4><span class="diff-dot"></span>Real-time and batch</h4>
+          <p>Table Services for structured extraction and Business Object Events for real-time change notifications — from one tool, in one place.</p>
+        </div>
+        <div class="diff-card">
+          <h4><span class="diff-dot"></span>Governed and catalogued</h4>
+          <p>Every service you publish is named, listed, and reusable — a governed catalogue of SAP capabilities rather than one-off point integrations.</p>
+        </div>
+      </div>
+
+      <h2>What it exposes</h2>
+      <p>Once installed, Boomi for SAP can surface SAP capabilities as services the Boomi platform consumes:</p>
+      <div class="cap-list">
+        <div class="cap-item">Table Services<span>Query SAP tables as OData-style feeds</span></div>
+        <div class="cap-item">Function Modules / BAPIs<span>Call SAP transactions and RFCs</span></div>
+        <div class="cap-item">IDocs<span>Exchange standard SAP documents</span></div>
+        <div class="cap-item">Business Object Events<span>React to SAP changes in real time</span></div>
+        <div class="cap-item">BW Data Extractors<span>Pull from SAP BW</span></div>
+        <div class="cap-item">ABAP Proxies<span>Service-enable proxy interfaces</span></div>
+      </div>
+
+      <h2>What the installation covers</h2>
+      <p>Installing the add-on (transport code <span class="tcode">IXBX 700_740</span>) is four phases inside SAP. The rest of this walkthrough steps through each one:</p>
+      <div class="phase-strip">
+        <div class="phase-tile"><div class="pn">Phase 1</div><div class="pt">Upload Transports</div><div class="ps">T-Code: CG3Z</div></div>
+        <div class="phase-tile"><div class="pn">Phase 2</div><div class="pt">SAINT Wizard</div><div class="ps">T-Code: SAINT</div></div>
+        <div class="phase-tile"><div class="pn">Phase 3</div><div class="pt">ICF Service</div><div class="ps">T-Code: SICF</div></div>
+        <div class="phase-tile"><div class="pn">Phase 4</div><div class="pt">Launch &amp; Verify</div><div class="ps">Final check</div></div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 1 — PREREQUISITES -->
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 6</div>
+        <h1 class="step-title">Prerequisites &amp; Required Files</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">What a Basis admin needs on hand before starting the install.</p>
+      </header>
+
+      <h3>Required access</h3>
+      <ul>
+        <li>SAP user with <strong>Basis / add-on installation rights</strong> (SAINT authorization)</li>
+        <li>Access to <span class="tcode">CG3Z</span> — Upload File to Application Server</li>
+        <li>Access to <span class="tcode">SAINT</span> — SAP Add-On Installation Tool</li>
+        <li>Access to <span class="tcode">SICF</span> — Maintain Services</li>
+        <li>The <strong>IXBX package files</strong> from Boomi Support or the SAP Marketplace</li>
+        <li>The installation password from <strong>SAP Note 567695</strong></li>
+      </ul>
+
+      <h3>Package files required</h3>
+      <table class="mapping-table">
+        <thead><tr><th>File</th><th>Target path on server</th></tr></thead>
+        <tbody>
+          <tr><td><code>substanc.dat</code></td><td><code>/usr/sap/trans/substanc.dat</code></td></tr>
+          <tr><td><code>QAS…0000114.PAT</code></td><td><code>/usr/sap/trans/EPS/in/…114.PAT</code></td></tr>
+          <tr><td><code>QAS…0000115.PAT</code></td><td><code>/usr/sap/trans/EPS/in/…115.PAT</code></td></tr>
+          <tr><td><code>QAS…0000119.PAT</code></td><td><code>/usr/sap/trans/EPS/in/…119.PAT</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Case-sensitive paths</strong>Target paths are case-sensitive on Linux SAP systems. Verify <code>/usr/sap/trans/EPS/in/</code> exists and is writable by the <code>&lt;sid&gt;adm</code> OS user before uploading.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — PHASE 1 CG3Z -->
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 6 · Phase 1</div>
+        <h1 class="step-title">Upload Transport Files to the Application Server</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">T-Code <span class="tcode">CG3Z</span> — push each package file from the local machine to the SAP server so SAINT can detect them.</p>
+      </header>
+
+      <ol class="instruction-list">
+        <li><div class="instruction-num">1</div><div class="instruction-body">
+          <p><strong>Open CG3Z</strong> — Enter <span class="tcode">CG3Z</span> in the transaction field and press Enter. The <em>Upload File: Parameters</em> dialog opens.</p>
+        </div></li>
+        <li><div class="instruction-num">2</div><div class="instruction-body">
+          <p><strong>Upload <code>substanc.dat</code> first</strong> — Set Source file to <code>%LOCALAPPDATA%\substanc.dat</code>, Target to <code>/usr/sap/trans/substanc.dat</code>, format <strong>BIN</strong>. Click the Transfer (floppy disk) icon.</p>
+        </div></li>
+        <li><div class="instruction-num">3</div><div class="instruction-body">
+          <p><strong>Upload the three .PAT files</strong> — Repeat CG3Z for each. Target path for all three: <code>/usr/sap/trans/EPS/in/&lt;filename&gt;.PAT</code>, in order: 0000114 → 0000115 → 0000119.</p>
+        </div></li>
+      </ol>
+
+      <table class="mapping-table">
+        <thead><tr><th>#</th><th>Source filename</th><th>Target server path</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>substanc.dat</code></td><td><code>/usr/sap/trans/substanc.dat</code></td></tr>
+          <tr><td>2</td><td><code>QAS…_0000114.PAT</code></td><td><code>/usr/sap/trans/EPS/in/…114.PAT</code></td></tr>
+          <tr><td>3</td><td><code>QAS…_0000115.PAT</code></td><td><code>/usr/sap/trans/EPS/in/…115.PAT</code></td></tr>
+          <tr><td>4</td><td><code>QAS…_0000119.PAT</code></td><td><code>/usr/sap/trans/EPS/in/…119.PAT</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Always transfer as BIN</strong>Transfer format is <strong>BIN</strong> for all four files. Do not use ASC or DAT modes.</div>
+      </div>
+
+      <figure class="screenshot"><img src="images/install/cg3z-dialog.png" alt="CG3Z Upload File: Parameters dialog" loading="lazy"><figcaption>The <em>Upload File: Parameters</em> dialog — source file on the left, target server path on the right, transfer format BIN.</figcaption></figure>
+      <figure class="screenshot"><img src="images/install/cg3z-success.png" alt="CG3Z success status message" loading="lazy"><figcaption>The status-bar confirmation once a file lands: <em>"File [source] transferred to [target]."</em> Four confirmations = ready for SAINT.</figcaption></figure>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div>If SAINT later reports <em>"OCS file already exists in inbox. Upload not required"</em> — that's the expected success message. It means the file landed correctly the first time.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — PHASE 2 SAINT -->
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 6 · Phase 2</div>
+        <h1 class="step-title">Install the Add-On via SAINT</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">T-Code <span class="tcode">SAINT</span> — a six-screen wizard that selects the package, calculates the queue, takes the password, and imports.</p>
+      </header>
+
+      <ol class="instruction-list">
+        <li><div class="instruction-num">1</div><div class="instruction-body">
+          <p><strong>Open SAINT</strong> — Enter <span class="tcode">SAINT</span> and run. The tool scans the inbox; verify all three OCS packages show result code <strong>0004</strong> — <em>"OCS file already exists in inbox."</em></p>
+        </div></li>
+        <li><div class="instruction-num">2</div><div class="instruction-body">
+          <p><strong>Select the package</strong> <em>(Screen 1/6)</em> — Check <strong>IXBX 700_740: Add-On Installation</strong> and click <strong>Continue</strong>.</p>
+        </div></li>
+        <li><div class="instruction-num">3</div><div class="instruction-body">
+          <p><strong>Review the calculated queue</strong> <em>(Screen 3/6)</em> — Confirm both packages appear: <code>SAPK-700COINIXBX</code> (Installation) and <code>SAPK-70001INIXBX</code> (Support Package). Status reads <em>"The extended queue is consistent."</em> Click <strong>Continue</strong>.</p>
+        </div></li>
+        <li><div class="instruction-num">4</div><div class="instruction-body">
+          <p><strong>Enter the installation password</strong> <em>(Screen 5/6)</em> — In the <em>SAINT: Password request</em> dialog, enter the password from <strong>SAP Note 567695</strong> for both packages, then click the green checkmark.</p>
+        </div></li>
+        <li><div class="instruction-num">5</div><div class="instruction-body">
+          <p><strong>Wait for the import</strong> — SAINT runs the queue (<em>"10%: tp successfully connected"</em>, <em>"CHECK_REQUIREMENTS is being executed…"</em>). Do not cancel — this takes several minutes.</p>
+        </div></li>
+        <li><div class="instruction-num">6</div><div class="instruction-body">
+          <p><strong>Finish</strong> <em>(Screen 6/6)</em> — On completion the runtime analysis dialog confirms <em>"The import of the OCS queue was successfully finished!"</em> Choose <strong>Do not send</strong>, then click <strong>Finish</strong>.</p>
+        </div></li>
+      </ol>
+
+      <div class="callout important">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Password source</strong>The install password comes from <strong>SAP Note 567695</strong>. Double-click the note number in the SAINT dialog to open it directly in the SAP Support Portal.</div>
+      </div>
+
+      <figure class="screenshot"><img src="images/install/saint-queue.png" alt="SAINT calculated queue, Screen 3 of 6" loading="lazy"><figcaption>Screen 3/6 — the calculated queue, with both OCS packages listed and the Modification Adjustment Transports prompt.</figcaption></figure>
+      <figure class="screenshot"><img src="images/install/saint-finish.png" alt="SAINT imported queue, Screen 6 of 6" loading="lazy"><figcaption>Screen 6/6 — <em>"The Add-on was successfully imported."</em> Click Finish here.</figcaption></figure>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Success indicator</strong>The status bar reads <em>"Add-on installation queue was confirmed"</em> as the wizard advances to Screen 6/6.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — PHASE 3 SICF -->
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 6 · Phase 3</div>
+        <h1 class="step-title">Create and Activate the ZBX ICF Service</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">T-Code <span class="tcode">SICF</span> — the Boomi for SAP UI is served through an SAP ICF service. Create the ZBX node, register the handler class, and activate it.</p>
+      </header>
+
+      <ol class="instruction-list">
+        <li><div class="instruction-num">1</div><div class="instruction-body">
+          <p><strong>Open SICF</strong> — Enter <span class="tcode">SICF</span>, ensure Hierarchy Type is <code>SERVICE</code>, and press F8 (Execute) to load the service tree.</p>
+        </div></li>
+        <li><div class="instruction-num">2</div><div class="instruction-body">
+          <p><strong>Create a new service element</strong> — Click <strong>Create Host/Service</strong>. Name = <code>ZBX</code>, Type = <strong>Standalone service</strong>. Click the green checkmark.</p>
+        </div></li>
+        <li><div class="instruction-num">3</div><div class="instruction-body">
+          <p><strong>Set the description</strong> — On the <strong>Service Data</strong> tab, Description 1 = <code>Boomi for SAP activation</code>. Leave the other fields at default.</p>
+        </div></li>
+        <li><div class="instruction-num">4</div><div class="instruction-body">
+          <p><strong>Register the handler class</strong> — On the <strong>Handler List</strong> tab, row 1, enter <code>/IXBX/CL_SICF</code> exactly. This is the IXBX handler that processes all service calls.</p>
+        </div></li>
+        <li><div class="instruction-num">5</div><div class="instruction-body">
+          <p><strong>Save as Local Object</strong> — Click <strong>Store</strong>. In the <em>Create Object Directory Entry</em> dialog (object <code>R3TR SICF ZBX</code>) click <strong>Local Object</strong> — no transport request is needed, which is correct.</p>
+        </div></li>
+        <li><div class="instruction-num">6</div><div class="instruction-body">
+          <p><strong>Activate the service</strong> — In the tree, find <strong>ZBX</strong> under <code>default_host</code>, right-click → <strong>Activate Service</strong>, and confirm.</p>
+        </div></li>
+      </ol>
+
+      <div class="callout important">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Handler class — exact value</strong>Enter <code>/IXBX/CL_SICF</code> exactly as shown. It is case-sensitive and must match Handler List row 1.</div>
+      </div>
+
+      <figure class="screenshot"><img src="images/install/sicf-handler.png" alt="SICF Handler List tab with /IXBX/CL_SICF entered" loading="lazy"><figcaption>The Handler List tab — row 1 holds the handler class, and the description from the previous step already shows here.</figcaption></figure>
+      <figure class="screenshot"><img src="images/install/sicf-object.png" alt="Create Object Directory Entry dialog, Local Object button" loading="lazy"><figcaption>The <em>Create Object Directory Entry</em> dialog — object R3TR SICF ZBX. Click Local Object, not a transport request.</figcaption></figure>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Success indicator</strong>The ZBX node icon changes to active. The service is reachable at <code>http(s)://&lt;host&gt;:&lt;port&gt;/ZBX</code>.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 5 — PHASE 4 VERIFY -->
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 5 of 6 · Phase 4</div>
+        <h1 class="step-title">Launch and Verify the Boomi for SAP UI</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">With the add-on installed and the ICF service active, the Boomi for SAP UI should be reachable from SAP Easy Access.</p>
+      </header>
+
+      <ol class="instruction-list">
+        <li><div class="instruction-num">1</div><div class="instruction-body">
+          <p><strong>Launch from SAP Easy Access</strong> — Return to the SAP Easy Access menu and open the Boomi for SAP application, or run the ZBX service URL directly. The status bar shows <em>"Start of application: Open UI"</em> as it loads.</p>
+        </div></li>
+        <li><div class="instruction-num">2</div><div class="instruction-body">
+          <p><strong>Verify the UI loads fully</strong> — The home screen shows the integration diagram and a full left-hand navigation menu. Confirm the footer version string, e.g. <code>VERSION | S4H-100 | &lt;user&gt;</code>.</p>
+        </div></li>
+      </ol>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Expected left navigation</strong>
+          <ul style="margin:6px 0 0;padding-left:18px;">
+            <li><strong>List &amp; Manage:</strong> Table Services · Function Modules · Events · IDocs · BW Data Extractors · ABAP Proxies</li>
+            <li><strong>Create:</strong> Table Service · Function Module · Data Wizard · Event · BW Data Extractor</li>
+            <li><strong>Help:</strong> Getting Started · Help.boomi.com · Boomi Support</li>
+          </ul>
+        </div>
+      </div>
+
+      <figure class="screenshot"><img src="images/install/launched.png" alt="Boomi for SAP home screen with integration diagram and left navigation menu" loading="lazy"><figcaption>The home screen once it's live — SAP on the left, Boomi for SAP in the middle, the wider Boomi platform on the right, and the full List &amp; Manage / Create / Help navigation down the left side.</figcaption></figure>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Installation complete</strong>All four phases finished: the IXBX 700_740 add-on is installed, the ZBX ICF service is active, and the Boomi for SAP UI is accessible.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 6 — RECAP -->
+  <section class="step-page" id="page-6">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 6 of 6 · Recap</div>
+        <h1 class="step-title">Recap &amp; Key Takeaways</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The few things worth remembering about how Boomi for SAP gets stood up.</p>
+      </header>
+
+      <h3>What got installed</h3>
+      <p>The <strong>IXBX 700_740</strong> add-on now lives inside the SAP system, and the <strong>ZBX ICF service</strong> serves its UI. From here, SAP data and processes can be exposed as Table Services, Function Modules, Events, IDocs, BW Extractors, and ABAP Proxies — the building blocks you'll use in the exercises.</p>
+
+      <h3>The four phases at a glance</h3>
+      <div class="recap-grid">
+        <div class="recap-card"><h4>1 · Upload — <code>CG3Z</code></h4><p>Push the four package files to the server, always as <strong>BIN</strong>.</p></div>
+        <div class="recap-card"><h4>2 · Install — <code>SAINT</code></h4><p>Six-screen wizard imports the OCS queue. Password comes from <strong>SAP Note 567695</strong>.</p></div>
+        <div class="recap-card"><h4>3 · Activate — <code>SICF</code></h4><p>Create the <code>ZBX</code> service, register handler <code>/IXBX/CL_SICF</code>, save as Local Object, activate.</p></div>
+        <div class="recap-card"><h4>4 · Verify</h4><p>Launch from SAP Easy Access; the UI loads with the full List &amp; Manage / Create menu.</p></div>
+      </div>
+
+      <h3>Three things people get wrong</h3>
+      <ul>
+        <li>Uploading transport files in <strong>ASC/DAT instead of BIN</strong> — always BIN.</li>
+        <li>Mistyping the handler class — it must be exactly <code>/IXBX/CL_SICF</code>, case-sensitive.</li>
+        <li>Assigning the ICF service to a transport request instead of <strong>Local Object</strong>.</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>In this lab, this is already done for you.</strong> Installing the add-on is a one-time Basis task — your environment is ready. You now understand what's under the hood, so let's start building.</div>
+      </div>
+
+      <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+        <div>
+          <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Ready to build</p>
+          <h3 style="font-size:16px;margin:0;color:#fff;">Exercise 1 — Start the hands-on lab</h3>
+        </div>
+        <a href="exercise-1.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Exercise 1 →</a>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish</button>
+      </nav>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

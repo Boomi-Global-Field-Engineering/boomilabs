@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boomi for SAP Lab (V2 Preview) — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Boomi for SAP Lab — V2 Preview</span>
+</header>
+
+<div style="padding-top: 56px;">
+
+  <div class="workshop-hero">
+    <div class="workshop-hero-inner">
+      <div class="workshop-breadcrumb">
+        <a href="../../index.html">Boomi Labs</a> / Boomi for SAP Lab (V2)
+      </div>
+      <h1>Boomi for SAP — Hands-on Lab <span style="display:inline-block;vertical-align:middle;background:var(--accent);color:#fff;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;border-radius:20px;padding:4px 14px;margin-left:10px;">V2 Preview</span></h1>
+      <p>Learn how to integrate SAP S/4HANA with Salesforce and databases using Boomi for SAP. Work through three progressive exercises covering BAPI invocation, Table Services, and real-time Business Object Events — now with deeper explanations of the <em>why</em> behind every step.</p>
+      <div class="workshop-badges">
+        <span class="badge badge-blue">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          ~2.5 hours
+        </span>
+        <span class="badge badge-green">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Intermediate
+        </span>
+        <span class="badge badge-yellow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          3 Exercises + Optional Step 0
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="workshop-body">
+
+    <div style="background:#fffbeb;border:1px solid #f5d97e;border-left:4px solid #f0b429;border-radius:var(--radius);padding:16px 22px;margin-bottom:32px;font-size:14px;line-height:1.6;">
+      <strong>V2 under review — not yet listed in the catalog.</strong> This is the updated version of the Boomi for SAP lab incorporating the field review feedback. The <a href="../boomi-for-sap/index.html">current published version</a> remains live until this one is approved.
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start;">
+      <div>
+
+        <h2 class="section-heading">Exercises</h2>
+        <ul class="exercise-list">
+          <li>
+            <a href="step-0.html" class="exercise-item" style="border-style:dashed;">
+              <div class="exercise-num" style="background:var(--accent);">0</div>
+              <div class="exercise-info">
+                <h3>Installing Boomi for SAP <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;background:#fff5f0;color:#c94000;border-radius:4px;padding:2px 8px;margin-left:6px;vertical-align:middle;">Optional</span></h3>
+                <p>A guided click-through of how the Boomi for SAP add-on is installed into an SAP system — transport upload, the SAINT wizard, ICF service setup, and launch. Your lab environment is already installed; this is for context, no hands-on required.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~10 min</span>
+                <span>Read-through</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-1.html" class="exercise-item">
+              <div class="exercise-num">1</div>
+              <div class="exercise-info">
+                <h3>Creating a Sales Order in SAP from a Salesforce Opportunity</h3>
+                <p>Read a real CRM payload, call <code>BAPI_SALESORDER_CREATEFROMDAT2</code> through the Boomi for SAP connector, and learn the classic SAP mapping patterns — leading zeros, line increments of 10, sales-area defaults — with the reasoning behind each.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~50 min</span>
+                <span>8 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-2.html" class="exercise-item">
+              <div class="exercise-num">2</div>
+              <div class="exercise-info">
+                <h3>Table Services: SAP Sales Orders to a Database</h3>
+                <p>Join <code>VBAK</code> and <code>VBAP</code> into a single Table Service — complete header and line-item data in one call — then query it from an integration process and load the results into the shared workshop database.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~60 min</span>
+                <span>7 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="exercise-3.html" class="exercise-item">
+              <div class="exercise-num">3</div>
+              <div class="exercise-info">
+                <h3>Business Object Events: Real-time SAP Notifications</h3>
+                <p>Subscribe to the Sales Order <em>CHANGED</em> event, route it through a Topic, and receive a table-service-enriched payload in a deployed listener — real-time SAP, with the full metadata-vs-payload story explained.</p>
+              </div>
+              <div class="exercise-meta">
+                <span>~45 min</span>
+                <span>5 steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <h2 class="section-heading" style="margin-top: 40px;">What's new in V2</h2>
+        <ul style="line-height: 1.9; padding-left: 24px;">
+          <li><strong>"Why you're doing this"</strong> callouts on every substantive step — rollback flags, leading zeros, increments of 10, hardcoded sales areas vs. lookups, event exposure</li>
+          <li><strong>Process locator strips</strong> on every page so you always know which shape of the flow you're configuring</li>
+          <li><strong>Trainer moments</strong> — flagged points where the trainer shows the flow live: Salesforce, the shared database, and a real-time event round trip</li>
+          <li><strong>Step numbering fixed</strong> — instructions now restart per step instead of running continuously</li>
+          <li><strong>You build the Leading Zeros function</strong> yourself instead of copying it (pre-built fallback still available)</li>
+          <li><strong>New explanations</strong> — the branded connector and Boomi for SAP Core, the BAPI response / Salesforce write-back pattern, Table Service joins and filters, Topics and event payload modes</li>
+          <li><strong>Boomi Companion</strong> mapping assist flagged as an optional add-on</li>
+        </ul>
+
+        <h2 class="section-heading" style="margin-top: 40px;">Prerequisites</h2>
+        <ul style="line-height: 1.9; padding-left: 24px;">
+          <li>Access to the Boomi platform (<a href="https://platform.boomi.com" target="_blank" rel="noopener">platform.boomi.com</a>, account <code>boomi_solutions_engineeri-IH374I</code>) — credentials provided by your trainer</li>
+          <li>Access to the Boomi for SAP UI (<a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank" rel="noopener">boomiforsap.demo.boomi.com</a>)</li>
+          <li>Basic familiarity with the Boomi process canvas (drag, drop, configure shapes)</li>
+          <li>Assigned user number (USERXX / XX) — provided by your trainer</li>
+        </ul>
+
+      </div>
+
+      <aside style="position: sticky; top: 72px;">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; box-shadow: var(--shadow);">
+          <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted);">Lab Details</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px;">
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Products Covered</div>
+              <div style="color: var(--text-muted);">Boomi for SAP, Boomi Integration, SAP S/4HANA</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Integration Patterns</div>
+              <div style="color: var(--text-muted);">BAPI, Table Service (joined query), Business Object Events</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Total Duration</div>
+              <div style="color: var(--text-muted);">~2.5 hours (hands-on)</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Level</div>
+              <div style="color: var(--text-muted);">Intermediate — some prior Boomi experience recommended</div>
+            </div>
+            <div>
+              <div style="font-weight: 600; margin-bottom: 2px;">Reference</div>
+              <div style="color: var(--text-muted);"><a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">Boomi for SAP docs</a> · <a href="https://www.sapdatasheet.org/abap/func/bapi_salesorder_createfromdat2.html" target="_blank" rel="noopener">BAPI datasheet</a></div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
