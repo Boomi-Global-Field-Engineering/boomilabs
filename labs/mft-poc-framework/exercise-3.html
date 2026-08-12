@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-3">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troubleshooting &amp; Mock POC Validation — MFT POC Framework — Boomi Labs</title>
+<link rel="icon" href="../../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../../assets/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  .error-table { width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .error-table th { background:var(--primary); color:#fff; padding:10px 14px; text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+  .error-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .error-table tr:last-child td { border-bottom:none; }
+  .error-table tr:nth-child(even) td { background:var(--surface); }
+  .badge-4xx { display:inline-block; background:#fee2e2; color:#991b1b; border-radius:4px; padding:2px 8px; font-size:12px; font-weight:700; }
+  .badge-5xx { display:inline-block; background:#fef9c3; color:#854d0e; border-radius:4px; padding:2px 7px; font-size:12px; font-weight:700; }
+  .audit-trail { display:flex; gap:0; margin:20px 0; }
+  .audit-stage { flex:1; text-align:center; padding:16px 10px; position:relative; }
+  .audit-stage:not(:last-child)::after { content:"→"; position:absolute; right:-10px; top:50%; transform:translateY(-50%); font-size:18px; color:var(--text-muted); font-weight:700; z-index:1; }
+  .audit-icon { width:40px; height:40px; border-radius:50%; margin:0 auto 8px; display:flex; align-items:center; justify-content:center; }
+  .audit-label { font-size:13px; font-weight:700; }
+  .audit-desc { font-size:11px; color:var(--text-muted); margin-top:3px; line-height:1.4; }
+
+  /* Checklist styles */
+  .checklist-section { margin-bottom:28px; }
+  .checklist-section h3 { font-size:15px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .checklist-section h3 .section-count { font-size:12px; font-weight:600; background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:2px 8px; color:var(--text-muted); }
+  .checklist-items { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .checklist-item { display:flex; align-items:flex-start; gap:12px; padding:12px 16px; border-bottom:1px solid var(--border); cursor:pointer; transition:background .1s; user-select:none; }
+  .checklist-item:last-child { border-bottom:none; }
+  .checklist-item:hover { background:var(--surface); }
+  .checklist-item.checked { background:#f0fdf4; }
+  .checklist-item.checked .checklist-text { color:var(--text-muted); text-decoration:line-through; }
+  .checklist-checkbox { width:20px; height:20px; min-width:20px; border:2px solid var(--border); border-radius:5px; display:flex; align-items:center; justify-content:center; margin-top:1px; transition:all .15s; }
+  .checklist-item.checked .checklist-checkbox { background:var(--success); border-color:var(--success); }
+  .checklist-checkbox svg { display:none; }
+  .checklist-item.checked .checklist-checkbox svg { display:block; }
+  .checklist-text { font-size:14px; line-height:1.5; }
+  .checklist-text code { background:var(--surface); border:1px solid var(--border); border-radius:3px; padding:1px 5px; font-size:12px; font-family:monospace; }
+  .progress-summary { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:16px 20px; margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+  .progress-summary .pct { font-size:28px; font-weight:800; color:var(--primary); min-width:60px; }
+  .progress-summary .bar-wrap { flex:1; }
+  .progress-summary .bar-label { font-size:12px; color:var(--text-muted); margin-bottom:6px; }
+  .progress-summary .bar { height:8px; background:var(--border); border-radius:4px; overflow:hidden; }
+  .progress-summary .bar-fill { height:100%; background:var(--primary); border-radius:4px; transition:width .3s; }
+  .complete-banner { display:none; background:#dcfce7; border:1px solid #86efac; border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; color:#166534; font-weight:600; align-items:center; gap:10px; }
+  .complete-banner.show { display:flex; }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">MFT POC Framework — Module 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Module 3 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Troubleshooting &amp; Error Handling
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Mock POC Checklist
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~25 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Module 3 — Overview</div>
+          <h1 class="step-title">Troubleshooting &amp; Mock POC Validation</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Learn to diagnose transfer failures fast, then prove your readiness by completing the full Mock POC Technical Checklist.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Module</div>
+            <div style="font-size:14px;font-weight:700;">3 of 3</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~25 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Checklist Items</div>
+            <div style="font-size:14px;font-weight:700;">14 items</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Outcome</div>
+            <div style="font-size:14px;font-weight:700;">SE Certified Ready</div>
+          </div>
+        </div>
+
+        <h3>What This Module Covers</h3>
+        <p>Step 1 gives you the diagnostic framework — error codes, connectivity tools, and the MFT audit trail. Step 2 is the interactive Mock POC Technical Checklist: 14 items across four categories that you must complete to validate SE readiness for the Boomi MFT 300-level certification track.</p>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>The checklist requires a live Boomi environment with MFT enabled. Complete Modules 1 and 2 first — the checklist validates the configurations from those modules.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Troubleshooting & Error Handling -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 2</div>
+          <h1 class="step-title">Troubleshooting &amp; Error Handling</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Diagnose MFT failures quickly using error codes, connectivity tools, and the audit trail.</p>
+        </header>
+
+        <h3>Error Code Reference</h3>
+        <table class="error-table">
+          <thead>
+            <tr>
+              <th>Code Class</th>
+              <th>Meaning</th>
+              <th>Common Causes</th>
+              <th>First Steps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge-4xx">4xx Client Error</span></td>
+              <td>The client request has a problem</td>
+              <td>Bad credentials, missing file, wrong remote path, insufficient permissions, account locked</td>
+              <td>Verify username/password or SSH key; check remote path exists; confirm account is active</td>
+            </tr>
+            <tr>
+              <td><span class="badge-5xx">5xx Server Error</span></td>
+              <td>The server cannot fulfill the request</td>
+              <td>Server unavailable, disk full on remote host, internal MFT configuration issue, service restart in progress</td>
+              <td>Check server availability (<code>ping</code> / <code>telnet</code>); verify MFT service status; check disk space on server</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Connectivity Verification Tools</h3>
+        <p>Before debugging credentials or configurations, verify the network path is open. Use these commands from the Atom host machine or a machine in the same network segment:</p>
+
+        <pre class="code-block"><code># Verify the port is reachable (SFTP = 22, FTPS explicit = 21, FTPS implicit = 990)
+telnet &lt;remote-host&gt; &lt;port&gt;
+
+# Basic reachability check
+ping &lt;remote-host&gt;
+
+# From Linux: test SFTP connection with verbose output
+sftp -v -i ~/.ssh/id_rsa user@remote-host
+
+# Check if a specific port is open (Linux)
+nc -zv &lt;remote-host&gt; 22</code></pre>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Always run connectivity checks from the <strong>MFT Runtime host machine</strong>, not your laptop. Firewalls could applied between the MFT Runtime and the remote host — your laptop network may behave differently.</div>
+        </div>
+
+        <h3>The MFT Audit Trail</h3>
+        <p>Every file transfer in Boomi MFT moves through four states. When a transfer fails, identifying which state it failed at tells you immediately where to look:</p>
+
+        <div class="audit-trail">
+          <div class="audit-stage">
+            <div class="audit-icon" style="background:#dbeafe;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="audit-label">Received</div>
+            <div class="audit-desc">File arrived at the MFT endpoint and logged</div>
+          </div>
+          <div class="audit-stage">
+            <div class="audit-icon" style="background:#fef9c3;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#854d0e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="audit-label">Validated</div>
+            <div class="audit-desc">Auth checked, permissions verified</div>
+          </div>
+          <div class="audit-stage">
+            <div class="audit-icon" style="background:#f3e8ff;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 19.07a10 10 0 010-14.14"/></svg>
+            </div>
+            <div class="audit-label">Processed</div>
+            <div class="audit-desc">Workflow / routing rules applied</div>
+          </div>
+          <div class="audit-stage">
+            <div class="audit-icon" style="background:#dcfce7;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="audit-label">Delivered</div>
+            <div class="audit-desc">File confirmed at final destination</div>
+          </div>
+        </div>
+
+        <table class="error-table" style="margin-top:0;">
+          <thead>
+            <tr>
+              <th>Failure at Stage</th>
+              <th>What It Means</th>
+              <th>Where to Look</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Received</strong></td>
+              <td>File arrived but was rejected at ingestion</td>
+              <td>Check file size limits, MFT listener configuration, port availability</td>
+            </tr>
+            <tr>
+              <td><strong>Validated</strong></td>
+              <td>Auth or permission check failed</td>
+              <td>Check credentials, SSH key fingerprint, Virtual Folder permissions, account status</td>
+            </tr>
+            <tr>
+              <td><strong>Processed</strong></td>
+              <td>Routing or transformation rule failed</td>
+              <td>Check workflow configuration, filename filters, any transformation scripts</td>
+            </tr>
+            <tr>
+              <td><strong>Delivered</strong></td>
+              <td>Destination unreachable or write failed</td>
+              <td>Check target server connectivity, disk space, destination path permissions</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Demo move:</strong> Intentionally fail a transfer during the POC (wrong password, blocked path) and show the customer exactly where it appears in the Activity Log. This is more convincing than a flawless demo — it shows you understand the failure modes.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Mock POC Checklist -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 2</div>
+          <h1 class="step-title">Mock POC Technical Checklist</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Complete all 14 items to validate your SE readiness. Check each item as you complete it in your environment.</p>
+        </header>
+
+        <div class="progress-summary">
+          <div class="pct" id="checklistPct">0%</div>
+          <div class="bar-wrap">
+            <div class="bar-label" id="checklistLabel">0 of 14 complete</div>
+            <div class="bar"><div class="bar-fill" id="checklistBar" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <div class="complete-banner" id="completeBanner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          Mock POC checklist complete — you're SE certified ready for Boomi MFT!
+        </div>
+
+        <!-- Section 1: Environment & Server Mode -->
+        <div class="checklist-section">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Environment &amp; Server Mode
+            <span class="section-count" id="count-env">0 / 5</span>
+          </h3>
+          <div class="checklist-items" id="section-env">
+            <div class="checklist-item" onclick="toggleCheck(this,'env')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Deploy a Boomi MFT Runtime on a Linux or Windows VM</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'env')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Verify the MFT Runtime is <strong>Online</strong> in the Boomi platform</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'env')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Create an MFT User and assign a Virtual Folder</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'env')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Connect to the Boomi SFTP endpoint via FileZilla or WinSCP using SFTP (port 22)</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'env')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Upload a test file and verify it appears in the MFT Activity Log</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Security Check -->
+        <div class="checklist-section">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Security Check
+            <span class="section-count" id="count-sec">0 / 3</span>
+          </h3>
+          <div class="checklist-items" id="section-sec">
+            <div class="checklist-item" onclick="toggleCheck(this,'sec')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Replace password authentication with an SSH Key for the MFT user</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'sec')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Verify that the old password no longer grants access (attempt login → confirm failure)</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'sec')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Confirm SSH key-only access is enforced and file transfer works with key auth</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Client Mode & Orchestration -->
+        <div class="checklist-section">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Client Mode &amp; Orchestration
+            <span class="section-count" id="count-client">0 / 4</span>
+          </h3>
+          <div class="checklist-items" id="section-client">
+            <div class="checklist-item" onclick="toggleCheck(this,'client')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Configure an External Endpoint (S3 bucket or partner SFTP server) in the MFT platform</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'client')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Create a Pull transfer definition and schedule it (minimum: once per hour)</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'client')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Trigger a manual run and verify files are retrieved from the external source</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'client')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Configure the Runtime Agent to watch a local directory and build a Folder A → Folder B routing workflow</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Monitoring -->
+        <div class="checklist-section">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Monitoring &amp; Audit
+            <span class="section-count" id="count-mon">0 / 2</span>
+          </h3>
+          <div class="checklist-items" id="section-mon">
+            <div class="checklist-item" onclick="toggleCheck(this,'mon')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Intentionally fail a transfer (wrong credentials or path) and locate the error code in the Activity Log</div>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this,'mon')">
+              <div class="checklist-checkbox"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="checklist-text">Trace a successful file from <strong>Received → Validated → Processed → Delivered</strong> in the Activity Log</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Your checklist progress is saved in this browser session. Come back to this page anytime to track your completion status.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <a href="index.html" class="step-nav-btn primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Back to Overview</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="text-align:center;padding:24px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:40px;">
+  Created by Alexei Godek &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+<script src="../../assets/js/lab.js"></script>
+<script>
+  const TOTAL = 14;
+  const sectionCounts = { env: 0, sec: 0, client: 0, mon: 0 };
+  const sectionTotals = { env: 5, sec: 3, client: 4, mon: 2 };
+
+  function toggleCheck(el, section) {
+    el.classList.toggle('checked');
+    const checked = el.classList.contains('checked');
+    sectionCounts[section] += checked ? 1 : -1;
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const total = Object.values(sectionCounts).reduce((a,b) => a+b, 0);
+    const pct = Math.round((total / TOTAL) * 100);
+    document.getElementById('checklistPct').textContent = pct + '%';
+    document.getElementById('checklistLabel').textContent = total + ' of ' + TOTAL + ' complete';
+    document.getElementById('checklistBar').style.width = pct + '%';
+    for (const [s, c] of Object.entries(sectionCounts)) {
+      const el = document.getElementById('count-' + s);
+      if (el) el.textContent = c + ' / ' + sectionTotals[s];
+    }
+    const banner = document.getElementById('completeBanner');
+    if (total === TOTAL) { banner.classList.add('show'); }
+    else { banner.classList.remove('show'); }
+  }
+</script>
+</body>
+</html>

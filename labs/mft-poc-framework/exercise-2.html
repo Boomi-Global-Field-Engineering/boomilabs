@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="exercise-2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 3 Core POC Patterns — MFT POC Framework — Boomi Labs</title>
+<link rel="icon" href="../../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../../assets/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  .pattern-header { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-radius: var(--radius); margin-bottom: 20px; }
+  .pattern-num { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 800; color: #fff; flex-shrink: 0; }
+  .arch-diagram { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 20px 0; font-size: 13px; }
+  .arch-diagram h4 { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); font-weight: 700; margin-bottom: 16px; }
+  .arch-flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .arch-node { padding: 10px 14px; border-radius: 8px; font-weight: 600; text-align: center; font-size: 13px; line-height: 1.35; min-width: 100px; }
+  .arch-arrow { color: var(--text-muted); font-size: 18px; font-weight: 700; }
+  .arch-label { font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 400; }
+  .key-point { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .key-point:last-child { border-bottom: none; }
+  .key-point-icon { color: var(--success); flex-shrink: 0; margin-top: 2px; }
+  .config-steps { counter-reset: config-step; list-style: none; }
+  .config-steps li { counter-increment: config-step; display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .config-steps li:last-child { border-bottom: none; }
+  .config-steps li::before { content: counter(config-step); display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; min-width: 28px; background: var(--primary); color: #fff; border-radius: 50%; font-size: 13px; font-weight: 800; margin-top: 1px; }
+  .config-steps li p { margin: 0; font-size: 14px; line-height: 1.55; }
+  .config-steps li strong { font-weight: 700; }
+  .discovery-q { background: #f0fdf4; border-left: 3px solid var(--success); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 8px 0; font-size: 13.5px; font-style: italic; color: #166534; }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">MFT POC Framework — Module 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Module 2 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Pattern 1: Internal Orchestration
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Pattern 2: MFT as Client
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Pattern 3: MFT as Server
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~40 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Module 2 — Overview</div>
+          <h1 class="step-title">The 3 Core POC Patterns</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Three patterns that collectively cover 90% of real-world MFT customer use cases. Master these and you can run any POC.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Module</div>
+            <div style="font-size:14px;font-weight:700;">2 of 3</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~40 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Patterns</div>
+            <div style="font-size:14px;font-weight:700;">3 patterns</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Type</div>
+            <div style="font-size:14px;font-weight:700;">Hands-On Demo</div>
+          </div>
+        </div>
+
+        <h3>The Pattern Framework</h3>
+        <p>Every MFT requirement a prospect brings can be mapped to one (or a combination) of three fundamental patterns. Understanding which pattern applies is the first question to answer in every POC scoping call.</p>
+
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;">
+          <thead>
+            <tr style="background:var(--primary);color:#fff;">
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;">#</th>
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;">Pattern</th>
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;">Who Initiates</th>
+              <th style="padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.4px;">Typical Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);font-weight:700;">1</td>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);font-weight:700;">Internal Orchestration</td>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);">Boomi Runtime Agent (event-driven)</td>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);">Folder_A → Folder_B on legacy ERP</td>
+            </tr>
+            <tr style="background:var(--surface);">
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);font-weight:700;">2</td>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);font-weight:700;">MFT as Client</td>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);">Boomi (scheduled pull or push)</td>
+              <td style="padding:10px 14px;border-bottom:1px solid var(--border);">Pull from S3 every hour, push to partner SFTP</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 14px;font-weight:700;">3</td>
+              <td style="padding:10px 14px;font-weight:700;">MFT as Server</td>
+              <td style="padding:10px 14px;">External partners (connect inbound)</td>
+              <td style="padding:10px 14px;">50 bank vendors upload files to Boomi SFTP endpoint</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Each step in this module covers one pattern: the architecture, the demo setup, the discovery questions to ask, and the key proof points to land with the customer.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Pattern 1 — Internal Orchestration -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 3</div>
+          <h1 class="step-title">Pattern 1: Internal Orchestration</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Boomi moves files between internal servers automatically using a Runtime Agent — no partner-facing connectivity required.</p>
+        </header>
+
+        <div style="background:#fce7f3;border:1px solid #f9a8d4;border-radius:var(--radius);padding:18px 22px;margin-bottom:24px;">
+          <h3 style="margin-top:0;color:#9d174d;">Try It Yourself</h3>
+          <p style="color:#831843;">There's a full step-by-step lab/workshop that walks through building this exact scenario — deploying the MFT Runtime, configuring the watched directory, and building the Folder A → Folder B routing workflow:</p>
+          <p style="margin-bottom:0;"><strong style="color:#9d174d;">MFT Runtime Workshop</strong> — a guided, hands-on build of the Internal Orchestration pattern from start to finish. <a href="https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-runtime/index.html" target="_blank" rel="noopener" style="color:#be185d;font-weight:600;">Open the lab →</a></p>
+        </div>
+
+        <div class="arch-diagram">
+          <h4>Architecture</h4>
+          <div class="arch-flow">
+            <div>
+              <div class="arch-node" style="background:#dbeafe;color:#1d4ed8;">📁 Folder A<br>(Source)</div>
+              <div class="arch-label" style="text-align:center">Watched directory</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div>
+              <div class="arch-node" style="background:#fef9c3;color:#854d0e;">⚙️ Boomi MFT<br>Runtime Agent</div>
+              <div class="arch-label" style="text-align:center">On-prem or cloud</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div>
+              <div class="arch-node" style="background:#dcfce7;color:#166534;">🗄️ Folder B<br>(Legacy ERP)</div>
+              <div class="arch-label" style="text-align:center">Target system</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin:8px 0 0;">Trigger: New file in Folder A → workflow fires automatically (event-driven or scheduled poll)</p>
+        </div>
+
+        <h3>What Makes This Pattern Distinct</h3>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;">
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>No partner-facing connectivity — this is purely internal file movement between systems within the same network or VPC</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>The Runtime Agent polls or listens for new files, then triggers the routing workflow automatically</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Supports any protocol the internal systems use: SMB, NFS, local disk, SFTP, FTPS, FTP</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Can apply transformation, filtering, renaming, or enrichment rules during routing</span>
+          </div>
+        </div>
+
+        <h3>Demo Configuration Steps</h3>
+        <ol class="config-steps">
+          <li><p><strong>Deploy a Boomi Atom</strong> on a Linux or Windows VM within the customer's network (or use an existing Atom if one is deployed). Verify the Atom is Online in the Boomi platform.</p></li>
+          <li><p><strong>Create a watched directory</strong> — designate a local folder (Folder A) on the Atom's host machine as the source. Configure the Boomi MFT Runtime to watch this directory for new file arrivals.</p></li>
+          <li><p><strong>Create the destination</strong> — configure Folder B on the same or different internal server. This simulates the legacy ERP landing zone.</p></li>
+          <li><p><strong>Build the routing workflow</strong> — in the MFT platform, create a workflow rule: <em>When new file arrives in Folder A → move/copy to Folder B</em>. Add any filename filters or transformations needed.</p></li>
+          <li><p><strong>Test end-to-end</strong> — drop a test file into Folder A. Verify it appears in Folder B within the configured poll interval. Check the Activity Log to confirm the full audit trail.</p></li>
+        </ol>
+
+        <h3>Discovery Questions</h3>
+        <div class="discovery-q">"Are there any files today that move manually between internal servers — someone copying files from one system to another on a schedule?"</div>
+        <div class="discovery-q">"Do you have legacy systems that can only consume files from a specific local directory path rather than an API?"</div>
+        <div class="discovery-q">"How do you currently handle file routing failures — what's the error notification and retry story?"</div>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>POC Checklist items for this pattern:</strong> Deploy Atom → Verify Online → Configure watch directory → Build Folder_A → Folder_B workflow → Drop test file → Confirm delivery in Activity Log</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Pattern 2 — MFT as Client -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 3</div>
+          <h1 class="step-title">Pattern 2: MFT as Client</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Boomi initiates every connection — pulling from external sources or pushing to partner endpoints on a schedule. External systems never call Boomi.</p>
+        </header>
+
+        <div class="arch-diagram">
+          <h4>Architecture</h4>
+          <div class="arch-flow" style="margin-bottom:16px;">
+            <div>
+              <div class="arch-node" style="background:#dbeafe;color:#1d4ed8;">☁️ AWS S3<br>(Cloud Storage)</div>
+              <div class="arch-label" style="text-align:center">External source</div>
+            </div>
+            <div class="arch-arrow">← HTTPS Pull ←</div>
+            <div>
+              <div class="arch-node" style="background:#fef9c3;color:#854d0e;">⚙️ Boomi MFT<br>Platform</div>
+              <div class="arch-label" style="text-align:center">Initiates all connections</div>
+            </div>
+            <div class="arch-arrow">→ SFTP Push →</div>
+            <div>
+              <div class="arch-node" style="background:#dcfce7;color:#166534;">🔒 Partner<br>SFTP Server</div>
+              <div class="arch-label" style="text-align:center">External target</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin:4px 0 0;">Boomi holds all credentials and initiates every session. External systems never need to call inbound to Boomi.</p>
+        </div>
+
+        <h3>What Makes This Pattern Distinct</h3>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;">
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Boomi holds all credentials centrally — external systems never need firewall rules allowing inbound connections to Boomi</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Supports multiple target protocols per transfer: SFTP, FTPS, FTP, AWS S3, Azure Blob, Google Cloud Storage — all configurable per connection</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Built-in retry logic and transfer-state tracking — if a pull fails, Boomi retries without manual intervention</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Scheduling is flexible: fixed intervals (every hour), CRON expressions, or event-triggered</span>
+          </div>
+        </div>
+
+        <h3>Demo Configuration Steps</h3>
+        <ol class="config-steps">
+          <li><p><strong>Configure an External Endpoint</strong> — in the MFT platform, create a connection to the external source (e.g., an AWS S3 bucket with access key/secret, or a partner SFTP server with SSH key). Store credentials securely in the platform.</p></li>
+          <li><p><strong>Create a Pull transfer definition</strong> — define what to pull: which bucket/path, file filter (e.g., <code>*.csv</code>), and what to do with the file after retrieval (delete, archive, or leave in place).</p></li>
+          <li><p><strong>Set the schedule</strong> — configure the transfer to run every hour (or on a custom CRON). Trigger a manual run to verify connectivity.</p></li>
+          <li><p><strong>Verify retrieval</strong> — confirm files appear in the configured landing zone and check the Activity Log for transfer timestamps, byte counts, and status.</p></li>
+          <li><p><strong>(Optional) Configure a Push</strong> — add a second step: after pulling from S3, push the file to a partner SFTP server. This demonstrates the full pull-process-push pipeline in one workflow.</p></li>
+        </ol>
+
+        <h3>Discovery Questions</h3>
+        <div class="discovery-q">"Do any of your current integrations involve scheduled jobs that connect to external FTP servers to pick up files? Who manages those scripts today?"</div>
+        <div class="discovery-q">"How do you handle the case where a partner's SFTP server is temporarily unavailable? What's your current retry strategy?"</div>
+        <div class="discovery-q">"Do you need to pull from multiple cloud storage providers — S3, Azure Blob, GCS — in the same environment?"</div>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>Key differentiator to land:</strong> Boomi as client means zero inbound firewall changes for the customer. Their security team will appreciate that no new ports need to be opened on their perimeter.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Pattern 3 — MFT as Server -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 3</div>
+          <h1 class="step-title">Pattern 3: MFT as Server</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Boomi hosts the SFTP endpoint. External partners connect and upload directly — each one isolated in their own Virtual Folder.</p>
+        </header>
+
+        <div style="background:#fce7f3;border:1px solid #f9a8d4;border-radius:var(--radius);padding:18px 22px;margin-bottom:24px;">
+          <h3 style="margin-top:0;color:#9d174d;">Try It Yourself</h3>
+          <p style="color:#831843;">This exact pattern — many external partners uploading into isolated Virtual Folders on a single SFTP endpoint — is available as a standalone, self-guided lab that anyone can view and run:</p>
+          <p style="margin-bottom:0;"><strong style="color:#9d174d;">MFT: Many-to-One (Multi-Partner SFTP)</strong> — walks through the same MFT-as-Server pattern end to end. <a href="https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-many-to-one/index.html" target="_blank" rel="noopener" style="color:#be185d;font-weight:600;">Open the lab →</a></p>
+        </div>
+
+        <div class="arch-diagram">
+          <h4>Architecture</h4>
+          <div class="arch-flow">
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div class="arch-node" style="background:#dbeafe;color:#1d4ed8;min-width:120px;">🏦 Bank Vendor 1</div>
+              <div class="arch-node" style="background:#dbeafe;color:#1d4ed8;min-width:120px;">🏦 Bank Vendor 2</div>
+              <div class="arch-node" style="background:#dbeafe;color:#1d4ed8;min-width:120px;">🏦 Bank Vendor N</div>
+            </div>
+            <div class="arch-arrow">→ SFTP (port 22) →</div>
+            <div>
+              <div class="arch-node" style="background:#fef9c3;color:#854d0e;">⚙️ Boomi SFTP<br>Listener</div>
+              <div class="arch-label" style="text-align:center">Virtual Endpoint</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div>
+              <div class="arch-node" style="background:#f3e8ff;color:#7c3aed;">📂 Virtual Folder<br>(per partner)</div>
+              <div class="arch-label" style="text-align:center">Isolated namespace</div>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div>
+              <div class="arch-node" style="background:#dcfce7;color:#166534;">🗄️ Internal<br>System</div>
+              <div class="arch-label" style="text-align:center">ERP / Downstream</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin:8px 0 0;">Auth: SSH Key or Password per partner account. Each partner sees only their own namespace — full multi-tenant isolation.</p>
+        </div>
+
+        <h3>What Makes This Pattern Distinct</h3>
+        <div style="border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;">
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Boomi presents a single public SFTP endpoint — partners connect exactly like any standard SFTP client (FileZilla, WinSCP, custom script)</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Virtual Folders enforce multi-tenant isolation — Vendor 1 cannot see or access Vendor 2's files under any circumstance</span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Full audit trail for every upload: <strong>Received → Validated → Processed → Delivered</strong></span>
+          </div>
+          <div class="key-point">
+            <span class="key-point-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span>Scales to 50, 500, or 5,000 partners — each with their own credentials, permissions, and quota settings</span>
+          </div>
+        </div>
+
+        <h3>Demo Configuration Steps</h3>
+        <ol class="config-steps">
+          <li><p><strong>Create an MFT User account</strong> — in the Boomi platform, create a user account for the partner (e.g., "BankVendor1"). Set the authentication method: SSH key preferred, password as fallback for demo.</p></li>
+          <li><p><strong>Create a Virtual Folder</strong> — assign the user a Virtual Folder with a defined root path. This is the only directory the partner will be able to see when they connect.</p></li>
+          <li><p><strong>Connect via SFTP client</strong> — open FileZilla or WinSCP, connect to the Boomi SFTP endpoint (host, port 22, credentials). Verify the partner can see only their Virtual Folder.</p></li>
+          <li><p><strong>Upload a test file</strong> — upload a test file from the client. Switch to the MFT Activity Log and confirm the file is visible with status <em>Received</em>.</p></li>
+          <li><p><strong>Verify routing</strong> — confirm the file progresses through <em>Validated → Processed → Delivered</em> in the audit trail. Show the customer this full lineage in a single view.</p></li>
+          <li><p><strong>(Bonus demo)</strong> — create a second user and Virtual Folder, connect as that user, and show that they cannot see the first partner's files. This is the multi-tenant isolation proof point.</p></li>
+        </ol>
+
+        <h3>Discovery Questions</h3>
+        <div class="discovery-q">"How many external partners currently send files to you? Are they all connecting to the same endpoint or different ones?"</div>
+        <div class="discovery-q">"How do you provision access today when a new partner needs to start sending files? How long does that take?"</div>
+        <div class="discovery-q">"Have you ever had a situation where a partner uploaded to the wrong location and caused a data issue?"</div>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><strong>The money slide:</strong> The four-state audit trail — Received, Validated, Processed, Delivered — is the proof point that resonates most with operations teams. Show it during every demo.</div>
+        </div>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Module 2 complete. Continue to <strong>Module 3: Troubleshooting &amp; Mock POC Validation</strong> to complete the SE readiness checklist.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <a href="exercise-3.html" class="step-nav-btn primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Next Module →</a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+<footer style="text-align:center;padding:24px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);margin-top:40px;">
+  Created by Alexei Godek &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+</body>
+</html>
