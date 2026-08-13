@@ -231,7 +231,7 @@
 
         <h3>Demo Configuration Steps</h3>
         <ol class="config-steps">
-          <li><p><strong>Deploy a Boomi Atom</strong> on a Linux or Windows VM within the customer's network (or use an existing Atom if one is deployed). Verify the Atom is Online in the Boomi platform.</p></li>
+          <li><p><strong>Deploy a MFT Runtime</strong> on a Linux or Windows VM within the customer's network. Verify the Runtime is Online in the MFT portal.</p></li>
           <li><p><strong>Create a watched directory</strong> — designate a local folder (Folder A) on the Atom's host machine as the source. Configure the Boomi MFT Runtime to watch this directory for new file arrivals.</p></li>
           <li><p><strong>Create the destination</strong> — configure Folder B on the same or different internal server. This simulates the legacy ERP landing zone.</p></li>
           <li><p><strong>Build the routing workflow</strong> — in the MFT platform, create a workflow rule: <em>When new file arrives in Folder A → move/copy to Folder B</em>. Add any filename filters or transformations needed.</p></li>
@@ -245,7 +245,7 @@
 
         <div class="callout tip">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-          <div><strong>POC Checklist items for this pattern:</strong> Deploy Atom → Verify Online → Configure watch directory → Build Folder_A → Folder_B workflow → Drop test file → Confirm delivery in Activity Log</div>
+          <div><strong>POC Checklist items for this pattern:</strong> Deploy MFT Runtime → Verify Online → Configure watch directory → Build Folder_A → Folder_B workflow → Drop test file → Confirm delivery in Activity Log</div>
         </div>
 
         <nav class="step-nav">
