@@ -1,0 +1,119 @@
+BOOMI LABS - CATALOG
+====================
+
+Lab Name: Boomi for SAP - Hands-on Lab
+Description: Learn how to integrate SAP S 4HANA with Salesforce and databases using the Boomi for SAP connector Three progressive exercises BAPI invocation Salesforce Opportunity to SAP Sales Order via BAPI SALESORDER CREATEFROMDAT2 Table Services custom VBAK VBAP join queried into a database and real time Business Object Events BUS2032 CHANGED to Web Services Server listener
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/boomi-for-sap/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Boomi Integration Fundamentals
+Description: Build your first Boomi integration end to end query Salesforce for prospect accounts check for duplicates against a database and write new records back A foundational walkthrough of connectors decision logic mapping and notifications for first time Boomi users
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/integration-fundamentals/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Boomi Integration & API Management - Hands-on Lab
+Description: Build a complete Salesforce to database integration process step by step then expose it as a managed API Covers connectors decision logic mapping error handling web service listeners deployment the API Catalog plans and subscribing via the Developer Portal
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/integration-apim/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Boomi Technical Workshop
+Description: Comprehensive technical workshop covering the full Boomi platform provisioning Pub Sub event streams REST APIs ETL processes SAP ECC and S 4HANA integration CI CD pipelines data cataloging API management and platform monitoring Attendees build producer consumer event flows ETL processes and managed APIs
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/tech-workshop/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Data Hub - Hands-on Lab
+Description: Build a complete Data Hub solution end to end define a Model configure match rules and data quality attach Salesforce and Netsuite as sources fix data quality errors and synchronize consolidated golden records out to a marketing database
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/datahub/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Boomi Flow - Hands-on Lab
+Description: Hands on introduction to Boomi Flow build a Flow Service that wraps an existing Atom process publish and install it build the Flow UI and customize the player theme Attendees end with a fully working themed Flow application
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/boomi-flow/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: MFT Guided Demos
+Description: Six pre built demo flows covering every major Boomi MFT integration pattern hosted SFTP PGP encryption scheduled transfers SFTP pull fan out routing and on premises runtime A complete field reference for Solutions Consultants and Sales Engineers from SSO login through full file lifecycle walkthroughs
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-guided-demos/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Modernizing the Back Office (ERP to Partner)
+Description: Automate ERP to partner file distribution using Boomi MFT s fan out pattern Attendees route invoices purchase orders and shipping notices from a single ERP drop folder out to BMW Mazda and Volkswagen automatically based on filename rules
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-erp-to-partner/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Many to One (Partners to Headquarters)
+Description: Automate secure file delivery from multiple partner organizations into a single headquarters server using Boomi MFT Attendees implement the many to one pattern partners upload via SFTP MFT routes each file to the correct target folder at headquarters with full partner isolation and optional PGP encryption
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-many-to-one/index.html
+Version: 2026-05-08
+
+---
+
+Lab Name: Trading Partner SFTP & EDI Processing
+Description: Combine Boomi MFT s File Sharing module with Boomi Integration s EDI Trading Partner module to host a secure SFTP server for trading partners Attendees explore the File Sharing portal configure the ABCD Trading Partner with SFTP communication settings wire up SAP Rejected Error return folders and run a live test that processes an inbound EDI 850 purchase order into SAP ORDERS05
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-edi-partner/index.html
+Version: 2026-05-27
+
+---
+
+Lab Name: Customer Operations - Agentic Labs
+Description: Three AI agent labs covering customer support and retention Attendees build a Customer Support Triage agent multi intent product order troubleshooting handler extend it into a Customer Support Insights agent with sentiment analysis and intelligent case routing self led and build an Intelligent Churn Detection agent that consolidates customer health signals and triggers proactive retention workflows
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/customer-operations/index.html
+Version: 2026-05-29
+
+---
+
+Lab Name: Financial Operations - Agentic Labs
+Description: Five AI agent labs for finance operations Attendees build an Invoice Reconciliation Agent three way PO GRN invoice match and a DataHub backed variant a Quote Parts Agent for BOM processing and supplier sourcing plus a DataHub backed variant and a Remittance Reconciliation Agent that synthesizes data from banking portals customer emails and ERP systems
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/financial-operations/index.html
+Version: 2026-05-29
+
+---
+
+Lab Name: IT Operations - Agentic Labs
+Description: AI agent labs for IT operations and platform observability Attendees build an Error Analyzer Agent that monitors Boomi integration processes in real time identifies root causes of process failures and surfaces remediation steps for operators
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/it-operations/index.html
+Version: 2026-05-29
+
+---
+
+Lab Name: Supply Chain & Logistics - Agentic Labs
+Description: Two AI agent labs for supply chain operations Attendees build an EDI Trading Partner Onboarding Agent that automates partner data validation and trading partner setup and an Inventory Management Agent that monitors stock levels validates purchase orders and tracks inbound shipments
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/supply-chain-logistics/index.html
+Version: 2026-05-29
+
+---
+
+Lab Name: Certified File Transfer Professional (CFTP)
+Description: Self paced training course covering every file transfer protocol FTP FTPS SFTP HTTP AS2 AS4 accelerated UDP transfers and at rest encryption Six modules with quizzes Not a build lab a foundational protocol knowledge course for anyone who works with file transfer
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/cftp/index.html
+Version: 2026-05-06
+
+---
+
+Lab Name: MFT POC Framework
+Description: Master the core concepts security patterns and three fundamental POC scenarios that cover 90 percent of real world Boomi MFT customer use cases Built for SEs preparing to run technical POCs
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-poc-framework/index.html
+Version: 2026-08-14
+
+---
+
+Lab Name: Install & Test the MFT Runtime (Thru Node)
+Description: A hands on step by step lab for installing the Boomi MFT Runtime on a pre provisioned workshop VM and running a real LAN to LAN file transfer end to end no customer infrastructure required 40 minute core lab plus optional SFTP bonus exercise
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-runtime/index.html
+Version: 2026-08-14
