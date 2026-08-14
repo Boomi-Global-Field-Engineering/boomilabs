@@ -53,7 +53,6 @@
   .complete-banner { display:none; background:#dcfce7; border:1px solid #86efac; border-radius:var(--radius); padding:16px 20px; margin-bottom:20px; color:#166534; font-weight:600; align-items:center; gap:10px; }
   .complete-banner.show { display:flex; }
 </style>
-<script src="../../assets/js/analytics.js"></script>
 </head>
 <body>
 
@@ -211,7 +210,7 @@ nc -zv &lt;remote-host&gt; 22</code></pre>
 
         <div class="callout info">
           <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-          <div>Always run connectivity checks from the <strong>MFT Runtime host machine</strong>, not your laptop. Firewalls could applied between the MFT Runtime and the remote host — your laptop network may behave differently.</div>
+          <div style="flex:1;min-width:0;">Always run connectivity checks from the <strong>MFT Runtime host machine</strong>, not your laptop. Firewalls could applied between the MFT Runtime and the remote host — your laptop network may behave differently.</div>
         </div>
 
         <h3>The MFT Audit Trail</h3>
