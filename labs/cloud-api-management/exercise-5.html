@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="cam-ex5">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 5 — API Control Plane & the Developer Portal — Cloud API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Cloud API Management — Exercise 5</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · How to Configure Location Settings</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Verifying the Cloud API Management Gateway</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Discovering your APIs and API Products</a></li>
+      <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · How to Configure the Developer Portal</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~30 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Foundational</div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 5 — API Control Plane & the Developer Portal</h1>
+      </header>
+      <p>Switch to API Control Plane: verify your Cloud API Management gateway is connected, discover your APIs and API Products, publish them, then brand the Developer Portal and call your API live from it.</p>
+      <div class="callout warning"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div><strong>About the screenshots</strong>Some screenshots were captured before the example names were standardized. Where a screenshot shows an older name (e.g., <em>Coruscant-IT</em> or <em>SWAPI_APP</em>), follow the names in the written instructions instead (<strong>Corporate-IT</strong>, <strong>PETSTORE_APP</strong>, and so on).</div></div>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>How to Configure Location Settings</li>
+        <li>Verifying the Cloud API Management Gateway</li>
+        <li>Discovering your APIs and API Products</li>
+        <li>How to Configure the Developer Portal</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 4</div>
+        <h1 class="step-title">How to Configure Location Settings</h1>
+      </header>
+      <p>Next, let’s go over the different configuration features.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the left navigation, select <strong>Configuration</strong>. The screen refreshes and takes you to the <strong>General</strong> tab of the <em>Configuration</em> page. This will show the <em>Location Settings</em>. If needed, select your preferred <strong>Date Format </strong>and<strong> Time Format.</strong></p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Select <strong>Save</strong>.</p>
+            <figure class="screenshot"><img src="images/ex5/image01.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Follow the Boomi AI Landing Page hyperlink</p>
+            <figure class="screenshot"><img src="images/ex5/image02.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Click Get Started and Accept the terms. Go back to the Configuration page and refresh. It should now show Boomi AI as enabled.</p>
+            <figure class="screenshot"><img src="images/ex5/image03.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 4</div>
+        <h1 class="step-title">Verifying the Cloud API Management Gateway</h1>
+      </header>
+      <p>Cloud API Management or CAM is considered a special Gateway. API Control Plane provides management, governance and federation of Gateways and their deployed APIs. Follow these instructions to confirm if CAM appears as a Managed Gateway.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the left select <strong>Gateways</strong>. The <em>Gateways</em> page opens. If you have a Boomi Gateway installed, this page will show your local Boomi API Gateway along with the Cloud API Management managed Gateway. The page also shows your CAM Gateway is <em>Connected</em>.</p>
+            <figure class="screenshot"><img src="images/ex5/image04.png" alt="" loading="lazy"></figure>
+            <p>This means, your API Control Plane can see the Cloud API Management (CAM) Gateway, and it is automatically listed. No need for registration. Boomi tools and products can connect to each other automatically.</p>
+            <p>In this activity, you will complete the following:</p>
+            <p>Discover your APIs</p>
+            <p>Discover your API Products</p>
+            <p>Enable Developer Portal Visibility for assets</p>
+            <p>Enable MCP Server for assets</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 4</div>
+        <h1 class="step-title">Discovering your APIs and API Products</h1>
+      </header>
+      <p>Now that you have a connected <em>Cloud API Management Gateway</em>, you are ready to discover your CAM API Definition.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From API Control Plane’s left navigation, select Environments.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Identify and select <strong>your Boomi Cloud API Management environment</strong>.</p>
+            <figure class="screenshot"><img src="images/ex5/image05.png" alt="" loading="lazy"></figure>
+            <p>The next page shows the details of your CAM environment. From the top, select <strong>+Discover</strong>. The Discovery dialog appears. Select the <strong>Discover APIs</strong> button.</p>
+            <figure class="screenshot"><img src="images/ex5/image06.png" alt="" loading="lazy"></figure>
+            <p>The system processes your request and starts discovering APIs in your CAM Gateway. When done, the <em>Swagger Petstore API </em> is displayed. If for any reason you created other API Definitions in CAM, those will be listed here.</p>
+            <figure class="screenshot"><img src="images/ex5/image07.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Navigate to the <strong>API Products </strong>tab. You should see an entry labeled <strong>Corporate-IT_PKG - Unlimited-IT </strong>that was discovered from your CAM environment. Select it.</p>
+            <figure class="screenshot"><img src="images/ex5/image08.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Click on <strong>Assigned APIS</strong>.<strong> </strong>Here you should see your Swagger Petstore API. If other APIs had been imported from other API environments with the same Organizational ownership, these would appear in here as well and could be added to the same API Product.</p>
+            <figure class="screenshot"><img src="images/ex5/image09.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Click on <strong>Visibility</strong>. Enable the toggle to <strong>Expose APIs as Tools</strong>. This will enable all APIs in this API Product as Tools in an MCP Server. Enable the toggle to <strong>Publish to the Developer Portals</strong>. This will make this API Product and associated APIs available to the Developer Portal(s) where their Organization is configured. Ensure the Privacy is set to <strong>Public</strong>.</p>
+            <figure class="screenshot"><img src="images/ex5/image10.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Click on <strong>Plans</strong>. Note that the plan you configured in CAM has been imported for use. Click on <strong>Subscriptions</strong>. Note your subscription has been imported as well.</p>
+            <p>In this activity, you will complete the following:</p>
+            <p>Basic Developer Portal Configuration</p>
+            <p>Test your API</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 4</div>
+        <h1 class="step-title">How to Configure the Developer Portal</h1>
+      </header>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the left navigation, select <strong>Configuration</strong>. Select <strong>Developer Portals</strong>, and click the white text to select the default developer portal.</p>
+            <figure class="screenshot"><img src="images/ex5/image11.png" alt="" loading="lazy"></figure>
+            <p>On the <strong>General Info</strong> tab, change the name to something such as Boomi Labs Developer Portal, and click <strong>Save</strong> in the bottom right corner.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Click on the <strong>Customization</strong> tab. Here we can set logos and colors for our developer portal to add some branding and customization. Find a logo for your company online. SVGs work well for the general logo, and PNGs for the favicon. Upload it for the three logo options. Add custom colors as well. For example, change Accent and Main Menu Color to: R6 G61 B88. Click Save</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Click back on the <strong>Developer Portals</strong> tab under the Configuration menu. Click on the hyperlink to take you to your developer portal.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Click on <strong>Applications</strong>. Select your <strong>PETSTORE_APP</strong> that you created in CAM. Click on <strong>Subscriptions</strong>, then select the Secrets button. Here you can find the information about your MCP Server and view/copy your API Key (Package Key) you created in CAM. Copy that key now, then click the X on the top of the box.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>Click on <strong>APIs</strong>. Select the <strong>Swagger Petstore</strong>. Click <strong>Try it Out</strong>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>Click the <strong>Authorize</strong> box in the top right hand corner. Paste in the copied API Key and authorize yourself. Click on the <strong>GET /pet/findByStatus</strong> endpoint. Select an option in the status box, such as Sold, then click <strong>Execute.</strong> You should see a successful operation with a response appear. Note also the sample code snippets provided when using this API in the future.</p>
+            <figure class="screenshot"><img src="images/ex5/image16.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

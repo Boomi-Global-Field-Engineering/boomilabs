@@ -117,3 +117,10 @@ Lab Name: Install & Test the MFT Runtime (Thru Node)
 Description: A hands on step by step lab for installing the Boomi MFT Runtime on a pre provisioned workshop VM and running a real LAN to LAN file transfer end to end no customer infrastructure required 40 minute core lab plus optional SFTP bonus exercise
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-runtime/index.html
 Version: 2026-08-14
+
+---
+
+Lab Name: Cloud API Management - Hands-on Lab
+Description: Take a public API from specification to governed product Import the Petstore OpenAPI spec into Cloud API Management configure Traffic Routing design Packages and Plans for three departments generate Package Keys then discover and publish through API Control Plane and a branded Developer Portal
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/cloud-api-management/index.html
+Version: 2026-08-18

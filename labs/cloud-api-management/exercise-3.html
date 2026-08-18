@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="cam-ex3" data-next-exercise-href="exercise-4.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 3 — Organizations & the API Definition — Cloud API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Cloud API Management — Exercise 3</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Configuring Organizations</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Creating the API Definition</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Configuring EndPoint Domains and Traffic Routing</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~30 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Foundational</div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 3 — Organizations & the API Definition</h1>
+      </header>
+      <p>Create the Organizations that govern who can access what, then import the public Petstore OpenAPI specification to create your first API Definition and wire up Traffic Routing — the heart of Cloud API Management.</p>
+      <div class="callout warning"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><div><strong>About the screenshots</strong>Some screenshots were captured before the example names were standardized. Where a screenshot shows an older name (e.g., <em>Coruscant-IT</em> or <em>SWAPI_APP</em>), follow the names in the written instructions instead (<strong>Corporate-IT</strong>, <strong>PETSTORE_APP</strong>, and so on).</div></div>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Configuring Organizations</li>
+        <li>Creating the API Definition</li>
+        <li>Configuring EndPoint Domains and Traffic Routing</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">Configuring Organizations</h1>
+      </header>
+      <p>It’s a best practice for any company to complete initial configurations before using the system. This activity will cover how to set up and configure the <em>Cloud API Management Organizations.</em> Let’s begin with the company’s organizational structure. You don’t need to create organizations that <strong>will not</strong> have access to develop or use APIs.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Note: to facilitate this training, only a few organizations will be created.</div></div>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From Control Center select the Organizations tile or from the top menus select Manage &gt; Organizations.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Select Create your first Organization. The New Organization dialog appears.</p>
+            <figure class="screenshot"><img src="images/ex3/image01.png" alt="" loading="lazy"></figure>
+            <p>Create the following Organizations. Select Save and Close for each one. Select New Organization to create the next one.</p>
+    <table class="mapping-table">
+        <thead><tr><th>Organization Name</th><th>Description</th><th>Select a Parent Organization</th></tr></thead><tbody>
+        <tr><td>Corporate-IT</td><td>This is the Corporate IT parent organization.</td><td>N/A</td></tr>
+        <tr><td>Corporate-FIN</td><td>This is the Corporate Finance parent organization.</td><td>N/A</td></tr>
+        <tr><td>Corporate-HR</td><td>This is the Corporate Human Resources parent organization.</td><td>N/A</td></tr>
+        </tbody>
+      </table>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>When done, your Organizations page should look like the following.</p>
+            <figure class="screenshot"><img src="images/ex3/image02.png" alt="" loading="lazy"></figure>
+            <p>If no Organizations are defined, you will have configurations that will use the <strong>Area Level</strong>. The Area Level means the entire tenant will be available to all objects or elements. It is important that you create organizations and sub-organizations to control who has access to what. Otherwise, all users will have access to all APIs.</p>
+    <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Note: as you noticed, during the Navigation activity, there are other parts that can be configured. To facilitate and to reduce complexity, these are the only configurations you will perform.</div></div>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Creating the API Definition</h1>
+      </header>
+      <p>For your first <em>Cloud API Management</em> API Definition in this lab, you will need to have an OpenAPI Specification of the source or backend API.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Note: Typically, the API Specification is provided as a Swagger file or an OpenAPI file. In a production environment, it&#x27;s recommended to consult with the API developer or owner for further details, as the API Specification will be used as a reference to create the Cloud API Management API Specification.</div></div>
+      <p>The OpenAPI Specification used for this activity was derived from the https://petstore.swagger.io/ site. This is a free <strong>Petstore API</strong> where you can send requests to interact with pets, stores, and users. This API is not hosted by Boomi.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Note: The sample API used in this activity is for illustration and training purposes only. It represents APIs that can be configured under API Definitions. The use case and narrative can be applied or related to any corporate scenario.</div></div>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Go to the Cloud API Management browser tab. From Control Center select API Definitions.</p>
+            <p>If this is your first API Definition, the screen will show four options:</p>
+            <p>Create your first API Definition</p>
+            <p>Create your first API Definition by importing a file</p>
+            <p>Create your first API Definition by importing from URI</p>
+            <p>Create your first API Definition by import from Boomi Platform</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Select <strong>Create your first API Definition by importing from URI</strong>.</p>
+            <figure class="screenshot"><img src="images/ex3/image03.png" alt="" loading="lazy"></figure>
+            <p><strong><em>The </em></strong><strong><em>Import an API Definition</em></strong><strong><em> popup appears. </em></strong>Paste the following URL into the associate field: https://petstore.swagger.io/v2/swagger.json<strong><em>. For Public EndPoint Domain select </em></strong><strong><em>your</em></strong><strong><em> </em></strong><strong><em>Cloud API Management</em></strong><strong><em> Tenant </em></strong><strong><em>Public</em></strong><strong><em> </em></strong><strong><em>Domain</em></strong><strong><em> ending in </em></strong><strong><em>api.mashery.com</em></strong><strong><em>. Finally, for Organization select </em></strong><strong><em>Corporate-IT</em></strong><strong><em>. When done, select </em></strong><strong><em>Preview</em></strong><strong><em>.</em></strong></p>
+            <figure class="screenshot"><img src="images/ex3/image04.png" alt="" loading="lazy"></figure>
+            <p>The Preview screen appears. This is a preview of the API Definition and EndPoints that will be created from the uploaded file. Select Save and continue.</p>
+            <figure class="screenshot"><img src="images/ex3/image05.png" alt="" loading="lazy"></figure>
+            <p>The message “Success! Your API Management API and Interactive Documentation has been created.” appears. From the bottom, select View your API.</p>
+            <p><strong><em>The system refreshes and takes you to the </em></strong><strong><em>Endpoints: </em></strong><em>Swagger Petstore </em><strong><em>screen. You can see details like the name, Public Domain, and an Icon to view the Client Usage Report. From the left, select </em></strong><strong><em>Interactive Documentation Access Control</em></strong><strong><em>. Select the following </em></strong><strong><em>Unselected</em></strong><strong><em> values:</em></strong></p>
+            <p>Administrator</p>
+            <p>Corporate-IT Administrator</p>
+            <p>Everyone</p>
+            <p>The selected values will show up under the <em>Current</em> box. After selecting these two values select <strong>Save</strong>.</p>
+            <figure class="screenshot"><img src="images/ex3/image06.png" alt="" loading="lazy"></figure>
+            <p>This means, only those Roles will have access to this API via the Interactive Documentation.</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Configuring EndPoint Domains and Traffic Routing</h1>
+      </header>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p><strong><em>Go to the </em></strong><strong><em>Endpoints</em></strong><strong><em> page. Select the </em></strong><strong>Swagger Petstore.pet.findByStatus</strong><strong><em> EndPoint link.</em></strong></p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>From the left side, select Domains &amp; Traffic Routing. This is the heart of Cloud API Management. This is also called Traffic Manager. So, what are you doing now? You are creating the Traffic connection between the Source or Backend System’s API and the Cloud API Management’s API. It can be interpreted as a link between the two APIs.</p>
+            <figure class="screenshot"><img src="images/ex3/image07.png" alt="" loading="lazy"></figure>
+            <p>The screen shows the connection or link between these two APIs locations. For Customize your Public Endpoint Address, and for Protocol, select https.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>When done, select <strong>Save</strong>.</p>
+            <figure class="screenshot"><img src="images/ex3/image08.png" alt="" loading="lazy"></figure>
+            <p><strong><em>When a client calls </em></strong><strong><em>your-public-domain.api.mashery.com/</em></strong><em>v2/pet/findByStatus</em><strong><em>,</em></strong><strong><em> </em></strong><strong><em>Cloud API Management</em></strong><strong><em> routes the traffic to </em></strong><em>petstore.swagger.io</em><strong><em>/</em></strong><em>v2/pet/findByStatus</em><strong><em>. This is the objective of the </em></strong><strong><em>Traffic Manager</em></strong><strong><em>. You can modify your public domain path if needed, but for now you will leave these with these default values.</em></strong></p>
+            <p>Let’s perform other configurations.  From the left side, select Key &amp; Method Detection. This is where you will configure some of the properties of the Cloud API Management API.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Scroll down and enter the following:</p>
+      <pre><code>Request Authentication Type = API Key
+Developer&#x27;s API Key Location = only select Header
+Key Field Identifier = api_key (in lowercase)</code></pre>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
+          <div class="instruction-body">
+            <p>When done, select <strong>Save</strong>.</p>
+            <figure class="screenshot"><img src="images/ex3/image09.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">6</div>
+          <div class="instruction-body">
+            <p>From the left side select Cross-Origin Resource Sharing. Select Enable CORS and Allow CORS Requests from any domain. Select Save.</p>
+            <figure class="screenshot"><img src="images/ex3/image10.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">7</div>
+          <div class="instruction-body">
+            <p>From the left side select More Settings. For Time to wait for a response from endpoint enter 30. Select Save.</p>
+            <figure class="screenshot"><img src="images/ex3/image11.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

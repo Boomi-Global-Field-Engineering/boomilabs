@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="cam-ex2" data-next-exercise-href="exercise-3.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 2 — Navigate Cloud API Management — Cloud API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Cloud API Management — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Navigation Overview &amp; Control Center</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · API Definitions</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · API Packages</a></li>
+      <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Applications</a></li>
+      <li><a href="#step-5" data-step="5"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>5 · Organizations</a></li>
+      <li><a href="#step-6" data-step="6"><span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>6 · Package Keys</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~20 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Foundational</div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 2 — Navigate Cloud API Management</h1>
+      </header>
+      <p>Tour the Control Center and the pages you&#x27;ll use for the rest of the lab — API Definitions, API Packages, Applications, Organizations, and Package Keys — and learn what each one is for.</p>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Navigation Overview &amp; Control Center</li>
+        <li>API Definitions</li>
+        <li>API Packages</li>
+        <li>Applications</li>
+        <li>Organizations</li>
+        <li>Package Keys</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 6</div>
+        <h1 class="step-title">Navigation Overview &amp; Control Center</h1>
+      </header>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the previous activity, you launched <em>Cloud API Management</em>. We also call it <em>CAM</em>. Now that you have a Cloud API Management tenant, let’s review the different screen elements you will encounter while navigating this tool.</p>
+            <figure class="screenshot"><img src="images/ex2/image01.png" alt="" loading="lazy"></figure>
+            <p>When you launch <em>Cloud API Management</em>, you will land on the <strong>Control Center Home</strong> page.</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 6</div>
+        <h1 class="step-title">API Definitions</h1>
+      </header>
+      <p>This is where you, as the name implies, <strong>define</strong> the API Specification in <em>Cloud API Management</em>. This page includes the Traffic Manager. <strong>Traffic Manager</strong> is the most important feature of Cloud API Management. It connects Cloud API Management APIs to the source or backend system APIs.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the Control Center select API Definitions. You can go to the same page by selecting Design &gt; APIs from the Top Menus area. The API Definitions page appears. The following screenshots will look different from your page. You should have no API Definitions listed if this is your first time using Cloud API Management. Later, you will have the opportunity to create APIs on this page.</p>
+            <figure class="screenshot"><img src="images/ex2/image02.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Select the App Launcher and select Control Center.</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 6</div>
+        <h1 class="step-title">API Packages</h1>
+      </header>
+      <p>The <strong>API Packages</strong> page enables the creation of API access Plans that can be tailored to groups of developers or partners, without any coding. Each <strong>API Plan</strong> constitutes a set of entitlement rules, limits, and filters that might be enforced when developers make calls to specific API methods or resources.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Select the API Packages Tile. This is where you create and configure your plans, rate limits, access control and other settings. Later you will see the importance of this feature.</p>
+            <figure class="screenshot"><img src="images/ex2/image03.png" alt="" loading="lazy"></figure>
+            <p>Another way to return to the Control Center is by selecting the top Cloud API Management banner. From the top-left, select the Cloud API Management banner.</p>
+            <figure class="screenshot"><img src="images/ex2/image04.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-4">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 4 of 6</div>
+        <h1 class="step-title">Applications</h1>
+      </header>
+      <p>An <strong>Application</strong> captures information about the intended use of the API by the developers. It is like asking permission to use the API. The Administrator will check the developer’s request and determine if the submission can be approved or denied.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the Top Menu, select Manage &gt; Applications. This is an alternative route to open the Applications page instead of using the Tile. The Applications page opens. It must be blank but eventually, you will see Applications here. Usually, Applications are requested by external API Developers who want to access and use your APIs. But Internal API Administrators can create them to test the functionality of the APIs.</p>
+            <figure class="screenshot"><img src="images/ex2/image05.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Go back to the Control Center.</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-5">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 5 of 6</div>
+        <h1 class="step-title">Organizations</h1>
+      </header>
+      <p>This is one of the first configurations you will need to perform. To enforce security and governance, you must setup <em>Organizations</em>. These will be used as security mechanisms to control who has access to what. In later activities, you will create <em>Organizations</em> and assign Users to them.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the top menus, select Manage &gt; Organizations. Your Organizations page and structure should be blank. During the next activity you will be creating Organizations.</p>
+            <figure class="screenshot"><img src="images/ex2/image06.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-6">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 6 of 6</div>
+        <h1 class="step-title">Package Keys</h1>
+      </header>
+      <p>On the <em>Package Keys</em> page, you will find all the Packages with Plans and their corresponding <em>Keys</em>. This page is a quick way of finding those Keys. Later, you will see where these Keys can be found in the <em>Developer Portal</em>.</p>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the top menus, select Manage &gt; Package Keys. You should not have any Package Keys created but soon you will come back here to find the ones you created.</p>
+            <figure class="screenshot"><img src="images/ex2/image07.png" alt="" loading="lazy"></figure>
+            <p>This concludes the Navigation Activity. There are additional pages and sections you can explore, particularly under the Analyze menu.</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

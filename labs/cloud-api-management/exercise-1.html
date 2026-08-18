@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="cam-ex1" data-next-exercise-href="exercise-2.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise 1 — Get Set Up — Cloud API Management — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Cloud API Management — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Login to your Platform Training Account</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Configure your User Role for Cloud API Management</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Accessing the API Services</a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~15 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Foundational</div>
+    </div>
+  </nav>
+  <main class="lab-main">
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise 1 — Get Set Up</h1>
+      </header>
+      <p>Log in to your Boomi Platform training account, grant yourself the Cloud API Management and API Control Plane roles, and open both services.</p>
+      <p>The following activities will use a public Petstore API. This API will be external to the Boomi Platform and will be used to create API Definitions in Cloud API Management (CAM). The use case is that your company will start using an API that can be easy to use.  You will create API Definitions, Packages, Plans and will test the API using a Developer Portal.</p>
+      <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Disclaimer: these activities are a short version of a full course used for a Boomi World Pre-Conference training. A full course, Cloud API Management, can be found on our LMS. If you want to learn more about Cloud API Management, go to https://train.boomi.com.</div></div>
+      <h3>What you'll cover</h3>
+      <ol>
+        <li>Login to your Platform Training Account</li>
+        <li>Configure your User Role for Cloud API Management</li>
+        <li>Accessing the API Services</li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of 3</div>
+        <h1 class="step-title">Login to your Platform Training Account</h1>
+      </header>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>Your first step for this activity is to login to your <strong>Boomi Platform Training Account</strong>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Before you start this activity, <strong>close</strong> all your active browser tabs. <strong>Open</strong> a new browser session and <strong>clear your browser cache</strong>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p>Go to  and login.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Select the <strong>Integration</strong> service.</p>
+    <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Note: Your Platform Training Account will require some roles to be added. The following steps will be performed only once to add these roles. The same process applies when accessing your Platform Production Account.</div></div>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-2">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 2 of 3</div>
+        <h1 class="step-title">Configure your User Role for Cloud API Management</h1>
+      </header>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the top-right, select the <strong>Account Pill</strong> &gt; <strong>Settings</strong>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>From the left navigation select <strong>User Management</strong>. From the list of users, select your <strong>username</strong> or <strong>email address</strong>. The right side shows the list of current assigned Roles. Select the <strong>Edit</strong> (<strong>🖉</strong>) icon.</p>
+            <figure class="screenshot"><img src="images/ex1/image01.png" alt="" loading="lazy"></figure>
+            <p>The Add/Maintain User Roles popup appears. Select the Cloud API Management Administrator and Cloud API Management User boxes. Select OK.</p>
+            <figure class="screenshot"><img src="images/ex1/image02.png" alt="" loading="lazy"></figure>
+            <p>The <em>Add/Maintain User Roles</em> popup appears. Select the <strong>API Control Plane Administrator</strong> and <strong>API Control Plane User</strong> boxes. Select <strong>OK</strong>.</p>
+            <figure class="screenshot"><img src="images/ex1/image03.png" alt="" loading="lazy"></figure>
+    <div class="callout info"><span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span><div>Note: If you have completed other courses, you may already have additional Roles assigned.</div></div>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">3</div>
+          <div class="instruction-body">
+            <p><strong><em>The system takes you back to the </em></strong><strong><em>User Management</em></strong><strong><em> screen. The previous and new assigned Roles appear. This configuration is for enabling the SSO Link to </em></strong><strong><em>Cloud API Management and </em></strong><em>API Control Plane</em><strong><em>. It only needs to be done once.</em></strong></p>
+            <figure class="screenshot"><img src="images/ex1/image04.png" alt="" loading="lazy"></figure>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+  <section class="step-page" id="page-3">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 3 of 3</div>
+        <h1 class="step-title">Accessing the API Services</h1>
+      </header>
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>From the top-right, go to the Service Switcher &gt; Cloud API Management.</p>
+            <figure class="screenshot"><img src="images/ex1/image05.png" alt="" loading="lazy"></figure>
+            <p>The system takes you to the Cloud API Management tool.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>Go back to your first tab. From the top-right, go to the <strong>Service Switcher</strong> &gt; <strong>API Control Plane</strong>.</p>
+            <figure class="screenshot"><img src="images/ex1/image06.png" alt="" loading="lazy"></figure>
+            <p>A new browser tab opens with <em>API Control Plane</em>.</p>
+          </div>
+        </li>
+      </ol>
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Finish ✓</button>
+      </nav>
+    </div>
+  </section>
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
