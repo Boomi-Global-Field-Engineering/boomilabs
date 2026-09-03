@@ -65,34 +65,42 @@
       </a></li>
       <li><a href="#step-1" data-step="1">
         <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Step 1 of 6 — Prerequisites
+        Step 1 of 8 — Prerequisites
       </a></li>
       <li><a href="#step-2" data-step="2">
         <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Step 2 of 6 — Upload Transports
+        Step 2 of 8 — Upload Transports
       </a></li>
       <li><a href="#step-3" data-step="3">
         <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Step 3 of 6 — SAINT Wizard
+        Step 3 of 8 — SAINT Wizard
       </a></li>
       <li><a href="#step-4" data-step="4">
         <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Step 4 of 6 — ICF Service
+        Step 4 of 8 — ICF Service
       </a></li>
       <li><a href="#step-5" data-step="5">
         <span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Step 5 of 6 — Launch &amp; Verify
+        Step 5 of 8 — Launch &amp; Verify
       </a></li>
       <li><a href="#step-6" data-step="6">
         <span class="step-num"><span class="step-num-inner">7</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Step 6 of 6 — Recap
+        Step 6 of 8 — Post-Install Config
+      </a></li>
+      <li><a href="#step-7" data-step="7">
+        <span class="step-num"><span class="step-num-inner">8</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 7 of 8 — Boomi Platform Setup
+      </a></li>
+      <li><a href="#step-8" data-step="8">
+        <span class="step-num"><span class="step-num-inner">9</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Step 8 of 8 — Recap
       </a></li>
     </ul>
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
       <div class="meta-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        ~10 min read-through
+        ~15 min read-through
       </div>
       <div class="meta-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4.5L5.5 22l2-7L2 9h7z"/></svg>
@@ -123,6 +131,11 @@
       <h2>Why Boomi for SAP</h2>
       <p>SAP is the system of record for the enterprise — orders, materials, customers, financials. The hard part has never been the data; it's getting to it cleanly. Traditional approaches bolt an external connector onto SAP and reach in from the outside, or require custom ABAP development gated behind transport requests and developer queues.</p>
       <p><strong>Boomi for SAP</strong> takes a different approach: it's an <strong>SAP-certified add-on that runs natively inside the SAP system</strong>. A drag-and-drop UI — served directly from SAP — lets you expose SAP data and processes as clean, reusable services that the wider Boomi platform can consume. No middleware to scrape data from the outside, and no custom ABAP to write.</p>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Reviewed by SAP — clean core</strong>Boomi for SAP Solutions has passed SAP's Interoperability Review. It is listed in <strong>SAP Note 3652960</strong> as interoperable with SAP S/4HANA Cloud Private Edition 2025 under the <em>Conditional clean core classic ABAP extension (Level C)</em> classification. If anyone asks whether a NetWeaver add-on fits a clean-core strategy, that note is the answer.</div>
+      </div>
 
       <h2>What makes it different</h2>
       <div class="diff-grid">
@@ -156,12 +169,14 @@
       </div>
 
       <h2>What the installation covers</h2>
-      <p>Installing the add-on (transport code <span class="tcode">IXBX 700_740</span>) is four phases inside SAP. The rest of this walkthrough steps through each one:</p>
+      <p>Installing the add-on (transport code <span class="tcode">IXBX 700_740</span>) is four phases inside SAP, followed by a short post-install configuration pass and a matching setup on the Boomi platform side. The rest of this walkthrough steps through each one:</p>
       <div class="phase-strip">
         <div class="phase-tile"><div class="pn">Phase 1</div><div class="pt">Upload Transports</div><div class="ps">T-Code: CG3Z</div></div>
         <div class="phase-tile"><div class="pn">Phase 2</div><div class="pt">SAINT Wizard</div><div class="ps">T-Code: SAINT</div></div>
         <div class="phase-tile"><div class="pn">Phase 3</div><div class="pt">ICF Service</div><div class="ps">T-Code: SICF</div></div>
         <div class="phase-tile"><div class="pn">Phase 4</div><div class="pt">Launch &amp; Verify</div><div class="ps">Final check</div></div>
+        <div class="phase-tile"><div class="pn">Phase 5</div><div class="pt">Configure</div><div class="ps">T-Codes: /IXBX/ZBX014 · ZBX019</div></div>
+        <div class="phase-tile"><div class="pn">Boomi side</div><div class="pt">Platform Setup</div><div class="ps">JARs · runtime · connection</div></div>
       </div>
 
       <nav class="step-nav">
@@ -176,7 +191,7 @@
   <section class="step-page" id="page-1">
     <div class="step-content">
       <header class="step-header">
-        <div class="step-label">Step 1 of 6</div>
+        <div class="step-label">Step 1 of 8</div>
         <h1 class="step-title">Prerequisites &amp; Required Files</h1>
         <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">What a Basis admin needs on hand before starting the install.</p>
       </header>
@@ -219,7 +234,7 @@
   <section class="step-page" id="page-2">
     <div class="step-content">
       <header class="step-header">
-        <div class="step-label">Step 2 of 6 · Phase 1</div>
+        <div class="step-label">Step 2 of 8 · Phase 1</div>
         <h1 class="step-title">Upload Transport Files to the Application Server</h1>
         <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">T-Code <span class="tcode">CG3Z</span> — push each package file from the local machine to the SAP server so SAINT can detect them.</p>
       </header>
@@ -271,7 +286,7 @@
   <section class="step-page" id="page-3">
     <div class="step-content">
       <header class="step-header">
-        <div class="step-label">Step 3 of 6 · Phase 2</div>
+        <div class="step-label">Step 3 of 8 · Phase 2</div>
         <h1 class="step-title">Install the Add-On via SAINT</h1>
         <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">T-Code <span class="tcode">SAINT</span> — a six-screen wizard that selects the package, calculates the queue, takes the password, and imports.</p>
       </header>
@@ -322,7 +337,7 @@
   <section class="step-page" id="page-4">
     <div class="step-content">
       <header class="step-header">
-        <div class="step-label">Step 4 of 6 · Phase 3</div>
+        <div class="step-label">Step 4 of 8 · Phase 3</div>
         <h1 class="step-title">Create and Activate the ZBX ICF Service</h1>
         <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">T-Code <span class="tcode">SICF</span> — the Boomi for SAP UI is served through an SAP ICF service. Create the ZBX node, register the handler class, and activate it.</p>
       </header>
@@ -373,7 +388,7 @@
   <section class="step-page" id="page-5">
     <div class="step-content">
       <header class="step-header">
-        <div class="step-label">Step 5 of 6 · Phase 4</div>
+        <div class="step-label">Step 5 of 8 · Phase 4</div>
         <h1 class="step-title">Launch and Verify the Boomi for SAP UI</h1>
         <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">With the add-on installed and the ICF service active, the Boomi for SAP UI should be reachable from SAP Easy Access.</p>
       </header>
@@ -413,11 +428,92 @@
     </div>
   </section>
 
-  <!-- PAGE 6 — RECAP -->
+  <!-- PAGE 6 — POST-INSTALL CONFIGURATION (SAP SIDE) -->
   <section class="step-page" id="page-6">
     <div class="step-content">
       <header class="step-header">
-        <div class="step-label">Step 6 of 6 · Recap</div>
+        <div class="step-label">Step 6 of 8 · Phase 5</div>
+        <h1 class="step-title">Post-Install Configuration in SAP</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The add-on is installed and the UI loads — but a handful of one-time settings inside SAP decide what Boomi for SAP Core Solutions is actually <em>allowed</em> to do. These are the settings people discover the hard way.</p>
+      </header>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Why this page exists.</strong> Everything below is already done in your lab environment. It's here because, on a real project, most "it installed fine but it doesn't work" tickets trace back to one of these four items.</div>
+      </div>
+
+      <ol class="instruction-list">
+        <li><div class="instruction-num">1</div><div class="instruction-body">
+          <p><strong>Allow table service test calls</strong> — transaction <span class="tcode">/n/IXBX/ZBX014</span> opens <em>Allow table service test call in system</em>. Tick the checkbox for each SAP System ID that should permit test calls (the lab system is <code>SHV</code>).</p>
+          <p style="font-size:13.5px;color:var(--text-muted);">This is the switch behind the <strong>Test</strong> / <strong>View Data</strong> buttons on a Table Service and the connector import wizard's ability to call a service. Leave it off and the service saves fine but every test call is refused — which looks exactly like a connectivity problem.</p>
+          <figure class="screenshot"><img src="images/install/zbx014-allow-test-call.png" alt="Allow table service test call in system — per SAP System ID" loading="lazy"><figcaption><span class="tcode">/n/IXBX/ZBX014</span> — one row per SAP System ID; tick the systems that may accept test calls.</figcaption></figure>
+        </div></li>
+        <li><div class="instruction-num">2</div><div class="instruction-body">
+          <p><strong>Register receiver data formats</strong> — transaction <span class="tcode">/n/IXBX/ZBX019</span> opens <em>Possible Data Conversion Objects for Receiver type</em>. For each receiver type the system will publish to — <strong>HTTP RFC</strong>, <strong>Boomi Event Streams</strong>, <strong>Confluent</strong> — add the payload formats it may emit: <code>v1.5 JSON</code>, <code>v1.6 JSON</code>, and <code>XML char format</code>.</p>
+          <p style="font-size:13.5px;color:var(--text-muted);">This is the <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap_Receiver_Framework#data-formats" target="_blank" rel="noopener">Receiver Framework</a> at work: when an event fires, the Core Solutions add-on needs to know which format to serialize the payload in for that receiver. If a format isn't registered here, the subscription fails with a <em>"data formats are not defined"</em> error. You only need this for events and listeners — plain Table Service queries and function calls (Exercises 1 and 2) work without it.</p>
+          <figure class="screenshot"><img src="images/install/zbx019-data-formats.png" alt="Possible Data Conversion Objects for Receiver type" loading="lazy"><figcaption><span class="tcode">/n/IXBX/ZBX019</span> — receiver type × data format. Each row is one format the receiver is allowed to receive.</figcaption></figure>
+        </div></li>
+        <li><div class="instruction-num">3</div><div class="instruction-body">
+          <p><strong>Configure events</strong> — for Business Object Events and change pointers (Exercise 3), the SAP-side event linkage has to be activated once so that events actually fire and reach the receiver framework. The full procedure is in <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap-Configuring_Events" target="_blank" rel="noopener">Configuring Events</a>.</p>
+          <p style="font-size:13.5px;color:var(--text-muted);">Set it up once, point it at the correct receiver, and it's done. Exercise 3 explains how to spot an exposed event (the lightning-bolt icon) once this is in place.</p>
+        </div></li>
+        <li><div class="instruction-num">4</div><div class="instruction-body">
+          <p><strong>Create users and verify the UI</strong> — the SAP user that the Boomi connection authenticates as (in the lab, <code>BOOMI_WRKSHP</code>) needs the Boomi for SAP roles, and the web UI should be verified end-to-end for that user. Steps are in <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap-creating_users_and_UI_verification" target="_blank" rel="noopener">Creating Users and UI Verification</a>.</p>
+          <p style="font-size:13.5px;color:var(--text-muted);">The connection also needs RFC connectivity allowed for that user, and the right port open between the Boomi runtime and the SAP system — two more items that surface as "it doesn't connect" when they're missed.</p>
+        </div></li>
+      </ol>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 7 — BOOMI PLATFORM SETUP -->
+  <section class="step-page" id="page-7">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 7 of 8 · Boomi side</div>
+        <h1 class="step-title">Setting Up the Boomi Platform Side</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">SAP is only half the connection. Here's what was prepared in the Boomi platform account so the exercises "just work" when you select a connection.</p>
+      </header>
+
+      <ol class="instruction-list">
+        <li><div class="instruction-num">1</div><div class="instruction-body">
+          <p><strong>A runtime to execute on</strong> — the account has a cloud runtime (Atom) attached to the lab environment. Every Test run and deployed listener in this lab executes there. A local runtime is the alternative when you need to reach systems on your own network, such as an on-premises database.</p>
+        </div></li>
+        <li><div class="instruction-num">2</div><div class="instruction-body">
+          <p><strong>Connector JAR files in the account library</strong> — the Boomi for SAP connector relies on SAP's Java libraries (the JCo and IDoc JARs), and the database steps in Exercise 2 need the matching JDBC driver. These were uploaded under <em>Settings → Account Libraries</em>, bundled into a <em>Custom Library</em> component, and deployed to the runtime.</p>
+          <p style="font-size:13.5px;color:var(--text-muted);">This is the most commonly missed piece of a fresh environment: the connection looks configured, the import wizard runs, and the first real call fails because the runtime has no SAP JARs. The libraries are licensed by SAP and downloaded from the SAP Support Portal — they can't be exported from a Boomi account, so each environment has to be loaded separately.</p>
+        </div></li>
+        <li><div class="instruction-num">3</div><div class="instruction-body">
+          <p><strong>The SAP connection component</strong> — <em>SAP S4 Connection</em> holds the address of the Boomi for SAP Core Solutions endpoint plus the <code>BOOMI_WRKSHP</code> credentials from Step 6. Credentials are encrypted in the component: you can select and use the connection, but never read them back.</p>
+        </div></li>
+        <li><div class="instruction-num">4</div><div class="instruction-body">
+          <p><strong>The Trainer folder</strong> — sample processes, the Salesforce XML profile, and a fallback map function, all of which you copy into your own <strong>USERXX</strong> folder as you go.</p>
+        </div></li>
+      </ol>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Your login</strong>You'll receive your Boomi platform user ID and password from the lab facilitator. Everything else on this page is already in place.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- PAGE 8 — RECAP -->
+  <section class="step-page" id="page-8">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 8 of 8 · Recap</div>
         <h1 class="step-title">Recap &amp; Key Takeaways</h1>
         <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The few things worth remembering about how Boomi for SAP gets stood up.</p>
       </header>
@@ -425,19 +521,24 @@
       <h3>What got installed</h3>
       <p>The <strong>IXBX 700_740</strong> add-on now lives inside the SAP system, and the <strong>ZBX ICF service</strong> serves its UI. From here, SAP data and processes can be exposed as Table Services, Function Modules, Events, IDocs, BW Extractors, and ABAP Proxies — the building blocks you'll use in the exercises.</p>
 
-      <h3>The four phases at a glance</h3>
+      <h3>The phases at a glance</h3>
       <div class="recap-grid">
         <div class="recap-card"><h4>1 · Upload — <code>CG3Z</code></h4><p>Push the four package files to the server, always as <strong>BIN</strong>.</p></div>
         <div class="recap-card"><h4>2 · Install — <code>SAINT</code></h4><p>Six-screen wizard imports the OCS queue. Password comes from <strong>SAP Note 567695</strong>.</p></div>
         <div class="recap-card"><h4>3 · Activate — <code>SICF</code></h4><p>Create the <code>ZBX</code> service, register handler <code>/IXBX/CL_SICF</code>, save as Local Object, activate.</p></div>
         <div class="recap-card"><h4>4 · Verify</h4><p>Launch from SAP Easy Access; the UI loads with the full List &amp; Manage / Create menu.</p></div>
+        <div class="recap-card"><h4>5 · Configure — <code>ZBX014</code> / <code>ZBX019</code></h4><p>Allow table-service test calls per system; register receiver data formats; activate events; create and verify the user.</p></div>
+        <div class="recap-card"><h4>6 · Boomi side</h4><p>Runtime attached, SAP JCo/IDoc + JDBC JARs deployed as a Custom Library, connection component built.</p></div>
       </div>
 
-      <h3>Three things people get wrong</h3>
+      <h3>Six things people get wrong</h3>
       <ul>
         <li>Uploading transport files in <strong>ASC/DAT instead of BIN</strong> — always BIN.</li>
         <li>Mistyping the handler class — it must be exactly <code>/IXBX/CL_SICF</code>, case-sensitive.</li>
         <li>Assigning the ICF service to a transport request instead of <strong>Local Object</strong>.</li>
+        <li>Skipping <code>/n/IXBX/ZBX014</code> — table services save but every Test / View Data call is refused.</li>
+        <li>Missing a receiver data format in <code>/n/IXBX/ZBX019</code> — event subscriptions fail with <em>"data formats are not defined."</em></li>
+        <li>No SAP JAR files on the Boomi runtime — the connection looks fine until the first real call.</li>
       </ul>
 
       <div class="callout info">

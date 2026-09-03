@@ -85,7 +85,12 @@
       <div class="why-box">
         <div class="why-label">Why Table Services — the point of this exercise</div>
         <p>A sales order in SAP isn't one record. The header (order number, customer, total value) lives in <strong>VBAK</strong>; every line item (material, quantity, description) lives in <strong>VBAP</strong>. Getting the full picture through BAPIs or OData means <em>multiple calls</em> stitched together in your integration.</p>
-        <p>A Table Service flips that: because Boomi for SAP Core runs <em>inside</em> SAP with full access to every table and field, you define the join once — header to items on the document number — and get complete, granular data in <strong>a single call</strong>. The Core even reads SAP's data dictionary for you, so cryptic field names like <code>ERZET</code> come with human descriptions, types, and lengths attached. Beyond plain tables, the same mechanism can expose <strong>CDS views</strong> — real-time calculations, not just table pulls.</p>
+        <p>A Table Service flips that: because Boomi for SAP Core Solutions runs <em>inside</em> SAP with full access to every table and field, you define the join once — header to items on the document number — and get complete, granular data in <strong>a single call</strong>. Core Solutions even reads SAP's data dictionary for you, so cryptic field names like <code>ERZET</code> come with human descriptions, types, and lengths attached. Beyond plain tables, the same mechanism can expose <strong>CDS views</strong> — real-time calculations, not just table pulls.</p>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Reviewed by SAP — clean core</strong>Boomi for SAP Solutions has passed SAP's Interoperability Review. It is listed in <strong>SAP Note 3652960</strong> as interoperable with SAP S/4HANA Cloud Private Edition 2025 under the <em>Conditional clean core classic ABAP extension (Level C)</em> classification. If anyone asks whether a NetWeaver add-on fits a clean-core strategy, that note is the answer.</div>
       </div>
 
       <h2>Two-part exercise</h2>
@@ -136,7 +141,7 @@
 
       <div class="why-box">
         <div class="why-label">What you're actually logging into</div>
-        <p>This is <strong>not</strong> the SAP GUI — it's the web UI of <strong>Boomi for SAP Core</strong>, the NetWeaver add-on running inside the SAP system (served by the <code>ZBX</code> ICF service you can see being created in <a href="step-0.html">Step 0</a>). Everything you build here — table services, events, function catalogs — lives inside SAP and is instantly callable from the Boomi platform through the branded connector.</p>
+        <p>This is <strong>not</strong> the SAP GUI — it's the web UI of <strong>Boomi for SAP Core Solutions</strong>, the NetWeaver add-on running inside the SAP system (served by the <code>ZBX</code> ICF service you can see being created in <a href="step-0.html">Step 0</a>). Everything you build here — table services, events, function catalogs — lives inside SAP and is instantly callable from the Boomi platform through the branded connector.</p>
       </div>
 
       <ol class="instruction-list">
@@ -155,10 +160,10 @@
         <li>
           <div class="instruction-num">2</div>
           <div class="instruction-body">
-            <p>From the main menu, navigate to <strong>Create Table Service</strong>.</p>
+            <p>In the left navigation, under <strong>Create</strong>, select <strong>Table Service</strong>. An empty Table Service canvas opens, with the SAP application-component tree and search boxes on the left.</p>
             <figure class="screenshot">
-              <img src="images/ex2/image28.png" alt="Navigate to Create Table Service" loading="lazy">
-              <figcaption>Navigate to Create Table Service</figcaption>
+              <img src="images/ex2/v2-table-service-canvas.png" alt="Create → Table Service: empty canvas with the SAP component tree and search boxes" loading="lazy">
+              <figcaption>Create → Table Service — the empty canvas. Search by table name, description, or CDS view name on the left.</figcaption>
             </figure>
           </div>
         </li>
@@ -192,40 +197,62 @@
         <li>
           <div class="instruction-num">1</div>
           <div class="instruction-body">
-            <p>In the search box, type <code>VBAK</code> to find the <strong>Sales Document: Header Data</strong> table. Drag it onto the canvas.</p>
-            <p style="font-size:13.5px;color:var(--text-muted);">Scan the field list as it loads: notice every field comes with its <strong>description, type, and max length</strong> pulled from SAP's own data dictionary. Without those, you'd never guess that <code>ERZET</code> is "Entry time" or <code>ERNAM</code> is "Created by." Also notice: everything here is header-level — order number, customer, total value — with no line-item detail. That's the gap the join fills.</p>
+            <p>In <strong>Search by table name</strong>, type <code>vbak</code>. The component tree narrows to <em>SAP → SD (Sales and Distribution) → SD-SLS → VA → VBAK — Sales Document: Header Data</em>. Drag <strong>VBAK</strong> onto the canvas.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">The table card shows the first few fields with their descriptions and a <em>+219</em> badge for the rest — VBAK has 224 columns. Everything here is header-level: order number, dates, who created it, customer, totals. There's no line-item detail. That's the gap the join will fill.</p>
             <figure class="screenshot">
-              <img src="images/ex2/image8.png" alt="Add VBAK table to canvas" loading="lazy">
-              <figcaption>Add VBAK to the canvas</figcaption>
+              <img src="images/ex2/v2-vbak-on-canvas.png" alt="VBAK dragged onto the Table Service canvas" loading="lazy">
+              <figcaption>VBAK on the canvas — header fields, with +219 more behind the filter icon</figcaption>
             </figure>
           </div>
         </li>
         <li>
           <div class="instruction-num">2</div>
           <div class="instruction-body">
-            <p>Search for <code>VBAP</code> (Sales Document: Item Data) and drag it onto the canvas.</p>
+            <p>Click the <strong>filter</strong> (funnel) icon on the VBAK card to open its field list. Scroll through it before changing anything.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">This is the part of Boomi for SAP that saves you a trip to the data dictionary. Every field comes with its SAP <strong>description</strong> — you'd never guess that <code>ERZET</code> is "Time" or <code>ERNAM</code> is "Created By" from the names alone — plus its <strong>type</strong> and <strong>min/max length</strong> (<code>VBELN</code> is a 10-character string; <code>ERDAT</code> exactly 8). Those lengths are the same fixed-length constraints you dealt with in Exercise 1, surfaced up front. Key fields are marked with the key icon.</p>
             <figure class="screenshot">
-              <img src="images/ex2/image33.png" alt="Add VBAP table to canvas" loading="lazy">
-              <figcaption>Add VBAP to the canvas</figcaption>
+              <img src="images/ex2/v2-vbak-fields.png" alt="VBAK field list with descriptions, types, and lengths" loading="lazy">
+              <figcaption>The VBAK field list — description, type, and length for all 224 fields; ERZET turns out to be "Time"</figcaption>
             </figure>
+            <p>Close the dialog for now — you'll come back to trim the fields in instruction 5.</p>
           </div>
         </li>
         <li>
           <div class="instruction-num">3</div>
           <div class="instruction-body">
-            <p>Create the join: select the <strong>Sales Document</strong> field (<code>VBELN</code>) on VBAK and drag it to <code>VBELN</code> on VBAP. This is an inner join on the document number — one header row joined to its many item rows.</p>
-            <div class="callout info">
-              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-              <div><strong>Join rules worth knowing</strong> — the fields you join on must be <em>selected (visible)</em> in your field list, just like a SQL join key. The UI also helps you match: it flags whether two fields share the same data element or type, so you know a join is technically sound before you save it.</div>
-            </div>
+            <p>Clear the search box, type <code>vbap</code>, and drag <strong>VBAP — Sales Document: Item Data</strong> onto the canvas to the right of VBAK.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">VBAP carries the line items — material, quantity, description — and its own key is <code>VBELN</code> + <code>POSNR</code> (item number). Both cards now sit on the canvas, unconnected.</p>
             <figure class="screenshot">
-              <img src="images/ex2/image18.png" alt="Create join on VBELN" loading="lazy">
-              <figcaption>Create the join on VBELN</figcaption>
+              <img src="images/ex2/v2-vbak-vbap.png" alt="VBAK and VBAP both on the canvas" loading="lazy">
+              <figcaption>VBAK (header) and VBAP (items) side by side, not yet joined</figcaption>
             </figure>
           </div>
         </li>
         <li>
           <div class="instruction-num">4</div>
+          <div class="instruction-body">
+            <p>Create the join: click and drag from <strong>VBELN</strong> on VBAK across to <strong>VBELN</strong> on VBAP. As you drag, the VBAP fields light up with colored bars showing how well each one would match. Release on VBELN.</p>
+            <figure class="screenshot">
+              <img src="images/ex2/v2-join-drag.png" alt="Dragging VBELN from VBAK toward VBAP; VBAP fields show colored compatibility bars" loading="lazy">
+              <figcaption>Mid-drag — the source field highlights and every VBAP field shows a compatibility color</figcaption>
+            </figure>
+            <div class="callout info">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+              <div><strong>Reading the match colors</strong> — hover a target field while dragging to see why it's colored the way it is. <strong>Green</strong> is <em>Very good match — same data element</em>: both fields are defined from the same SAP data element, so the join is exactly what SAP intends. Other colors mean <em>Technically possible</em> — the types are compatible, so SAP will let you join on it, but it isn't the same data element and is rarely the join you want. For header-to-item, <code>VBELN</code> → <code>VBELN</code> is the green one.</div>
+            </div>
+            <figure class="screenshot">
+              <img src="images/ex2/v2-join-good-match.png" alt="Tooltip: Very good match — same data element" loading="lazy">
+              <figcaption>VBELN → VBELN: "Very good match — same data element"</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex2/v2-join-technically-possible.png" alt="Tooltip: Technically possible" loading="lazy">
+              <figcaption>Hovering POSNR instead: "Technically possible" — compatible type, wrong join</figcaption>
+            </figure>
+            <p style="font-size:13.5px;color:var(--text-muted);">The result is an inner join on the document number — one header row joined to its many item rows. Join rule worth remembering: the fields you join on must stay <em>selected</em> in the field list, just like a SQL join key.</p>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">5</div>
           <div class="instruction-body">
             <p>Click the <strong>filter fields</strong> icon on each table and deselect all fields by clicking the top checkbox.</p>
             <div class="why-box">
@@ -243,7 +270,7 @@
           </div>
         </li>
         <li>
-          <div class="instruction-num">5</div>
+          <div class="instruction-num">6</div>
           <div class="instruction-body">
             <p>Re-select only the following fields:</p>
             <p><strong>VBAK (Sales Document Header):</strong></p>
@@ -349,8 +376,8 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
             <div class="credentials-box">
               <h4>Credentials</h4>
               <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://platform.boomi.com/AtomSphere.html#build;accountId=boomi_solutions_engineeri-IH374I" target="_blank">platform.boomi.com — account boomi_solutions_engineeri-IH374I</a></span></div>
-              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by trainer</span></div>
-              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by trainer</span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by your lab facilitator</span></div>
+              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by your lab facilitator</span></div>
             </div>
             <figure class="screenshot">
               <img src="images/ex2/image14.png" alt="Boomi platform login" loading="lazy">

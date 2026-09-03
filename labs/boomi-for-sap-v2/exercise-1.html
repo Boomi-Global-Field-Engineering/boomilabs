@@ -89,15 +89,20 @@
       </div>
 
       <h2>How this works under the hood</h2>
-      <p>The <strong>Boomi for SAP connector</strong> you'll use is a branded connector — it doesn't screen-scrape SAP or log into the SAP GUI. It talks to <strong>Boomi for SAP Core</strong>, a certified NetWeaver add-on installed <em>inside</em> the SAP system (on-premises or private cloud). The Core exposes SAP's standard function library — including every BAPI — as importable operations, so calling an ABAP function from an integration becomes a point-and-click configuration instead of custom development.</p>
+      <p>The <strong>Boomi for SAP connector</strong> you'll use is a branded connector — it doesn't screen-scrape SAP or log into the SAP GUI. It talks to <strong>Boomi for SAP Core Solutions</strong>, a certified NetWeaver add-on installed <em>inside</em> the SAP system (on-premises or private cloud). Core Solutions exposes SAP's standard function library — including every BAPI — as importable operations, so calling an ABAP function from an integration becomes a point-and-click configuration instead of custom development.</p>
       <div class="callout info">
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
         <div><strong>Curious how the add-on gets there?</strong> The optional <a href="step-0.html">Step 0 — Installing Boomi for SAP</a> walks through the one-time install (transport upload, SAINT, ICF service). The full product docs live at <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">help.boomi.com — Boomi for SAP</a>.</div>
       </div>
 
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Reviewed by SAP — clean core</strong>Boomi for SAP Solutions has passed SAP's Interoperability Review. It is listed in <strong>SAP Note 3652960</strong> as interoperable with SAP S/4HANA Cloud Private Edition 2025 under the <em>Conditional clean core classic ABAP extension (Level C)</em> classification. If anyone asks whether a NetWeaver add-on fits a clean-core strategy, that note is the answer.</div>
+      </div>
+
       <h2>What we set up for you</h2>
       <ul>
-        <li><strong>The SAP connection</strong> — the <em>SAP S4 Connection</em> component is pre-configured and points at the workshop's Boomi for SAP Core. You select it; you never handle SAP credentials.</li>
+        <li><strong>The SAP connection</strong> — the <em>SAP S4 Connection</em> component is pre-configured and points at the workshop's Boomi for SAP Core Solutions. You select it; you never handle SAP credentials.</li>
         <li><strong>A sample process skeleton</strong> — the shapes are on the canvas; you configure each one.</li>
         <li><strong>Product master data</strong> — the products in the Salesforce opportunity are already synced into SAP. That matters: SAP will only accept an order for a material it knows, so in any real implementation product master sync happens before order integration.</li>
         <li><strong>A realistic Salesforce payload</strong> — a Message shape holds the XML a live Salesforce connection would deliver, so you can build and test end-to-end without waiting on a rep to close a deal.</li>
@@ -107,7 +112,7 @@
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
         <div><strong>What you&#x27;ll learn</strong>
         <ul>
-          <li>How the Boomi for SAP connector calls BAPIs through the Boomi for SAP Core</li>
+          <li>How the Boomi for SAP connector calls BAPIs through the Boomi for SAP Core Solutions</li>
           <li>How to read a CRM payload and map it to the SAP request structure</li>
           <li>Why SAP needs leading zeros, line-item increments of 10, and hardcoded org values — and how to handle each</li>
           <li>How to read the BAPI response and surface the created Sales Document number</li>
@@ -152,8 +157,8 @@
             <div class="credentials-box">
               <h4>Credentials</h4>
               <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://platform.boomi.com/AtomSphere.html#build;accountId=boomi_solutions_engineeri-IH374I" target="_blank">platform.boomi.com — account boomi_solutions_engineeri-IH374I</a></span></div>
-              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by trainer</span></div>
-              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by trainer</span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by your lab facilitator</span></div>
+              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by your lab facilitator</span></div>
             </div>
             <figure class="screenshot">
               <img src="images/ex1/image9.png" alt="Boomi AtomSphere login screen" loading="lazy">
@@ -283,7 +288,7 @@
 
       <div class="why-box">
         <div class="why-label">Why you're doing this</div>
-        <p>This shape is where the integration actually reaches SAP. You'll do three things: pick <strong>which SAP system</strong> to talk to (the connection — it points at a specific Boomi for SAP Core), pick <strong>what to do there</strong> (the operation — importing the <code>BAPI_SALESORDER_CREATEFROMDAT2</code> function), and let the import generate <strong>request/response profiles</strong> that mirror the BAPI's exact structure — every field, table, and length as SAP defines it.</p>
+        <p>This shape is where the integration actually reaches SAP. You'll do three things: pick <strong>which SAP system</strong> to talk to (the connection — it points at a specific Boomi for SAP Core Solutions), pick <strong>what to do there</strong> (the operation — importing the <code>BAPI_SALESORDER_CREATEFROMDAT2</code> function), and let the import generate <strong>request/response profiles</strong> that mirror the BAPI's exact structure — every field, table, and length as SAP defines it.</p>
       </div>
 
       <ol class="instruction-list">
@@ -301,7 +306,7 @@
           <div class="instruction-num">2</div>
           <div class="instruction-body">
             <p>In the connector configuration, select <strong>SAP S4 Connection</strong> from the drop-down and make sure <strong>Action</strong> is <code>FUNCTION</code>.</p>
-            <p style="font-size:13.5px;color:var(--text-muted);">The connection was pre-built for the workshop — it holds the address of the Boomi for SAP Core in the demo SAP system. Choosing a connection = choosing which SAP environment this shape calls. The <code>FUNCTION</code> action means "invoke a function module / BAPI" (in Exercise 2 you'll use <code>QUERY</code> against a Table Service instead).</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">The connection was pre-built for the workshop — it holds the address of the Boomi for SAP Core Solutions in the demo SAP system. Choosing a connection = choosing which SAP environment this shape calls. The <code>FUNCTION</code> action means "invoke a function module / BAPI" (in Exercise 2 you'll use <code>QUERY</code> against a Table Service instead).</p>
             <figure class="screenshot">
               <img src="images/ex1/image12.png" alt="Select SAP S4 Connection" loading="lazy">
               <figcaption>Select SAP S4 Connection</figcaption>
@@ -509,6 +514,10 @@
         <li>
           <div class="instruction-num">3</div>
           <div class="instruction-body">
+            <div style="border:2px dashed var(--border);border-radius:var(--radius);padding:22px;text-align:center;color:var(--text-muted);font-size:13.5px;margin:0 0 14px;background:var(--surface);">
+              <strong style="display:block;color:var(--text);margin-bottom:4px;">Mapping diagram — Salesforce Opportunity → SAP Sales Order</strong>
+              A clean visual of the full mapping (fields, functions, and hardcoded values) is being produced and will replace this placeholder.
+            </div>
             <p>Map these three fields by dragging a line from source to destination:</p>
             <table class="mapping-table">
               <thead><tr><th>Source Element</th><th>Destination Element</th><th>What it carries</th></tr></thead>
@@ -576,7 +585,11 @@
         <span class="flow-node">Display Result</span>
       </div>
 
-      <p>Two values SAP needs don't exist in the Salesforce payload at all — they have to be <em>generated</em>. Map functions do that inline, and both of the ones you'll use here are classic SAP integration patterns you'll reuse on every project.</p>
+      <div class="why-box">
+        <div class="why-label">What is a map function?</div>
+        <p>A map draws lines from source fields to destination fields — but a straight line can only copy a value. A <strong>map function</strong> sits <em>on</em> the line and transforms the value on its way across: pad it, trim it, convert a date, do arithmetic, look something up, or generate a value that didn't exist in the source at all. Boomi ships a library of standard functions by category — <strong>String</strong> (pad, trim, split, case), <strong>Numeric</strong> (math, sequences, increments), <strong>Date</strong> (format and offset), <strong>Lookup</strong> (cross-reference tables, document cache, database queries), and <strong>Custom Scripting</strong> when nothing else fits. A user-defined function packages several of those steps into one reusable block you can drop into any map in the account.</p>
+        <p>Two values SAP needs don't exist in the Salesforce payload at all — they have to be <em>generated</em>. That's exactly what map functions are for, and the two you'll use here are classic SAP integration patterns you'll reuse on every project. It's also how you'd solve the Step 5 discussion for real: a <strong>Lookup</strong> function keyed on the customer could resolve the right sales org or division instead of hardcoding it.</p>
+      </div>
 
       <ol class="instruction-list">
         <li>
@@ -687,6 +700,11 @@
         <div class="why-label">Why you're doing this</div>
         <p>Calling a BAPI is a conversation, not a fire-and-forget. <code>BAPI_SALESORDER_CREATEFROMDAT2</code> <strong>returns</strong> the number of the document it just created in its <code>E_SALESDOCUMENT</code> export — plus a RETURN table of messages. This step pulls that number out of the response profile and displays it, which is how you'll prove the order exists.</p>
         <p><strong>In production you'd go one step further:</strong> map <code>E_SALESDOCUMENT</code> into a Salesforce update and write the SAP order number back onto the opportunity — sales sees the SAP order without leaving their CRM, and the two systems stay cross-referenced. We display it instead of writing back to keep the shared demo org clean, but the response element you're using here is exactly the one you'd use for the write-back.</p>
+      </div>
+
+      <div class="trainer-box">
+        <div class="tr-label">Trainer moment — coming up in Step 8</div>
+        <p>The number this shape displays is a real document in S/4HANA. Once you've run the test in the next step, be ready to call out your Sales Document number — your trainer will look a few of them up live in SAP so everyone can see the orders actually exist.</p>
       </div>
 
       <ol class="instruction-list">
@@ -801,7 +819,8 @@
 
       <div class="trainer-box">
         <div class="tr-label">Trainer moment — closing the loop</div>
-        <p>Your trainer will now show the same flow running <em>for real</em>: flipping an opportunity to <strong>Closed&nbsp;Won</strong> in Salesforce, watching the live-triggered execution land in Process Reporting, and then opening the new order in SAP (<code>VA03</code>). Look at the order lines — they're the exact products you read in the XML back in Step&nbsp;2. Salesforce sent the deal; SAP created the order; nothing was typed in between.</p>
+        <p><strong>Call out your Sales Document number.</strong> You don't have SAP GUI access, but your trainer does: give them the number from your Display Sales Document output and they'll open it in S/4HANA (<code>VA03</code>) on screen. Look at the order lines — they're the exact products, in the exact quantities, you read in the XML back in Step&nbsp;2. Salesforce sent the deal; SAP created the order; nothing was typed in between.</p>
+        <p>If the live Salesforce connection is available, your trainer may also flip an opportunity to <strong>Closed&nbsp;Won</strong> and show the same process triggered for real, landing in Process Reporting without anyone pressing Test.</p>
       </div>
 
       <nav class="step-nav">
