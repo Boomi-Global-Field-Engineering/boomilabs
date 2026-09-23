@@ -3,19 +3,19 @@ BOOMI LABS - CATALOG
 
 Lab Name: Boomi for SAP - Hands-on Lab
 Description: Learn how to integrate SAP S 4HANA with Salesforce and databases using the Boomi for SAP connector Three progressive exercises BAPI invocation Salesforce Opportunity to SAP Sales Order via BAPI SALESORDER CREATEFROMDAT2 Table Services custom VBAK VBAP join queried into a database and real time Business Object Events BUS2032 CHANGED to Web Services Server listener
-Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/boomi-for-sap/index.html
-Version: 2026-05-08
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/boomi-for-sap-v2/index.html
+Version: 2026-09-22
 
 ---
 
-Lab Name: Boomi Integration Fundamentals
+Lab Name: Boomi Integration Fundamentals (Coming Soon - being revised, not yet available)
 Description: Build your first Boomi integration end to end query Salesforce for prospect accounts check for duplicates against a database and write new records back A foundational walkthrough of connectors decision logic mapping and notifications for first time Boomi users
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/integration-fundamentals/index.html
 Version: 2026-05-08
 
 ---
 
-Lab Name: Boomi Integration & API Management - Hands-on Lab
+Lab Name: Boomi Integration & API Management - Hands-on Lab (Coming Soon - being revised, not yet available)
 Description: Build a complete Salesforce to database integration process step by step then expose it as a managed API Covers connectors decision logic mapping error handling web service listeners deployment the API Catalog plans and subscribing via the Developer Portal
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/integration-apim/index.html
 Version: 2026-05-08
@@ -29,7 +29,7 @@ Version: 2026-05-08
 
 ---
 
-Lab Name: Data Hub - Hands-on Lab
+Lab Name: Data Hub - Hands-on Lab (Coming Soon - being revised, not yet available)
 Description: Build a complete Data Hub solution end to end define a Model configure match rules and data quality attach Salesforce and Netsuite as sources fix data quality errors and synchronize consolidated golden records out to a marketing database
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/datahub/index.html
 Version: 2026-05-08
@@ -120,7 +120,7 @@ Version: 2026-08-14
 
 ---
 
-Lab Name: Cloud API Management - Hands-on Lab
+Lab Name: Cloud API Management - Hands-on Lab (Coming Soon - being revised, not yet available)
 Description: Take a public API from specification to governed product Import the Petstore OpenAPI spec into Cloud API Management configure Traffic Routing design Packages and Plans for three departments generate Package Keys then discover and publish through API Control Plane and a branded Developer Portal
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/cloud-api-management/index.html
 Version: 2026-08-18
