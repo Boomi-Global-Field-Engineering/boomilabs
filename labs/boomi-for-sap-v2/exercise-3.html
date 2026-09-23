@@ -54,16 +54,16 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-section-label">Steps</div>
     <ul class="sidebar-nav">
-      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
-      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Subscribe to the Event</a></li>
-      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Configure Topic &amp; Payload</a></li>
-      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Build the Listener</a></li>
-      <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Deploy the Process</a></li>
-      <li><a href="#step-5" data-step="5"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>5 · Trigger &amp; Verify</a></li>
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">0</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Subscribe to the Event</a></li>
+      <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Configure Topic &amp; Payload</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Build the Listener</a></li>
+      <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Deploy the Process</a></li>
+      <li><a href="#step-5" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>5 · Trigger &amp; Verify</a></li>
     </ul>
     <div class="sidebar-divider"></div>
     <div class="sidebar-meta">
-      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~45 min</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: ~35 min</div>
       <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: Intermediate</div>
     </div>
   </nav>
@@ -242,7 +242,8 @@
 
       <div class="why-box">
         <div class="why-label">Topics — and what your event actually carries</div>
-        <p>A <strong>Topic</strong> is the named channel the event publishes onto. Your listener process subscribes to that channel by path — which is why the Topic ID here and the listener's Object name in Step&nbsp;3 have to line up. One topic can fan out to many subscribers.</p>
+        <p>A <strong>Topic</strong> is the named channel the event publishes onto, and its <em>topic positions</em> spell out the URL path the event is delivered to. That path has to match the listener you build in Step&nbsp;3 — which is why the last position here (<code>executeSaleschangexx</code>) and the listener's Object name (<code>Saleschangexx</code>) are the same word. One topic can fan out to many subscribers.</p>
+        <p><strong>Naming in this exercise:</strong> the subscription is <code>SALESCHANGE_XX</code>, the topic is <code>SALESEXERCISE_XX</code>, and the listener object is <code>Saleschangexx</code>. Keep to these patterns — it's how you'll find your objects again, and how the facilitator cleans up afterwards.</p>
         <p>Just as important is <strong>how much data</strong> rides on the event. Three levels:</p>
       </div>
 
@@ -268,10 +269,21 @@
         <li>
           <div class="instruction-num">1</div>
           <div class="instruction-body">
-            <p>In the <strong>Subscription ID</strong> field, enter a unique identifier using your initials (e.g., <code>SALESCHANGE_XX</code>).</p>
+            <p>In the <strong>Subscription ID</strong> field, enter <code>SALESCHANGE_XX</code> (replace XX with your initials). Then complete the rest of the subscription configuration:</p>
+            <table class="mapping-table">
+              <thead><tr><th>Field</th><th>Value</th></tr></thead>
+              <tbody>
+                <tr><td>Subscription ID</td><td><code>SALESCHANGE_XX</code></td></tr>
+                <tr><td>Event Mode</td><td><code>Event - payload</code> — the enriched option from the cards above</td></tr>
+                <tr><td>Data Format</td><td><code>v1.6 JSON</code></td></tr>
+                <tr><td>Table service selection</td><td><code>SALES_ORDERS_XX</code> — the Table Service you built in Exercise 2</td></tr>
+                <tr><td>Map Key Fields</td><td>Table <code>VBAK</code>, Table field <code>VBELN</code> — links the event's sales-document key to the header key of your service</td></tr>
+              </tbody>
+            </table>
+            <p>Leave <strong>Add Event Filters</strong> and <strong>Add Payload Filters</strong> empty for this lab.</p>
             <figure class="screenshot">
-              <img src="images/ex3/image13.png" alt="Enter Subscription ID" loading="lazy">
-              <figcaption>Enter the Subscription ID</figcaption>
+              <img src="images/ex3/image13.png" alt="Subscription configuration — Subscription ID, Event mode, Data format, Table service selection and Map Key Fields" loading="lazy">
+              <figcaption>Subscription configuration. <em>Note: this screenshot shows an earlier naming pattern in the ID field — use <code>SALESCHANGE_XX</code>.</em></figcaption>
             </figure>
           </div>
         </li>
@@ -284,8 +296,11 @@
               <tbody>
                 <tr><td>Deployment Mode</td><td><code>Local</code></td></tr>
                 <tr><td>Topic ID</td><td><code>SALESEXERCISE_XX</code> (replace XX with your initials)</td></tr>
+                <tr><td>Table service selection</td><td><code>SALES_ORDERS_XX</code></td></tr>
+                <tr><td>Topic positions</td><td>Three <code>TXT</code> positions, in order: <code>ws</code> · <code>simple</code> · <code>executeSaleschangexx</code> (replace xx with your initials, lower-case)</td></tr>
               </tbody>
             </table>
+            <p>Read the positions top to bottom and you get the delivery path <code>/ws/simple/executeSaleschangexx</code> — exactly the Simple URL Path your listener will publish in Step&nbsp;3.</p>
             <figure class="screenshot">
               <img src="images/ex3/image1.png" alt="Create New Topic" loading="lazy">
               <figcaption>Create a new Topic</figcaption>
@@ -298,7 +313,7 @@
             <p>Once the topic is created, click <strong>Create Subscription</strong> to finalize.</p>
             <div class="callout tip">
               <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <div><strong>Note your IDs</strong> — the listener's Object name in Step 3 must correspond to this subscription (e.g., <code>Saleschangexx</code>). Behind the scenes, the enrichment works by matching the event's key — the changed order's <code>VBELN</code> — against the key field of your table service, so only that one order's joined rows are pulled.</div>
+              <div><strong>Note your IDs</strong> — subscription <code>SALESCHANGE_XX</code>, topic <code>SALESEXERCISE_XX</code>, and the listener Object name you'll enter in Step 3, <code>Saleschangexx</code>, which must match the last topic position. Behind the scenes, the enrichment works by matching the event's key — the changed order's <code>VBELN</code> — against the key field of your table service, so only that one order's joined rows are pulled.</div>
             </div>
           </div>
         </li>
