@@ -833,7 +833,9 @@ pre code {
 .mb-0 { margin-bottom: 0 !important; }
 
 /* Coming-soon labs: visible in the catalog, not clickable */
-.lab-card.coming-soon { opacity: .62; cursor: not-allowed; pointer-events: none; filter: grayscale(.35); }
-.lab-card.coming-soon:hover { transform: none; box-shadow: var(--shadow); }
+.lab-card.coming-soon { opacity: .78; }
+.lab-card.coming-soon:hover { opacity: 1; }
 .lab-card-tag.coming-soon-tag { background: #fff7ed; color: #c2410c; margin-left: 6px; }
 .coming-soon-banner { background: #fff7ed; border: 1px solid #fdba74; border-left: 4px solid #f97316; border-radius: var(--radius); padding: 16px 22px; margin-bottom: 32px; font-size: 14px; line-height: 1.6; }
+.draft-pill { display: inline-block; vertical-align: middle; margin-left: 10px; padding: 2px 9px; border-radius: 20px; background: #f97316; color: #fff; font-size: 10.5px; font-weight: 800; letter-spacing: .6px; text-transform: uppercase; }
+.draft-banner { background: #fff7ed; border: 1px solid #fdba74; border-left: 4px solid #f97316; border-radius: var(--radius); padding: 14px 20px; margin: 0 0 24px; font-size: 14px; line-height: 1.6; }
