@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Step 0 (Optional) — Installing Boomi for SAP — Boomi Labs</title>
+<title>Step 0 (Optional) — Installing Boomi for SAP Solutions — Boomi Labs</title>
 <link rel="stylesheet" href="../../assets/css/lab.css">
 <style>
   .val-callout { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color:#fff; border-radius: var(--radius); padding: 20px 24px; margin: 4px 0 28px; display:flex; gap:14px; align-items:flex-start; }
@@ -41,7 +41,7 @@
     <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">Boomi for SAP — Step 0 (Optional)</span>
+  <span class="lab-header-title">Boomi for SAP Solutions — Step 0 (Optional)</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -61,7 +61,7 @@
     <ul class="sidebar-nav">
       <li><a href="#step-0" data-step="0">
         <span class="step-num"><span class="step-num-inner">0</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-        Why Boomi for SAP
+        Why Boomi for SAP Solutions
       </a></li>
       <li><a href="#step-1" data-step="1">
         <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -116,21 +116,21 @@
     <div class="step-content">
       <header class="step-header">
         <div class="step-label">Step 0 · Optional Module</div>
-        <h1 class="step-title">Installing Boomi for SAP</h1>
-        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Before you build, understand what Boomi for SAP is, why it matters, and how it gets installed into an SAP system.</p>
+        <h1 class="step-title">Installing Boomi for SAP Solutions</h1>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Before you build, understand what Boomi for SAP Solutions is, why it matters, and how it gets installed into an SAP system.</p>
       </header>
 
       <div class="val-callout">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         <div>
           <strong>You won't install anything in this lab.</strong>
-          <p>Your lab environment already has Boomi for SAP installed and running. This optional walkthrough is a guided click-through so you understand what's under the hood — installing the add-on is normally a one-time task handled by an SAP Basis administrator. Click <em>Next</em> to advance; you won't perform any of these steps yourself.</p>
+          <p>Your lab environment already has Boomi for SAP Solutions installed and running. This optional walkthrough is a guided click-through so you understand what's under the hood — installing the add-on is normally a one-time task handled by an SAP Basis administrator. Click <em>Next</em> to advance; you won't perform any of these steps yourself.</p>
         </div>
       </div>
 
-      <h2>Why Boomi for SAP</h2>
+      <h2>Why Boomi for SAP Solutions</h2>
       <p>SAP is the system of record for the enterprise — orders, materials, customers, financials. The hard part has never been the data; it's getting to it cleanly. Traditional approaches bolt an external connector onto SAP and reach in from the outside, or require custom ABAP development gated behind transport requests and developer queues.</p>
-      <p><strong>Boomi for SAP</strong> takes a different approach: it's an <strong>SAP-certified add-on that runs natively inside the SAP system</strong>. A drag-and-drop UI — served directly from SAP — lets you expose SAP data and processes as clean, reusable services that the wider Boomi platform can consume. No middleware to scrape data from the outside, and no custom ABAP to write.</p>
+      <p><strong>Boomi for SAP Solutions</strong> takes a different approach: it's an <strong>SAP-certified add-on that runs natively inside the SAP system</strong>. A drag-and-drop UI — served directly from SAP — lets you expose SAP data and processes as clean, reusable services that the wider Boomi platform can consume. No middleware to scrape data from the outside, and no custom ABAP to write.</p>
 
       <div class="callout tip">
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -158,7 +158,7 @@
       </div>
 
       <h2>What it exposes</h2>
-      <p>Once installed, Boomi for SAP can surface SAP capabilities as services the Boomi platform consumes:</p>
+      <p>Once installed, Boomi for SAP Solutions can surface SAP capabilities as services the Boomi platform consumes:</p>
       <div class="cap-list">
         <div class="cap-item">Table Services<span>Query SAP tables as OData-style feeds</span></div>
         <div class="cap-item">Function Modules / BAPIs<span>Call SAP transactions and RFCs</span></div>
@@ -350,7 +350,7 @@
           <p><strong>Create a new service element</strong> — Click <strong>Create Host/Service</strong>. Name = <code>ZBX</code>, Type = <strong>Standalone service</strong>. Click the green checkmark.</p>
         </div></li>
         <li><div class="instruction-num">3</div><div class="instruction-body">
-          <p><strong>Set the description</strong> — On the <strong>Service Data</strong> tab, Description 1 = <code>Boomi for SAP activation</code>. Leave the other fields at default.</p>
+          <p><strong>Set the description</strong> — On the <strong>Service Data</strong> tab, Description 1 = <code>Boomi for SAP Solutions activation</code>. Leave the other fields at default.</p>
         </div></li>
         <li><div class="instruction-num">4</div><div class="instruction-body">
           <p><strong>Register the handler class</strong> — On the <strong>Handler List</strong> tab, row 1, enter <code>/IXBX/CL_SICF</code> exactly. This is the IXBX handler that processes all service calls.</p>
@@ -395,7 +395,7 @@
 
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p><strong>Launch from SAP Easy Access</strong> — Return to the SAP Easy Access menu and open the Boomi for SAP application, or run the ZBX service URL directly. The status bar shows <em>"Start of application: Open UI"</em> as it loads.</p>
+          <p><strong>Launch from SAP Easy Access</strong> — Return to the SAP Easy Access menu and open the Boomi for SAP Solutions application, or run the ZBX service URL directly. The status bar shows <em>"Start of application: Open UI"</em> as it loads.</p>
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
           <p><strong>Verify the UI loads fully</strong> — The home screen shows the integration diagram and a full left-hand navigation menu. Confirm the footer version string, e.g. <code>VERSION | S4H-100 | &lt;user&gt;</code>.</p>
@@ -413,7 +413,7 @@
         </div>
       </div>
 
-      <figure class="screenshot"><img src="images/install/launched.png" alt="Boomi for SAP home screen with integration diagram and left navigation menu" loading="lazy"><figcaption>The home screen once it's live — SAP on the left, Boomi for SAP in the middle, the wider Boomi platform on the right, and the full List &amp; Manage / Create / Help navigation down the left side.</figcaption></figure>
+      <figure class="screenshot"><img src="images/install/launched.png" alt="Boomi for SAP home screen with integration diagram and left navigation menu" loading="lazy"><figcaption>The home screen once it's live — SAP on the left, Boomi for SAP Solutions in the middle, the wider Boomi platform on the right, and the full List &amp; Manage / Create / Help navigation down the left side.</figcaption></figure>
 
       <div class="callout tip">
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
@@ -434,7 +434,7 @@
       <header class="step-header">
         <div class="step-label">Step 6 of 8 · Phase 5</div>
         <h1 class="step-title">Post-Install Configuration in SAP</h1>
-        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The add-on is installed and the UI loads — but a handful of one-time settings inside SAP decide what Boomi for SAP Core Solutions is actually <em>allowed</em> to do. These are the settings people discover the hard way.</p>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The add-on is installed and the UI loads — but a handful of one-time settings inside SAP decide what Boomi for SAP Solutions Core is actually <em>allowed</em> to do. These are the settings people discover the hard way.</p>
       </header>
 
       <div class="callout info">
@@ -450,7 +450,7 @@
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
           <p><strong>Register receiver data formats</strong> — transaction <span class="tcode">/n/IXBX/ZBX019</span> opens <em>Possible Data Conversion Objects for Receiver type</em>. For each receiver type the system will publish to — <strong>HTTP RFC</strong>, <strong>Boomi Event Streams</strong>, <strong>Confluent</strong> — add the payload formats it may emit: <code>v1.5 JSON</code>, <code>v1.6 JSON</code>, and <code>XML char format</code>.</p>
-          <p style="font-size:13.5px;color:var(--text-muted);">This is the <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap_Receiver_Framework#data-formats" target="_blank" rel="noopener">Receiver Framework</a> at work: when an event fires, the Core Solutions add-on needs to know which format to serialize the payload in for that receiver. If a format isn't registered here, the subscription fails with a <em>"data formats are not defined"</em> error. You only need this for events and listeners — plain Table Service queries and function calls (Exercises 1 and 2) work without it.</p>
+          <p style="font-size:13.5px;color:var(--text-muted);">This is the <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap_Receiver_Framework#data-formats" target="_blank" rel="noopener">Receiver Framework</a> at work: when an event fires, the Solutions Core add-on needs to know which format to serialize the payload in for that receiver. If a format isn't registered here, the subscription fails with a <em>"data formats are not defined"</em> error. You only need this for events and listeners — plain Table Service queries and function calls (Exercises 1 and 2) work without it.</p>
           <figure class="screenshot"><img src="images/install/zbx019-data-formats.png" alt="Possible Data Conversion Objects for Receiver type" loading="lazy"><figcaption><span class="tcode">/n/IXBX/ZBX019</span> — receiver type × data format. Each row is one format the receiver is allowed to receive.</figcaption></figure>
         </div></li>
         <li><div class="instruction-num">3</div><div class="instruction-body">
@@ -458,7 +458,7 @@
           <p style="font-size:13.5px;color:var(--text-muted);">Set it up once, point it at the correct receiver, and it's done. Exercise 3 explains how to spot an exposed event (the lightning-bolt icon) once this is in place.</p>
         </div></li>
         <li><div class="instruction-num">4</div><div class="instruction-body">
-          <p><strong>Create users and verify the UI</strong> — the SAP user that the Boomi connection authenticates as (in the lab, <code>BOOMI_WRKSHP</code>) needs the Boomi for SAP roles, and the web UI should be verified end-to-end for that user. Steps are in <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap-creating_users_and_UI_verification" target="_blank" rel="noopener">Creating Users and UI Verification</a>.</p>
+          <p><strong>Create users and verify the UI</strong> — the SAP user that the Boomi connection authenticates as (a lab service user) needs the Boomi for SAP Solutions roles, and the web UI should be verified end-to-end for that user. Steps are in <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/sap-creating_users_and_UI_verification" target="_blank" rel="noopener">Creating Users and UI Verification</a>.</p>
           <p style="font-size:13.5px;color:var(--text-muted);">The connection also needs RFC connectivity allowed for that user, and the right port open between the Boomi runtime and the SAP system — two more items that surface as "it doesn't connect" when they're missed.</p>
         </div></li>
       </ol>
@@ -482,14 +482,14 @@
 
       <ol class="instruction-list">
         <li><div class="instruction-num">1</div><div class="instruction-body">
-          <p><strong>A runtime to execute on</strong> — the account has a cloud runtime (Atom) attached to the lab environment. Every Test run and deployed listener in this lab executes there. A local runtime is the alternative when you need to reach systems on your own network, such as an on-premises database.</p>
+          <p><strong>A runtime to execute on</strong> — the account has a runtime (Atom) attached to the lab environment. Every Test run and deployed listener in this lab executes there. A local runtime is the alternative when you need to reach systems on your own network, such as an on-premises database.</p>
         </div></li>
         <li><div class="instruction-num">2</div><div class="instruction-body">
-          <p><strong>The JDBC driver in the account library</strong> — the Boomi for SAP connector talks REST/JSON to Core Solutions, so it needs no SAP Java libraries on the runtime. The database steps in Exercise 2 do need the matching JDBC driver, uploaded under Settings → Account Libraries, bundled into a Custom Library component, and deployed to the runtime.</p>
+          <p><strong>The JDBC driver in the account library</strong> — the Boomi for SAP Solutions Connector talks REST/JSON to Solutions Core, so it needs no SAP Java libraries on the runtime. The database steps in Exercise 2 do need the matching JDBC driver, uploaded under Settings → Account Libraries, bundled into a Custom Library component, and deployed to the runtime.</p>
           <p style="font-size:13.5px;color:var(--text-muted);">This is a commonly missed piece of a fresh environment: the database connection saves, the profile import runs, and the first Test fails because the runtime has no driver. Account Libraries can't be exported from a Boomi account, so each environment has to be loaded separately.</p>
         </div></li>
         <li><div class="instruction-num">3</div><div class="instruction-body">
-          <p><strong>The SAP connection component</strong> — <em>SAP S4 Connection</em> holds the address of the Boomi for SAP Core Solutions endpoint plus the <code>BOOMI_WRKSHP</code> credentials from Step 6. Credentials are encrypted in the component: you can select and use the connection, but never read them back.</p>
+          <p><strong>The SAP connection component</strong> — <em>SAP S4 Connection</em> holds the address of the Boomi for SAP Solutions Core endpoint plus the lab service user's credentials from Step 6. Credentials are encrypted in the component: you can select and use the connection, but never read them back.</p>
         </div></li>
         <li><div class="instruction-num">4</div><div class="instruction-body">
           <p><strong>The Trainer folder</strong> — sample processes, the Salesforce XML profile, and a fallback map function, all of which you copy into your own <strong>USERXX</strong> folder as you go.</p>
@@ -515,7 +515,7 @@
       <header class="step-header">
         <div class="step-label">Step 8 of 8 · Recap</div>
         <h1 class="step-title">Recap &amp; Key Takeaways</h1>
-        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The few things worth remembering about how Boomi for SAP gets stood up.</p>
+        <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">The few things worth remembering about how Boomi for SAP Solutions gets stood up.</p>
       </header>
 
       <h3>What got installed</h3>

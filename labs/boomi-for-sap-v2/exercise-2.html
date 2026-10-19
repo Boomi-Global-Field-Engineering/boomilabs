@@ -28,7 +28,7 @@
     <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">Boomi for SAP — Exercise 2</span>
+  <span class="lab-header-title">Boomi for SAP Solutions — Exercise 2</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -47,7 +47,7 @@
     <div class="sidebar-section-label">Steps</div>
     <ul class="sidebar-nav">
       <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">0</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
-      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Log In to Boomi for SAP</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Log In to Boomi for SAP Solutions</a></li>
       <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Join VBAK &amp; VBAP</a></li>
       <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Save the Table Service</a></li>
       <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Copy the Sample Process</a></li>
@@ -77,7 +77,7 @@
       <div class="flow-strip">
         <span class="fs-label">The flow you'll build</span>
         <span class="flow-node">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node">Database</span>
       </div>
@@ -85,7 +85,7 @@
       <div class="why-box">
         <div class="why-label">Why Table Services — the point of this exercise</div>
         <p>A sales order in SAP isn't one record. The header (order number, customer, total value) lives in <strong>VBAK</strong>; every line item (material, quantity, description) lives in <strong>VBAP</strong>. Getting the full picture through BAPIs or OData means <em>multiple calls</em> stitched together in your integration.</p>
-        <p>A Table Service flips that: because Boomi for SAP Core Solutions runs <em>inside</em> SAP with full access to every table and field, you define the join once — header to items on the document number — and get complete, granular data in <strong>a single call</strong>. Core Solutions even reads SAP's data dictionary for you, so cryptic field names like <code>ERZET</code> come with human descriptions, types, and lengths attached. Beyond plain tables, the same mechanism can expose <strong>CDS views</strong> — real-time calculations, not just table pulls.</p>
+        <p>A Table Service flips that: because Boomi for SAP Solutions Core runs <em>inside</em> SAP with full access to every table and field, you define the join once — header to items on the document number — and get complete, granular data in <strong>a single call</strong>. Core Solutions even reads SAP's data dictionary for you, so cryptic field names like <code>ERZET</code> come with human descriptions, types, and lengths attached. Beyond plain tables, the same mechanism can expose <strong>CDS views</strong> — real-time calculations, not just table pulls.</p>
       </div>
 
       <div class="callout tip">
@@ -128,20 +128,20 @@
     <div class="step-content">
       <header class="step-header">
         <div class="step-label">Section 1 · Step 1 of 7</div>
-        <h1 class="step-title">Log In to Boomi for SAP &amp; Open Table Services</h1>
+        <h1 class="step-title">Log In to Boomi for SAP Solutions &amp; Open Table Services</h1>
       </header>
 
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node on">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node">Database</span>
       </div>
 
       <div class="why-box">
         <div class="why-label">What you're actually logging into</div>
-        <p>This is <strong>not</strong> the SAP GUI — it's the web UI of <strong>Boomi for SAP Core Solutions</strong>, the NetWeaver add-on running inside the SAP system (served by the <code>ZBX</code> ICF service you can see being created in <a href="step-0.html">Step 0</a>). Everything you build here — table services, events, function catalogs — lives inside SAP and is instantly callable from the Boomi platform through the branded connector.</p>
+        <p>This is <strong>not</strong> the SAP GUI — it's the web UI of <strong>Boomi for SAP Solutions Core</strong>, the NetWeaver add-on running inside the SAP system (served by the <code>ZBX</code> ICF service you can see being created in <a href="step-0.html">Step 0</a>). Everything you build here — table services, events, function catalogs — lives inside SAP and is instantly callable from the Boomi platform through the branded connector.</p>
       </div>
 
       <ol class="instruction-list">
@@ -151,10 +151,11 @@
             <p>Open a browser and log in to the Boomi for SAP UI using the credentials below.</p>
             <div class="credentials-box">
               <h4>Credentials</h4>
-              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.demo.boomi.com:44300/zbx/home</a></span></div>
-              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.customer-labs.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.customer-labs.boomi.com:44300/zbx/home</a></span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Your assigned lab user ID (<code>boomi_sap_user_XXXX</code> — on your credentials card)</span></div>
               <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by your lab facilitator</span></div>
             </div>
+            <p style="font-size:13.5px;color:var(--text-muted);margin-top:8px;">This user was created for you for today and is removed after the lab. If you are prompted to set a new password at first login, note it down — you will use the same user again in Exercise 3.</p>
           </div>
         </li>
         <li>
@@ -188,7 +189,7 @@
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node on">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node">Database</span>
       </div>
@@ -209,7 +210,7 @@
           <div class="instruction-num">2</div>
           <div class="instruction-body">
             <p>Click the <strong>filter</strong> (funnel) icon on the VBAK card to open its field list. Scroll through it before changing anything.</p>
-            <p style="font-size:13.5px;color:var(--text-muted);">This is the part of Boomi for SAP that saves you a trip to the data dictionary. Every field comes with its SAP <strong>description</strong> — you'd never guess that <code>ERZET</code> is "Time" or <code>ERNAM</code> is "Created By" from the names alone — plus its <strong>type</strong> and <strong>min/max length</strong> (<code>VBELN</code> is a 10-character string; <code>ERDAT</code> exactly 8). Those lengths are the same fixed-length constraints you dealt with in Exercise 1, surfaced up front. Key fields are marked with the key icon.</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">This is the part of Boomi for SAP Solutions that saves you a trip to the data dictionary. Every field comes with its SAP <strong>description</strong> — you'd never guess that <code>ERZET</code> is "Time" or <code>ERNAM</code> is "Created By" from the names alone — plus its <strong>type</strong> and <strong>min/max length</strong> (<code>VBELN</code> is a 10-character string; <code>ERDAT</code> exactly 8). Those lengths are the same fixed-length constraints you dealt with in Exercise 1, surfaced up front. Key fields are marked with the key icon.</p>
             <figure class="screenshot">
               <img src="images/ex2/v2-vbak-fields.png" alt="VBAK field list with descriptions, types, and lengths" loading="lazy">
               <figcaption>The VBAK field list — description, type, and length for all 224 fields; ERZET turns out to be "Time"</figcaption>
@@ -306,7 +307,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node on">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node">Database</span>
       </div>
@@ -358,7 +359,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node on">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node">Database</span>
       </div>
@@ -426,7 +427,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node on">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node on">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node">Database</span>
       </div>
@@ -470,7 +471,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
         <li>
           <div class="instruction-num">4</div>
           <div class="instruction-body">
-            <p>In the Import Wizard, select your Atom connection and filter by your Table Service name (<strong>SALES_ORDERS_XX</strong>). Click <strong>Next</strong> twice, then <strong>Finish</strong>.</p>
+            <p>In the Import Wizard, select the runtime your facilitator named (it will differ from the screenshot) and filter by your Table Service name (<strong>SALES_ORDERS_XX</strong>). Click <strong>Next</strong> twice, then <strong>Finish</strong>.</p>
             <figure class="screenshot">
               <img src="images/ex2/image4.png" alt="Import Wizard — select Table Service" loading="lazy">
               <figcaption>Import Wizard — select your Table Service</figcaption>
@@ -522,7 +523,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node on">Database</span>
       </div>
@@ -645,7 +646,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
       <div class="flow-strip">
         <span class="fs-label">You are here</span>
         <span class="flow-node">Build Table Service</span><span class="flow-arrow">→</span>
-        <span class="flow-node">Query · Boomi for SAP</span><span class="flow-arrow">→</span>
+        <span class="flow-node">Query · Boomi for SAP Solutions</span><span class="flow-arrow">→</span>
         <span class="flow-node on">Map</span><span class="flow-arrow">→</span>
         <span class="flow-node on">Database</span>
       </div>
@@ -715,7 +716,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
             <p>Set a <strong>default value</strong> for the <code>USER</code> field in the destination profile: click the field, choose <strong>Set Default Value</strong>, and enter <strong>your initials</strong>.</p>
             <div class="why-box">
               <div class="why-label">Why tag your rows?</div>
-              <p>Everyone's data lands in the same shared table. Stamping your initials into the <code>USER</code> column is how your rows stay identifiable — and how the trainer can prove <em>your</em> integration worked when they open the database at the end.</p>
+              <p>Everyone's data lands in the same shared table. Stamping your initials into the <code>USER</code> column is how your rows stay identifiable — and how the facilitator can prove <em>your</em> integration worked when they open the database at the end.</p>
             </div>
             <figure class="screenshot">
               <img src="images/ex2/image2.png" alt="Set USER default value" loading="lazy">
@@ -741,7 +742,7 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
         <li>
           <div class="instruction-num">5</div>
           <div class="instruction-body">
-            <p><strong>Save</strong> and <strong>Test</strong> the process, choosing the correct Atom for the test run.</p>
+            <p><strong>Save</strong> and <strong>Test</strong> the process, choosing the runtime your facilitator named for the test run.</p>
             <figure class="screenshot">
               <img src="images/ex2/image10.png" alt="Save and Test process" loading="lazy">
               <figcaption>Save and Test the process</figcaption>
@@ -765,8 +766,8 @@ VKORG, VTWEG, SPART, VKGRP, VKBUR, GSBER, KUNNR</code></pre>
               <div><strong>Success!</strong> All connector shapes green. If you see errors, verify Max Returned Rows (Step 5) and that your field mapping matches the database schema.</div>
             </div>
             <div class="trainer-box">
-              <div class="tr-label">Trainer moment — proof in the database</div>
-              <p>Once everyone has run their test, your trainer will connect to the Aurora database on the projector and query the <strong>Sales Orders SAP</strong> table. Watch for the <code>USER</code> column — every set of initials on screen is one participant's integration, live in the same table. That's your join, your query, your mapping, landed.</p>
+              <div class="tr-label">Facilitator moment — proof in the database</div>
+              <p>Once everyone has run their test, your facilitator will connect to the Aurora database on the projector and query the <strong>Sales Orders SAP</strong> table. Watch for the <code>USER</code> column — every set of initials on screen is one participant's integration, live in the same table. That's your join, your query, your mapping, landed.</p>
             </div>
           </div>
         </li>

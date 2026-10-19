@@ -1,10 +1,10 @@
 BOOMI LABS - CATALOG
 ====================
 
-Lab Name: Boomi for SAP - Hands-on Lab
+Lab Name: Boomi for SAP Solutions - Hands-on Lab
 Description: Learn how to integrate SAP S 4HANA with Salesforce and databases using the Boomi for SAP connector Three progressive exercises BAPI invocation Salesforce Opportunity to SAP Sales Order via BAPI SALESORDER CREATEFROMDAT2 Table Services custom VBAK VBAP join queried into a database and real time Business Object Events BUS2032 CHANGED to Web Services Server listener
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/boomi-for-sap-v2/index.html
-Version: 2026-09-22
+Version: 2026-10-19
 
 ---
 

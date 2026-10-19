@@ -33,7 +33,7 @@
     <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">Boomi for SAP — Exercise 1</span>
+  <span class="lab-header-title">Boomi for SAP Solutions — Exercise 1</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -54,7 +54,7 @@
       <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">0</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
       <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · Log In &amp; Copy the Process</a></li>
       <li><a href="#step-2" data-step="2"><span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>2 · Read the Salesforce Payload</a></li>
-      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Configure Boomi for SAP</a></li>
+      <li><a href="#step-3" data-step="3"><span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>3 · Configure Boomi for SAP Solutions</a></li>
       <li><a href="#step-4" data-step="4"><span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>4 · Copy the SF XML Profile</a></li>
       <li><a href="#step-5" data-step="5"><span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>5 · Configure the Map</a></li>
       <li><a href="#step-6" data-step="6"><span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>6 · Map Functions</a></li>
@@ -89,10 +89,10 @@
       </div>
 
       <h2>How this works under the hood</h2>
-      <p>The <strong>Boomi for SAP connector</strong> you'll use is a branded connector — it doesn't screen-scrape SAP or log into the SAP GUI. It talks to <strong>Boomi for SAP Core Solutions</strong>, a certified NetWeaver add-on installed <em>inside</em> the SAP system (on-premises or private cloud). Core Solutions exposes SAP's standard function library — including every BAPI — as importable operations, so calling an ABAP function from an integration becomes a point-and-click configuration instead of custom development.</p>
+      <p>The <strong>Boomi for SAP connector</strong> you'll use is a branded connector — it doesn't screen-scrape SAP or log into the SAP GUI. It talks to <strong>Boomi for SAP Solutions Core</strong>, a certified NetWeaver add-on installed <em>inside</em> the SAP system (on-premises or private cloud). Core Solutions exposes SAP's standard function library — including every BAPI — as importable operations, so calling an ABAP function from an integration becomes a point-and-click configuration instead of custom development.</p>
       <div class="callout info">
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-        <div><strong>Curious how the add-on gets there?</strong> The optional <a href="step-0.html">Step 0 — Installing Boomi for SAP</a> walks through the one-time install (transport upload, SAINT, ICF service). The full product docs live at <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">help.boomi.com — Boomi for SAP</a>.</div>
+        <div><strong>Curious how the add-on gets there?</strong> The optional <a href="step-0.html">Step 0 — Installing Boomi for SAP Solutions</a> walks through the one-time install (transport upload, SAINT, ICF service). The full product docs live at <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">help.boomi.com — Boomi for SAP Solutions</a>.</div>
       </div>
 
       <div class="callout tip">
@@ -102,7 +102,7 @@
 
       <h2>What we set up for you</h2>
       <ul>
-        <li><strong>The SAP connection</strong> — the <em>SAP S4 Connection</em> component is pre-configured and points at the workshop's Boomi for SAP Core Solutions. You select it; you never handle SAP credentials.</li>
+        <li><strong>The SAP connection</strong> — the <em>SAP S4 Connection</em> component is pre-configured and points at the workshop's Boomi for SAP Solutions Core. You select it; you never handle SAP credentials.</li>
         <li><strong>A sample process skeleton</strong> — the shapes are on the canvas; you configure each one.</li>
         <li><strong>Product master data</strong> — the products in the Salesforce opportunity are already synced into SAP. That matters: SAP will only accept an order for a material it knows, so in any real implementation product master sync happens before order integration.</li>
         <li><strong>A realistic Salesforce payload</strong> — a Message shape holds the XML a live Salesforce connection would deliver, so you can build and test end-to-end without waiting on a rep to close a deal.</li>
@@ -112,7 +112,7 @@
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
         <div><strong>What you&#x27;ll learn</strong>
         <ul>
-          <li>How the Boomi for SAP connector calls BAPIs through the Boomi for SAP Core Solutions</li>
+          <li>How the Boomi for SAP Solutions Connector calls BAPIs through the Boomi for SAP Solutions Core</li>
           <li>How to read a CRM payload and map it to the SAP request structure</li>
           <li>Why SAP needs leading zeros, line-item increments of 10, and hardcoded org values — and how to handle each</li>
           <li>How to read the BAPI response and surface the created Sales Document number</li>
@@ -172,7 +172,7 @@
             <p>In the <strong>Trainer</strong> folder, locate the sample process named <strong>Create SO SFDC to SAP Sample</strong>. Right-click the process and select <strong>Copy to folder</strong>, choosing your <strong>USERXX</strong> folder as the destination.</p>
             <div class="why-box">
               <div class="why-label">Why you're copying it</div>
-              <p>Everyone in the workshop shares this account. Copying the sample into your own <strong>USERXX</strong> folder gives you a private working copy — you can configure, break, and re-test it without touching anyone else's work, and the trainer's original stays pristine for the next group.</p>
+              <p>Everyone in the workshop shares this account. Copying the sample into your own <strong>USERXX</strong> folder gives you a private working copy — you can configure, break, and re-test it without touching anyone else's work, and the facilitator's original stays pristine for the next group.</p>
             </div>
             <figure class="screenshot">
               <img src="images/ex1/image30.png" alt="Copy process to USERXX folder" loading="lazy">
@@ -227,7 +227,7 @@
             <ul>
               <li><strong>SFDC Opportunity</strong> — a Message shape holding the sample Salesforce XML</li>
               <li><strong>Map</strong> — transforms the Salesforce XML into the SAP BAPI request</li>
-              <li><strong>Boomi for SAP</strong> — calls the BAPI on SAP</li>
+              <li><strong>Boomi for SAP Solutions</strong> — calls the BAPI on SAP</li>
               <li><strong>Display Sales Document</strong> — shows the SAP document number that comes back</li>
             </ul>
             <figure class="screenshot">
@@ -254,8 +254,8 @@
               <p>Note the product codes in the line items — <strong>those exact products will appear on the SAP sales order at the end of this exercise</strong>. They can only do that because product master data is already synced between Salesforce and SAP; you can't order a material SAP has never heard of.</p>
             </div>
             <div class="trainer-box">
-              <div class="tr-label">Trainer moment</div>
-              <p>In production this XML wouldn't sit in a Message shape — a Salesforce listener would deliver it the instant an opportunity goes <em>Closed&nbsp;Won</em>. Your trainer will show the same opportunity live in Salesforce so you can see where this payload really comes from.</p>
+              <div class="tr-label">Facilitator moment</div>
+              <p>In production this XML wouldn't sit in a Message shape — a Salesforce listener would deliver it the instant an opportunity goes <em>Closed&nbsp;Won</em>. Your facilitator will show the same opportunity live in Salesforce so you can see where this payload really comes from.</p>
             </div>
           </div>
         </li>
@@ -288,14 +288,14 @@
 
       <div class="why-box">
         <div class="why-label">Why you're doing this</div>
-        <p>This shape is where the integration actually reaches SAP. You'll do three things: pick <strong>which SAP system</strong> to talk to (the connection — it points at a specific Boomi for SAP Core Solutions), pick <strong>what to do there</strong> (the operation — importing the <code>BAPI_SALESORDER_CREATEFROMDAT2</code> function), and let the import generate <strong>request/response profiles</strong> that mirror the BAPI's exact structure — every field, table, and length as SAP defines it.</p>
+        <p>This shape is where the integration actually reaches SAP. You'll do three things: pick <strong>which SAP system</strong> to talk to (the connection — it points at a specific Boomi for SAP Solutions Core), pick <strong>what to do there</strong> (the operation — importing the <code>BAPI_SALESORDER_CREATEFROMDAT2</code> function), and let the import generate <strong>request/response profiles</strong> that mirror the BAPI's exact structure — every field, table, and length as SAP defines it.</p>
       </div>
 
       <ol class="instruction-list">
         <li>
           <div class="instruction-num">1</div>
           <div class="instruction-body">
-            <p>On the canvas, find the <strong>Boomi for SAP</strong> shape and click <strong>Configure</strong>.</p>
+            <p>On the canvas, find the <strong>Boomi for SAP Solutions</strong> shape and click <strong>Configure</strong>.</p>
             <figure class="screenshot">
               <img src="images/ex1/image13.png" alt="Boomi for SAP shape on canvas" loading="lazy">
               <figcaption>Boomi for SAP shape on canvas</figcaption>
@@ -306,7 +306,7 @@
           <div class="instruction-num">2</div>
           <div class="instruction-body">
             <p>In the connector configuration, select <strong>SAP S4 Connection</strong> from the drop-down and make sure <strong>Action</strong> is <code>FUNCTION</code>.</p>
-            <p style="font-size:13.5px;color:var(--text-muted);">The connection was pre-built for the workshop — it holds the address of the Boomi for SAP Core Solutions in the demo SAP system. Choosing a connection = choosing which SAP environment this shape calls. The <code>FUNCTION</code> action means "invoke a function module / BAPI" (in Exercise 2 you'll use <code>QUERY</code> against a Table Service instead).</p>
+            <p style="font-size:13.5px;color:var(--text-muted);">The connection was pre-built for the workshop — it holds the address of the Boomi for SAP Solutions Core in the demo SAP system. Choosing a connection = choosing which SAP environment this shape calls. The <code>FUNCTION</code> action means "invoke a function module / BAPI" (in Exercise 2 you'll use <code>QUERY</code> against a Table Service instead).</p>
             <figure class="screenshot">
               <img src="images/ex1/image12.png" alt="Select SAP S4 Connection" loading="lazy">
               <figcaption>Select SAP S4 Connection</figcaption>
@@ -336,7 +336,7 @@
         <li>
           <div class="instruction-num">5</div>
           <div class="instruction-body">
-            <p>In the Import Wizard, verify all fields are populated and click <strong>Next</strong>. The wizard is now browsing the live function catalog of the SAP system through the Core.</p>
+            <p>In the Import Wizard, verify all fields are populated and click <strong>Next</strong>. The runtime (Atom) name in your environment will differ from the screenshot — pick the one your facilitator names. The wizard is now browsing the live function catalog of the SAP system through the Core.</p>
             <figure class="screenshot">
               <img src="images/ex1/image11.png" alt="Import Wizard — first screen" loading="lazy">
               <figcaption>Import Wizard — first screen</figcaption>
@@ -500,7 +500,7 @@
         <li>
           <div class="instruction-num">2</div>
           <div class="instruction-body">
-            <p>Name your map (e.g., <strong>SF to SAP SO Map USERXX</strong>). In the <strong>Source</strong> panel, assign your <strong>SF Opp XML Profile USERXX</strong>. In the <strong>Destination</strong> panel, assign the <strong>Boomi for SAP BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Request</strong> profile.</p>
+            <p>Name your map (e.g., <strong>SF to SAP SO Map USERXX</strong>). In the <strong>Source</strong> panel, assign your <strong>SF Opp XML Profile USERXX</strong>. In the <strong>Destination</strong> panel, assign the <strong>Boomi for SAP Solutions BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Request</strong> profile.</p>
             <div class="callout tip">
               <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
               <div><strong>Choose beats drag-and-drop</strong> — you can drag profiles into the panels, but clicking <strong>Choose</strong>, picking the profile type (XML / JSON), and browsing to the exact component is more reliable and avoids accidentally re-assigning a side. Most experienced builders use Choose.</div>
@@ -668,7 +668,7 @@
 
       <div class="callout tip">
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
-        <div><strong>Optional add-on: map with Boomi Companion</strong> — if you use Claude Code with the Boomi Companion skill, it can cross-check your mapping against the BAPI's required fields, flag anything missing, and even generate a clean visual diagram of the finished map (much easier to read than crossing lines on the canvas). Ask your trainer for a demo at the end of this exercise.</div>
+        <div><strong>Optional add-on: map with Boomi Companion</strong> — if you use Claude Code with the Boomi Companion skill, it can cross-check your mapping against the BAPI's required fields, flag anything missing, and even generate a clean visual diagram of the finished map (much easier to read than crossing lines on the canvas). Ask your facilitator for a demo at the end of this exercise.</div>
       </div>
 
       <nav class="step-nav">
@@ -703,8 +703,8 @@
       </div>
 
       <div class="trainer-box">
-        <div class="tr-label">Trainer moment — coming up in Step 8</div>
-        <p>The number this shape displays is a real document in S/4HANA. Once you've run the test in the next step, be ready to call out your Sales Document number — your trainer will look a few of them up live in SAP so everyone can see the orders actually exist.</p>
+        <div class="tr-label">Facilitator moment — coming up in Step 8</div>
+        <p>The number this shape displays is a real document in S/4HANA. Once you've run the test in the next step, be ready to call out your Sales Document number — your facilitator will look a few of them up live in SAP so everyone can see the orders actually exist.</p>
       </div>
 
       <ol class="instruction-list">
@@ -737,7 +737,7 @@
               <tbody>
                 <tr><td>Type</td><td><code>Profile Element</code></td></tr>
                 <tr><td>Profile Type</td><td><code>JSON</code></td></tr>
-                <tr><td>Profile</td><td><code>Boomi for SAP BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Response</code></td></tr>
+                <tr><td>Profile</td><td><code>Boomi for SAP Solutions BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Response</code></td></tr>
                 <tr><td>Element</td><td><code>E_SALESDOCUMENT</code></td></tr>
               </tbody>
             </table>
@@ -798,7 +798,7 @@
         <li>
           <div class="instruction-num">2</div>
           <div class="instruction-body">
-            <p>In the test panel, select the appropriate Atom and start the test run. After execution completes, open the process logs.</p>
+            <p>In the test panel, select the runtime your facilitator named (it will differ from the screenshot) and start the test run. After execution completes, open the process logs.</p>
           </div>
         </li>
         <li>
@@ -818,9 +818,9 @@
       </ol>
 
       <div class="trainer-box">
-        <div class="tr-label">Trainer moment — closing the loop</div>
-        <p><strong>Call out your Sales Document number.</strong> You don't have SAP GUI access, but your trainer does: give them the number from your Display Sales Document output and they'll open it in S/4HANA (<code>VA03</code>) on screen. Look at the order lines — they're the exact products, in the exact quantities, you read in the XML back in Step&nbsp;2. Salesforce sent the deal; SAP created the order; nothing was typed in between.</p>
-        <p>If the live Salesforce connection is available, your trainer may also flip an opportunity to <strong>Closed&nbsp;Won</strong> and show the same process triggered for real, landing in Process Reporting without anyone pressing Test.</p>
+        <div class="tr-label">Facilitator moment — closing the loop</div>
+        <p><strong>Call out your Sales Document number.</strong> You don't have SAP GUI access, but your facilitator does: give them the number from your Display Sales Document output and they'll open it in S/4HANA (<code>VA03</code>) on screen. Look at the order lines — they're the exact products, in the exact quantities, you read in the XML back in Step&nbsp;2. Salesforce sent the deal; SAP created the order; nothing was typed in between.</p>
+        <p>If the live Salesforce connection is available, your facilitator may also flip an opportunity to <strong>Closed&nbsp;Won</strong> and show the same process triggered for real, landing in Process Reporting without anyone pressing Test.</p>
       </div>
 
       <nav class="step-nav">

@@ -36,7 +36,7 @@
     <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
   </a>
   <div class="lab-header-sep"></div>
-  <span class="lab-header-title">Boomi for SAP — Exercise 3</span>
+  <span class="lab-header-title">Boomi for SAP Solutions — Exercise 3</span>
   <div class="lab-header-actions">
     <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -143,7 +143,7 @@
       <div class="why-box">
         <div class="why-label">Before you subscribe: how SAP events get exposed</div>
         <p>SAP business objects (like <strong>BUS2032</strong>, the Sales Order) define events — <em>CREATED</em>, <em>CHANGED</em>, <em>COMPLETED</em> — but an event only fires if an <strong>event handler is linked</strong> on the SAP side. In the Boomi for SAP UI, exposed events show a <strong>lightning-bolt icon</strong>; events without it exist in the catalog but won't trigger anything yet.</p>
-        <p>Wiring that linkage is one-time SAP Basis configuration (event linkage activation and, for master-data changes, change-pointer settings via transactions like <code>BD50</code>). <strong>The lab system is already configured</strong> — but on a real project, "why isn't my event firing?" is almost always this. The <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">Boomi for SAP docs</a> cover the full event-configuration procedure.</p>
+        <p>Wiring that linkage is one-time SAP Basis configuration (event linkage activation and, for master-data changes, change-pointer settings via transactions like <code>BD50</code>). <strong>The lab system is already configured</strong> — but on a real project, "why isn't my event firing?" is almost always this. The <a href="https://help.boomi.com/docs/Atomsphere/Boomi_for_SAP/boomi_for_sap_overview" target="_blank" rel="noopener">Boomi for SAP Solutions docs</a> cover the full event-configuration procedure.</p>
       </div>
 
       <ol class="instruction-list">
@@ -153,8 +153,8 @@
             <p>Log in to the Boomi for SAP UI.</p>
             <div class="credentials-box">
               <h4>Credentials</h4>
-              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.demo.boomi.com:44300/zbx/home</a></span></div>
-              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.customer-labs.boomi.com:44300/zbx/home" target="_blank">https://boomiforsap.customer-labs.boomi.com:44300/zbx/home</a></span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Your assigned lab user ID (<code>boomi_sap_user_XXXX</code> — on your credentials card)</span></div>
               <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by your lab facilitator</span></div>
             </div>
           </div>
@@ -260,7 +260,7 @@
         </div>
         <div class="mode-card hero">
           <h4>Table-service enriched</h4>
-          <span class="tagline">This lab · the Boomi for SAP difference</span>
+          <span class="tagline">This lab · the Boomi for SAP Solutions difference</span>
           <p>The event key is matched against a <strong>Table Service</strong> — your <code>SALES_ORDERS_XX</code> join from Exercise 2 — so the notification arrives with header <em>and</em> line items for exactly the one order that changed.</p>
         </div>
       </div>
@@ -482,20 +482,20 @@
       </div>
 
       <div class="trainer-box">
-        <div class="tr-label">Trainer moment</div>
-        <p>Your trainer will make the first change live on the projector so everyone sees the full round trip: save in SAP → event fires → listener execution appears in Process Reporting within seconds. Then follow the steps below to trigger one yourself.</p>
+        <div class="tr-label">Facilitator moment</div>
+        <p>Your facilitator will make the first change live on the projector so everyone sees the full round trip: save in SAP → event fires → listener execution appears in Process Reporting within seconds. Then follow the steps below to trigger one yourself.</p>
       </div>
 
       <ol class="instruction-list">
         <li>
           <div class="instruction-num">1</div>
           <div class="instruction-body">
-            <p>Log in to the SAP client where Boomi for SAP is installed.</p>
+            <p>Log in to the SAP client where Boomi for SAP Solutions is installed.</p>
             <div class="credentials-box">
               <h4>Credentials</h4>
-              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.demo.boomi.com:44300" target="_blank">https://boomiforsap.demo.boomi.com:44300</a></span></div>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://boomiforsap.customer-labs.boomi.com:44300" target="_blank">https://boomiforsap.customer-labs.boomi.com:44300</a></span></div>
               <div class="cred-row"><span class="cred-label">Client</span><span class="cred-value">100</span></div>
-              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">BOOMI_WRKSHP</span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Your assigned lab user ID (<code>boomi_sap_user_XXXX</code> — on your credentials card)</span></div>
               <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by your lab facilitator</span></div>
             </div>
           </div>
@@ -573,6 +573,10 @@
             <div class="callout tip">
               <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
               <div><strong>Congratulations!</strong> You've built the full event pipeline: SAP change → exposed event → subscription and topic → deployed listener → enriched real-time payload. This is the pattern behind live inventory, instant order tracking, and event-driven data warehouses on SAP.</div>
+            </div>
+            <div class="callout info">
+              <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+              <div><strong>Where this goes next</strong> — the same event can be routed through Boomi Event Streams and on to a data platform. Ask your facilitator to show a full-load plus change-data-capture pattern built on what you did today.</div>
             </div>
           </div>
         </li>
