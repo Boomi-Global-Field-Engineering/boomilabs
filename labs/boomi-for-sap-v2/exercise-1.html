@@ -326,20 +326,24 @@
         <li>
           <div class="instruction-num">4</div>
           <div class="instruction-body">
-            <p>On the New Operation screen, enter a name (e.g., <code>Create SO USERXX</code>) and click <strong>Import</strong>.</p>
+            <p>A new operation opens on a <strong>Connector Operations</strong> getting-started screen. In the name field at the top (it reads <em>New Boomi for SAP Connector Operation</em>), type a name such as <code>Create SO in SAP USERXX</code>, then click <strong>Import Operation</strong>.</p>
             <figure class="screenshot">
-              <img src="images/ex1/image20.png" alt="Name the operation" loading="lazy">
-              <figcaption>Name the operation</figcaption>
+              <img src="images/ex1/v3-new-operation.png" alt="New operation screen with the default name selected" loading="lazy">
+              <figcaption>The new operation opens with its default name selected — overtype it</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex1/v3-operation-named.png" alt="Operation renamed, Import Operation button" loading="lazy">
+              <figcaption>Named operation — click Import Operation</figcaption>
             </figure>
           </div>
         </li>
         <li>
           <div class="instruction-num">5</div>
           <div class="instruction-body">
-            <p>In the Import Wizard, verify all fields are populated and click <strong>Next</strong>. The runtime (Atom) name in your environment will differ from the screenshot — pick the one your facilitator names. The wizard is now browsing the live function catalog of the SAP system through the Core.</p>
+            <p>In the <strong>Boomi for SAP Operation Import</strong> wizard, pick the <strong>Runtime</strong> your facilitator named (it will differ from the screenshot), confirm the <strong>Connection</strong> is <code>SAP S4 Connection</code>, leave <strong>Filter</strong> empty and click <strong>Next</strong>. The wizard is now browsing the live function catalog of the SAP system through Solutions Core.</p>
             <figure class="screenshot">
-              <img src="images/ex1/image11.png" alt="Import Wizard — first screen" loading="lazy">
-              <figcaption>Import Wizard — first screen</figcaption>
+              <img src="images/ex1/v3-import-wizard.png" alt="Boomi for SAP Operation Import — runtime, connection, filter" loading="lazy">
+              <figcaption>Operation Import — Runtime and Connection</figcaption>
             </figure>
           </div>
         </li>
@@ -376,6 +380,15 @@
               <p>SAP fields are <strong>fixed-length</strong>, and the imported profile carries every field's exact SAP length so bad data is caught before it ever reaches SAP (an 11-character value aimed at a 10-character field would otherwise error inside SAP). That validation is normally your friend.</p>
               <p>For <code>ITM_NUMBER</code> you switch it off because in Step&nbsp;6 a map function will <em>generate</em> these line numbers, and the function's numeric output doesn't match the imported fixed-length format. Leaving validation on makes the process fail at runtime on data you know is correct.</p>
             </div>
+            <p style="font-size:13.5px;color:var(--text-muted);">Finding the field: in the <strong>Data Elements</strong> tree expand <code>T_ORDER_ITEMS_IN → Array → items1 → Object</code> and scroll to <code>ITM_NUMBER</code>; then do the same under <code>T_ORDER_SCHEDULES_IN</code>. The search box at the top of the tree also works.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/v3-profile-items-tree.png" alt="Data Elements tree expanded under T_ORDER_ITEMS_IN" loading="lazy">
+              <figcaption>T_ORDER_ITEMS_IN → Array → items1 → Object — scroll down to ITM_NUMBER</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex1/v3-profile-schedules-tree.png" alt="Data Elements tree under T_ORDER_SCHEDULES_IN showing ITM_NUMBER" loading="lazy">
+              <figcaption>T_ORDER_SCHEDULES_IN — ITM_NUMBER in the Object</figcaption>
+            </figure>
             <figure class="screenshot">
               <img src="images/ex1/image31.png" alt="Uncheck Field Length Validation for ITM_NUMBER" loading="lazy">
               <figcaption>Uncheck Field Length Validation for ITM_NUMBER</figcaption>
@@ -449,7 +462,7 @@
 
       <div class="callout info">
         <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-        <div><strong>Heads-up for Step 6</strong> — in the previous version of this lab you also copied a pre-built "Add Leading Zeros" map function here. In this version <strong>you'll build that function yourself</strong> inside the map, so you learn how it's done. (A pre-built copy still exists in the Trainer folder if you need a fallback.)</div>
+        <div><strong>Heads-up for Step 6</strong> — the leading-zeros map function also lives in this Trainer folder (<em>Add Leading Zeros to SAP Customer ID</em>). You will copy it in Step 6 the same way you copied this profile.</div>
       </div>
 
       <nav class="step-nav">
@@ -505,6 +518,15 @@
               <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
               <div><strong>Choose beats drag-and-drop</strong> — you can drag profiles into the panels, but clicking <strong>Choose</strong>, picking the profile type (XML / JSON), and browsing to the exact component is more reliable and avoids accidentally re-assigning a side. Most experienced builders use Choose.</div>
             </div>
+            <p>In the <strong>Source</strong> panel click <strong>Choose</strong>, set Profile Type <code>XML</code>, select <strong>SF Opp XML Profile USERXX</strong> and click <strong>OK</strong>. In the <strong>Destination</strong> panel click <strong>Choose</strong>, set Profile Type <code>JSON</code>, select <strong>Boomi for SAP BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Request</strong> and click <strong>OK</strong>.</p>
+            <figure class="screenshot">
+              <img src="images/ex1/v3-choose-source-profile.png" alt="Choose a Source Profile — XML, SF Opp XML Profile" loading="lazy">
+              <figcaption>Choose a Source Profile: XML → your SF Opp XML Profile USERXX</figcaption>
+            </figure>
+            <figure class="screenshot">
+              <img src="images/ex1/v3-choose-destination-profile.png" alt="Choose a Destination Profile — JSON, BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Request" loading="lazy">
+              <figcaption>Choose a Destination Profile: JSON → the BAPI_SALESORDER_CREATEFROMDAT2 FUNCTION Request profile</figcaption>
+            </figure>
             <figure class="screenshot">
               <img src="images/ex1/image16.png" alt="Assign source and destination profiles" loading="lazy">
               <figcaption>Assign source and destination profiles</figcaption>
@@ -536,11 +558,7 @@
         <li>
           <div class="instruction-num">4</div>
           <div class="instruction-body">
-            <p>Now set constants on the destination side. Click a destination field, choose <strong>Set Default Value</strong>, and enter the value — repeat for each row below.</p>
-            <figure class="screenshot">
-              <img src="images/ex2/image2.png" alt="Set Default Value on a destination field" loading="lazy">
-              <figcaption>Setting a default value: click the destination field → Set Default Value → enter the constant</figcaption>
-            </figure>
+            <p>Now set constants on the destination side. Click the small arrow next to a destination field, choose <strong>Set Default Value</strong>, enter the value in the <em>Set Default</em> dialog and click <strong>OK</strong> — repeat for each row below.</p>
             <table class="mapping-table">
               <thead><tr><th>Field</th><th>Value</th><th>Why</th></tr></thead>
               <tbody>
@@ -630,24 +648,29 @@
         <li>
           <div class="instruction-num">4</div>
           <div class="instruction-body">
-            <p>Now build the second function yourself. Click <strong>Add Function</strong> again and create a new <strong>String</strong> function using <strong>String Pad Left</strong> (name it <strong>Add Leading Zeros USERXX</strong>) with:</p>
+            <p>Now add the second function — the one that pads the customer number. This one is pre-built: in the <strong>Trainer</strong> folder, right-click the map function <strong>Add Leading Zeros to SAP Customer ID</strong>, choose <strong>Copy to folder</strong>, and copy it to your <strong>USERXX</strong> folder (name it <code>Add Leading Zeros USERXX</code>). Back in the map, click <strong>Add Function</strong>, choose <strong>User Defined</strong>, and select your copy.</p>
+            <p>Open the function (double-click it on the map) to see what it does:</p>
             <table class="mapping-table">
-              <thead><tr><th>Setting</th><th>Value</th></tr></thead>
+              <thead><tr><th>Step inside the function</th><th>Setting</th><th>What it does</th></tr></thead>
               <tbody>
-                <tr><td>Function type</td><td><code>String Pad Left</code></td></tr>
-                <tr><td>Fixed Length</td><td><code>10</code></td></tr>
-                <tr><td>Pad Character</td><td><code>0</code></td></tr>
+                <tr><td>1 · Get Process Property</td><td>Property <code>SAP_CustId</code>, Default Value <code>0017100001</code></td><td>Supplies the SAP customer number. The Salesforce account ID isn't an SAP key, so the lab reads the customer from a process property with a default</td></tr>
+                <tr><td>2 · String Prepend</td><td>Fix to Length <code>10</code>, Char to Prepend <code>0</code></td><td>Pads the number to SAP's fixed 10-character key</td></tr>
+                <tr><td>Output</td><td><code>SAP_Customer_ID</code></td><td>The padded value you will map to the sold-to partner</td></tr>
               </tbody>
             </table>
             <div class="why-box">
               <div class="why-label">Why SAP needs leading zeros</div>
               <p>SAP stores customer numbers as fixed 10-character keys, zero-padded — customer <code>17100001</code> lives in the database as <code>0017100001</code>. The SAP GUI hides the zeros, so people forget they exist, but the BAPI matches on the <em>stored</em> value: send the unpadded number and SAP simply won't find the customer. (You can verify this from SE16 on the KNA1 table — the zeros are really there.)</p>
-              <p>Salesforce sends the human-readable number, so the map pads it. Build the function once and it's <strong>reusable in every map in your account</strong> — you never think about zeros again. The mirror-image trick also matters: going SAP → elsewhere you'd <em>trim</em> the zeros with the same technique.</p>
+              <p>Build a padding function once and it's <strong>reusable in every map in your account</strong> — you never think about zeros again. The mirror-image trick also matters: going SAP → elsewhere you'd <em>trim</em> the zeros with the same technique. In a real build the customer number would come from a cross-reference lookup rather than a process property default.</p>
             </div>
             <div class="callout info">
               <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
-              <div><strong>Fallback</strong> — if you get stuck, a pre-built <strong>Add Leading Zeros to SAP Customer ID</strong> function is in the Trainer folder; copy it to your USERXX folder and drag it onto the map instead.</div>
+              <div><strong>Want to build it yourself?</strong> Add Function → User Defined → new function; add a <em>Get Process Property</em> step (default <code>0017100001</code>) and a <em>String Prepend</em> step (Fix to Length <code>10</code>, Char to Prepend <code>0</code>), connect them, and map the result to an output. Then use it exactly like the copy.</div>
             </div>
+            <figure class="screenshot">
+              <img src="images/ex1/v3-leading-zeros-function.png" alt="Inside the Add Leading Zeros function: Get Process Property feeding String Prepend" loading="lazy">
+              <figcaption>Inside the function — Get Process Property → String Prepend → output</figcaption>
+            </figure>
             <figure class="screenshot">
               <img src="images/ex1/image21.png" alt="Leading Zeros function on the map" loading="lazy">
               <figcaption>The leading-zeros function placed on the map</figcaption>
@@ -657,7 +680,7 @@
         <li>
           <div class="instruction-num">5</div>
           <div class="instruction-body">
-            <p>Wire the customer number from the source profile into the function's <em>input</em>, and map the function's <em>output</em> to <strong>T_ORDER_PARTNERS → PARTN_NUMB</strong> (the sold-to partner declared by the <code>AG</code> role you set in Step 5). Then click <strong>Save and Close</strong>, and <strong>OK</strong> to return to the canvas.</p>
+            <p>This function needs no input — it reads the customer number from the process property. Map its <em>output</em> <code>SAP_Customer_ID</code> to <strong>T_ORDER_PARTNERS → PARTN_NUMB</strong> (the sold-to partner declared by the <code>AG</code> role you set in Step 5). Then click <strong>Save and Close</strong>, and <strong>OK</strong> to return to the canvas.</p>
             <figure class="screenshot">
               <img src="images/ex1/image27.png" alt="Map leading zeros result to PARTN_NUMB" loading="lazy">
               <figcaption>Leading-zeros output mapped to PARTN_NUMB</figcaption>
@@ -711,7 +734,7 @@
         <li>
           <div class="instruction-num">1</div>
           <div class="instruction-body">
-            <p>On the canvas, click the <strong>Display Sales Document</strong> Message shape to configure it.</p>
+            <p>On the canvas, click the <strong>Display Sales Document</strong> Message step to configure it.</p>
             <figure class="screenshot">
               <img src="images/ex1/image26.png" alt="Select Display Sales Document shape" loading="lazy">
               <figcaption>Select the Display Sales Document shape</figcaption>
@@ -721,7 +744,7 @@
         <li>
           <div class="instruction-num">2</div>
           <div class="instruction-body">
-            <p>Click the <strong>+</strong> icon in the Message Shape configuration window to add a dynamic field.</p>
+            <p>Click the <strong>+</strong> icon under <strong>Variables</strong> in the Message step configuration window to add a dynamic field.</p>
             <figure class="screenshot">
               <img src="images/ex1/image17.png" alt="Add field to message shape" loading="lazy">
               <figcaption>Add a dynamic field to the message</figcaption>
@@ -741,9 +764,10 @@
                 <tr><td>Element</td><td><code>E_SALESDOCUMENT</code></td></tr>
               </tbody>
             </table>
+            <p>Click <strong>OK</strong>. The message now reads <code>Your new Sales Document is {1}</code> with <code>{1}</code> bound to <code>EXPORT/Object/E_SALESDOCUMENT</code>.</p>
             <figure class="screenshot">
-              <img src="images/ex1/image2.png" alt="Parameter value configuration" loading="lazy">
-              <figcaption>Parameter value configuration — pulling E_SALESDOCUMENT from the response</figcaption>
+              <img src="images/ex1/v3-message-step.png" alt="Message step configured with E_SALESDOCUMENT as variable {1}" loading="lazy">
+              <figcaption>The configured Message step — {1} is the Sales Document number from the BAPI response</figcaption>
             </figure>
           </div>
         </li>
