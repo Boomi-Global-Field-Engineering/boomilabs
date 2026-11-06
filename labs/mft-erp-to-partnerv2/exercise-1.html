@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="mft-erp-to-partner-ex1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configure the MFT Flow — Modernizing the Back Office — Boomi Labs</title>
+<link rel="icon" href="../../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../../assets/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Modernizing the Back Office — Exercise 1</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 1 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create Organizations &amp; Endpoints
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create the Distribution Flow
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add Subscribers &amp; Flow Endpoints
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~30 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Lab Overview
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 1 — Overview</div>
+          <h1 class="step-title">Configure the MFT Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Set up your Automated File Transfer (AFT) portal with partner organizations, endpoints, and a distribution flow.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Scenario</div>
+            <div style="font-size:14px;font-weight:700;">CRM → Partner Fan-Out</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~30 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div>
+            <div style="font-size:14px;font-weight:700;">3 steps</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
+            <div style="font-size:14px;font-weight:700;">AFT Portal</div>
+          </div>
+        </div>
+
+        <h3>The Scenario</h3>
+        <p>You are representing <strong>X Battery</strong>, a major supplier in the automotive industry. Your CRM system generates invoices, purchase orders, and shipping notices that need to be automatically distributed to multiple automotive partners: <strong>BMW</strong>, <strong>Mazda</strong>, and <strong>Volkswagen</strong>.</p>
+        <p>The challenge: files are generated from an internal system (simulated by a Boomi process) that appends the partner name to each filename. These files need to be routed automatically so each partner receives only their specific files — with full multi-tenant isolation.</p>
+
+        <h3>Lab Objective: The "Fan-Out" Pattern</h3>
+        <p>You will configure a distribution pattern where a single Boomi integration pushes files into the MFT platform, which then routes them to the correct partner based on file naming rules:</p>
+        <ul>
+          <li>Integration ➔ MFT ➔ Target: BMW</li>
+          <li>Integration ➔ MFT ➔ Target: Mazda</li>
+          <li>Integration ➔ MFT ➔ Target: Volkswagen</li>
+        </ul>
+
+        <h3>Technical Architecture</h3>
+        <ul>
+          <li><strong>Source:</strong> A Boomi integration process that creates source data and passes it to the Boomi MFT connector</li>
+          <li><strong>Routing Logic:</strong> MFT routes files to each partner target endpoint based on filename regex filters</li>
+          <li><strong>Security:</strong> Multi-tenant isolation — partners cannot "see" into other directories</li>
+        </ul>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>In Exercise 1 you will work entirely in the <b style="font-weight:700">AFT Portal</b>. In Exercise 2 you will switch to the Boomi Integration platform to build the process that feeds into it.</div>
+        </div>
+
+        <h3>Lab URLs</h3>
+        <div class="credentials-box">
+          <h4>Lab Access</h4>
+          <div class="cred-row"><span class="cred-label">AFT Portal</span><span class="cred-value"><a href="https://staging.thruinc.com/" target="_blank" style="color:var(--primary)">https://staging.thruinc.com/</a></span></div>
+
+          <div class="cred-row"><span class="cred-label">Integration</span><span class="cred-value"><a href="https://platform.boomi.com/" target="_blank" style="color:var(--primary)">https://platform.boomi.com/</a></span></div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Create Organizations & Endpoints -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 3</div>
+          <h1 class="step-title">Create Organizations &amp; Endpoints</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">In the AFT portal, create organizations for each automotive partner and add the appropriate endpoints to each.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Log into the AFT portal at <a href="https://staging.thruinc.com/" target="_blank"><b style="font-weight:700">https://staging.thruinc.com/</b></a> before starting this step.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>From the overview page, navigate to <strong>Organizations</strong>.</p>
+              <figure class="screenshot"><img src="images/image20.png" alt="Navigate to Organizations"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click <strong>Add Organization</strong> and create three organizations named: <code>BMW</code>, <code>Mazda</code>, and <code>VW</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Within each of these organizations, select <strong>Endpoints</strong> and add an endpoint of type <strong>MFT SFTP</strong>. Name each endpoint <code>SFTP Server</code>.</p>
+              <figure class="screenshot"><img src="images/image44.png" alt="Add SFTP Endpoint to organization"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Add an additional organization called <code>Integration</code>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Within the <strong>Integration</strong> organization, add an Endpoint. Choose the type <strong>Boomi MFT Connector</strong> and name it <code>Boomi Integration</code>.</p>
+              <figure class="screenshot"><img src="images/image15.png" alt="Add Boomi Integration endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save</strong> on the Boomi Integration endpoint. The page now shows three values that the Boomi connector will use to log in to MFT:</p>
+              <ul>
+                <li><strong>OAuth Access Token URL</strong>, for example <code>https://staging-api.thruinc.com/oauth/token</code></li>
+                <li><strong>Client ID</strong>, a long value starting with <code>bc-</code></li>
+                <li><strong>Client secret</strong>, shown in the green box that says <em>"Copy your client secret now — it won't be shown again."</em></li>
+              </ul>
+              <p>Click the copy button next to the client secret and paste it into the <strong>Description</strong> box at the bottom of the page. Then click <strong>Save</strong> again.</p>
+              <div class="callout warning">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+                <div><b style="font-weight:700">Copy the client secret before you leave this page.</b> It is shown only once. If you lose it, click <strong>Generate client secret</strong> to create a new one, then copy that one.</div>
+              </div>
+              <figure class="screenshot"><img src="images/client-secret-step.png" alt="Boomi MFT Connector endpoint showing the OAuth Access Token URL, Client ID and the one-time client secret (redacted)"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div>You should now have <b style="font-weight:700">4 organizations</b> (BMW, Mazda, VW, Integration) each with an endpoint configured. These are all the participants that will take part in the MFT flow.<br><br>You should also have saved the <b style="font-weight:700">OAuth Access Token URL</b>, the <b style="font-weight:700">Client ID</b> and the <b style="font-weight:700">client secret</b> from the Boomi Integration endpoint. You will need all three in Exercise 2.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Create the Distribution Flow -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 3</div>
+          <h1 class="step-title">Create the Distribution Flow</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Create a new MFT Flow that defines how files will be distributed from the Boomi integration to the three automotive partners.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>From the AFT portal, select <strong>Flow</strong> from the sidebar and click <strong>Add Flow</strong>.</p>
+              <figure class="screenshot"><img src="images/image56.png" alt="Add Flow"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Name the Flow:</p>
+              <pre><code>Boomi Integration (CRM/Source → AFT → Multiple Partner Targets)</code></pre>
+              <figure class="screenshot"><img src="images/image55.png" alt="Name the Flow"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Click <strong>Save</strong>. Once saved, you will land in <strong>Flow Studio</strong>.</p>
+              <figure class="screenshot"><img src="images/image13.png" alt="Flow Studio"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Flow Studio is where you will visually wire together the source (Boomi Integration) and targets (BMW, Mazda, VW). You'll configure this in the next step.</div>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Add Subscribers & Flow Endpoints -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 3</div>
+          <h1 class="step-title">Add Subscribers &amp; Flow Endpoints</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Subscribe all organizations to the flow, then wire up both the target (partner) and source (integration) endpoints in Flow Studio.</p>
+        </header>
+
+        <h2>Add Subscribers</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>In Flow Studio, click on <strong>Subscribers</strong>, then click <strong>Add Subscribers</strong>.</p>
+              <figure class="screenshot"><img src="images/image35.png" alt="Add Subscribers"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Select <strong>all</strong> the organizations (BMW, Mazda, VW, Integration) and click <strong>Subscribe Selected</strong>.</p>
+              <figure class="screenshot"><img src="images/image38.png" alt="Subscribe Selected"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Add Target Flow Endpoints</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Back in Flow Studio, click <strong>ADD FLOW ENDPOINT</strong> on the <strong>Target Side</strong>. Add each manufacturer in turn, selecting the <strong>SFTP Server Endpoint</strong> for each. Repeat for BMW, Mazda, and VW.</p>
+              <figure class="screenshot"><img src="images/image2.png" alt="Add BMW endpoint"></figure>
+              <figure class="screenshot"><img src="images/image30.png" alt="Add Mazda endpoint"></figure>
+              <figure class="screenshot"><img src="images/image51.png" alt="Add VW endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Flow Studio should now look like this on the target side — three partner endpoints visible.</p>
+              <figure class="screenshot"><img src="images/image17.png" alt="Target side with three endpoints"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Add Source Flow Endpoint</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Click <strong>ADD FLOW ENDPOINT</strong> on the <strong>Source Side</strong>. From the available sources, choose <strong>Integration</strong>.</p>
+              <figure class="screenshot"><img src="images/image53.png" alt="Source side - choose Integration"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Select the available endpoint (<strong>Boomi Integration</strong>).</p>
+              <figure class="screenshot"><img src="images/image52.png" alt="Select Boomi Integration endpoint"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p><strong>Write down your Flow Endpoint ID.</strong> The Sources table now shows one row. In the <strong>Flow Endpoint</strong> column, the name starts with a number followed by a colon, for example <code>26554: Boomi Integration</code>.</p>
+              <p>The number before the colon is your <strong>Flow Endpoint ID</strong>. In this example it is <code>26554</code>. Yours will be different. Write it down, because you will type it into the Boomi connector in Exercise 2.</p>
+              <figure class="screenshot"><img src="images/image4.png" alt="Sources table showing the flow endpoint 26554: Boomi Integration"></figure>
+              <div class="callout warning">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+                <div><b style="font-weight:700">Use the number from the Flow Endpoint column only.</b> Do not use:
+                  <ul style="margin:6px 0 0 18px;">
+                    <li>the endpoint <strong>Code</strong> (letters and numbers, for example <code>ENDCB7P</code>) shown on the endpoint page in Step 1</li>
+                    <li>the flow code (starts with <code>FL</code>)</li>
+                  </ul>
+                  The connector only accepts the plain number, for example <code>26554</code>.</div>
+              </div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <!-- TODO (Alexei): the error text below was captured with the legacy connector. Re-test with the new connector without pushing the flow and paste the real message here. -->
+          <div><span style="font-weight:700">Before moving on</span> — click the blue pulsing <span style="font-weight:700">View and Push Changes</span> button, then confirm, to make the flow live. This step is easy to miss. Until you push, the Boomi connector cannot send files into the flow, and your test in Exercise 2 will fail with an authorization error such as:<br><br><code style="font-size:12px;">Embedded message: Server returned HTTP response code: 401</code></div>
+        </div>
+        <figure class="screenshot"><img src="images/blue.gif" alt="View and Push Changes button"></figure>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><b style="font-weight:700">Exercise 1 complete!</b><br><br>The base configuration of the MFT is complete. You will return to AFT and Flow Studio in Exercise 2 to add regex routing filters to each target endpoint.<br><br>You have successfully configured your AFT flow with partner organizations, endpoints, and a distribution flow.<br><br><b style="font-weight:700">Before you start Exercise 2, check that you have these four values written down:</b>
+          <table class="mapping-table" style="margin-top:8px;">
+            <thead><tr><th>Value</th><th>Where you found it</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>OAuth Access Token URL</td><td>Step 1, item 6</td><td><code>https://staging-api.thruinc.com/oauth/token</code></td></tr>
+              <tr><td>Client ID</td><td>Step 1, item 6</td><td><code>bc-c080d338…</code></td></tr>
+              <tr><td>Client secret</td><td>Step 1, item 6 (Description box)</td><td>shown once</td></tr>
+              <tr><td>Flow Endpoint ID</td><td>Step 3, item 7</td><td><code>26554</code></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Next up</p>
+            <h3 style="font-size:16px;margin:0;">Exercise 2: Build the Integration Process</h3>
+          </div>
+          <a href="exercise-2.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Start Exercise 2 →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish ✓</button>
+        </nav>
+      </div>
+    </section>
+
+    
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>

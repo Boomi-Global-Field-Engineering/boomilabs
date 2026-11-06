@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modernizing the Back Office (CRM → Partner) Version 2 — Boomi Labs</title>
+<link rel="icon" href="../../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../../assets/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<style>
+  .prereq-grid { display: grid; grid-template-columns: 1fr 320px; gap: 28px; margin-bottom: 48px; }
+  @media (max-width: 720px) { .prereq-grid { grid-template-columns: 1fr; } }
+  .prereq-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow); }
+  .prereq-list { list-style: none; }
+  .prereq-list li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .prereq-list li:last-child { border-bottom: none; }
+  .prereq-icon { color: var(--success); flex-shrink: 0; margin-top: 3px; }
+  .lab-details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+  .lab-details h3 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); margin-bottom: 16px; }
+  .detail-item { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .detail-item:last-child { border-bottom: none; }
+  .detail-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--text-muted); font-weight: 600; margin-bottom: 3px; }
+  .detail-value { font-size: 14px; font-weight: 600; color: var(--text); }
+  .detail-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .detail-tag { font-size: 12px; background: var(--primary-light); color: var(--primary); border-radius: 4px; padding: 2px 8px; }
+  .start-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: #fff; text-decoration: none; padding: 12px 24px; border-radius: var(--radius); font-size: 15px; font-weight: 700; margin-bottom: 40px; transition: background .15s; }
+  .start-btn:hover { background: var(--primary-dark); }
+  .section-heading { font-size: 20px; font-weight: 700; margin: 0 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .exercise-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
+  .exercise-card { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); text-decoration: none; color: inherit; box-shadow: var(--shadow); transition: border-color .15s, box-shadow .15s; }
+  .exercise-card:hover { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+  .exercise-num { width: 40px; height: 40px; background: var(--primary); color: #fff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; flex-shrink: 0; }
+  .exercise-info { flex: 1; min-width: 0; }
+  .exercise-info h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 3px; }
+  .exercise-info p { font-size: 13px; color: var(--text-muted); margin: 0 0 8px; }
+  .exercise-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .exercise-tag { font-size: 11px; background: var(--primary-light); color: var(--primary); border-radius: 4px; padding: 2px 8px; font-weight: 600; }
+  .exercise-meta { font-size: 12px; color: var(--text-muted); display: flex; flex-direction: column; align-items: flex-end; gap: 3px; white-space: nowrap; }
+  .exercise-arrow { color: var(--text-muted); transition: color .15s, transform .15s; }
+  .exercise-card:hover .exercise-arrow { color: var(--primary); transform: translateX(3px); }
+  .new-pill { display:inline-flex; align-items:center; gap:6px; background:#f59e0b; color:#1f1300; border-radius:20px; padding:4px 14px; font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.6px; margin:0 0 18px 8px; box-shadow:0 0 0 3px rgba(245,158,11,.25); }
+  .new-tag { font-size:10px; background:#f59e0b; color:#1f1300; border-radius:4px; padding:1px 6px; font-weight:800; letter-spacing:.4px; text-transform:uppercase; vertical-align:middle; margin-left:6px; }
+  .whats-new { background: var(--surface); border:1px solid var(--border); border-left:4px solid #f59e0b; border-radius: var(--radius); padding: 24px 28px; box-shadow: var(--shadow); margin-bottom: 48px; }
+  .whats-new h2 { font-size:20px; font-weight:800; margin-bottom:6px; }
+  .whats-new .lead { font-size:14px; color:var(--text-muted); margin-bottom:20px; line-height:1.6; }
+  .whats-new h3 { font-size:15px; font-weight:700; margin:22px 0 10px; }
+  .wn-list { list-style:none; margin:0; padding:0; }
+  .wn-list li { display:flex; gap:10px; align-items:flex-start; padding:7px 0; font-size:14px; line-height:1.55; }
+  .wn-list .prereq-icon { margin-top:3px; }
+  .compare-table { width:100%; border-collapse:collapse; font-size:13.5px; margin-top:4px; }
+  .compare-table th, .compare-table td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .compare-table th { font-size:11px; text-transform:uppercase; letter-spacing:.5px; color:var(--text-muted); font-weight:700; background:var(--bg, #f7f9fb); }
+  .compare-table td:first-child { font-weight:600; width:28%; }
+  .compare-table td.old { width:30%; }
+  .compare-table td.new { color:var(--text); font-weight:600; }
+  .compare-table td.old { color:var(--text-muted); }
+  .wn-note { font-size:13px; color:var(--text-muted); margin-top:14px; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+</header>
+
+<div style="background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 60%,#0a5a7a 100%);color:#fff;padding:72px 40px 52px;margin-top:56px;">
+  <div style="max-width:860px;margin:0 auto;">
+    <span style="display:inline-block;background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);border-radius:20px;padding:4px 14px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:18px;">Boomi MFT</span><span class="new-pill">★ New &amp; Improved · Version 2</span>
+    <h1 style="font-size:34px;font-weight:800;line-height:1.2;margin-bottom:14px;">Modernizing the Back Office<br>(CRM → Partner) Version 2</h1>
+    <p style="font-size:16px;color:rgba(255,255,255,.82);max-width:620px;margin-bottom:26px;line-height:1.65;">Automate the distribution of invoices, purchase orders, and shipping notices from your CRM system to multiple automotive partners using Boomi's Managed File Transfer platform. Implement the fan-out pattern — routing files to BMW, Mazda, and Volkswagen automatically based on filename rules.</p>
+    <p style="font-size:14px;color:rgba(255,255,255,.9);max-width:620px;margin:-12px 0 26px;line-height:1.6;"><strong>Updated October 2026:</strong> rebuilt for the new <strong>Managed File Transfer</strong> connector in Boomi Integration, with clearer step-by-step instructions for first-time users.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <span class="badge badge-blue">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~90 minutes
+      </span>
+      <span class="badge badge-blue">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        2 exercises
+      </span>
+      <span class="badge badge-green">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Intermediate
+      </span>
+    </div>
+  </div>
+</div>
+
+<div style="max-width:860px;margin:0 auto;padding:40px 40px 60px;">
+
+  <a href="exercise-1.html" class="start-btn">
+    Start Lab
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+  </a>
+
+  <section class="whats-new" id="whats-new">
+    <h2>What's new in Version 2</h2>
+    <p class="lead">This lab has been rebuilt around the new <strong>Managed File Transfer</strong> connector in Boomi Integration. If you ran the original version of this lab, here is what has changed.</p>
+
+    <h3>Changes to the lab</h3>
+    <ul class="wn-list">
+      <li><span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Uses the new connector.</strong> Exercise 2 now uses the <strong>Managed File Transfer</strong> connector (the original connector is now listed as <em>Managed File Transfer (Legacy)</em>).</span></li>
+      <li><span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>New endpoint type.</strong> In Exercise 1 the Integration organization gets a <strong>Boomi MFT Connector</strong> endpoint, which generates the OAuth credentials the connector logs in with.</span></li>
+      <li><span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>A clear checklist of what to capture.</strong> Exercise 1 ends with the four values you need for Exercise 2: Access Token URL, Client ID, client secret and Flow Endpoint ID.</span></li>
+      <li><span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Per-file naming, explained.</strong> Exercise 2 shows how to set each file's name with a Dynamic Document Property and pass it to the connector, so one connector step can send many differently named files.</span></li>
+      <li><span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span><span><strong>Written for beginners.</strong> Exact values in tables, warnings at the steps where people usually get stuck, and the error messages you will see if a step is missed.</span></li>
+    </ul>
+
+    <h3>What the new connector brings</h3>
+    <table class="compare-table">
+      <thead><tr><th></th><th>Legacy connector</th><th>New connector</th></tr></thead>
+      <tbody>
+        <tr><td>Name in Boomi Integration</td><td class="old">Managed File Transfer (Legacy)</td><td class="new">Managed File Transfer</td></tr>
+        <tr><td>Authentication</td><td class="old">A secret key per flow endpoint</td><td class="new">OAuth 2.0 (Client ID + client secret)</td></tr>
+        <tr><td>Which flow it talks to</td><td class="old">Set by the secret key</td><td class="new">A Flow Endpoint ID you set on the operation</td></tr>
+        <tr><td>Actions</td><td class="old">Drop Off, Flow Pickup, File Metadata</td><td class="new">Standard List, Get and Create actions</td></tr>
+        <tr><td>File name and folder</td><td class="old">Set through connector document properties</td><td class="new">File Name and Subfolder Path fields on the operation, which can be overridden per document</td></tr>
+        <tr><td>Files per run</td><td class="old">One file per execution</td><td class="new">Up to 1,000 files per execution (default 100)</td></tr>
+      </tbody>
+    </table>
+    <p class="wn-note">All three connection fields (Client ID, client secret and Access Token URL) support Environment Extensions, so one connection can be promoted across Dev, Test and Prod.</p>
+    <p class="wn-note">The legacy connector is still supported and is not being retired, so existing processes keep working. New builds should use the new connector. Read more in the <a href="https://help.boomi.com/docs/Atomsphere/Integration/MFT/AutomatedFileTransfer/mft-connector/mft-v2-connector" target="_blank" style="color:var(--primary);font-weight:600;">Managed File Transfer connector documentation</a>.</p>
+  </section>
+
+  <h2 class="section-heading">Exercises</h2>
+  <div class="exercise-grid">
+
+    <a href="exercise-1.html" class="exercise-card">
+      <div class="exercise-num">1</div>
+      <div class="exercise-info">
+        <h3>Configure the MFT Flow <span class="new-tag">Updated</span></h3>
+        <p>Set up the AFT portal with partner organizations (BMW, Mazda, VW), add SFTP endpoints for the partners and a <strong>Boomi MFT Connector</strong> endpoint for Integration, create the distribution flow in Flow Studio, subscribe all organizations, and wire up source and target endpoints. Finish with the four values the connector needs: Access Token URL, Client ID, client secret and Flow Endpoint ID.</p>
+        <div class="exercise-tags">
+          <span class="exercise-tag">AFT Portal</span>
+          <span class="exercise-tag">Organizations</span>
+          <span class="exercise-tag">Flow Studio</span>
+          <span class="exercise-tag">OAuth Credentials</span>
+        </div>
+      </div>
+      <div class="exercise-meta">
+        <span>~30 min</span>
+        <span>3 steps</span>
+      </div>
+      <div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+
+    <a href="exercise-2.html" class="exercise-card">
+      <div class="exercise-num">2</div>
+      <div class="exercise-info">
+        <h3>Build the Integration Process <span class="new-tag">New connector</span></h3>
+        <p>In Boomi Integration, build a process that simulates CRM file generation using Branch and Message shapes, name each partner's file with a Dynamic Document Property, send the files through the new <strong>Managed File Transfer</strong> connector (Create action), add regex routing filters in the AFT flow, and verify that each partner receives only their files.</p>
+        <div class="exercise-tags">
+          <span class="exercise-tag">Boomi Integration</span>
+          <span class="exercise-tag">New MFT Connector</span>
+          <span class="exercise-tag">Fan-Out</span>
+          <span class="exercise-tag">Regex Routing</span>
+        </div>
+      </div>
+      <div class="exercise-meta">
+        <span>~60 min</span>
+        <span>6 steps</span>
+      </div>
+      <div class="exercise-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </a>
+
+  </div>
+
+  <!-- Workshop notice -->
+  <div style="background:#fff8e1;border:1px solid #f59e0b;border-radius:var(--radius);padding:18px 22px;margin-bottom:32px;display:flex;gap:14px;align-items:flex-start;">
+    <svg style="flex-shrink:0;margin-top:2px;color:#f59e0b" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <div>
+      <strong style="font-size:14px;color:#92400e;">This lab was originally built for a live workshop.</strong>
+      <p style="margin:6px 0 0;font-size:13.5px;color:#78350f;line-height:1.6;">If you're working through this outside of a workshop session, you'll need to set up your own accounts before starting. You can get access via a <a href="https://boomi.com/form/trial/" target="_blank" style="color:var(--primary);font-weight:600;">Boomi Integration trial</a> or a <a href="https://boomi.com/form/boomi-mft-trial/" target="_blank" style="color:var(--primary);font-weight:600;">Boomi MFT trial</a>. Workshop participants will have accounts pre-provisioned — check your inbox for a registration email.</p>
+    </div>
+  </div>
+
+  <div class="prereq-grid">
+    <div class="prereq-card">
+      <h2 style="font-size:18px;margin-bottom:16px;">Prerequisites</h2>
+      <ul class="prereq-list">
+        <li>
+          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Boomi Integration account — <em>workshop attendees:</em> your account will be created in advance and you will receive an email to complete registration. <em>Self-guided:</em> sign up at <a href="https://boomi.com/form/trial/" target="_blank" style="color:var(--primary)">boomi.com/form/trial</a>. Log in at <a href="https://platform.boomi.com/" target="_blank" style="color:var(--primary)">platform.boomi.com</a></span>
+        </li>
+        <li>
+          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>AFT portal account — <em>workshop attendees:</em> your account will be created in advance and you will receive an email to complete registration. <em>Self-guided:</em> contact your Boomi representative to request MFT trial access. Log in at <a href="https://staging.thruinc.com/" target="_blank" style="color:var(--primary)">staging.thruinc.com</a></span>
+        </li>
+        <li>
+          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>Basic familiarity with the Boomi Integration canvas (shapes, connectors, process flow)</span>
+        </li>
+        <li>
+          <span class="prereq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span>A personal workspace folder pre-created in Boomi Integration (set up as part of user registration)</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="lab-details">
+      <h3>Lab Details</h3>
+      <div class="detail-item">
+        <span class="detail-label">Product</span>
+        <span class="detail-value">Boomi MFT (Managed File Transfer)</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Version</span>
+        <span class="detail-value">2.0 · Updated October 2026</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Connector</span>
+        <span class="detail-value">Managed File Transfer (new, OAuth 2.0)</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Patterns</span>
+        <div class="detail-tags">
+          <span class="detail-tag">Fan-Out</span>
+          <span class="detail-tag">File Routing</span>
+          <span class="detail-tag">B2B Integration</span>
+          <span class="detail-tag">SFTP</span>
+          <span class="detail-tag">OAuth 2.0</span>
+        </div>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Duration</span>
+        <span class="detail-value">~90 minutes</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-label">Level</span>
+        <span class="detail-value">Intermediate</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;">
+  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+</body>
+</html>

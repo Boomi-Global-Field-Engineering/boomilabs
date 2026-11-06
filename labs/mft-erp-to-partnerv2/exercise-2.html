@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" data-lab-id="mft-erp-to-partner-ex2">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build the Integration Process — Modernizing the Back Office — Boomi Labs</title>
+<link rel="icon" href="../../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" href="../../assets/favicon/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/css/lab.css">
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="20" style="vertical-align:middle">
+    <span>Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">Modernizing the Back Office — Exercise 2</span>
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle sidebar" aria-label="Toggle sidebar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Exercise 2 — Steps</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" data-step="0" class="active">
+        <span class="step-num"><span class="step-num-inner">◆</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Overview
+      </a></li>
+      <li><a href="#" data-step="1">
+        <span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Create the Process
+      </a></li>
+      <li><a href="#" data-step="2">
+        <span class="step-num"><span class="step-num-inner">2</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add Branch &amp; Message Steps
+      </a></li>
+      <li><a href="#" data-step="3">
+        <span class="step-num"><span class="step-num-inner">3</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Configure File Name Filtering
+      </a></li>
+      <li><a href="#" data-step="4">
+        <span class="step-num"><span class="step-num-inner">4</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add the MFT Connector
+      </a></li>
+      <li><a href="#" data-step="5">
+        <span class="step-num"><span class="step-num-inner">5</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Add Routing Filters &amp; Test
+      </a></li>
+      <li><a href="#" data-step="6">
+        <span class="step-num"><span class="step-num-inner">6</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+        Verify File Distribution
+      </a></li>
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Duration: ~60 min
+      </div>
+      <div class="meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Level: Intermediate
+      </div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+    <!-- PAGE 0: OVERVIEW -->
+    <section class="step-page active" id="page-0">
+      <div class="step-content">
+        <a href="exercise-1.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);font-size:13px;text-decoration:none;margin-bottom:24px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Back to Exercise 1
+        </a>
+        <header class="step-header">
+          <div class="step-label">Exercise 2 — Overview</div>
+          <h1 class="step-title">Build the Integration Process</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Build the Boomi integration process that generates files and routes them through the MFT flow you configured in Exercise 1.</p>
+        </header>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:24px 0;">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Platform</div>
+            <div style="font-size:14px;font-weight:700;">Boomi Integration</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Duration</div>
+            <div style="font-size:14px;font-weight:700;">~60 minutes</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Steps</div>
+            <div style="font-size:14px;font-weight:700;">6 steps</div>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;">
+            <div style="font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:4px;font-weight:600;">Prerequisite</div>
+            <div style="font-size:14px;font-weight:700;">Exercise 1 complete</div>
+          </div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>In Step 4 of this exercise you will need the <b style="font-weight:700">four values</b> you wrote down in Exercise 1. Have them ready before you start.
+          <table class="mapping-table" style="margin-top:8px;">
+            <thead><tr><th>Value</th><th>Where you saved it in Exercise 1</th></tr></thead>
+            <tbody>
+              <tr><td>OAuth Access Token URL</td><td>Step 1, item 6</td></tr>
+              <tr><td>Client ID</td><td>Step 1, item 6</td></tr>
+              <tr><td>Client secret</td><td>Step 1, item 6 (Description box)</td></tr>
+              <tr><td>Flow Endpoint ID</td><td>Step 3, item 7</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <h3>What You'll Build</h3>
+        <ul>
+          <li>A <strong>Branch</strong> shape that fans out to three parallel partner paths</li>
+          <li>A <strong>Message</strong> shape on each path to generate file data</li>
+          <li>A <strong>Set Properties</strong> shape on each path to tag the file with the partner name (used for routing)</li>
+          <li>An <strong>MFT Connector</strong> (Drop Off operation) to push each file into the AFT flow</li>
+          <li><strong>Regex filename filters</strong> on each AFT target endpoint to route files to the correct partner</li>
+        </ul>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn" disabled>← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 1: Create the Process -->
+    <section class="step-page" id="page-1">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 1 of 6</div>
+          <h1 class="step-title">Create the Process</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Log into the Boomi Integration platform and create a new process in your personal workspace folder.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Log into the integration platform at <a href="https://platform.boomi.com/" target="_blank"><b style="font-weight:700">https://platform.boomi.com/</b></a></div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Once logged in, find the folder on the left with your name. This was created for you as part of the user registration process and will be your working directory.</p>
+              <figure class="screenshot"><img src="images/image19.png" alt="Your folder in the left panel"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Select your folder and click <strong>New Component</strong>.</p>
+              <figure class="screenshot"><img src="images/image7.png" alt="New Component"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>From the Create Component view, create a <strong>Process</strong>. This will open a Start step on the canvas.</p>
+              <figure class="screenshot"><img src="images/image40.png" alt="Create Process"></figure>
+              <figure class="screenshot"><img src="images/image5.png" alt="Start step on canvas"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Click on the Start step to open its properties. Change the type from <strong>Connector</strong> to <strong>No Data</strong> and set the Display Name to <code>CRM</code>. Click <strong>OK</strong>.</p>
+              <figure class="screenshot"><img src="images/image25.png" alt="Set Start step to No Data / CRM"></figure>
+              <figure class="screenshot"><img src="images/image3.png" alt="Process canvas after configuring Start step"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Add Branch & Message Steps -->
+    <section class="step-page" id="page-2">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 2 of 6</div>
+          <h1 class="step-title">Add Branch &amp; Message Steps</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Add a Branch shape with 3 paths, then add a Message shape to each branch to generate file content for each partner.</p>
+        </header>
+
+        <h2>Add the Branch Step</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>From the Steps panel, switch the filter from <strong>Execute</strong> to <strong>Logic</strong> and select a <strong>Branch</strong> step.</p>
+              <figure class="screenshot"><img src="images/image28.png" alt="Select Branch step"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Add it to the canvas. Change the number of branches to <strong>3</strong> and click <strong>OK</strong>.</p>
+              <figure class="screenshot"><img src="images/image50.png" alt="Branch with 3 paths"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Connect the <strong>Start</strong> shape to the <strong>Branch</strong>.</p>
+              <figure class="screenshot"><img src="images/image11.png" alt="Start connected to Branch"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Add Message Steps</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>From the Steps panel, switch back to <strong>Execute</strong> and choose a <strong>Message</strong> step. Add it to the canvas — this opens the Message Step Properties dialog.</p>
+              <figure class="screenshot"><img src="images/image49.png" alt="Message step properties"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Set the Display Name to <code>Data</code>. In the message body type: <code>data for mft</code>. Click <strong>OK</strong>.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Hover over the Message shape on the canvas and click <strong>Copy</strong>, then paste it twice so you have three Message shapes total.</p>
+              <figure class="screenshot"><img src="images/image54.png" alt="Copy the Message step"></figure>
+              <figure class="screenshot"><img src="images/image10.png" alt="Three Message steps on canvas"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Connect each Message shape to one of the three branches from the Branch step.</p>
+              <figure class="screenshot"><img src="images/image46.png" alt="Message steps connected to branches"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 3: Configure File Name Filtering -->
+    <section class="step-page" id="page-3">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 3 of 6</div>
+          <h1 class="step-title">Configure File Name Filtering</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Add a Set Properties step to each branch to tag files with the partner name. These file names drive the MFT routing filters.</p>
+        </header>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>The file naming convention is critical — the MFT flow uses <b style="font-weight:700">regex filters</b> on the filename to route each file to the correct partner. Files must be named with the partner tag in double square brackets, e.g. <code>[[VW]]_ExampleFile_10292026.txt</code>.</div>
+        </div>
+
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div><b style="font-weight:700">How the filename reaches MFT (two parts):</b>
+            <ol style="margin:6px 0 0 18px;">
+              <li><b style="font-weight:700">In this step</b>, each Set Properties step stores the filename in a <b style="font-weight:700">Dynamic Document Property</b> called <code>DDP_FILENAME</code>. Think of it as a label attached to each file.</li>
+              <li><b style="font-weight:700">In Step 4</b>, you tell the MFT connector to read its <b style="font-weight:700">File Name</b> from <code>DDP_FILENAME</code>.</li>
+            </ol>
+            You need both parts. If either is missing, the test fails with: <code style="font-size:12px;">[VALIDATION] fileName is required</code></div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Add a <strong>Set Properties</strong> step to the canvas.</p>
+              <figure class="screenshot"><img src="images/image6.png" alt="Add Set Properties step"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Click the <strong>+</strong> button inside the Set Properties step to open its configuration.</p>
+              <figure class="screenshot"><img src="images/image1.png" alt="Set Properties configuration"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Set the <strong>Display Name</strong> to <code>Sent to VW</code>.</p>
+              <p><strong>a. Choose the property to set.</strong> Under <strong>Properties to Set</strong>, click <strong>+</strong> and enter:</p>
+              <table class="mapping-table">
+                <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td>Property Type</td><td><code>Dynamic Document Property</code></td></tr>
+                  <tr><td>Property Name</td><td><code>DDP_FILENAME</code> (type it exactly like this, in capitals)</td></tr>
+                </tbody>
+              </table>
+              <p>Click <strong>OK</strong>.</p>
+              <div class="callout warning">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+                <div><b style="font-weight:700">Do not choose</b> <em>Document Property → Connectors → Boomi Managed File Transfer → FileName</em>. That property belongs to the <b style="font-weight:700">legacy</b> MFT connector. The new connector ignores it and your test will fail with <code style="font-size:12px;">[VALIDATION] fileName is required</code>.</div>
+              </div>
+              <figure class="screenshot"><img src="images/choose-property-dynamic.png" alt="Choose Property dialog with Property Type set to Dynamic Document Property and Property Name DDP_FILENAME"></figure>
+              <p><strong>b. Build the filename.</strong> With <code>DDP_FILENAME</code> selected on the left, add these three <strong>Property Values</strong> on the right, in this order. Click <strong>+</strong> for each one:</p>
+              <table class="mapping-table">
+                <thead><tr><th>#</th><th>Type</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>Static</td><td><code>[[VW]]_ExampleFile_</code></td></tr>
+                  <tr><td>2</td><td>Date/Time → Current Date</td><td>Mask: <code>MMddyyyy</code></td></tr>
+                  <tr><td>3</td><td>Static</td><td><code>.txt</code></td></tr>
+                </tbody>
+              </table>
+              <p>Boomi joins the three values together. Today's file would be called <code>[[VW]]_ExampleFile_10292026.txt</code>.</p>
+              <figure class="screenshot"><img src="images/set-properties-ddp.png" alt="Set Properties step with Sent to VW, DDP_FILENAME and three property values"></figure>
+              <p>Click <strong>OK</strong> to close the Set Properties step.</p>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Copy the <strong>Sent to VW</strong> step and paste it two more times — one for <strong>BMW</strong>, one for <strong>Mazda</strong>. Rename each copy accordingly.</p>
+              <figure class="screenshot"><img src="images/image47.png" alt="Copy the Sent to VW step"></figure>
+              <figure class="screenshot"><img src="images/image16.png" alt="Three copies of the Sent step on the canvas before renaming"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Open each copy and change only the <strong>first</strong> Property Value (the Static text). Leave <code>DDP_FILENAME</code>, the date and <code>.txt</code> as they are.</p>
+              <table class="mapping-table">
+                <thead><tr><th>Step name</th><th>First Property Value (Static)</th></tr></thead>
+                <tbody>
+                  <tr><td>Sent to VW</td><td><code>[[VW]]_ExampleFile_</code></td></tr>
+                  <tr><td>Sent to BMW</td><td><code>[[BMW]]_ExampleFile_</code></td></tr>
+                  <tr><td>Sent to Mazda</td><td><code>[[Mazda]]_ExampleFile_</code></td></tr>
+                </tbody>
+              </table>
+              <div class="callout info">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+                <div>Type the partner names exactly as shown, including upper and lower case (<code>Mazda</code>, not <code>MAZDA</code>). In Step 5 you will add MFT routing filters that look for these exact tags.</div>
+              </div>
+              <figure class="screenshot"><img src="images/sent-to-bmw-properties.png" alt="Sent to BMW Set Properties step with DDP_FILENAME and the BMW filename value"></figure>
+              <figure class="screenshot"><img src="images/sent-to-mazda-properties.png" alt="Sent to Mazda Set Properties step with DDP_FILENAME and the Mazda filename value"></figure>
+              <figure class="screenshot"><img src="images/renamed-sent-steps.png" alt="The three steps renamed: Sent to VW, Sent to Mazda, Sent to BMW"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Connect each Sent step to its corresponding <strong>Data (Message)</strong> step.</p>
+              <figure class="screenshot"><img src="images/image27.png" alt="Sent steps connected to their Data (Message) steps"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Add the MFT Connector -->
+    <section class="step-page" id="page-4">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 4 of 6</div>
+          <h1 class="step-title">Add the MFT Connector</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Add a Managed File Transfer connector, configure the connection using credentials from Exercise 1, and define the Drop Off operation.</p>
+        </header>
+
+        <div class="callout warning">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div>You need the <b style="font-weight:700">four values</b> you wrote down in Exercise 1. Have them ready before proceeding.
+          <table class="mapping-table" style="margin-top:8px;">
+            <thead><tr><th>Value</th><th>Where you saved it in Exercise 1</th></tr></thead>
+            <tbody>
+              <tr><td>OAuth Access Token URL</td><td>Step 1, item 6</td></tr>
+              <tr><td>Client ID</td><td>Step 1, item 6</td></tr>
+              <tr><td>Client secret</td><td>Step 1, item 6 (Description box)</td></tr>
+              <tr><td>Flow Endpoint ID</td><td>Step 3, item 7</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Add a <strong>Managed File Transfer</strong> connector to the canvas. Set the Display Name to <code>Drop Off</code>.</p>
+              <div class="callout info">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+                <div>Searching for "managed" returns <b style="font-weight:700">two</b> connectors. Use <b style="font-weight:700">Boomi Managed File Transfer</b> with the colored icon. This is the latest connector. The second, <b style="font-weight:700">Boomi Managed File Transfer</b> with the blue plug icon, is the original connector. It is now legacy but is not being retired.</div>
+              </div>
+              <figure class="screenshot"><img src="images/image43.png" alt="Add MFT Connector"></figure>
+              <figure class="screenshot"><img src="images/image33.png" alt="MFT Connector - Drop Off"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>Next to <strong>Connection</strong>, click the green <strong>+</strong> to create a new connection. Fill in the three fields using the values from the <strong>Boomi Integration</strong> endpoint you created in Exercise 1:</p>
+              <table class="mapping-table">
+                <thead><tr><th>Field in Boomi</th><th>What to enter</th></tr></thead>
+                <tbody>
+                  <tr><td>Client ID</td><td>The Client ID from Exercise 1 (starts with <code>bc-</code>)</td></tr>
+                  <tr><td>Client Secret</td><td>Click <strong>Click to Set</strong>, paste the client secret from Exercise 1, then click <strong>Apply</strong></td></tr>
+                  <tr><td>Access Token URL</td><td>The OAuth Access Token URL from Exercise 1, for example <code>https://staging-api.thruinc.com/oauth/token</code></td></tr>
+                </tbody>
+              </table>
+              <p>Click <strong>Save and Close</strong>.</p>
+              <figure class="screenshot"><img src="images/image45.png" alt="MFT Connector connection configuration"></figure>
+              <figure class="screenshot"><img src="images/connection-completed.png" alt="Completed Boomi Managed File Transfer connection"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Change the <strong>Action</strong> from <code>List</code> to <code>CREATE</code>.</p>
+              <figure class="screenshot"><img src="images/image41.png" alt="Action field set to List"></figure>
+              <figure class="screenshot"><img src="images/action-set-to-create.png" alt="Action field set to Create"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Click the green <strong>+</strong> next to <strong>Operation</strong>.</p>
+              <figure class="screenshot"><img src="images/operation-add.png" alt="Click the green plus next to Operation"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Click <strong>Import Operation</strong>.</p>
+              <figure class="screenshot"><img src="images/connector-operations.png" alt="Connector Operations dialog with Import Operation"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">6</div>
+            <div class="instruction-body">
+              <p>Select the <strong>Workshop Runtime</strong> from the dropdown and click <strong>Next</strong>.</p>
+              <figure class="screenshot"><img src="images/operation-import-runtime.png" alt="Operation import wizard with Runtime set to Workshop"></figure>
+              <div style="background:#fff8e1;border:1px solid #f59e0b;border-radius:6px;padding:12px 16px;margin:12px 0;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:#78350f;line-height:1.6;">
+                <svg style="flex-shrink:0;margin-top:2px;color:#f59e0b" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span><strong>Note:</strong> If you're not completing this during a workshop, you won't have access to the Workshop Runtime. Your Boomi Integration account may already have a cloud runtime available — check the dropdown for an existing option. If not, you can add one by following <a href="https://help.boomi.com/docs/Atomsphere/Integration/Atom,%20Molecule,%20and%20Atom%20Cloud%20setup/t-atm-Adding_an_Atom_Cloud_7dafe690-45e5-4da7-ba3d-f167592db954" target="_blank" style="color:var(--primary);font-weight:600;">this guide on adding an Atom Cloud</a>.</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">7</div>
+            <div class="instruction-body">
+              <p>Leave the <strong>Object Type</strong> as <code>File</code> and click <strong>Next</strong>.</p>
+              <figure class="screenshot"><img src="images/operation-import-object-type.png" alt="Operation import wizard with Object Type set to File"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">8</div>
+            <div class="instruction-body">
+              <p>The operation loads. Click <strong>Finish</strong>.</p>
+              <figure class="screenshot"><img src="images/operation-loaded.png" alt="Operation Loaded confirmation with Finish button"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">9</div>
+            <div class="instruction-body">
+              <p>You are now on the operation's <strong>Options</strong> tab. Check that <strong>Connector Action</strong> shows <code>Create</code>, then fill in the fields:</p>
+              <table class="mapping-table">
+                <thead><tr><th>Field</th><th>What to enter</th></tr></thead>
+                <tbody>
+                  <tr><td>Flow Endpoint ID</td><td>The number you wrote down in Exercise 1, Step 3, item 7, for example <code>26554</code></td></tr>
+                  <tr><td>Subfolder Path</td><td>Leave empty</td></tr>
+                  <tr><td>File Name</td><td><b style="font-weight:700">Leave empty.</b> You will set it per file in the next item.</td></tr>
+                </tbody>
+              </table>
+              <p>Lost your Flow Endpoint ID? In the AFT portal, open your flow in <strong>Flow Studio</strong>. In the <strong>Sources</strong> table, the Flow Endpoint column shows a name like <code>26554: Boomi Integration</code>. Use the number before the colon.</p>
+              <p>Click <strong>Save and Close</strong>.</p>
+              <figure class="screenshot"><img src="images/connector-action-properties.png" alt="Connector action properties with Flow Endpoint ID 26554 and File Name left empty"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">10</div>
+            <div class="instruction-body">
+              <p><strong>Tell the connector to use your filenames.</strong> This is the second part of the filename setup from Step 3.</p>
+              <p>You should be back on the <strong>Drop Off</strong> connector step. Open the <strong>Dynamic Operation Properties</strong> tab and click <strong>Add Dynamic Operation Property</strong>. Enter:</p>
+              <table class="mapping-table">
+                <thead><tr><th>Field</th><th>Value</th></tr></thead>
+                <tbody>
+                  <tr><td>Property</td><td><code>File Name</code></td></tr>
+                  <tr><td>Type</td><td><code>Document Property</code></td></tr>
+                  <tr><td>Document Property</td><td><code>Dynamic Document Property</code> → <code>DDP_FILENAME</code></td></tr>
+                </tbody>
+              </table>
+              <p>Click <strong>OK</strong>, then <strong>OK</strong> again to close the connector step.</p>
+              <figure class="screenshot"><img src="images/drop-off-dynamic-properties.png" alt="Drop Off connector Dynamic Operation Properties showing File Name bound to DDP_FILENAME"></figure>
+              <div class="callout warning">
+                <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+                <div><b style="font-weight:700">Don't skip this item.</b> Without it the connector receives files with no name and the test fails with:<br><code style="font-size:12px;">[VALIDATION] fileName is required — set the operation's File Name field, or override that field per document on the connector shape…</code><br>This item is the "override that field per document" that the message refers to.</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">11</div>
+            <div class="instruction-body">
+              <p>Connect the three <strong>Sent</strong> steps to the <strong>MFT Drop Off</strong> connector, then add a <strong>Stop</strong> step at the end of the process.</p>
+              <figure class="screenshot"><img src="images/connect-drop-off-stop-v2.png" alt="Sent steps connected to the Drop Off connector, followed by a Stop step"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 5: Add Routing Filters & Test -->
+    <section class="step-page" id="page-5">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 5 of 6</div>
+          <h1 class="step-title">Add Routing Filters &amp; Test</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Run an initial test, then return to the MFT flow to add regex filename filters so each partner only receives their files.</p>
+        </header>
+
+        <h2>First Test Run</h2>
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Test the process now. Note: routing filters haven't been added yet, so all files will arrive at all targets — this is expected. Run the test to confirm the connector is working.</p>
+              <figure class="screenshot"><img src="images/test-process-run-v2.png" alt="Test process run"></figure>
+              <figure class="screenshot"><img src="images/test-results-logs.png" alt="Test results"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <h2>Add Regex Routing Filters in AFT</h2>
+        <div class="callout info">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+          <div>Switch back to the AFT portal at <a href="https://staging.thruinc.com/" target="_blank">staging.thruinc.com</a> for the next steps.</div>
+        </div>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>In Flow Studio, edit the VW target endpoint — use the <strong>Actions</strong> menu and choose <strong>Edit Flow Endpoint Settings</strong>. Update the <strong>Flow Endpoint Name</strong> to <code>VW Target</code>.</p>
+              <figure class="screenshot"><img src="images/targets-list.png" alt="Edit Flow Endpoint Settings for VW"></figure>
+              <figure class="screenshot"><img src="images/vw-target-filter.png" alt="Update Flow Endpoint Name to VW Target"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">3</div>
+            <div class="instruction-body">
+              <p>Add an <strong>Include Filter</strong> with the regex below, then click <strong>Save Changes</strong>.</p>
+              <pre><code>\[\[VW\]\]_.+</code></pre>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">4</div>
+            <div class="instruction-body">
+              <p>Repeat for BMW and Mazda using the filters below:</p>
+              <table class="mapping-table">
+                <thead><tr><th>Target</th><th>Flow Endpoint Name</th><th>Include Filter</th></tr></thead>
+                <tbody>
+                  <tr><td>BMW</td><td>BMW Target</td><td>\[\[BMW\]\]_.+</td></tr>
+                  <tr><td>Mazda</td><td>Mazda Target</td><td>\[\[Mazda\]\]_.+</td></tr>
+                  <tr><td>VW</td><td>VW Target</td><td>\[\[VW\]\]_.+</td></tr>
+                </tbody>
+              </table>
+              <figure class="screenshot"><img src="images/all-targets-filters.png" alt="All three target endpoints with filters"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">5</div>
+            <div class="instruction-body">
+              <p>Click <strong>Push</strong> to update the flow with the new filter changes.</p>
+              <figure class="screenshot"><img src="images/image32.png" alt="Push flow changes"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PAGE 6: Verify File Distribution -->
+    <section class="step-page" id="page-6">
+      <div class="step-content">
+        <header class="step-header">
+          <div class="step-label">Step 6 of 6</div>
+          <h1 class="step-title">Verify File Distribution</h1>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:8px;">Execute the process one final time and verify in the MFT Activity view that each partner received only their correct files.</p>
+        </header>
+
+        <ol class="instruction-list">
+          <li>
+            <div class="instruction-num">1</div>
+            <div class="instruction-body">
+              <p>Return to the Boomi Integration canvas and execute the process again. You should see three files in the process execution results — one for each partner.</p>
+              <figure class="screenshot"><img src="images/execution-results.png" alt="Three files in process execution"></figure>
+            </div>
+          </li>
+          <li>
+            <div class="instruction-num">2</div>
+            <div class="instruction-body">
+              <p>In the AFT portal, navigate to the <strong>Activity</strong> view. Confirm the three files have been correctly filtered and routed to their respective partner targets.</p>
+              <figure class="screenshot"><img src="images/mft-activity.png" alt="MFT Activity view showing routed files"></figure>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout tip">
+          <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <div><b style="font-weight:700">Lab complete!</b> You have built a fan-out distribution pattern using Boomi MFT. Your integration now automatically routes files to BMW, Mazda, and Volkswagen — each receiving only their specific files — with full multi-tenant isolation via the AFT flow's regex routing filters.</div>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin:32px 0;font-size:14px;line-height:1.75;color:var(--text);">
+          <p style="margin:0 0 16px;font-size:16px;font-weight:700;">Final thoughts</p>
+          <p style="margin:0 0 12px;">Boomi MFT replaces 'coding' with 'configuration' and 'management by the enterprise' with 'self-management'. Boomi MFT enables rapid roll out of new flows to the extended enterprise. Partners can join, setup endpoints (and change/manage them) at any time without development or deployment. Dashboards and alert management allow you to manage all file transfers in one place. No more folder creation or user setup for partner engagements! Boomi MFT takes care of all the MFT setup including folders/users/permissions ensuring a unified secured setup.</p>
+          <p style="margin:0 0 12px;">Another major design idea in the system is that 'files' are always in context of the flow and org (origin). It does not stand on its own. It has many benefits, and in effect replaces the folder based structure.</p>
+          <p style="margin:0 0 12px;">The goal of Boomi MFT was to address the large scale problem of file exchange with many participants going through many flows. One of the main problems with large scale solutions is to address fragmentation. A flow is a 'looking forward' entity which was designed to accommodate new participants.</p>
+          <p style="margin:0;">It is not a 'job' — it is more like a 'route'.</p>
+        </div>
+
+        <div style="background:var(--primary-dark);color:#fff;border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <div>
+            <p style="color:rgba(255,255,255,.7);font-size:13px;margin:0 0 6px;">Lab complete</p>
+            <h3 style="font-size:16px;margin:0;">Return to Lab Overview</h3>
+          </div>
+          <a href="index.html" style="padding:10px 22px;border-radius:6px;background:var(--accent);color:#fff;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;">Back to Overview →</a>
+        </div>
+
+        <nav class="step-nav">
+          <button class="step-nav-btn" id="prevBtn">← Back</button>
+          <button class="mark-done-btn" id="markDoneBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg>
+            Mark complete
+          </button>
+          <button class="step-nav-btn primary" id="nextBtn" disabled>Finish ✓</button>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer style="background:var(--primary-dark);color:rgba(255,255,255,.55);text-align:center;padding:20px 24px;font-size:13px;margin-left:var(--sidebar-width);">
+  Created by <strong style="color:rgba(255,255,255,.85)">Alexei Godek</strong> &nbsp;·&nbsp; Field Engineer &nbsp;·&nbsp; Boomi
+</footer>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
