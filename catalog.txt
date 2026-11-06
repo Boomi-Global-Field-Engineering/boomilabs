@@ -50,10 +50,17 @@ Version: 2026-05-08
 
 ---
 
-Lab Name: Modernizing the Back Office (CRM to Partner)
-Description: Automate CRM to partner file distribution using Boomi MFT s fan out pattern Attendees route invoices purchase orders and shipping notices out to BMW Mazda and Volkswagen automatically based on filename rules Version 2 uses the new Managed File Transfer connector with OAuth 2 0 The original version remains at labs mft erp to partner
+Lab Name: Modernizing the Back Office (CRM to Partner) - Version 2
+Description: Automate CRM to partner file distribution using Boomi MFT s fan out pattern Attendees route invoices purchase orders and shipping notices out to BMW Mazda and Volkswagen automatically based on filename rules Version 2 uses the new Managed File Transfer connector with OAuth 2 0
 Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-erp-to-partnerv2/index.html
 Version: 2026-11-06
+
+---
+
+Lab Name: Modernizing the Back Office (CRM to Partner) - Version 1
+Description: Automate CRM to partner file distribution using Boomi MFT s fan out pattern Attendees route invoices purchase orders and shipping notices out to BMW Mazda and Volkswagen automatically based on filename rules Original version built on the Boomi Managed File Transfer Legacy connector
+Guide Link: https://boomi-global-field-engineering.github.io/boomilabs/labs/mft-erp-to-partner/index.html
+Version: 2026-05-08
 
 ---
 
