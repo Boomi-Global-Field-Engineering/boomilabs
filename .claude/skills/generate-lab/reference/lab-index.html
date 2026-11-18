@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+  Boomi Labs — lab index skeleton (generate-lab v3)
+  Placeholders: {LAB_TITLE} {DESCRIPTION} {TOTAL_DURATION} {LEVEL} {N_EXERCISES} {PRODUCTS} {PATTERNS}
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{LAB_TITLE} — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">{LAB_TITLE}</span>
+  <!-- status=draft: append  <span class="draft-pill">Draft</span> -->
+</header>
+
+<div style="padding-top: 56px;">
+
+  <div class="workshop-hero">
+    <div class="workshop-hero-inner">
+      <div class="workshop-breadcrumb">
+        <a href="../../index.html">Boomi Labs</a> / {LAB_TITLE}
+      </div>
+      <h1>{LAB_TITLE}</h1>
+      <p>{DESCRIPTION}</p>
+      <div class="workshop-badges">
+        <span class="badge badge-blue">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          {TOTAL_DURATION}
+        </span>
+        <span class="badge badge-green">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          {LEVEL}
+        </span>
+        <span class="badge badge-yellow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          {N_EXERCISES} Exercises
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="workshop-body">
+    <!-- status=draft: first child is
+         <div class="draft-banner"><strong>DRAFT — coming soon.</strong> This lab guide is under review and not yet ready for participants. Content, screenshots and environment details may change before release.</div> -->
+
+    <div style="display: grid; grid-template-columns: 1fr 280px; gap: 40px; align-items: start;">
+      <div>
+
+        <h2 class="section-heading">Exercises</h2>
+        <ul class="exercise-list">
+          <!-- one per exercise -->
+          <li>
+            <a href="exercise-1.html" class="exercise-item">
+              <div class="exercise-num">1</div>
+              <div class="exercise-info">
+                <h3>{EXERCISE_1_TITLE}</h3>
+                <p>{EXERCISE_1_DESCRIPTION}</p>
+              </div>
+              <div class="exercise-meta">
+                <span>{EXERCISE_1_DURATION}</span>
+                <span>{EXERCISE_1_STEPS} steps</span>
+              </div>
+              <svg class="exercise-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+        </ul>
+
+        <h2 class="section-heading" style="margin-top: 40px;">Prerequisites</h2>
+        <ul style="line-height: 1.9; padding-left: 24px;">
+          <li>Access to the Boomi platform — credentials provided by your facilitator</li>
+          <li>Basic familiarity with the Boomi process canvas (drag, drop, configure shapes)</li>
+        </ul>
+
+      </div>
+
+      <aside style="position: sticky; top: 72px;">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 22px; box-shadow: var(--shadow);">
+          <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted);">Lab Details</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px; font-size: 13.5px;">
+            <div><div style="font-weight: 600; margin-bottom: 2px;">Products Covered</div><div style="color: var(--text-muted);">{PRODUCTS}</div></div>
+            <div><div style="font-weight: 600; margin-bottom: 2px;">Integration Patterns</div><div style="color: var(--text-muted);">{PATTERNS}</div></div>
+            <div><div style="font-weight: 600; margin-bottom: 2px;">Total Duration</div><div style="color: var(--text-muted);">{TOTAL_DURATION}</div></div>
+            <div><div style="font-weight: 600; margin-bottom: 2px;">Level</div><div style="color: var(--text-muted);">{LEVEL}</div></div>
+            <div><div style="font-weight: 600; margin-bottom: 2px;">Reference</div><div style="color: var(--text-muted);"><a href="https://help.boomi.com" target="_blank" rel="noopener">Boomi documentation</a></div></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

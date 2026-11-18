@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+  Boomi Labs — exercise page skeleton (generate-lab v3)
+  Placeholders: {LAB_ID} {LAB_TITLE} {N} {EXERCISE_TITLE} {LEVEL} {EXERCISE_DURATION} {TOTAL_STEPS}
+  Remove data-next-exercise-href on the LAST exercise.
+-->
+<html lang="en" data-lab-id="{LAB_ID}-ex{N}" data-next-exercise-href="exercise-{N+1}.html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercise {N} — {EXERCISE_TITLE} — Boomi Labs</title>
+<link rel="stylesheet" href="../../assets/css/lab.css">
+<script src="../../assets/js/analytics.js"></script>
+</head>
+<body>
+
+<header class="lab-header">
+  <a href="../../index.html" class="lab-header-logo">
+    <img src="../../assets/img/boomi-logo-reversed.svg" alt="Boomi" height="22" style="vertical-align:middle">
+    <span style="font-weight:700;letter-spacing:-.2px">Labs</span>
+  </a>
+  <div class="lab-header-sep"></div>
+  <span class="lab-header-title">{LAB_TITLE} — Exercise {N}</span>
+  <!-- status=draft: append  <span class="draft-pill">Draft</span>  inside the title span -->
+  <div class="lab-header-actions">
+    <button class="btn-icon" id="menuBtn" title="Toggle menu" aria-label="Toggle menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="lab-layout">
+
+  <nav class="lab-sidebar">
+    <div class="sidebar-progress">
+      <div class="progress-label"><span>Progress</span><span class="progress-pct">0%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section-label">Steps</div>
+    <ul class="sidebar-nav">
+      <!-- one <li> per page; bubble number = page index K (Overview = 0) -->
+      <li><a href="#step-0" data-step="0"><span class="step-num"><span class="step-num-inner">0</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Overview</a></li>
+      <li><a href="#step-1" data-step="1"><span class="step-num"><span class="step-num-inner">1</span><svg class="step-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>1 · {SHORT_STEP_TITLE}</a></li>
+      <!-- … -->
+    </ul>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-meta">
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Duration: {EXERCISE_DURATION}</div>
+      <div class="meta-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Level: {LEVEL}</div>
+    </div>
+  </nav>
+
+  <main class="lab-main">
+
+  <!-- ============ PAGE 0 — OVERVIEW ============ -->
+  <section class="step-page active" id="page-0">
+    <div class="step-content">
+      <!-- status=draft: first child is
+           <div class="draft-banner"><strong>DRAFT</strong> — this lab guide is under review and not yet ready for participants.</div> -->
+      <header class="step-header">
+        <div class="step-label">Overview</div>
+        <h1 class="step-title">Exercise {N} — {EXERCISE_TITLE}</h1>
+      </header>
+
+      <p>{overview paragraphs}</p>
+
+      <div class="callout info">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>What you'll learn</strong>
+          <ul><li>…</li></ul>
+        </div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============ PAGE K — STEP K ============ -->
+  <section class="step-page" id="page-1">
+    <div class="step-content">
+      <header class="step-header">
+        <div class="step-label">Step 1 of {TOTAL_STEPS}</div>
+        <h1 class="step-title">{STEP_TITLE}</h1>
+      </header>
+
+      <ol class="instruction-list">
+        <li>
+          <div class="instruction-num">1</div>
+          <div class="instruction-body">
+            <p>{instruction text}</p>
+            <figure class="screenshot">
+              <img src="images/ex{N}/image01.png" alt="{what the screenshot shows}" loading="lazy">
+              <figcaption>{short caption}</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <div class="instruction-num">2</div>
+          <div class="instruction-body">
+            <p>{instruction text}</p>
+            <div class="credentials-box">
+              <h4>Credentials</h4>
+              <div class="cred-row"><span class="cred-label">URL</span><span class="cred-value"><a href="https://platform.boomi.com" target="_blank">platform.boomi.com</a></span></div>
+              <div class="cred-row"><span class="cred-label">User</span><span class="cred-value">Provided by your lab facilitator</span></div>
+              <div class="cred-row"><span class="cred-label">Password</span><span class="cred-value">Provided by your lab facilitator</span></div>
+            </div>
+            <table class="mapping-table">
+              <thead><tr><th>Source</th><th>Destination</th><th>Notes</th></tr></thead>
+              <tbody><tr><td>…</td><td>…</td><td>…</td></tr></tbody>
+            </table>
+            <pre><code>value participants copy</code></pre>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Callout variants: info | tip | warning | important -->
+      <div class="callout tip">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <div><strong>Tip title</strong> — tip text.</div>
+      </div>
+      <div class="callout warning">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+        <div><strong>Warning title</strong> — warning text.</div>
+      </div>
+      <div class="callout important">
+        <span class="callout-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></span>
+        <div><strong>Important title</strong> — important text.</div>
+      </div>
+
+      <nav class="step-nav">
+        <button class="step-nav-btn" id="prevBtn">← Back</button>
+        <button class="mark-done-btn" id="markDoneBtn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14.5 14.5"/></svg> Mark complete</button>
+        <button class="step-nav-btn primary" id="nextBtn">Next →</button>
+      </nav>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<script src="../../assets/js/lab.js"></script>
+</body>
+</html>
